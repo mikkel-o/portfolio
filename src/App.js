@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { 
+  Outlet, 
+  Link 
+} from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +13,11 @@ function App() {
         <p>
           Hellooooo!!
         </p>
+        <Link to={'/about'} >about</Link>
       </header>
+{/* <Outlet> to show content */}
+<Outlet />
+
     </div>
   );
 }
