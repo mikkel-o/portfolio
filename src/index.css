@@ -164,3 +164,15 @@ body,
 .project-image {
   width: 100%;
 }
+
+
+.filters .active {
+  background: blue;
+}
+
+.filters .inactive,
+.filters .inactive button {
+  color: grey;
+  pointer-events: none;
+}
+

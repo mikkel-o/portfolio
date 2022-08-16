@@ -7,10 +7,7 @@ export const loadProjects = createAsyncThunk(
   "allProjects/getAllProjects",
   async () => {
     const data = await fetch('db.json');
-
-    
     const json = await data.json();
-    
     return json;
   }
 );
@@ -47,12 +44,17 @@ export const selectAllProjects = (state) => state.allProjects.projects;
 export const selectFilteredAllProjects = (state) => {
   const allProjects = selectAllProjects(state);
   //const searchTerm = selectSearchTerm(state);
-  const filter = selectFilter(state);
-  return allProjects.filter((project) =>
-    (filter) ? project.role.includes(filter) : project
-    //project.name.toLowerCase().includes(searchTerm.toLowerCase())
-    
-  );
+  const filters = selectFilter(state);
+ console.log(filters);
+  if (filters) {
+    return (
+      allProjects.filter(project => filters.every(filter => project[filter.key].includes(filter.value)))
+      //project.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    } else {
+      return allProjects
+    }
+  
 };
 
 export default allProjectsSlice.reducer;

@@ -3,119 +3,139 @@
       "id": 1,
       "name": "Project 1",
       "role": ["one", "two"],
+      "technique": ["four"],
       "img": "/img/cheeseburger.jpg"
     },
     {
       "id": 2,
       "name": "Project 2",
       "role": ["one"],
+      "technique": ["four"],
       "img": "/img/dumplings.jpg"
     },
     {
       "id": 3,
       "name": "Project 3",
       "role": ["one"],
+      "technique": ["five"],
       "img": "/img/ceviche.jpg"
     },
     {
       "id": 4,
       "name": "Project 4",
       "role": ["two"],
+      "technique": ["five"],
       "img": "/img/spaghetti.jpg"
     },
     {
       "id": 5,
       "name": "Project 5",
       "role": ["three"],
+      "technique": ["five"],
       "img": "/img/padthai.jpg"
     },
     {
       "id": 6,
       "name": "Project 6",
       "role": ["one", "three"],
+      "technique": ["five"],
       "img": "/img/calamari.jpg"
     },
     {
       "id": 7,
       "name": "Project 7",
       "role": ["two", "three"],
+      "technique": ["four"],
       "img": "/img/pizza.jpg"
     },
     {
       "id": 8,
       "name": "Project 8",
       "role": ["one"],
+      "technique": ["four"],
       "img": "/img/ramen.jpg"
     },
     {
       "id": 9,
       "name": "Project 9",
       "role": ["three"],
+      "technique": ["six"],
       "img": "/img/biscuits.jpg"
     },
     {
       "id": 10,
       "name": "Project 10",
       "role": ["three"],
+      "technique": ["six"],
       "img": "/img/sushi.jpg"
     },
     {
       "id": 11,
       "name": "Project 11",
       "role": ["one"],
+      "technique": ["four"],
       "img": "/img/spammusubi.jpg"
     },
     {
       "id": 12,
       "name": "Project 12",
       "role": ["one", "two"],
+      "technique": ["five"],
       "img": "/img/fishnchips.jpg"
     },
     {
       "id": 13,
       "name": "Project 13",
       "role": ["two", "three"],
+      "technique": ["five"],
       "img": "/img/tacos.jpg"
     },
     {
       "id": 14,
       "name": "Project 14",
       "role": ["two"],
+      "technique": ["six"],
       "img": "/img/poutine.jpg"
     },
     {
       "id": 15,
       "name": "Project 15",
       "role": ["three"],
+      "technique": ["four"],
       "img": "/img/somtam.jpg"
     },
     {
       "id": 16,
       "name": "Project 16",
       "role": ["one", "three"],
+      "technique": ["four"],
       "img": "/img/masaladosa.jpg"
     },
     {
       "id": 17,
       "name": "Project 17",
       "role": ["two", "three"],
+      "technique": ["four"],
       "img": "/img/pho.jpg"
     },
     {
       "id": 18,
       "name": "Project 18",
       "role": ["two"],
+      "technique": ["five"],
       "img": "/img/hummus.jpg"
     },
     {
       "id": 19,
       "name": "Project 19",
       "role": ["one"],
+      "technique": ["five"],
       "img": "/img/churrasco.jpg"
     },
     {
       "id": 20,
       "name": "Project 20",
+      "technique": ["four", "five"],
       "role": ["one", "three"],
       "img": "/img/bulgogi.jpg"
     }
