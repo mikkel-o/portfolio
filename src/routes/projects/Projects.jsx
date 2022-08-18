@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects, selectAllProjects, selectFilteredAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
@@ -46,9 +46,9 @@ export default function Projects() {
 
 
   const useOutsideClick = (callback) => {
-    const ref = React.useRef();
+    const ref = useRef();
   
-    React.useEffect(() => {
+    useEffect(() => {
       const handleClick = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
           callback();
