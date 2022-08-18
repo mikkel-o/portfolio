@@ -28,6 +28,7 @@ body,
   display: flex;
   flex-direction: column;
   color: #141c3a;
+  padding: 55px;
 }
 
 #search-container {

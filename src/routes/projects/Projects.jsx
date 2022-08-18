@@ -5,6 +5,7 @@ import AllProjects from "../../features/allProjects/AllProjects";
 import Filters from "../../features/filters/Filters";
 import {
   clearFilter,
+  removeFilter
 } from "../../features/filters/filtersSlice";
 import { hideAllToggles} from "../../components/toggleSlice";
 
@@ -21,6 +22,7 @@ export default function Projects() {
   const onClickClearHandler = (e) => {
     document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
     dispatch(clearFilter());
+    dispatch(hideAllToggles())
   };
 
   const allFilteredProjects = useSelector(selectFilteredAllProjects);
@@ -74,8 +76,18 @@ export default function Projects() {
   
     const ref = useOutsideClick(onClickHideToggle);
   
-  
+    const currentFilters = useSelector(state => state.filter);
 
+
+
+    const onClickChangeHandler = (e) => {
+
+        dispatch(removeFilter(
+          e.target.children[0].innerHTML
+        ))  
+      
+  
+    };
 
 
   return (
@@ -89,7 +101,15 @@ export default function Projects() {
           Clear filters
         </button>
         </div>
-        
+        <ul className={'active-filters-list'}>
+        {currentFilters.filters.map((filter, index) => (
+          <li key={index} className={'active-filters-item'}>
+            <button onClick={onClickChangeHandler} className={''}>
+              <span className={'active-filter-name'}>{filter.value}</span>
+            </button>
+          </li>
+        ))}
+        </ul>
       </header>
       <main id="projects-wrapper">
         {hasError ? (

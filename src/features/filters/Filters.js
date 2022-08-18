@@ -3,23 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFilter, removeFilter } from "./filtersSlice";
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
-
-
-
-
 import './Filters.css';
-
-
-
-
 
 /* SIBLINGS START 
 const getSiblings = function (elem) {
-  
   // Setup siblings array and get the first sibling
 	let siblings = [];
 	let sibling = elem.parentNode.firstChild;
-	
   // Loop through each sibling and push to the array
 	while (sibling) {
 		if (sibling.nodeType === 1 && sibling !== elem) {
@@ -28,28 +18,22 @@ const getSiblings = function (elem) {
 		}
 		sibling = sibling.nextSibling
 	}
-
 	return siblings;
-
 };
 /* SIBLINGS END */
 
 const Filters = ({filters, name}) => {
-const currentFilters = useSelector(state => state.filter);
+  const currentFilters = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const onClickChangeHandler = (e) => {
     /* SIBLINGS START 
     const siblings = getSiblings(e.target.parentNode);
-    
     siblings.forEach(sibling => {
-
       sibling.classList.remove('active');
-      
       dispatch(removeFilter(
         sibling.children[0].innerHTML
-      ))  
-    
+      ))
     })
     /* SIBLINGS END */
     if (e.target.classList.contains('active')) {
@@ -75,42 +59,12 @@ const currentFilters = useSelector(state => state.filter);
 
   };
 
-  /*
-  let isActive = false;
-  const onClickShow = (e) => {
-    console.log(isActive)
-    if (isActive) {
-      isActive = false;
-      e.target.nextElementSibling.classList.remove('show');
-      
-      
-  } else {
-    isActive = true;
-    e.target.nextElementSibling.classList.add('show');
+
+  const toggleId = name + '_toggle';
     
+  const onClickToggle = (e) => { 
+      dispatch(toggle(toggleId))
   }
-  }
-  */
-
-
-const toggleId = name + '_toggle';
-  
-const onClickToggle = (e) => { 
-  
-  
-    dispatch(toggle(toggleId))
-    
-  
-  
-    
-  
-}
-
-
-
-
-
-
 
   return (
     
@@ -121,19 +75,17 @@ const onClickToggle = (e) => {
 
         {filters.map((filter, index) => (
 
-          <li key={index} className={(filter.countFilter === 0) ? 'inactive filters-item' : 'filters-item'}>
-    
-            <button onClick={onClickChangeHandler} className={currentFilters.filters.map( fil => fil.value === filter.value).includes(true) ? 'active' : ''}>
-              <span className={'filter-name'}>{filter.value}</span><span className={'filter-count'}>{filter.countFilter} / {filter.countTotal}</span>
+          <li key={index} className={'filters-item'}>
+            <button onClick={onClickChangeHandler} className={currentFilters.filters.map( fil => fil.value === filter.value).includes(true) ? 'active filters-button' : 'filters-button'}>
+              <span className={'filter-name'}>{filter.value}</span><span className={'filter-count'}>{filter.countTotal}</span>
             </button>
-            
-    
           </li>
     
         ))}
         
       </ul>
       </Toggle>
+      
     </div>
     
     
@@ -145,3 +97,5 @@ export default Filters;
 
 
 // add this for counts: <span className={'filter-count'}>{filter.countFilter} / {filter.countTotal}</span>
+
+// add this for inactive filters: (filter.countFilter === 0) ? 'inactive filters-item' : 'filters-item'

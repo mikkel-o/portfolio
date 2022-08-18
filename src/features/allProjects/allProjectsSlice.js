@@ -47,12 +47,16 @@ export const selectFilteredAllProjects = (state) => {
   
   const filters = selectFilter(state);
   
-  if (filters) {
+  if (filters.length !== 0) {
+    console.log(filters);
     return (
-      allProjects.filter(project => filters.every(filter => project[filter.key].includes(filter.value)))
-      //project.name.toLowerCase().includes(searchTerm.toLowerCase())
+      
+      allProjects.filter(project => filters.some(filter => project[filter.key].includes(filter.value)))
+      //use .every instead of some to combine the filters
+
       )
     } else {
+      
       return allProjects
     }
   
