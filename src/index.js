@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import './index.css';
-import App from './App';
+import App from './app/App';
 import Projects from "./routes/projects/Projects";
 import reportWebVitals from './reportWebVitals';
 import store from "./app/store";
@@ -19,7 +19,7 @@ root.render(
      <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path=":Projects" element={<Projects />} >
+          <Route path="/projects" element={<Projects />} >
           
           </Route>
           <Route

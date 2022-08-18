@@ -44,8 +44,9 @@ export const selectAllProjects = (state) => state.allProjects.projects;
 export const selectFilteredAllProjects = (state) => {
   const allProjects = selectAllProjects(state);
   //const searchTerm = selectSearchTerm(state);
+  
   const filters = selectFilter(state);
- console.log(filters);
+  
   if (filters) {
     return (
       allProjects.filter(project => filters.every(filter => project[filter.key].includes(filter.value)))

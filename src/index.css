@@ -108,15 +108,13 @@ body,
 }
 
 .project-name {
-  font-size: 20px;
-  font-weight: bold;
   margin: 0;
   margin-bottom: 8px;
 }
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-column-gap: 12px;
   grid-row-gap: 12px;
 }
@@ -133,7 +131,7 @@ body,
 }
 
 .projects-section {
-  padding: 32px 36px;
+  padding: 32px 0px; /*36px;*/
 }
 
 .spinner {
@@ -164,15 +162,86 @@ body,
 .project-image {
   width: 100%;
 }
-
-
-.filters .active {
-  background: blue;
+.projects-header {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
-.filters .inactive,
-.filters .inactive button {
-  color: grey;
-  pointer-events: none;
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
+ul {
+  list-style-type: none;
+}
+
+/****************************************************/
+/*                                                  */
+/*                    TYPOGRAPHY                    */
+/*                                                  */
+/****************************************************/
+@font-face {
+  font-family: "menuFont";
+  src: url("../public/fonts/GeometricaSans-Regular.woff2") format("woff2");/*, url("../public/fonts/GeometricaSans-Regular.tff") format("truetype");*/
+}
+h1,
+h2 {
+  font-family: "menuFont";
+  letter-spacing: 3px;
+  margin: 0;
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+.uppercase {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 2.6em;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2em;
+  margin-top: 4px;
+}
+
+h3,
+h4,
+a,
+button {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  font-size: 1em;
+  padding: 10px 0;
+  hyphens: auto;
+  text-align: justify;
+  line-height: 25px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

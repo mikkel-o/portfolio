@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects, selectAllProjects, selectFilteredAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
-import Search from "../../features/search/Search";
 import Filters from "../../features/filters/Filters";
 import {
   clearFilter,
 } from "../../features/filters/filtersSlice";
-
+import { hideAllToggles} from "../../components/toggleSlice";
 
 export default function Projects() {
   const dispatch = useDispatch();
@@ -23,43 +22,74 @@ export default function Projects() {
     document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
     dispatch(clearFilter());
   };
-  const allFilteredRoles = useSelector(selectFilteredAllProjects).map((project) => project.role).flat();
 
-  const allRoles = useSelector(selectAllProjects).map((project) => project.role).flat();
-  const uniqueRoles = [...new Set([].concat.apply([], allRoles.map((e) => e)))];
-  const roles = uniqueRoles.map(e => ({key: 'role', value: e, countTotal: allRoles.filter(x => x===e).length, countFilter: allFilteredRoles.filter(x => x===e).length}))
+  const allFilteredProjects = useSelector(selectFilteredAllProjects);
+  const allProjects = useSelector(selectAllProjects);
+  const filterNames = ['role', 'technique', 'type', 'company'];
+  let filters = [];
 
-  const allFilteredTechniques = useSelector(selectFilteredAllProjects).map((project) => project.technique).flat();
-  const allTechniques = useSelector(selectAllProjects).map((project) => project.technique).flat();
-  const uniqueTechniques = [...new Set([].concat.apply([], allTechniques.map((e) => e)))];
-  const technique = uniqueTechniques.map(e => ({key: 'role', value: e, countTotal: allTechniques.filter(x => x===e).length, countFilter: allFilteredTechniques.filter(x => x===e).length}))
+  filterNames.forEach(filterName => {
+    const allFiltered = allFilteredProjects.map(project => project[filterName]).flat();
+    const all = allProjects.map((project) => project[filterName]).flat();
+    const unique = [...new Set([].concat.apply([], all.map((e) => e)))];
+    filters.push(unique.map(e => (
+      {
+        key: filterName, 
+        value: e, 
+        countTotal: all.filter(x => x===e).length, 
+        countFilter: allFiltered.filter(x => x===e).length
+      }
+    )));
+  });
+
+
+
+
+  const useOutsideClick = (callback) => {
+    const ref = React.useRef();
   
-console.log(allFilteredRoles);
-
+    React.useEffect(() => {
+      const handleClick = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback();
+        }
+      };
   
-
-  const count = {};
-
-  for (const element of allRoles) {
-    if (count[element]) {
-      count[element] += 1;
-    } else {
-      count[element] = 1;
+      document.addEventListener('click', handleClick);
+  
+      return () => {
+        document.removeEventListener('click', handleClick);
+      };
+    }, [ref]);
+  
+    return ref;
+  };
+  
+  
+    const onClickHideToggle = (e) => { 
+      dispatch(hideAllToggles())
+      
     }
-  }   
-
+    
+  
+    const ref = useOutsideClick(onClickHideToggle);
+  
+  
 
 
 
   return (
     <div className={''}>
-    <header>
-        <Search />
+      <header className={'projects-header'}>
+        <div className={'filters-wrapper'} ref={ref}>
+        {filterNames.map((filterName, index) => (
+          <Filters key={index} filters={filters[index]} name={filterName}/>
+        ))}
         <button onClick={onClickClearHandler}>
-          all
+          Clear filters
         </button>
-        <Filters filters={roles} name={'role'}/>
-        <Filters filters={technique} name={'technique'}/>
+        </div>
+        
       </header>
       <main id="projects-wrapper">
         {hasError ? (
@@ -73,7 +103,6 @@ console.log(allFilteredRoles);
         ) : (
           <>
             <section className="projects-section">
-              <h2 className="header">Projects</h2>
               <AllProjects />
             </section>
           </>

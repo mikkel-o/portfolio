@@ -1,0 +1,84 @@
+.filters-title {
+    color: #555;
+    padding: 0 0 15px;
+    font-size: 1em;
+    margin: 0;
+    pointer-events: none;
+}
+
+
+.filters-title:after{
+    content: "\25be";
+
+}
+
+.filters-list {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.filters-item {
+    margin: 10px 20px;
+}
+
+.filters-item span {
+    padding: 8px 0 8px 10px;
+    font-size: 1em;
+    pointer-events: none;
+}
+
+.filters-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+}
+
+.filters .active {
+    background: blue;
+}
+  
+.filters .inactive,
+.filters .inactive button {
+    color: grey;
+    pointer-events: none;
+}
+
+.filter-count {
+    width: 50px;
+    float: right;
+    color: #666;
+}
+
+.filter-name {
+    float: left;
+}
+
+.filter-name::before{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border: 1px solid #666;
+    border-radius: 2px;
+}
+.active .filter-name::before{
+    background: red;
+    border: 1px solid red;
+}
+.inactive .filter-name::before{
+    border: 1px solid grey;
+}
+
+.filters button {
+    width: 100%;
+    cursor: pointer;
+}
+
+.filters button span {
+    pointer-events: none;
+}

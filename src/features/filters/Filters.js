@@ -1,8 +1,19 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFilter, removeFilter } from "./filtersSlice";
+import { Toggle} from "../../components/Toggle";
+import { toggle } from "../../components/toggleSlice";
 
-/*
+
+
+
+import './Filters.css';
+
+
+
+
+
+/* SIBLINGS START 
 const getSiblings = function (elem) {
   
   // Setup siblings array and get the first sibling
@@ -21,14 +32,14 @@ const getSiblings = function (elem) {
 	return siblings;
 
 };
-*/
+/* SIBLINGS END */
 
 const Filters = ({filters, name}) => {
-
+const currentFilters = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const onClickChangeHandler = (e) => {
-    /*
+    /* SIBLINGS START 
     const siblings = getSiblings(e.target.parentNode);
     
     siblings.forEach(sibling => {
@@ -36,17 +47,17 @@ const Filters = ({filters, name}) => {
       sibling.classList.remove('active');
       
       dispatch(removeFilter(
-        sibling.innerHTML
+        sibling.children[0].innerHTML
       ))  
     
     })
-    */
+    /* SIBLINGS END */
     if (e.target.classList.contains('active')) {
       
       e.target.classList.remove('active')
     
       dispatch(removeFilter(
-        e.target.innerHTML
+        e.target.children[0].innerHTML
       ))  
     
     } else {
@@ -56,7 +67,7 @@ const Filters = ({filters, name}) => {
       dispatch(addFilter(
         {
           key: name,
-          value: e.target.innerHTML
+          value: e.target.children[0].innerHTML
         }
       ));
     
@@ -64,31 +75,73 @@ const Filters = ({filters, name}) => {
 
   };
 
+  /*
+  let isActive = false;
+  const onClickShow = (e) => {
+    console.log(isActive)
+    if (isActive) {
+      isActive = false;
+      e.target.nextElementSibling.classList.remove('show');
+      
+      
+  } else {
+    isActive = true;
+    e.target.nextElementSibling.classList.add('show');
+    
+  }
+  }
+  */
+
+
+const toggleId = name + '_toggle';
+  
+const onClickToggle = (e) => { 
+  
+  
+    dispatch(toggle(toggleId))
+    
+  
+  
+    
+  
+}
+
+
+
+
+
+
 
   return (
     
     <div className="filters">
-      
-      <ul>
+      <button onClick={onClickToggle}><h4 className={'filters-title'}>{name}</h4></button>
+      <Toggle id={toggleId}>
+      <ul className={'filters-list'}>
 
         {filters.map((filter, index) => (
 
-          <li key={index} className={(filter.countFilter === 0) ? 'inactive' : ''}>
+          <li key={index} className={(filter.countFilter === 0) ? 'inactive filters-item' : 'filters-item'}>
     
-            <button onClick={onClickChangeHandler}>
-              {filter.value}
+            <button onClick={onClickChangeHandler} className={currentFilters.filters.map( fil => fil.value === filter.value).includes(true) ? 'active' : ''}>
+              <span className={'filter-name'}>{filter.value}</span><span className={'filter-count'}>{filter.countFilter} / {filter.countTotal}</span>
             </button>
-            <span>{filter.countFilter} / {filter.countTotal}</span>
+            
     
           </li>
     
         ))}
         
       </ul>
-    
+      </Toggle>
     </div>
+    
     
   );
 };
 
 export default Filters;
+
+
+
+// add this for counts: <span className={'filter-count'}>{filter.countFilter} / {filter.countTotal}</span>
