@@ -60,7 +60,7 @@ export default function Projects() {
       return () => {
         document.removeEventListener('click', handleClick);
       };
-    }, [ref]);
+    });
   
     return ref;
   };
