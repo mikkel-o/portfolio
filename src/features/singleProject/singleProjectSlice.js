@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-//import { selectSearchTerm } from "../search/searchSlice";
-import { selectFilter } from "../filters/filtersSlice";
 
 
 

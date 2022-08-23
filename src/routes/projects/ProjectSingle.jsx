@@ -1,17 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { loadProject, selectProject } from "../../features/singleProject/singleProjectSlice";
+import { loadProject } from "../../features/singleProject/singleProjectSlice";
 import SingleProject from "../../features/singleProject/singleProject";
-import Filters from "../../features/filters/Filters";
-import {
-  clearFilter,
-  removeFilter
-} from "../../features/filters/filtersSlice";
-import { hideAllToggles} from "../../components/toggleSlice";
-
-
-
 
 export default function ProjectSingle() {
   const params = useParams();

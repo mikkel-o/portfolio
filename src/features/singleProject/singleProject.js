@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Project from "../../components/Project";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
 import { motion } from 'framer-motion';
