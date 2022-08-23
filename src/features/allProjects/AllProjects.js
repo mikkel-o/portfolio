@@ -14,6 +14,7 @@ const AllProjects = () => {
   }
 
   
+  
 
   return (
     <div className="projects-container">

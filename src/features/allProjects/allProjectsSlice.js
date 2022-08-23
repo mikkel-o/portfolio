@@ -5,9 +5,11 @@ import { selectFilter } from "../filters/filtersSlice";
 // createAsyncThunk simplifies our Redux app by returning an action creator that dispatches promise lifecycle actions for us so we don't have to dispatch them ourselves.
 export const loadProjects = createAsyncThunk(
   "allProjects/getAllProjects",
-  async () => {
-    const data = await fetch('db.json');
+  async (projectId) => {
+    const data = await fetch('../db.json');
+    
     const json = await data.json();
+    
     return json;
   }
 );
@@ -42,13 +44,18 @@ export const allProjectsSlice = createSlice(sliceOptions);
 export const selectAllProjects = (state) => state.allProjects.projects;
 
 export const selectFilteredAllProjects = (state) => {
+
+
+
+
+
   const allProjects = selectAllProjects(state);
   //const searchTerm = selectSearchTerm(state);
   
   const filters = selectFilter(state);
   
   if (filters.length !== 0) {
-    console.log(filters);
+    
     return (
       
       allProjects.filter(project => filters.some(filter => project[filter.key].includes(filter.value)))
@@ -60,6 +67,10 @@ export const selectFilteredAllProjects = (state) => {
       return allProjects
     }
   
+
+
+
+     
 };
 
 export default allProjectsSlice.reducer;

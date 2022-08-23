@@ -1,183 +1,203 @@
 [
     {
       "id": 1,
-      "name": "Project 1",
+      "name": "project-one",
       "role": ["Role one", "Role two"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company one"],
-      "img": "/img/cheeseburger.jpg"
+      "client": ["Client one"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 2,
-      "name": "Project 2",
+      "name": "Project two",
       "role": ["Role one"],
       "technique": ["Technique three"],
       "type": ["Type one"],
       "company": ["Company one"],
-      "img": "/img/dumplings.jpg"
+      "client": ["Client two"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 3,
-      "name": "Project 3",
+      "name": "Project three",
       "role": ["Role one"],
       "technique": ["Technique two"],
       "type": ["Type one"],
       "company": ["Company one"],
-      "img": "/img/ceviche.jpg"
+      "client": ["Client three"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 4,
-      "name": "Project 4",
+      "name": "Project four",
       "role": ["Role two"],
       "technique": ["Technique three"],
       "type": ["Type one"],
       "company": ["Company one"],
-      "img": "/img/spaghetti.jpg"
+      "client": ["Client four"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 5,
-      "name": "Project 5",
+      "name": "Project five",
       "role": ["Role three"],
       "technique": ["Technique two"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/padthai.jpg"
+      "client": ["Client five"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 6,
-      "name": "Project 6",
+      "name": "Project six",
       "role": ["Role one", "Role three"],
       "technique": ["Technique two"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/calamari.jpg"
+      "client": ["Client one"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 7,
-      "name": "Project 7",
+      "name": "Project seven",
       "role": ["Role two", "Role three"],
       "technique": ["Technique one"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/pizza.jpg"
+      "client": ["Client two"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 8,
-      "name": "Project 8",
+      "name": "Project eight",
       "role": ["Role one"],
       "technique": ["Technique three"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/ramen.jpg"
+      "client": ["Client six"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 9,
-      "name": "Project 9",
+      "name": "Project nine",
       "role": ["Role three"],
       "technique": ["Technique three"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/biscuits.jpg"
+      "client": ["Client three"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 10,
-      "name": "Project 10",
+      "name": "Project ten",
       "role": ["Role three"],
       "technique": ["Technique three"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/sushi.jpg"
+      "client": ["Client five"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 11,
-      "name": "Project 11",
+      "name": "Project eleven",
       "role": ["Role one"],
       "technique": ["Technique one"],
       "type": ["Type two"],
       "company": ["Company two"],
-      "img": "/img/spammusubi.jpg"
+      "client": ["Client two"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 12,
-      "name": "Project 12",
+      "name": "Project twelve",
       "role": ["Role one", "Role two"],
       "technique": ["Technique two"],
       "type": ["Type three"],
       "company": ["Company two"],
-      "img": "/img/fishnchips.jpg"
+      "client": ["Client seven"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 13,
-      "name": "Project 13",
+      "name": "Project thirteen",
       "role": ["Role two", "Role three"],
       "technique": ["Technique three"],
       "type": ["Type three"],
       "company": ["Company three"],
-      "img": "/img/tacos.jpg"
+      "client": ["Client eight"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 14,
-      "name": "Project 14",
+      "name": "Project fourteen",
       "role": ["Role two"],
       "technique": ["Technique three"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/poutine.jpg"
+      "client": ["Client seven"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 15,
-      "name": "Project 15",
+      "name": "Project fifteen",
       "role": ["Role three"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/somtam.jpg"
+      "client": ["Client four"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 16,
-      "name": "Project 16",
+      "name": "Project sixteen",
       "role": ["Role one", "Role three"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/masaladosa.jpg"
+      "client": ["Client six"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 17,
-      "name": "Project 17",
+      "name": "Project seventeen",
       "role": ["Role two", "Role three"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/pho.jpg"
+      "client": ["Client two"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 18,
-      "name": "Project 18",
+      "name": "Project eighteen",
       "role": ["Role two"],
       "technique": ["Technique two"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/hummus.jpg"
+      "client": ["Client one"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 19,
-      "name": "Project 19",
+      "name": "Project nineteen",
       "role": ["Role one"],
       "technique": ["Technique two"],
       "type": ["Type one"],
       "company": ["Company three"],
-      "img": "/img/churrasco.jpg"
+      "client": ["Client nine"],
+      "img": "/img/placeholder.jpeg"
     },
     {
       "id": 20,
-      "name": "Project 20",
+      "name": "Project twenty",
       "technique": ["Technique one", "Technique two"],
       "role": ["Role one", "Role three"],
       "type": ["Type two"],
       "company": ["Company three"],
-      "img": "/img/bulgogi.jpg"
+      "client": ["Client eight"],
+      "img": "/img/placeholder.jpeg"
     }
   ]
   

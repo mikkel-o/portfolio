@@ -5,70 +5,86 @@ import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
 import './Filters.css';
 
-/* SIBLINGS START 
-const getSiblings = function (elem) {
-  // Setup siblings array and get the first sibling
-	let siblings = [];
-	let sibling = elem.parentNode.firstChild;
-  // Loop through each sibling and push to the array
-	while (sibling) {
-		if (sibling.nodeType === 1 && sibling !== elem) {
-      //pushing the first child of the sibling rather than the sibling
-			siblings.push(sibling.children[0]);
-		}
-		sibling = sibling.nextSibling
-	}
-	return siblings;
-};
-/* SIBLINGS END */
-
 const Filters = ({filters, name}) => {
   const currentFilters = useSelector(state => state.filter);
+  let filtersToApply = [];
+  let filtersToRemove = [];
+  if (currentFilters.filters.length !== 0) {
+    currentFilters.filters.forEach(filter => filtersToApply.push(filter.value));
+  } 
   const dispatch = useDispatch();
 
   const onClickChangeHandler = (e) => {
-    /* SIBLINGS START 
-    const siblings = getSiblings(e.target.parentNode);
-    siblings.forEach(sibling => {
-      sibling.classList.remove('active');
-      dispatch(removeFilter(
-        sibling.children[0].innerHTML
-      ))
-    })
-    /* SIBLINGS END */
     if (e.target.classList.contains('active')) {
+      e.target.classList.remove('active');
       
-      e.target.classList.remove('active')
-    
-      dispatch(removeFilter(
-        e.target.children[0].innerHTML
-      ))  
-    
+      // get index of object with id of 37
+      const removeIndex = filtersToApply.indexOf(e.target.children[0].innerHTML);
+      // remove object
+      console.log(removeIndex)
+      if (removeIndex !== -1) {filtersToApply.splice( removeIndex, 1 )};
+      filtersToRemove.push(e.target.children[0].innerHTML);
     } else {
-    
       e.target.classList.add('active');
-    
-      dispatch(addFilter(
-        {
-          key: name,
-          value: e.target.children[0].innerHTML
-        }
-      ));
-    
+      
+       // get index of object with id of 37
+       const removeIndex = filtersToRemove.indexOf(e.target.children[0].innerHTML);
+       // remove object
+       console.log(removeIndex)
+       if (removeIndex !== -1) {filtersToRemove.splice( removeIndex, 1 )};
+      filtersToApply.push(e.target.children[0].innerHTML);
     }
-
   };
 
 
+
   const toggleId = name + '_toggle';
-    
+
   const onClickToggle = (e) => { 
+    if (e.target.classList.contains('active')) {
+      e.target.classList.remove('active');
+    } else {
+      e.target.classList.add('active');
+    }
       dispatch(toggle(toggleId))
   }
 
+  const onClickApplyFilters = (e) => { 
+    if (filtersToRemove.length !== 0) {
+      filtersToRemove.forEach((filter, index) => {
+       
+        dispatch(removeFilter(filter));
+
+    }
+      )
+    }
+    if (filtersToApply.length !== 0) {
+      filtersToApply.forEach((filter, index) => {
+       
+        dispatch(addFilter(
+          {
+            key: name,
+            value: filter
+          }
+        ));
+
+    }
+      )
+    }
+    
+    dispatch(toggle(toggleId))
+    
+}
+
+
+const toggleState = useSelector((state) => state.toggle);
+console.log(toggleState);
+console.log(toggleId);
+
+
   return (
     
-    <div className="filters">
+    <div className={toggleState[toggleId] === true ? `activ filters ${name}` : `filters ${name}`}>
       <button onClick={onClickToggle}><h4 className={'filters-title'}>{name}</h4></button>
       <Toggle id={toggleId}>
       <ul className={'filters-list'}>
@@ -82,7 +98,11 @@ const Filters = ({filters, name}) => {
           </li>
     
         ))}
-        
+        <li className={'filters-item'}>
+            <button onClick={onClickApplyFilters} className={''}>
+              <span className={''}>Apply filters</span>
+            </button>
+          </li>
       </ul>
       </Toggle>
       

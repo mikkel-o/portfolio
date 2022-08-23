@@ -1,8 +1,10 @@
-.filters-title {
+.filters-title,
+.filters-clear-title {
     color: #555;
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 0;
     pointer-events: none;
+    padding: 5px 0;
 }
 
 
@@ -101,8 +103,12 @@
 }
 
 .filters {
-    margin: 0 15px;
+    margin: 0 10px;
 }
+.filters.clear {
+    margin: 0 30px;
+}
+
 .filters:first-child {
     margin: 0 15px 0 0;
 }
@@ -111,8 +117,13 @@
     width: 100%;
     cursor: pointer;
     padding: 5px 20px 8px;
+    border: none;
 
 }
+.filters-clear-btn {
+    border: none;
+}
+
 
 .filters button span {
     pointer-events: none;
@@ -121,10 +132,97 @@
 .active-filters-list {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    /*width: 100%;*/
     padding: 0;
+    min-height: 30px;
+    margin: 0px 10px;
+
+}
+.active-filters-list:first-child {
+    margin-left: 0;
+
+}
+.active-filters-list:last-child {
+    margin-right: 0;
+
+}
+.active-filters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+    width: 100%;
+    margin: 20px 0;
+}
+.active-filter-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 4px 10px 4px 15px;
+    
+}
+.active-filters-item {
+    margin: 0 5px;
+}
+.active-filters-item:first-child {
+    margin-left: 0;
+}
+.active-filters-item:last-child {
+    margin-right: 0;
 }
 
+
+.no-margin {
+    margin: 0;
+}
 .active-filter-name {
     pointer-events: none;
+    
+}
+
+.active-filter-name::after {
+    content: 'x';
+    padding-left: 10px;
+}
+
+
+
+.filters.role > button:hover,
+.filters.role.activ > button {
+    background: #43C6AC;
+}
+
+.role .active-filter-btn {
+    background: #43C6AC;
+}
+
+.filters.technique > button:hover,
+.filters.technique.activ > button {
+    background: #57ddab;
+}
+.technique .active-filter-btn {
+    background: #57ddab;
+}
+
+.filters.type > button:hover,
+.filters.type.activ > button {
+    background: #aef2a8;
+}
+.type .active-filter-btn {
+    background: #aef2a8;
+}
+
+.filters.company > button:hover,
+.filters.company.activ > button {
+    background: #F8FFAE;
+}
+.company .active-filter-btn {
+    background: #F8FFAE;
+}
+
+.filters-clear-btn:hover {
+    background: rgb(255, 109, 109);
+}
+
+.filters > button {
+    border-radius: 5px;
 }

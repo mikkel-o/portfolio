@@ -8,10 +8,11 @@ export const filterSlice = createSlice({
   reducers: {
 
     addFilter: (state, action) => {
-      
+      if ((state.filters.findIndex( filter => filter.value === action.payload.value )) === -1) {
       state.filters.push(
         action.payload
       );
+    }
     },
     removeFilter: (state, action) => {    
       // get index of object with id of 37
