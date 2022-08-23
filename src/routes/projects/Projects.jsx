@@ -25,7 +25,7 @@ export default function Projects() {
     
   
   }
-}, [dispatch]);
+});
   
   const onTryAgainHandler = () => {
     dispatch(loadProjects());

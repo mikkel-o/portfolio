@@ -18,7 +18,7 @@ export default function ProjectSingle() {
         
     
     }
-  }, [dispatch]);
+  });
  
   const onTryAgainHandler = () => {
     dispatch(loadProject(params.id));
