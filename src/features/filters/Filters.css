@@ -79,6 +79,9 @@
     
     
 }
+.filters-item.filters-item-apply > button {
+    width: auto;
+}
 .filters-button {
     padding: 10px 20px;
 }
@@ -343,7 +346,12 @@ border: 1px solid #F8FFAE;
 .filters-list .filters-item:first-child:hover::before {
     background: #eee;
 }
-
+.filters-item-apply:hover {
+    background: none;
+}
+.filters-apply-btn:hover {
+    background: #eee;
+}
 
 
 .filters-clear-btn,
@@ -381,3 +389,24 @@ border: 1px solid #F8FFAE;
     border-radius: 3px;
     pointer-events: none;
 }
+.filters-item-apply {
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: right;
+}
+
+
+
+.projects-header {
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    
+  }
+
+  

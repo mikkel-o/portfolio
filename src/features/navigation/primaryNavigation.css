@@ -9,7 +9,7 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    z-index: 2000000000000;
+    z-index: 9;
     height: 100vh;
   }
   
@@ -120,6 +120,8 @@
     will-change: transform, rotate;
     transition: all 0.25s ease;
     transform: rotate(90deg) translateX(0);
+      pointer-events: none;
+  
   }
   
   .main-nav__toggle-button span:nth-child(1) {
@@ -158,3 +160,9 @@
   .hide .back__button {
     display: none;
   }
+
+
+.back__button img
+ {
+  filter: invert(1);
+}

@@ -1,9 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects, selectAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
 
 import Filters from "../../features/filters/Filters";
+import FiltersMobile from "../../features/filters/FiltersMobile";
+
+
+function debounce(fn, ms) {
+  let timer
+  return _ => {
+    clearTimeout(timer)
+    timer = setTimeout(_ => {
+      timer = null
+      fn.apply(this, arguments)
+    }, ms)
+  };
+}
 
 
 /*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
@@ -83,11 +96,40 @@ filtersTitles.forEach(filtersTitle => {
   )));
   });*/
 
+  const [dimensions, setDimensions] = useState({ 
+    height: window.innerHeight,
+    width: window.innerWidth
+  })
 
+  useEffect(() => {
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    }, 10)
 
+    window.addEventListener('resize', debouncedHandleResize)
+
+    return _ => {
+      window.removeEventListener('resize', debouncedHandleResize)
+    
+}
+})
 /*                          CONSOLE LOGs                              */
 
+let isMobile;
+if (dimensions.width > 950) {
+  isMobile = false;
+}
+else {
+  isMobile = true;
+}
+console.log(isMobile);
 
+
+
+const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
 
 
 
@@ -96,9 +138,16 @@ filtersTitles.forEach(filtersTitle => {
   return (
     <div className={''}>
       
+      {isMobile ?
+      <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >
+      <FiltersMobile filtersTitles={filtersTitles}/>
+      </header>
+      : 
       <header className={'projects-header'} >
        <Filters filtersTitles={filtersTitles}/>
-      </header>
+       </header>
+      }
+      
       <main id="projects-wrapper">
         {hasError ? (
           <div id="error-wrapper">
