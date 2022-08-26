@@ -19,23 +19,25 @@ import { AnimatePresence } from 'framer-motion';
 const AnimatedRoutes = () => {
   const location = useLocation();
   
-  //https://stackoverflow.com/questions/67974970/animate-presence-exit-not-working-framer-motion
-//https://stackoverflow.com/questions/70513171/flashing-screen-when-changing-route-with-reactjs
-
-// THE PROBLEM IS IT IS RELOADING THE PROJECTS EVENTHOUGH THEY ARE ALREADY IN THE STATE WHEN NAVIGATING BACK - I think
-//
-//
   return (
     
     <AnimatePresence initial={false} mode='wait'>
      <Routes location={location} key={location.pathname}>
       
-        <Route path="/" element={<App />}>
+        <Route 
+          path="/" 
+          element={<App />}
+        >
           
-          <Route path="projects" element={<Projects />} >
-            
-          </Route>
-          <Route path="projects/:id" element={<ProjectSingle />} />    
+          <Route 
+            path="projects" 
+            element={<Projects />}
+          />          
+          <Route 
+            path="projects/:id" 
+            element={<ProjectSingle />} 
+          />    
+          
           <Route
             path="*"
             element={

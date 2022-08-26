@@ -4,7 +4,7 @@ import singleProjectReducer from "../features/singleProject/singleProjectSlice";
 import searchReducer from "../features/search/searchSlice";
 import filterReducer from "../features/filters/filtersSlice";
 import toggleReducer from "../components/toggleSlice";
-import primaryNavigationReducer from "../features/navigation/primaryNavigationSlice";
+//import primaryNavigationReducer from "../features/navigation/primaryNavigationSlice";
 
 export default configureStore({
   reducer: {
@@ -13,6 +13,6 @@ export default configureStore({
     search: searchReducer,
     filter: filterReducer,
     toggle: toggleReducer,
-    primaryNavigation: primaryNavigationReducer,
+    //primaryNavigation: primaryNavigationReducer,
   },
 });

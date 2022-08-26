@@ -59,17 +59,17 @@ const onClickHandler = (e) => {
   return (
     <motion.div key={project.id} className="project" initial={'rest'} whileHover={"hover"} animate={'rest'} tabIndex={0} transition={{staggerChildren: 0.05}}>
       <span className="project-container" >
-      <motion.img variants={imgMotion} src={project.img} alt="" className="project-image" />
+        <motion.img variants={imgMotion} src={project.img} alt="" className="project-image" />
         <motion.div className={'project-info'}>
-        <motion.h2 className="project-name" variants={titleMotion}>{project.name}</motion.h2>
-        <motion.h3 className="project-role" variants={titleMotion}>{project.role.map(element => element).join(' | ')}</motion.h3>
-        <motion.h4 className="project-technique" variants={titleMotion}>{project.technique.map(element => element).join(' | ')}</motion.h4>
-        <motion.h5 className="project-technique" variants={titleMotion}>{project.type.map(element => element).join(' | ')}</motion.h5>
-        <motion.h6 className="project-company" variants={titleMotion}>{project.company.map(element => element).join(' | ')}</motion.h6>
-        <motion.div variants={btnMotion}>
-          <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
-          <button className={'play'}> play</button>
-        </motion.div>
+          <motion.h2 className="project-name" variants={titleMotion}>{project.name}</motion.h2>
+          <motion.h3 className="project-role" variants={titleMotion}>{project.role.map(element => element).join(' | ')}</motion.h3>
+          <motion.h4 className="project-technique" variants={titleMotion}>{project.technique.map(element => element).join(' | ')}</motion.h4>
+          <motion.h5 className="project-technique" variants={titleMotion}>{project.type.map(element => element).join(' | ')}</motion.h5>
+          <motion.h6 className="project-company" variants={titleMotion}>{project.company.map(element => element).join(' | ')}</motion.h6>
+          <motion.div variants={btnMotion}>
+            <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
+            <button className={'play'}> play</button>
+          </motion.div>
         </motion.div>
         
           

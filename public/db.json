@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "project-one",
-      "role": ["Role one", "Role two"],
+      "role": ["Role one", "Role two", "Role four"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company one"],
@@ -32,7 +32,7 @@
     {
       "id": 4,
       "name": "Project four",
-      "role": ["Role two"],
+      "role": ["Role two", "Role four"],
       "technique": ["Technique three"],
       "type": ["Type one"],
       "company": ["Company one"],
@@ -42,7 +42,7 @@
     {
       "id": 5,
       "name": "Project five",
-      "role": ["Role three"],
+      "role": ["Role three", "Role four"],
       "technique": ["Technique two"],
       "type": ["Type two"],
       "company": ["Company two"],
@@ -72,7 +72,7 @@
     {
       "id": 8,
       "name": "Project eight",
-      "role": ["Role one"],
+      "role": ["Role one", "Role four"],
       "technique": ["Technique three"],
       "type": ["Type two"],
       "company": ["Company two"],
@@ -102,7 +102,7 @@
     {
       "id": 11,
       "name": "Project eleven",
-      "role": ["Role one"],
+      "role": ["Role one", "Role four"],
       "technique": ["Technique one"],
       "type": ["Type two"],
       "company": ["Company two"],
@@ -132,7 +132,7 @@
     {
       "id": 14,
       "name": "Project fourteen",
-      "role": ["Role two"],
+      "role": ["Role two", "Role four"],
       "technique": ["Technique three"],
       "type": ["Type one"],
       "company": ["Company three"],
@@ -152,7 +152,7 @@
     {
       "id": 16,
       "name": "Project sixteen",
-      "role": ["Role one", "Role three"],
+      "role": ["Role one", "Role three", "Role four"],
       "technique": ["Technique one"],
       "type": ["Type one"],
       "company": ["Company three"],
@@ -172,7 +172,7 @@
     {
       "id": 18,
       "name": "Project eighteen",
-      "role": ["Role two"],
+      "role": ["Role two", "Role four"],
       "technique": ["Technique two"],
       "type": ["Type one"],
       "company": ["Company three"],
@@ -182,7 +182,7 @@
     {
       "id": 19,
       "name": "Project nineteen",
-      "role": ["Role one"],
+      "role": ["Role one", "Role four"],
       "technique": ["Technique two"],
       "type": ["Type one"],
       "company": ["Company three"],

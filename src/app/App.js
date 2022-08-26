@@ -12,13 +12,13 @@ function App() {
 
   return (
     <div id="app">
-
+ {/* <Outlet> to show content */}
+ <Outlet />
       
       <PrimaryNavigation navigationItems={['about', 'animation & vfx', 'contact']} />
 
 
-      {/* <Outlet> to show content */}
-      <Outlet />
+     
 
     {/* END .App */}  
     </div>

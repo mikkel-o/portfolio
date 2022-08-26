@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 //import { selectSearchTerm } from "../search/searchSlice";
-import { selectFilter } from "../filters/filtersSlice";
+import { selectActiveFilters } from "../filters/filtersSlice";
 
 // createAsyncThunk simplifies our Redux app by returning an action creator that dispatches promise lifecycle actions for us so we don't have to dispatch them ourselves.
 export const loadProjects = createAsyncThunk(
   "allProjects/getAllProjects",
-  async (projectId) => {
+  async () => {
     const data = await fetch('../db.json');
     
     const json = await data.json();
@@ -52,15 +52,15 @@ export const selectFilteredAllProjects = (state) => {
   const allProjects = selectAllProjects(state);
   //const searchTerm = selectSearchTerm(state);
   
-  const filters = selectFilter(state);
+  const filters = selectActiveFilters(state);
   
   if (filters.length !== 0) {
     
     return (
       
-      allProjects.filter(project => filters.some(filter => project[filter.key].includes(filter.value)))
-      //use .every instead of some to combine the filters
-
+      allProjects.filter(project => filters.every(filter => project[filter.key].includes(filter.value)))
+      //use .every instead of some to deduct the filters (remember to add inactive filters-item in Filters.js) -> and remember to update inactive and dispatch new count before filters are applied
+      //use .some instead of every to add the filters (remember to remove inactive filters-item in Filters.js) -> and don't update inactive + dispatch new count before filters are applied
       )
     } else {
       

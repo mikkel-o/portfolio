@@ -3,36 +3,41 @@ import { createSlice } from "@reduxjs/toolkit";
 export const filterSlice = createSlice({
   name: "filter",
   initialState: {
-    filters: [],
+    allFilters: [],
+    activeFilters: [],
   },
   reducers: {
+    addAllFilters: (state, action) => {
+      state.allFilters = action.payload;
+    },
 
-    addFilter: (state, action) => {
-      if ((state.filters.findIndex( filter => filter.value === action.payload.value )) === -1) {
-      state.filters.push(
+    addActiveFilter: (state, action) => {
+      if ((state.activeFilters.findIndex( filter => filter.value === action.payload.value )) === -1) {
+      state.activeFilters.push(
         action.payload
       );
     }
     },
-    removeFilter: (state, action) => {    
+
+    removeActiveFilter: (state, action) => {    
       // get index of object with id of 37
-      const removeIndex = state.filters.findIndex( filter => filter.value === action.payload );
+      const removeIndex = state.activeFilters.findIndex( filter => filter.value === action.payload );
       // remove object
-      state.filters.splice( removeIndex, 1 );
-
-
-
+      state.activeFilters.splice( removeIndex, 1 );
     },
-    clearFilter: (state) => {state.filters = []},
-  
+
+    clearActiveFilters: (state) => {state.activeFilters = []},
+
   },
 
 
   
 });
 
-export const { addFilter, removeFilter, clearFilter } = filterSlice.actions;
+export const { addActiveFilter, removeActiveFilter, clearActiveFilters, addAllFilters } = filterSlice.actions;
 
-export const selectFilter = (state) => state.filter.filters;
+export const selectActiveFilters = (state) => state.filter.activeFilters;
+
+export const selectAllFilters = (state) => state.filter.allFilters;
 
 export default filterSlice.reducer;

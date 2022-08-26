@@ -53,7 +53,7 @@
     background: white;
   }
   
-  .main-nav__wrapper--hidden {
+  /*.main-nav__wrapper--hidden {
     display: flex;
     flex-direction: column;
     border-radius: 0 0 10px 0;
@@ -61,7 +61,7 @@
     opacity: 0;
     pointer-events: none;
   }
-  
+  */
   .main-nav__wrapper--hidden > button.active:first-child {
     border-radius: 0 0 10px 0;
     background: transparent;
@@ -116,7 +116,7 @@
     position: absolute;
     top: 15px;
     left: 25px;
-    height: 32px;
+    height: 35px;
     will-change: transform, rotate;
     transition: all 0.25s ease;
     transform: rotate(90deg) translateX(0);

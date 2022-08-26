@@ -1,141 +1,103 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { loadProjects, selectAllProjects, selectFilteredAllProjects } from "../../features/allProjects/allProjectsSlice";
+import { loadProjects, selectAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
+
 import Filters from "../../features/filters/Filters";
-import {
-  clearFilter,
-  removeFilter
-} from "../../features/filters/filtersSlice";
-import { hideAllToggles} from "../../components/toggleSlice";
-import { Outlet } from "react-router-dom";
+
+
+/*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
+|                        ANIMATION                             |
+\*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// Constants
+
+
+// Variants
 
 
 
+/*-  - - - - - -- - - - - - - - - - - - - - -  - - - - - - - -*\
+|                         COMPONENT                            |
+\*-  - - - - - - - - - - - - - - - - - - - - -  - - - - - - - */
 
 export default function Projects() {
+
+
+/*                       DECLARATIONS                         */
   
+  // Redux store data calls
+
   const dispatch = useDispatch();
-  const { hasError } = useSelector((state) => state.allProjects);
   const allProjects = useSelector(selectAllProjects);
+
+  
+
+  // Arrays
+
+  
+
+  
+
+/*                           LOAD DATA                          */
+
+  // The if() is to stop it from fetching the data after the initial 
+  // page has loaded. Because the data is being fetched asynchronisly,
+  // the components' initial data is empty and causes the component to
+  // re-render everytime, even though the data is already in the store.
+  
   useEffect(() => {
-  if (allProjects.length === 0) {
-    
-      dispatch(loadProjects());
-    
+    if (allProjects.length === 0) {
+        dispatch(loadProjects());
+    }
+  }, [dispatch, allProjects.length]);
+
+  // Button on failure page
   
-  }
-});
-  
+  const { hasError } = useSelector((state) => state.allProjects);
   const onTryAgainHandler = () => {
     dispatch(loadProjects());
   };
 
-  const onClickClearHandler = (e) => {
-    document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
-    
-    dispatch(clearFilter());
-    dispatch(hideAllToggles())
-  };
-
-  const allFilteredProjects = useSelector(selectFilteredAllProjects);
-  
-
-  
-  const filterNames = ['role', 'technique', 'type', 'company'];
-  let filters = [];
-
-  filterNames.forEach(filterName => {
-    const allFiltered = allFilteredProjects.map(project => project[filterName]).flat();
-    const all = allProjects.map((project) => project[filterName]).flat();
-    const unique = [...new Set([].concat.apply([], all.map((e) => e)))];
-    filters.push(unique.map(e => (
-      {
-        key: filterName, 
-        value: e, 
-        countTotal: all.filter(x => x===e).length, 
-        countFilter: allFiltered.filter(x => x===e).length
-      }
-    )));
-  });
 
 
 
 
-  const useOutsideClick = (callback) => {
-    const ref = useRef();
+
+/*                             FILTERS                               */
+const filtersTitles = ['role', 'technique', 'type', 'company']; 
+/*let filters = [];
   
-    useEffect(() => {
-      const handleClick = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-          callback();
-        }
-      };
-  
-      document.addEventListener('click', handleClick);
-  
-      return () => {
-        document.removeEventListener('click', handleClick);
-      };
-    });
-  
-    return ref;
-  };
-  
-  
-    const onClickHideToggle = (e) => { 
-      dispatch(hideAllToggles())
-      
+// Filters creation
+
+filtersTitles.forEach(filtersTitle => {
+  const allFiltered = allFilteredProjects.map(project => project[filtersTitle]).flat();
+  const all = allProjects.map((project) => project[filtersTitle]).flat();
+  const unique = [...new Set([].concat.apply([], all.map((e) => e)))];
+  filters.push(unique.map(obj => (
+    {
+      key: filtersTitle, 
+      value: obj, 
+      countTotal: all.filter(num => num === obj).length, 
+      countFilter: allFiltered.filter(num => num === obj).length
     }
-    
-  
-    const ref = useOutsideClick(onClickHideToggle);
-  
-    const currentFilters = useSelector(state => state.filter);
+  )));
+  });*/
 
 
 
-    const onClickChangeHandler = (e) => {
+/*                          CONSOLE LOGs                              */
 
-        dispatch(removeFilter(
-          e.target.children[0].innerHTML
-        ))  
-      
-  
-    };
-    console.log(filterNames);
-console.log(currentFilters);
+
+
+
+
+/*                               JSX                                  */
+
   return (
     <div className={''}>
-      <Outlet />
-      <header className={'projects-header'}>
-        <div className={'filters-wrapper'} ref={ref}>
-          {filterNames.map((filterName, index) => (
-            <Filters key={index} filters={filters[index]} name={filterName}/>
-          ))}
-          <div className={'filters clear'}>
-          <button className={'filters-clear-btn'} onClick={onClickClearHandler}>
-          <h4 className={'filters-clear-title'}>clear filters</h4>
-          </button>
-          </div>
-        </div>
-        <div className={'active-filters-wrapper'}>
-        {filterNames.map((item, i) => (
-          <ul className={currentFilters.filters.some((filter) => filter.key === item) ? `active-filters-list ${item}` : `no-margin active-filters-list ${item}`} key={i}>
-            {currentFilters.filters.map((filter, index) => (
-            filter.key === item ? (
-              <li key={index} className={`active-filters-item`}>
-                <button onClick={onClickChangeHandler} className={`active-filter-btn`}>
-                  <span className={'active-filter-name'}>{filter.value}</span>
-                </button>
-              </li>
-            ) : ''
-            )
-            )}
-          </ul>
-
-        ))}
-        </div>
+      
+      <header className={'projects-header'} >
+       <Filters filtersTitles={filtersTitles}/>
       </header>
       <main id="projects-wrapper">
         {hasError ? (
@@ -150,7 +112,8 @@ console.log(currentFilters);
           <>
             <section className="projects-section">
               
-              <AllProjects />
+            <AllProjects />
+
             </section>
           </>
         )}
@@ -159,3 +122,22 @@ console.log(currentFilters);
   );
 }
 
+
+
+
+/*
+          {
+            filterTitles.map( (filtersTitle, index) => (
+              <Filters
+                key={index}
+                filters={filters[index]}
+                name={filtersTitle}
+                allItems={allProjects}
+                filteredItems={allFilteredProjects}
+              />
+
+              
+            ) )
+          }
+          
+*/

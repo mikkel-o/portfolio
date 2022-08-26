@@ -1,26 +1,26 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleNavigation } from "./primaryNavigationSlice";
+import { useDispatch } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
 import './primaryNavigation.css';
+import { Toggle} from "../../components/Toggle";
+import { toggle } from "../../components/toggleSlice";
+
+
 
 
 const PrimaryNavigation = (navigationItems) => {
-    const isActive = useSelector(toggleNavigation).payload.primaryNavigation;
-
+let isActive = false;
     const dispatch = useDispatch();
-
-    const onClickChangeHandler = () => {
-        if (isActive) {
-            dispatch(toggleNavigation(false));
-            
+      const onClickToggleNavigation = (event, name) => { 
+        if (event.target.classList.contains('active')) {
+          event.target.classList.remove('active');
+          isActive = false;
         } else {
-            dispatch(toggleNavigation(true));
-            
+          event.target.classList.add('active');
+          isActive = true;
         }
-      };
-    
-    
+          dispatch(toggle(name))
+      }
         
 
   
@@ -32,27 +32,28 @@ const PrimaryNavigation = (navigationItems) => {
      
     <div className={'main-nav'}>
 
+
     {/* toggle menu button */}
-    <button className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} onClick={onClickChangeHandler} >
+    <button className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >
       <span>|</span>
       <span>|</span>
     </button>
-
+    <Toggle id={'primary_menu'}>
     {/* main menu */}
     <div className={(isActive === false) ? 'main-nav__wrapper main-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      
       <ul className={'main-nav__list'}>
         <li className={'main-nav__item'}>
-          <Link to={'/about'} onClick={onClickChangeHandler} >about</Link>
+          <Link to={'/about'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >about</Link>
         </li>
         <li className={'main-nav__item'}>
-          <Link to={'/projects'} onClick={onClickChangeHandler} >animation & vfx</Link>
+          <Link to={'/projects'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >animation & vfx</Link>
         </li>
         <li className={'main-nav__item'}>
-          <Link to={'/contact'} onClick={onClickChangeHandler} >contact</Link>
+          <Link to={'/contact'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >contact</Link>
         </li>
       </ul>  
     </div>
-
+    </Toggle>
   
       {/* navigate back button */}
     
