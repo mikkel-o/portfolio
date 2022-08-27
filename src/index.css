@@ -28,7 +28,7 @@ body,
   display: flex;
   flex-direction: column;
   color: #141c3a;
-  padding: 0 65px;
+  padding: 55px 0 0 0;
 }
 
 #search-container {

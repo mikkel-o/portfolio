@@ -4,7 +4,20 @@ import { useLocation, Link } from "react-router-dom";
 import './primaryNavigation.css';
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
+import { motion } from "framer-motion";
+/*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
+|                        ANIMATION                             |
+\*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// Constants
+const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
 
+
+// Variants
+const burgerMenu = [
+  { hover: { y: -4, transition: transition } },
+  { animate: {scale: 0}, hover: { scale: 1, opacity: 1, transition: {duration: .1, ease: [0.3, 0.13, 0.13, 0.96]} } },
+  { hover: { y: 4, transition: transition } }
+];
 
 
 
@@ -34,10 +47,18 @@ let isActive = false;
 
 
     {/* toggle menu button */}
-    <button className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >
-      <span>|</span>
-      <span>|</span>
-    </button>
+    <motion.button  
+      initial={'initial'}
+      animate={'animate'}
+      exit={'exit'}
+      whileHover={'hover'}
+      transition={'transition'}
+      className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} 
+      onClick={event => onClickToggleNavigation(event, 'primary_menu')} >
+      <motion.span variants={burgerMenu[0]}>|</motion.span>
+      <motion.span variants={burgerMenu[1]}>|</motion.span>
+      <motion.span variants={burgerMenu[2]}>|</motion.span>
+    </motion.button>
     <Toggle id={'primary_menu'}>
     {/* main menu */}
     <div className={(isActive === false) ? 'main-nav__wrapper main-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      

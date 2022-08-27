@@ -7,6 +7,7 @@ import {
   useLocation
 } from "react-router-dom";
 import './index.css';
+import './media.css';
 import App from './app/App';
 import Projects from "./routes/projects/Projects";
 import ProjectSingle from "./routes/projects/ProjectSingle";

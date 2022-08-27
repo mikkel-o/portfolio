@@ -35,6 +35,14 @@ const activeFilterSpanTwo = {
   animate: { y: -100, transition: transition },
   hover: { y: 0, transition: transition }
 };
+const filterMenuBtnOne = {
+  animate: { x: -14, transition: transition },
+  hover: { x: 0, transition: transition }
+};
+const filterMenuBtnTwo = {
+  animate: { x: 14, transition: transition },
+  hover: { x: 0, transition: transition }
+};
 
 
 
@@ -79,7 +87,8 @@ let all;
   const onClickClearHandler = (e) => {
     document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
     dispatch(clearActiveFilters());
-    dispatch(hideAllToggles())
+    dispatch(hideAllToggles());
+    dispatch(toggle('filters__menu__togle'))
   };
   
   // Remove active filter
@@ -244,7 +253,7 @@ filterTitles.forEach(filtersTitle => {
 });
 
 const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
-  
+const isEmpty = activeFilters.length === 0 ? false : true;
 
 console.log(isActive);
 
@@ -256,20 +265,25 @@ console.log(isActive);
 
   return (
     
-        <div className={isActive ? 'filters-wrapper mobile open' : 'filters-wrapper mobile'} ref={ref}>
+        <div className={isActive ? isEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} ref={ref}>
           {/*                  FILTERS MENU                   */}
           {/* ref={ref} */}
           
-          <button onClick={event => onClickToggleMenu(event, ('filters__menu__mobile'))} className={'filters-mobile-btn '}>
+          <motion.button initial={'initial'}
+                        animate={'animate'}
+                        exit={'exit'}
+                        whileHover={'hover'}
+                        transition={'transition'}
+                        onClick={event => onClickToggleMenu(event, ('filters__menu__mobile'))} className={'filters-mobile-btn '}>
             <span>|</span>
             <span>|</span>
-            <span className={'small-circle'}></span>
-            <span className={'small-circle'}></span>
-          </button>
+            <motion.span variants={filterMenuBtnOne} className={'small-circle'}></motion.span>
+            <motion.span variants={filterMenuBtnTwo} className={'small-circle'}></motion.span>
+          </motion.button>
           
             
             {/*                   ACTIVE FILTERS                   */}
-          
+          {isEmpty ? 
           <div className={'active-filters-wrapper'}>
           { // Looping through the names array to output active filters
             filterTitles.map( (filtersTitle, index) => (
@@ -318,6 +332,8 @@ console.log(isActive);
               </ul>
             ))
           }
+          
+          {(activeFilters.length > 0) ? 
           <div className={'filters clear'}>
             {/* onClick={onClickClearHandler} */}
             <button 
@@ -325,11 +341,15 @@ console.log(isActive);
               onClick={onClickClearHandler}
             >
               <h4 className={'filters-clear-title'}>
-                {isActive ? 'remove all x' : 'x'}
+                {isActive ? 'clear filters' : 'clear filters'}
               </h4>
             </button>
           </div>
+          : ''
+        }
+
           </div>
+           : '' }
           <div
             className={'filters-ref-wrapper filters-ref-wrapper-mobile'}
             

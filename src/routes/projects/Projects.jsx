@@ -116,16 +116,19 @@ filtersTitles.forEach(filtersTitle => {
     
 }
 })
-/*                          CONSOLE LOGs                              */
 
 let isMobile;
-if (dimensions.width > 950) {
+if (dimensions.width > 799) {
   isMobile = false;
 }
 else {
   isMobile = true;
 }
 console.log(isMobile);
+
+
+/*                          CONSOLE LOGs                              */
+
 
 
 
