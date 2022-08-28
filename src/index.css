@@ -23,7 +23,9 @@ body,
   margin: 0;
   font-family: "Oxygen", sans-serif;
 }
-
+button, a {
+  color: #353535;
+}
 #app {
   display: flex;
   flex-direction: column;
@@ -92,15 +94,62 @@ body,
   border-radius: 6px;
   border: solid 1px #141c3a;
   overflow: hidden;
+  min-height: 330px;
+}
+
+.project-button-wrapper {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    margin: 20px 0 0;
+}
+
+.project-type, .project-company  {
+  position: absolute;
+  margin: 0;
+  
+}
+.project-name, .project-role, .project-technique {
+  margin: 0;
+  padding: 0;
+}
+.project-role {
+  top: 0;
+  left: 0;
+}
+.project-technique {
+  top: 0;
+  right: 0;
+}
+.project-type {
+  bottom: 0;
+  left: 0;
+
+}
+.project-company {
+  bottom: 0;
+  right: 0;
 }
 
 .project:hover,
+.project:active,
 .project:focus,
 .project:focus-within {
   /*background: #141c3a;*/
   /*color: #ffffff;*/
 }
-
+.project-container,
+.project-info,
+.project-technique,
+.project-name,
+.project-role,
+.project-type,
+.project-company {
+  pointer-events: none;
+}
 /*.project:hover .project-image,
 .project:focus .project-image,
 .project:focus-within .project-image {
@@ -109,7 +158,7 @@ body,
 
 .project-name {
   margin: 0;
-  margin-bottom: 8px;
+  
 }
 
 .projects-container {
@@ -125,7 +174,7 @@ body,
   grid-row-start: 1;
   grid-column-start: 1;
   display: grid;
-  align-items: baseline;
+  align-items: center;
   justify-content: left;
   
   height: inherit;

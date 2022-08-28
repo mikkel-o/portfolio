@@ -11,13 +11,21 @@ const transitionTwo = {duration: .8, ease: [0.3, 0.13, 0.13, 0.96]}
 
 
 
-const titleMotion = {
+const titleMotionHidden = {
   rest: {
     opacity: 0,
-    x: -25,
+    x: 0,
     transition: transitionTwo
   },
+  animate: {
+    opacity: 1,
+  },
   hover: {
+    opacity: 1,
+    x: 0,
+    transition: transitionTwo
+  },
+  tap: {
     opacity: 1,
     x: 0,
     transition: transitionTwo
@@ -35,6 +43,11 @@ const btnMotion = {
     opacity: 1,
     x: 0,
     transition: transitionTwo
+  },
+  tap: {
+    opacity: 1,
+    x: 0,
+    transition: transitionTwo
   }
   
 };
@@ -43,9 +56,12 @@ const imgMotion = {
   hover: {
     scale: 1.1,
     transition: transitionOne
+  },
+  tap: {
+    scale: 1.1,
+    transition: transitionOne
   }
 };
-
 
 
 
@@ -56,20 +72,36 @@ const onClickHandler = (e) => {
   dispatch(addProject(project))
 }
 
+
+function onPan(event, info) {
+  console.log(info.point.x, info.point.y)
+  console.log(info);
+  event.target.focus();
+}
+
+
+
   return (
-    <motion.div key={project.id} className="project" initial={'rest'} whileHover={"hover"} animate={'rest'} tabIndex={0} transition={{staggerChildren: 0.05}}>
+    <motion.div key={project.id} className="project" 
+    initial={'rest'} whileFocus={"hover"} onPan={onPan} whileHover={"hover"} animate={'rest'} tabIndex={project.id} transition={{staggerChildren: 0.05}}>
       <span className="project-container" >
         <motion.img variants={imgMotion} src={project.img} alt="" className="project-image" />
-        <motion.div className={'project-info'}>
-          <motion.h2 className="project-name" variants={titleMotion}>{project.name}</motion.h2>
-          <motion.h3 className="project-role" variants={titleMotion}>{project.role.map(element => element).join(' | ')}</motion.h3>
-          <motion.h4 className="project-technique" variants={titleMotion}>{project.technique.map(element => element).join(' | ')}</motion.h4>
-          <motion.h5 className="project-technique" variants={titleMotion}>{project.type.map(element => element).join(' | ')}</motion.h5>
-          <motion.h6 className="project-company" variants={titleMotion}>{project.company.map(element => element).join(' | ')}</motion.h6>
-          <motion.div variants={btnMotion}>
+        <motion.div className={'project-info'} >
+        <motion.h5 className="project-technique" variants={titleMotionHidden}>{project.technique.map(element => element).join(' | ')}</motion.h5>
+          <motion.h2 className="project-name" variants={titleMotionHidden}>{project.name}</motion.h2>
+          
+          
+          <motion.h3 className="project-role" variants={titleMotionHidden}>{project.role.map(element => element).join(' | ')}</motion.h3>
+          
+          <motion.div className="project-button-wrapper" variants={btnMotion}>
             <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
             <button className={'play'}> play</button>
           </motion.div>
+
+
+          <motion.h5 className="project-type" variants={titleMotionHidden}>{project.type.map(element => element).join(' | ')}</motion.h5>
+          <motion.h5 className="project-company" variants={titleMotionHidden}>{project.company.map(element => element).join(' | ')}</motion.h5>
+          
         </motion.div>
         
           
@@ -84,7 +116,7 @@ const onClickHandler = (e) => {
   );
 }
 
-
+//whileFocus={"hover"}  
 
 
 

@@ -1,9 +1,10 @@
 
-@media (min-width: 450px) { 
+@media (min-width: 420px) { 
     .bleh {
         /*grid-column-gap: 20px;
         grid-row-gap: 40px;*/
-        grid-template-columns: repeat(auto-fill, minmax(40%, 1fr))!important;
+        grid-template-columns: repeat(2, minmax(170px, 31vw))!important;
+        
     }
     /*.projects-header.mobile  {
       
@@ -21,19 +22,19 @@
       max-width: 450px;
       }*/
     }
-    @media (min-width: 650px) { 
+    @media (min-width: 800px) { 
     .bleh {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr))!important;
+        grid-template-columns: repeat(4, minmax(150px, 1fr))!important;
     }
 }
 
-@media (min-width: 800px) { 
+@media (min-width: 950px) { 
     #app {
         padding: 0 65px;
     }
 
     .bleh {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(4, minmax(150px, 1fr));
     }
    /* .open .bleh {
         grid-column-gap: 5px;

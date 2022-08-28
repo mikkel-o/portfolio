@@ -20,7 +20,7 @@
     max-height: calc(100vh - 135px);
 }
 .empty.open .filters-ref-wrapper-mobile {
-    margin: 53px 10px 12px;
+    margin: 42px 10px 12px;
 }
 
 .filters-mobile:first-child {
@@ -88,11 +88,11 @@
   
   .filters-mobile-btn span.small-circle {
     display: block;
-    background: #515151;
+    background: #626262;
     border-radius: 3px;
     position: absolute;
-    width: 3px;
-    height: 6px;
+    width: 2px;
+    height: 8px;
   }
 
   .filters-mobile-btn span:nth-child(1),
@@ -109,25 +109,27 @@
     
 }
   .filters-mobile-btn span:nth-child(3) {
-    top: 8px;
+    top: 7px;
     left: 32px;
   }
   .filters-mobile-btn span:nth-child(4) {
-    top: 22px;
+    top: 21px;
     left: 18px;
   }
 
 .filters-list-mobile {
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .filters-button-mobile {
-    padding: 10px 5px;
+    padding: 15px 5px;
 }
 
 .mobile .filter-name {
     padding: 5px;
+    margin: 0;
 }
 .mobile .filters-wrapper {
     display: grid;
@@ -153,9 +155,10 @@ padding: 0;
     width: 100%;*/
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    width: 100%;
+    grid-column-gap: 45px;
+    grid-row-gap: 30px;
+    margin: 0 auto;
+    /*width: 100%;*/
     
 }
 .projects-header.mobile {
@@ -227,4 +230,54 @@ padding: 0;
 }
 .mobile .filters.clear {
     margin-left: auto;
+}
+
+
+.mobile .filters-title:after {
+    content: "";
+    padding-left: 0px;
+}
+.mobile .filters-title {
+    color: #353535;
+    font-size: 1.2em;
+    margin: 0;
+    pointer-events: none;
+    padding: 5px 0;
+    text-transform: capitalize;
+    
+}
+
+.mobile .filters-title::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    display: block;
+    
+}
+.mobile .filters:nth-child(1) .filters-title::before {
+    background: #43C6AC;
+}
+.mobile .filters:nth-child(2) .filters-title::before {
+    background: #57ddab;
+}
+.mobile .filters:nth-child(3) .filters-title::before {
+    background: #aef2a8;
+}
+.mobile .filters:nth-child(4) .filters-title::before {
+    background: #F8FFAE;
+}
+
+
+
+
+
+.mobile .filters-item span {
+    font-size: 1.1em;
+}
+
+.mobile .filter-count-filter {
+    float: left;
 }

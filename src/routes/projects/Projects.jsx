@@ -118,7 +118,7 @@ filtersTitles.forEach(filtersTitle => {
 })
 
 let isMobile;
-if (dimensions.width > 799) {
+if (dimensions.width > 949) {
   isMobile = false;
 }
 else {

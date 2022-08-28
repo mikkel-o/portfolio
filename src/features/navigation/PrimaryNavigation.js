@@ -5,6 +5,7 @@ import './primaryNavigation.css';
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 /*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
 |                        ANIMATION                             |
 \*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -14,17 +15,50 @@ const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
 
 // Variants
 const burgerMenu = [
-  { hover: { y: -4, transition: transition } },
-  { animate: {scale: 0}, hover: { scale: 1, opacity: 1, transition: {duration: .1, ease: [0.3, 0.13, 0.13, 0.96]} } },
-  { hover: { y: 4, transition: transition } }
+  { 
+    //initial: {y: -4, rotate: 0},
+    animate: {y: 0, rotate: 0},
+    hover: { y: -4, transition: transition },
+  },
+  { 
+    animate: {scale: 0}, 
+    hover: { scale: 1, opacity: 1, transition: {duration: .1, ease: [0.3, 0.13, 0.13, 0.96]} },
+  },
+  { 
+    //initial: {y: 4, rotate: 0},
+    animate: {y: 0, rotate: 0},
+    hover: { y: 4, transition: transition }, 
+  }
+];
+const burgerMenuExit = [
+  { 
+    //initial: {y: -4, rotate: 0},
+    animate: {y: 6, rotate: 45, transition: {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]} },
+    //animate: {y: 0, transition: {duration: .2, rotate: 45, ease: [0.3, 0.13, 0.13, 0.96]} },
+    hover: { scale: 1.1, y: 6, rotate: 45, transition: transition },
+    //exit: {y: 0, opacity: 0, transition: {duration: 1, ease: [0.3, 0.13, 0.13, 0.96]} },
+  },
+  { 
+    animate: {scale: 0}, 
+    hover: { scale: 1, opacity: 0, transition: {duration: .1, ease: [0.3, 0.13, 0.13, 0.96]} },
+    //exit: {y: 0, opacity: 0, transition: {duration: 1, ease: [0.3, 0.13, 0.13, 0.96]} },
+  },
+  { 
+    //initial: {y: 4, rotate: 0 },
+    animate: {y: -6, rotate: -45, transition: {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]} },
+   // animate: {y: 0, transition: {duration: .2, rotate: 45, ease: [0.3, 0.13, 0.13, 0.96]} },
+    hover: { scale: 1.1, y: -6, rotate: -45, transition: transition }, 
+    //exit: {y: 0, opacity: 0, transition: {duration: 1, ease: [0.3, 0.13, 0.13, 0.96]} },
+  }
 ];
 
 
 
 const PrimaryNavigation = (navigationItems) => {
-let isActive = false;
-    const dispatch = useDispatch();
-      const onClickToggleNavigation = (event, name) => { 
+  let isActive = false;
+  const dispatch = useDispatch();
+      
+  const onClickToggleNavigation = (event, name) => { 
         if (event.target.classList.contains('active')) {
           event.target.classList.remove('active');
           isActive = false;
@@ -35,7 +69,8 @@ let isActive = false;
           dispatch(toggle(name))
       }
         
-
+const menuToggle = useSelector(state => state.toggle['primary_menu']);
+console.log(menuToggle);
   
     let currentLocation = String(useLocation().pathname),
     backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
@@ -47,7 +82,7 @@ let isActive = false;
 
 
     {/* toggle menu button */}
-    <motion.button  
+    <motion.button
       initial={'initial'}
       animate={'animate'}
       exit={'exit'}
@@ -55,10 +90,12 @@ let isActive = false;
       transition={'transition'}
       className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} 
       onClick={event => onClickToggleNavigation(event, 'primary_menu')} >
-      <motion.span variants={burgerMenu[0]}>|</motion.span>
-      <motion.span variants={burgerMenu[1]}>|</motion.span>
-      <motion.span variants={burgerMenu[2]}>|</motion.span>
-    </motion.button>
+      <motion.span variants={menuToggle ? burgerMenuExit[0]:  burgerMenu[0]}>|</motion.span>
+      <motion.span variants={menuToggle ? burgerMenuExit[1]:  burgerMenu[1]}>|</motion.span>
+      <motion.span variants={menuToggle ? burgerMenuExit[2]:  burgerMenu[2]}>|</motion.span>
+      
+    </motion.button> 
+    
     <Toggle id={'primary_menu'}>
     {/* main menu */}
     <div className={(isActive === false) ? 'main-nav__wrapper main-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      
