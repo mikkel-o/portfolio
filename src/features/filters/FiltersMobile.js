@@ -36,14 +36,6 @@ const activeFilterSpanTwo = {
   animate: { y: -100, transition: transition },
   hover: { y: 0, transition: transition }
 };
-const filterMenuBtnOne = {
-  animate: { x: -14, transition: transition },
-  hover: { x: 0, transition: transition }
-};
-const filterMenuBtnTwo = {
-  animate: { x: 14, transition: transition },
-  hover: { x: 0, transition: transition }
-};
 
 
 
