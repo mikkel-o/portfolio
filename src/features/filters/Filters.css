@@ -279,7 +279,7 @@ cursor: not-allowed;
     background: #43C6AC;
 }
 .role .active-filter-bg {
-    background: #43C6AC99;
+    background: #84dccd;
 }
 .role .active .filter-name::before{
     background: #43C6AC;
@@ -297,7 +297,7 @@ border: 1px solid #43C6AC;
     background: #57ddab;
 }
 .technique .active-filter-bg {
-    background: #57ddab99;
+    background: #89eacc;
 }
 .technique .active .filter-name::before{
     background: #57ddab;
@@ -315,7 +315,7 @@ border: 1px solid #57ddab;
     background: #aef2a8;
 }
 .type .active-filter-bg {
-    background: #aef2a899;
+    background: #cdf7cb;
 }
 .type .active .filter-name::before{
     background: #aef2a8;
@@ -333,7 +333,7 @@ border: 1px solid #aef2a8;
     background: #F8FFAE;
 }
 .company .active-filter-bg {
-    background: #F8FFAE99;
+    background: #fbfcce;
 }
 .company .active .filter-name::before{
     background: #F8FFAE;

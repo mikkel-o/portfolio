@@ -284,18 +284,21 @@ console.log(useSelector(state => state));
         <div className={isActive ? isEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} ref={ref}>
           {/*                  FILTERS MENU                   */}
           {/* ref={ref} */}
-          
+          <div className={'projects-counter'}>
           <motion.button initial={'initial'}
                         animate={'animate'}
                         exit={'exit'}
                         whileHover={'hover'}
                         transition={'transition'}
-                        onClick={event => onClickToggleMenu(event, ('filters__menu__mobile'))} className={'filters-mobile-btn '}>
-            <span>|</span>
-            <span>|</span>
-            <motion.span variants={filterMenuBtnOne} className={'small-circle'}></motion.span>
-            <motion.span variants={filterMenuBtnTwo} className={'small-circle'}></motion.span>
-          </motion.button>
+                        onClick={event => onClickToggleMenu(event, ('filters__menu__mobile'))} 
+                        className={'filters-mobile-btn '}>
+             
+            <span className={'projects-counter-current'}>{isActive ? projectedCount : countCurrent }</span>
+            <span className={'projects-counter-total'}>{` / ${countTotal}`}</span>
+            </motion.button>
+          </div>
+            
+          
           
             
             {/*                   ACTIVE FILTERS                   */}
@@ -349,20 +352,7 @@ console.log(useSelector(state => state));
             ))
           }
           
-          {(activeFilters.length > 0) ? 
-          <div className={'filters clear'}>
-            {/* onClick={onClickClearHandler} */}
-            <button 
-              className={'filters-clear-btn'} 
-              onClick={onClickClearHandler}
-            >
-              <h4 className={'filters-clear-title'}>
-                {isActive ? 'clear filters' : 'clear filters'}
-              </h4>
-            </button>
-          </div>
-          : ''
-        }
+        
 
           </div>
            : '' }
@@ -421,8 +411,26 @@ console.log(useSelector(state => state));
     ) )
           }
           </div>
-          <div className={'filters-item filters-item-apply'}>
 
+         
+
+          <div className={'filters-item filters-item-apply'}>
+          {(activeFilters.length > 0) ? 
+          <div className={'filters clear'}>
+            {/* onClick={onClickClearHandler} */}
+            <button 
+              className={'filters-clear-btn'} 
+              onClick={onClickClearHandler}
+            >
+             
+              <h4 className={'filters-clear-title'}>
+              {isActive ?  'clear' : ''}
+              </h4>
+            
+            </button>
+          </div>
+          : ''
+        }
 {/*onClick={event => onClickApplyFilters(event, filtersTitle)}*/}
 <button 
   className={'filters-apply-btn'}
@@ -440,10 +448,7 @@ console.log(useSelector(state => state));
           
           
           
-          <div className={'projects-counter'}>
-            <span className={'projects-counter-current'}>{isActive ? projectedCount : countCurrent }</span>
-            <span className={'projects-counter-total'}>{` / ${countTotal}`}</span>
-          </div>
+         
 
           
         </div>
@@ -505,3 +510,9 @@ const getSiblings = function (elem) {
 	return siblings;
 };
 /* SIBLINGS END */
+
+
+/*<span>|</span>
+<span>|</span>
+<motion.span variants={filterMenuBtnOne} className={'small-circle'}></motion.span>
+<motion.span variants={filterMenuBtnTwo} className={'small-circle'}></motion.span>*/

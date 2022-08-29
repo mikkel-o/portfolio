@@ -82,7 +82,7 @@ function onPan(event, info) {
 
 
 
-  return (
+  return (<Link  to={`/projects/${project.name}`} onClick={onClickHandler}>
     <motion.div key={project.id} className="project" 
     initial={'rest'} whileFocus={"hover"} onPan={onPan} whileHover={"hover"} animate={'rest'} tabIndex={project.id} transition={{staggerChildren: 0.05}}>
       <span className="project-container" >
@@ -111,11 +111,11 @@ function onPan(event, info) {
         
       </span>
       <motion.div className="project-button-wrapper" variants={btnMotion}>
-            <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
-            <button className={'play'}> play</button>
+            <button className={'more'}> more </button> 
           </motion.div>
       {children}
     </motion.div>
+    </Link>
   );
 }
 
