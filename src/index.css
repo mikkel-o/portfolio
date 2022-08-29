@@ -179,7 +179,9 @@ max-width: 120px;
 .project-name,
 .project-role,
 .project-type,
-.project-company {
+.project-company,
+.project-image,
+.project-container {
   pointer-events: none;
 }
 /*.project:hover .project-image,

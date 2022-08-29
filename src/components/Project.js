@@ -76,6 +76,7 @@ const onClickHandler = (e) => {
 function onPan(event, info) {
   console.log(info.point.x, info.point.y)
   console.log(info);
+  console.log(event.target);
   event.target.focus();
 }
 
@@ -93,10 +94,7 @@ function onPan(event, info) {
           
           <motion.h3 className="project-role" variants={titleMotionHidden}>{project.role.map(element => element).join(' | ')}</motion.h3>
           
-          <motion.div className="project-button-wrapper" variants={btnMotion}>
-            <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
-            <button className={'play'}> play</button>
-          </motion.div>
+          
 
 
           
@@ -112,6 +110,10 @@ function onPan(event, info) {
         
         
       </span>
+      <motion.div className="project-button-wrapper" variants={btnMotion}>
+            <Link  to={`/projects/${project.name}`} onClick={onClickHandler}><button className={'more'}> more </button> </Link>
+            <button className={'play'}> play</button>
+          </motion.div>
       {children}
     </motion.div>
   );

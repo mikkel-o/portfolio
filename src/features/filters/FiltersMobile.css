@@ -14,10 +14,10 @@
     max-height: 0;
 }
 .open .filters-ref-wrapper-mobile {
-    padding: 20px 10px;
+    padding: 20px 10px 100px;
     margin: 0 10px;
     /*box-shadow: 1px 1px 3px #828282;*/
-    max-height: calc(100vh - 135px);
+    max-height: 100%;
 }
 
 

@@ -28,7 +28,7 @@ export const filterSlice = createSlice({
     },
 
     clearActiveFilters: (state) => {state.activeFilters = []},
-    projectedCounts: (state, action) => {state.projectedCount = action.payload},
+    projectedCounts: (state, action) => {state.projectedCount = [action.payload]},
 
   },
 

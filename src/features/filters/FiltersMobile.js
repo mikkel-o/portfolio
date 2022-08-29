@@ -200,7 +200,7 @@ console.log(newList);
 /*if (newList.length === 0) {
   dispatch(projectedCounts(allFilteredProjects.length) );
 } */
-//dispatch(projectedCounts(Math.max(...pseudoCount.flat())) );
+
 
 };
   
