@@ -35,7 +35,7 @@ const burgerMenuExit = [
     //initial: {y: -4, rotate: 0},
     animate: {y: 6, rotate: 45, transition: {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]} },
     //animate: {y: 0, transition: {duration: .2, rotate: 45, ease: [0.3, 0.13, 0.13, 0.96]} },
-    hover: { scale: 1.1, y: 6, rotate: 45, transition: transition },
+    hover: { y: 6, rotate: 0, transition: transition },
     //exit: {y: 0, opacity: 0, transition: {duration: 1, ease: [0.3, 0.13, 0.13, 0.96]} },
   },
   { 
@@ -47,7 +47,7 @@ const burgerMenuExit = [
     //initial: {y: 4, rotate: 0 },
     animate: {y: -6, rotate: -45, transition: {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]} },
    // animate: {y: 0, transition: {duration: .2, rotate: 45, ease: [0.3, 0.13, 0.13, 0.96]} },
-    hover: { scale: 1.1, y: -6, rotate: -45, transition: transition }, 
+    hover: {y: -7, rotate: 0, transition: transition }, 
     //exit: {y: 0, opacity: 0, transition: {duration: 1, ease: [0.3, 0.13, 0.13, 0.96]} },
   }
 ];
@@ -104,7 +104,7 @@ console.log(menuToggle);
           <Link to={'/about'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >about</Link>
         </li>
         <li className={'main-nav__item'}>
-          <Link to={'/projects'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >animation & vfx</Link>
+          <Link to={'/projects'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >projects</Link>
         </li>
         <li className={'main-nav__item'}>
           <Link to={'/contact'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >contact</Link>

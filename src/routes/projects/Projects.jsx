@@ -42,7 +42,7 @@ export default function Projects() {
 
   const dispatch = useDispatch();
   const allProjects = useSelector(selectAllProjects);
-
+  
   
 
   // Arrays
@@ -136,6 +136,10 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
 
 
 
+
+
+
+
 /*                               JSX                                  */
 
   return (
@@ -170,6 +174,7 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
           </>
         )}
       </main>
+      
   </div> /* end */
   );
 }

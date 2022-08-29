@@ -5,7 +5,8 @@ import { hideAllToggles} from "../../components/toggleSlice";
 import {
   addActiveFilter,
   removeActiveFilter ,
-  clearActiveFilters
+  clearActiveFilters,
+  projectedCounts
 } from './filtersSlice'
 import { motion } from "framer-motion";
 import { Toggle} from "../../components/Toggle";
@@ -62,12 +63,15 @@ export default function FiltersMobile(filtersTitles) {
   const ref = useRef();
   const allProjects = useSelector(selectAllProjects);
   const allFilteredProjects = useSelector(selectFilteredAllProjects);
-  
+  const projectedCount = useSelector(state => state.filter.projectedCount);
   const activeFilters = useSelector(state => state.filter.activeFilters);
   const toggleState = useSelector((state) => state.toggle);
   const toggleIdSuffix = '_toggle';
   const toggleIdPrefix = 'filters_';
 
+
+  const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
+const isEmpty = activeFilters.length === 0 ? false : true;
   // Arrays
   
 
@@ -111,7 +115,7 @@ let all;
   }
   
   // Detect click outside filters box (try and put in seperat hook so it can be reused)
-  useOnClickOutside(ref, () => dispatch(hideAllToggles('filters')));
+  useOnClickOutside(ref, () => {dispatch(hideAllToggles('filters')); dispatch(projectedCounts(allFilteredProjects.length))});
 let newListIndex = [];
 const oldList = activeFilters;
 let newList = [];
@@ -185,11 +189,18 @@ siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseu
 
         
       });
-
+      
   console.log(filters[i]);
-  console.log(siblings[i].children[1].children);
+  
+      
+  
 }
-
+console.log(newList);
+//e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[0].innerHTML = Math.max(...pseudoCount.flat());
+/*if (newList.length === 0) {
+  dispatch(projectedCounts(allFilteredProjects.length) );
+} */
+//dispatch(projectedCounts(Math.max(...pseudoCount.flat())) );
 
 };
   
@@ -199,7 +210,7 @@ siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseu
   const onClickApplyFilters = (event, newList, index) => { 
     
     const newFilters = newList;
-    
+    console.log(newFilters);
     if (newFilters.length !== 0) {
       dispatch(clearActiveFilters());
       newFilters.forEach((filter, index) => {
@@ -207,7 +218,6 @@ siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseu
           filter
         ));
         
-
       })
     } else {
       dispatch(clearActiveFilters());
@@ -252,10 +262,16 @@ filterTitles.forEach(filtersTitle => {
   
 });
 
-const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
-const isEmpty = activeFilters.length === 0 ? false : true;
+
 
 console.log(isActive);
+const countCurrent = allFilteredProjects.length;
+const countTotal = allProjects.length;
+console.log(countCurrent);
+console.log(projectedCount);
+
+console.log(useSelector(state => state));
+
 
 /*                          CONSOLE LOGs                              */
 
@@ -424,7 +440,10 @@ console.log(isActive);
           
           
           
-
+          <div className={'projects-counter'}>
+            <span className={'projects-counter-current'}>{isActive ? projectedCount : countCurrent }</span>
+            <span className={'projects-counter-total'}>{` / ${countTotal}`}</span>
+          </div>
 
           
         </div>

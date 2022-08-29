@@ -91,47 +91,80 @@ button, a {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
-  border-radius: 6px;
-  border: solid 1px #141c3a;
+  border-radius: 2px;
+  /*border: solid 1px #141c3a;*/
+  /*box-shadow: 0px 0px 2px #505156;*/
   overflow: hidden;
   min-height: 330px;
 }
 
 .project-button-wrapper {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   right: 10%;
   display: flex;
     flex-wrap: wrap;
     justify-content: right;
     margin: 20px 0 0;
+    width: 100%;
 }
+.project-button-wrapper button{
+width: 100%;
+max-width: 120px;
+    margin: 0px;
+    padding: 10px 20px;
 
-.project-type, .project-company  {
+}
+.project-button-wrapper a{
+  width: 100%;
+  max-width: 120px;
+    margin-right: 10px;
+  }
+  
+.project-type, .project-technique, .project-company  {
   position: absolute;
   margin: 0;
   
 }
-.project-name, .project-role, .project-technique {
+.project-name, .project-role {
   margin: 0;
   padding: 0;
+}
+.project-name {
+  margin-top: 20px;
 }
 .project-role {
   top: 0;
   left: 0;
 }
-.project-technique {
-  top: 0;
-  right: 0;
-}
+
 .project-type {
-  bottom: 0;
-  left: 0;
+  top: 10px;
+  right: 20px;
 
 }
 .project-company {
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 20px;
+}
+.project-company::before {
+  content: "\00A9";
+    padding-right: 5px;
+    color: rgb(63, 63, 63);
+  display: inline-block;
+  font-size: 1.2em;
+}
+.projects-counter {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+.projects-counter-current {
+  color: #353535;
+  font-weight: 700;
+}
+.projects-counter-total {
+  color: #353535;
 }
 
 .project:hover,
@@ -141,8 +174,7 @@ button, a {
   /*background: #141c3a;*/
   /*color: #ffffff;*/
 }
-.project-container,
-.project-info,
+
 .project-technique,
 .project-name,
 .project-role,
@@ -156,17 +188,13 @@ button, a {
   opacity: 0.7;
 }*/
 
-.project-name {
-  margin: 0;
-  
-}
 
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  
+  margin: 0 15px;
   
 }
 
@@ -174,11 +202,11 @@ button, a {
   grid-row-start: 1;
   grid-column-start: 1;
   display: grid;
-  align-items: center;
+  align-items: baseline;
   justify-content: left;
   
   height: inherit;
-  padding: 30px;
+  padding: 20px;
 }
 
 #projects-wrapper {
@@ -283,7 +311,14 @@ h2 {
   margin: 0;
   text-align: left;
 }
-
+.filters-apply {
+  font-weight: 500;
+  color: #353535;
+  font-family: "Oxygen", sans-serif;
+  text-transform: uppercase;
+  
+  
+}
 h1,
 h2,
 h3,

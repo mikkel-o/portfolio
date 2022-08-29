@@ -14,13 +14,16 @@
     max-height: 0;
 }
 .open .filters-ref-wrapper-mobile {
-    padding: 20px 25px;
+    padding: 20px 10px;
     margin: 0 10px;
     /*box-shadow: 1px 1px 3px #828282;*/
     max-height: calc(100vh - 135px);
 }
+
+
+
 .empty.open .filters-ref-wrapper-mobile {
-    margin: 42px 10px 12px;
+    margin: 42px 0px 12px;
 }
 
 .filters-mobile:first-child {
@@ -124,7 +127,7 @@
 }
 
 .filters-button-mobile {
-    padding: 15px 5px;
+    padding: 10px 5px;
 }
 
 .mobile .filter-name {
@@ -157,7 +160,7 @@ padding: 0;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     grid-column-gap: 45px;
     grid-row-gap: 30px;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     /*width: 100%;*/
     
 }
@@ -229,7 +232,7 @@ padding: 0;
     margin:0 3px!important;
 }
 .mobile .filters.clear {
-    margin-left: auto;
+    margin-left: 0;
 }
 
 
@@ -281,3 +284,4 @@ padding: 0;
 .mobile .filter-count-filter {
     float: left;
 }
+

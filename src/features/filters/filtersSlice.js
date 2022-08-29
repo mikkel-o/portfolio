@@ -5,6 +5,7 @@ export const filterSlice = createSlice({
   initialState: {
     allFilters: [],
     activeFilters: [],
+    projectedCount: [],
   },
   reducers: {
     addAllFilters: (state, action) => {
@@ -27,6 +28,7 @@ export const filterSlice = createSlice({
     },
 
     clearActiveFilters: (state) => {state.activeFilters = []},
+    projectedCounts: (state, action) => {state.projectedCount = action.payload},
 
   },
 
@@ -34,7 +36,7 @@ export const filterSlice = createSlice({
   
 });
 
-export const { addActiveFilter, removeActiveFilter, clearActiveFilters, addAllFilters } = filterSlice.actions;
+export const { addActiveFilter, removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts } = filterSlice.actions;
 
 export const selectActiveFilters = (state) => state.filter.activeFilters;
 

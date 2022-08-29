@@ -87,7 +87,7 @@ function onPan(event, info) {
       <span className="project-container" >
         <motion.img variants={imgMotion} src={project.img} alt="" className="project-image" />
         <motion.div className={'project-info'} >
-        <motion.h5 className="project-technique" variants={titleMotionHidden}>{project.technique.map(element => element).join(' | ')}</motion.h5>
+        
           <motion.h2 className="project-name" variants={titleMotionHidden}>{project.name}</motion.h2>
           
           
@@ -99,8 +99,9 @@ function onPan(event, info) {
           </motion.div>
 
 
-          <motion.h5 className="project-type" variants={titleMotionHidden}>{project.type.map(element => element).join(' | ')}</motion.h5>
-          <motion.h5 className="project-company" variants={titleMotionHidden}>{project.company.map(element => element).join(' | ')}</motion.h5>
+          
+          
+          <motion.h5 className="project-company" variants={titleMotionHidden}>{`${project.company.map(element => element).join(' | ')} + Client name`}</motion.h5>
           
         </motion.div>
         
@@ -119,5 +120,5 @@ function onPan(event, info) {
 //whileFocus={"hover"}  
 
 
-
-
+//<motion.h5 className="project-technique" variants={titleMotionHidden}>{project.technique.map(element => element).join(' | ')}</motion.h5>
+//<motion.h5 className="project-type" variants={titleMotionHidden}>{project.type.map(element => element).join(' | ')}</motion.h5>

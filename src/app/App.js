@@ -15,7 +15,7 @@ function App() {
  {/* <Outlet> to show content */}
  <Outlet />
       
-      <PrimaryNavigation navigationItems={['about', 'animation & vfx', 'contact']} />
+      <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
 
 
      

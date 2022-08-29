@@ -6,11 +6,7 @@
     pointer-events: none;
     padding: 5px 0;
 }
-.filters-apply {
-    font-weight: 900;
-    color: #353535;
-    
-}
+
 
 
 .filters-title:after{
@@ -122,11 +118,16 @@
     background: blue;
 }*/
   
-.filters .inactive,
+.filters .inactive {
+cursor: not-allowed;
+}
+
 .filters .inactive button {
-    color: grey;
+    color: #ababab;
     pointer-events: none;
 }
+
+
 
 .filter-count {
     padding: 10px 10px 10px 5px;
@@ -150,7 +151,7 @@
 }
 
 .inactive .filter-name::before{
-    border: 1px solid grey;
+    border: 1px solid #ababab;
 }
 
 .filters {
@@ -181,12 +182,26 @@
 .filters-clear-btn {
     padding: 4px 20px 5px;
 }
-.filters-apply {
-    text-decoration: underline;
+
+.filters-apply-btn .filters-apply{
+    color: rgb(27, 39, 21);
+}
+.filters-apply-btn:hover .filters-apply{
+    color: rgb(27, 39, 21);
 }
 .filters-apply-btn {
-    padding: 20px 0 20px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    background: rgb(227, 234, 226)!important;
+    box-shadow: 0px 0px 1px rgb(156, 197, 150);
+
 }
+.filters-apply-btn:hover {
+    background: rgb(169, 236, 163)!important;
+
+}
+
+
 .filters-clear-btn {
     border: none;
 }
@@ -349,9 +364,9 @@ border: 1px solid #F8FFAE;
 .filters-item-apply:hover {
     background: none;
 }
-.filters-apply-btn:hover {
-    background: #eee;
-}
+
+
+
 
 
 .filters-clear-btn,
@@ -410,3 +425,12 @@ justify-content: right;
   }
 
   
+
+  .projects-counter {
+    position: absolute;
+    top: 16px;
+    right: 75px;
+    z-index: 10;
+    font-size: 0.9em;
+    max-height: 30px;
+  }
