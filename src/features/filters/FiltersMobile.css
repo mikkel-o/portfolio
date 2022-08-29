@@ -222,7 +222,7 @@ padding: 0;
     width: calc(100% - 170px);
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
+    justify-content: flex-end;
     position: absolute;
     top: 55px;
     right: 10px;
