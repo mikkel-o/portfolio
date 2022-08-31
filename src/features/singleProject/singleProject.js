@@ -13,6 +13,8 @@ import { motion } from 'framer-motion';
 
 const SingleProject = () => {
   
+  const columns = useSelector(state => state.toggle.columnCount);
+  console.log(columns);
   const singleProject = useSelector(selectProject);
 
   const { isLoading } = useSelector((state) => state.singleProject);
@@ -26,7 +28,7 @@ const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
 
 // the below parameters work mainly for one column layout. need to find a way to add multiples per amount of columns.
 
-const duration = 0.1,
+const duration = columns === 1 ? .1 : .5,
       ease = [.33, .13, .63, .96];
 
 const variants = {
@@ -34,8 +36,15 @@ const variants = {
 
     scaleX: 1,
     y: startingCoord[1],
-    x: isMobile ? startingCoord[0] - 15  : startingCoord[0] - startingCoord[2] - 100,
-    //
+    x: isMobile ? 
+        columns === 1 ? 
+          startingCoord[0] - 15 : 
+          columns === 2 ? 
+            startingCoord[0] - startingCoord[2] - 35 : ''
+      : columns === 3 ? 
+          startingCoord[0] - startingCoord[2] - startingCoord[2] - 120 : 
+          columns === 4 ? 
+            startingCoord[0] - startingCoord[2] - startingCoord[2] - startingCoord[2] - 140 : '',
     width: startingCoord[2],
     height: startingCoord[3],
     transition: {

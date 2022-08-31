@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
-import { toggleMobile } from "../components/toggleSlice";
+import { toggleMobile, columnCount } from "../components/toggleSlice";
 
 
 function debounce(fn, ms) {
@@ -21,17 +21,42 @@ function debounce(fn, ms) {
 function App() {
  
 const dispatch = useDispatch();
+
+if (window.innerWidth > 1349) {
+  dispatch(columnCount(4));
+  dispatch(toggleMobile(false));
+} else if (window.innerWidth > 949) {
+  dispatch(columnCount(3));
+  dispatch(toggleMobile(false));
+} else if (window.innerWidth > 599) {
+  dispatch(columnCount(2));
+  dispatch(toggleMobile(true));
+} else {
+  dispatch(columnCount(1));
+  dispatch(toggleMobile(true));
+}
+
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       
 
-      if (window.innerWidth > 949) {
+      if (window.innerWidth > 1349) {
+        dispatch(columnCount(4));
         dispatch(toggleMobile(false));
-      }
-      else {
+      } else if (window.innerWidth > 949) {
+        dispatch(columnCount(3));
+        dispatch(toggleMobile(false));
+      } else if (window.innerWidth > 599) {
+        dispatch(columnCount(2));
+        dispatch(toggleMobile(true));
+      } else {
+        dispatch(columnCount(1));
         dispatch(toggleMobile(true));
       }
     }, 100)
+
+
+
 
     window.addEventListener('resize', debouncedHandleResize)
 

@@ -6,6 +6,7 @@
         grid-template-columns: repeat(2, minmax(150px, 31vw))!important
         
     }
+   
     .empty.open .filters-ref-wrapper-mobile {
         margin: 45px 10px 12px!important;
     }
@@ -24,11 +25,19 @@
         .bleh {
             grid-column-gap: 40px!important;
         }
+        
     }
     @media (min-width: 600px) { 
         .bleh {
             grid-column-gap: 60px!important;
         }
+        .projects-container {
+            grid-template-columns: repeat(2, 1fr);
+            
+          }
+          .projects-contain {
+            grid-template-columns: repeat(2, 1fr);
+          }
     }
         
 
@@ -37,6 +46,7 @@
         grid-column-gap: 25px!important;
         grid-template-columns: repeat(4, minmax(150px, 1fr))!important;
     }
+   
 }
 @media (min-width: 780px) { 
     .bleh {
@@ -64,17 +74,31 @@
     .bleh {
         grid-template-columns: repeat(4, minmax(150px, 1fr));
     }
-   /* .open .bleh {
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
-        grid-template-columns: repeat(4, minmax(150px, 1fr));
-    } 
-    .projects-header.mobile.open  {
-      
-          margin: 0px 10px 0 0px;
-          width: 88%;
-          min-width: 400px;
-      max-width: 850px;
+
+
+
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr);
+        
       }
-      */
+      .projects-contain {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+
+}
+
+@media (min-width: 1350px) { 
+ 
+
+
+    .projects-container {
+        grid-template-columns: repeat(4, 1fr);
+        
+      }
+      .projects-contain {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+
 }

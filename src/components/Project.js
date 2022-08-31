@@ -63,12 +63,17 @@ const onClickHandler = (event) => {
 
   const parentPos = event.target.parentElement.parentElement.parentElement.parentElement.getBoundingClientRect();
   const childPos = event.target.parentElement.parentElement.parentElement.getBoundingClientRect();
+  console.log(event.target.parentElement.parentElement.parentElement);
   const relativePos = {
 y: childPos.top - parentPos.top,
 x: childPos.left - parentPos.left,
 width: childPos.width,
 height: childPos.height
   };
+
+
+
+
 
 
 console.log(relativePos);
@@ -78,6 +83,8 @@ console.log(relativePos);
 console.log(childPos);
   console.log(relativePos);
   const coord = [childPos.x, childPos.y, childPos.width, childPos.height];
+  console.log(childPos.x)
+  console.log(relativePos.x)
   dispatch(clearProjects());
   dispatch(addProject(project));
   dispatch(projectCoord(coord));
