@@ -13,7 +13,7 @@ const AllProjects = () => {
     return <Spinner />;
   }
 
-  
+ 
   
 
   return (

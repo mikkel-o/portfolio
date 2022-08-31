@@ -3,19 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 export const toggleSlice = createSlice({
   name: "toggle",
   initialState: {
+    isMobile:   window.innerWidth > 949 ? false : true,
   },
   reducers: {
 
     toggle: (state, action) => {
 
       if (action.payload === 'hideAll') {
-        Object.keys(state).forEach(v => state[v] = false);
+        Object.keys(state).forEach(v => v.isMobile ? state[v] : state[v] = false);
       } else {
         console.log(action.payload);
       // initiate first toggle
+      
       state[action.payload] = !state[action.payload]
       // hide others when current toggle activates
-      Object.entries(state).forEach(([key]) => key === action.payload ? state[key] : state[key] = false);
+      Object.entries(state).forEach(([key]) => key === action.payload || state.isMobile ? state[key] : state[key] = false);
       
       }
       
@@ -31,12 +33,17 @@ export const toggleSlice = createSlice({
       
       Object.keys(state).forEach(v => v.includes(action.payload) ? state[v] = false : state[v])
     },
-  
+    toggleMobile: (state, action) => {
+
+      state.isMobile = action.payload;
+      
+      
+    }
  },
   
 });
 
-export const { toggle, hideToggle, hideAllToggles } = toggleSlice.actions;
+export const { toggle, hideToggle, hideAllToggles, toggleMobile } = toggleSlice.actions;
 
 export const selectToggle = (state) => state.toggle;
 

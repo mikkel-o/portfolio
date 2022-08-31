@@ -244,11 +244,12 @@ cursor: not-allowed;
     border-radius: 5px;
     overflow: hidden;
     background: none;
-    
+    box-shadow: 1px 1px 3px #7d7d7d;
 }
 .active-filters-item {
     margin: 0px 5px 0px 0;
     position: relative;
+    max-height: 25px;
 }
 .active-filters-item:first-child {
     margin-left: 0;
@@ -417,11 +418,13 @@ justify-content: right;
     display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10;
     background-color: white;
+    min-height: 50px;
     
+    width: 100%;
   }
 
   
@@ -434,3 +437,6 @@ justify-content: right;
     font-size: 0.9em;
     max-height: 30px;
   }
+
+
+

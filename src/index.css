@@ -30,7 +30,7 @@ button, a {
   display: flex;
   flex-direction: column;
   color: #141c3a;
-  padding: 55px 0 0 0;
+  padding: 0px 0 0 0;
 }
 
 #search-container {
@@ -97,7 +97,9 @@ button, a {
   overflow: hidden;
   min-height: 330px;
 }
-
+.project.overflow {
+  overflow:visible;
+}
 .project-button-wrapper {
   position: absolute;
   bottom: 15%;
@@ -132,6 +134,24 @@ max-width: 120px;
 }
 .project-name {
   margin-top: 20px;
+  
+}
+
+
+.project .project-name,
+.project .project-role,
+.project .project-company,
+.project .project-button-wrapper {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.project:hover .project-name,
+.project:hover .project-role,
+.project:hover .project-company,
+.project:hover .project-button-wrapper {
+  opacity: 1;
+  transition: opacity 0.7s ease;
+  
 }
 .project-role {
   top: 0;
@@ -199,6 +219,21 @@ max-width: 120px;
   margin: 0 15px;
   
 }
+.projects-contain {
+  /*display: flex;
+  width: 100%;*/
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+ position: fixed;
+ top: 0;
+ left: 0;
+  margin: 0 15px 0 15px;
+  
+  width: calc(100% - 30px);
+  
+}
 
 .project-container {
   grid-row-start: 1;
@@ -210,11 +245,18 @@ max-width: 120px;
   height: inherit;
   padding: 20px;
 }
+/*
+.project-contain {
+
+  
+  padding: 20px;
+}*/
 
 #projects-wrapper {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .projects-section {
@@ -278,6 +320,7 @@ align-items: center;
     object-fit: cover;
     position: absolute;
     height: 100%;
+    right: 0;
 }
 
 
@@ -361,3 +404,19 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+
+
+a.hide img{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.more {
+  pointer-events: none;
+}
+
+
+/*.projects-contain .project {
+  width: calc(100% - 30px);
+  }*/

@@ -22,10 +22,10 @@ const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
 
 // Variants
 const filterColors = [
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#43C6AC99', 'rgb(255, 158, 158)'] } },
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#57ddab99', 'rgb(255, 158, 158)'] } },
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#aef2a899', 'rgb(255, 158, 158)'] } },
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#F8FFAE99', 'rgb(255, 158, 158)'] } }
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#89eacc', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#cdf7cb', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#fbfcce', 'rgb(255, 158, 158)'] } }
 ];
 const activeFilterSpan = {
   initial: { y: 0, transition: transition },
@@ -148,21 +148,20 @@ oldList.forEach(item => newList.push(item));
     let pseudoCount = [];
     
     const siblings = getSiblings(e.target.parentNode.parentNode).filter(sibling => sibling) ;
-console.log(siblings);
+
     
     
    
     for (let i = 0; i < filters.length; i++) {
       pseudoCount.push([]);
-      console.log(e.target.parentElement.parentElement);
+      
       filters[i].forEach((x, index) => {
         
         temp.push(x);
-        //console.log(x);
-        //console.log(index);
+        
         pseudoCount[i].push(allProjects.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
 
-        //console.log(tempArr);
+        
         //pseudoCount.push(allProjects.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
         
         //e.target.parentElement.parentElement.children[index].children[0].children[1].innerHTML = pseudoCount[index];
@@ -182,12 +181,12 @@ siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseu
         
       });
       
-  console.log(filters[i]);
+  
   
       
   
 }
-console.log(newList);
+
 //e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[0].innerHTML = Math.max(...pseudoCount.flat());
 /*if (newList.length === 0) {
   dispatch(projectedCounts(allFilteredProjects.length) );
@@ -202,7 +201,7 @@ console.log(newList);
   const onClickApplyFilters = (event, newList, index) => { 
     
     const newFilters = newList;
-    console.log(newFilters);
+    
     if (newFilters.length !== 0) {
       dispatch(clearActiveFilters());
       newFilters.forEach((filter, index) => {
@@ -215,7 +214,8 @@ console.log(newList);
       dispatch(clearActiveFilters());
     }
     
-    dispatch(toggle(toggleIdPrefix + filterTitles + toggleIdSuffix))
+    dispatch(toggle(toggleIdPrefix + filterTitles + toggleIdSuffix));
+    dispatch(hideAllToggles('filters'));
     
 }
 
@@ -250,19 +250,16 @@ filterTitles.forEach(filtersTitle => {
     
   )))
 
-  console.log(filters);
+  
   
 });
 
 
 
-console.log(isActive);
+
 const countCurrent = allFilteredProjects.length;
 const countTotal = allProjects.length;
-console.log(countCurrent);
-console.log(projectedCount);
 
-console.log(useSelector(state => state));
 
 
 /*                          CONSOLE LOGs                              */

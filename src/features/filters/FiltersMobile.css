@@ -45,7 +45,7 @@
     cursor: pointer;
     background: none;
         cursor: pointer;
-    width: 80px;
+    width: 90px;
     height: 40px;
     
     
@@ -54,7 +54,7 @@
     
     will-change: transform;
     transition: transform 0.15s ease;
-    
+    font-size: 1.1em;
 }
 
 .filters-mobile-btn::after{
@@ -169,19 +169,19 @@ padding: 0;
     
 }
 .projects-header.mobile {
-    position: fixed;
+    /*position: fixed;
     width: 100%;
       /*box-shadow: 1px 3px 5px #a7a7a7;
       border-radius: 5px;*/
       right: 0;
       margin: 0;
       background: none;
-      position: fixed;
+      /*position: sticky;*/
       width: 100%;
       right: 0;
       margin: 0;
       background: white;
-      min-height: 55px;
+      
       
   }
   /*.projects-header.mobile.open {

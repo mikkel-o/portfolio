@@ -4,70 +4,127 @@ import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
 import { motion } from 'framer-motion';
 
-const transition = {duration: .6, ease: [0.43, 0.13, 0.23, 0.96]}
 
-const infoMotion = {
-  rest: {
-    opacity: 1,
-    y: 25,
-    transition: {
-      transition
-    }
-  },
-  hover: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      transition
-    }
-  }
-};
 
-const imgMotion = {
-  rest: { scale: 1.01 },
-  hover: {
-    scale: 1.1,
-    transition: {
-      transition
-    }
-  }
-};
+
+
+
+
 
 const SingleProject = () => {
+  
   const singleProject = useSelector(selectProject);
+
   const { isLoading } = useSelector((state) => state.singleProject);
 
-  
+  const startingCoord = useSelector(state => state.singleProject.coord);
+
+  const isMobile = useSelector(state => state.toggle.isMobile);
+console.log(isMobile);
+const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
+
+
+// the below parameters work mainly for one column layout. need to find a way to add multiples per amount of columns.
+
+const duration = 0.1,
+      ease = [.33, .13, .63, .96];
+
+const variants = {
+  initial: {
+
+    scaleX: 1,
+    y: startingCoord[1],
+    x: isMobile ? startingCoord[0] - 15  : startingCoord[0] - startingCoord[2] - 100,
+    //
+    width: startingCoord[2],
+    height: startingCoord[3],
+    transition: {
+      ease: ease,
+      duration,
+
+
+      y: {
+        delay: duration,
+        duration: .5
+      },
+      height: {
+        delay: duration,
+        duration: .5
+      }
+    }
+  },
+  animate: {
+
+    scaleX: 1,
+    y: 50, 
+    x:  0,
+    width: '100%',
+    height: '33%',
+    transition: {
+      ease: ease,
+      duration,
+
+
+      y: {
+        delay: duration,
+        duration: .5
+      },
+      height: {
+        delay: duration,
+        duration: .5
+      }
+      
+    }
+  }
+};
+
+
+
+
+
+
   if (isLoading) {
     return <Spinner />;
   }
 
+  
+console.log(startingCoord);
+
   return (
-    <div className="projects-container">
+    <motion.div 
+      className="projects-contain" 
+      initial={
+        {
+          originX: 1,
+        width: isMobile ? 'calc(100% - 30px)' : 'calc(100% - 160px)',
+        height: '75%',
+      }
+    } 
+      animate={
+        {
+          width: isMobile ? 'calc(100% - 30px)' : 'calc(100% - 160px)',
+          height: '75%',
+        }
+      } 
+      transition={transition}
+    >
 
       
-<motion.div key={singleProject.id} className="project" initial={'rest'} whileHover="hover" animate={'rest'} tabIndex={0} transition={transition}>
-      <motion.span className="project-container" >
-        <motion.div className={'project-info'} variants={infoMotion}>
-        <h2 className="project-name">{singleProject.name}</h2>
-        <h3 className="project-role">{singleProject.role}</h3>
-        <h4 className="project-technique">{singleProject.technique}</h4>
-        <h5 className="project-technique">{singleProject.type}</h5>
-        <h6 className="project-company">{singleProject.company}</h6>
-        
-        </motion.div>
+<motion.div key={singleProject.id} style={{width: `${startingCoord[2]}`, height: `${startingCoord[3]}`}} className="" initial={'initial'} animate={'animate'} transition={transition}>
+      
+      
         
           
-          <motion.img variants={imgMotion} src={singleProject.img} alt="" className="project-image" />
+          <motion.img variants={variants} src={singleProject.img} alt="" className="project-image" />
           
         
         
         
-      </motion.span>
+      
       
     </motion.div>
       
-    </div>
+    </motion.div>
   );
 };
 

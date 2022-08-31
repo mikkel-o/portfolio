@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './primaryNavigation.css';
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
@@ -70,11 +70,11 @@ const PrimaryNavigation = (navigationItems) => {
       }
         
 const menuToggle = useSelector(state => state.toggle['primary_menu']);
-console.log(menuToggle);
-  
-    let currentLocation = String(useLocation().pathname),
-    backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
 
+  /*
+    let currentLocation = String(useLocation().pathname),
+    backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));*/
+console.log('blah');
 
   return (
      
@@ -115,11 +115,7 @@ console.log(menuToggle);
   
       {/* navigate back button */}
     
-  <Link to={`${backLocation}`} className={'back__link'}>
-        <button className={currentLocation === '/' ? `hide back__button` : `back__button`}>
-          <img alt={'go back'} src={'/icons/left-arrow.png'} />
-        </button>
-      </Link> 
+ 
 
 
   

@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects, selectAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
-
 import Filters from "../../features/filters/Filters";
 import FiltersMobile from "../../features/filters/FiltersMobile";
 
-
-function debounce(fn, ms) {
-  let timer
-  return _ => {
-    clearTimeout(timer)
-    timer = setTimeout(_ => {
-      timer = null
-      fn.apply(this, arguments)
-    }, ms)
-  };
-}
 
 
 /*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
@@ -42,7 +30,7 @@ export default function Projects() {
 
   const dispatch = useDispatch();
   const allProjects = useSelector(selectAllProjects);
-  
+  const isMobile = useSelector(state => state.toggle.isMobile)
   
 
   // Arrays
@@ -96,35 +84,10 @@ filtersTitles.forEach(filtersTitle => {
   )));
   });*/
 
-  const [dimensions, setDimensions] = useState({ 
-    height: window.innerHeight,
-    width: window.innerWidth
-  })
 
-  useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    }, 10)
 
-    window.addEventListener('resize', debouncedHandleResize)
 
-    return _ => {
-      window.removeEventListener('resize', debouncedHandleResize)
-    
-}
-})
 
-let isMobile;
-if (dimensions.width > 949) {
-  isMobile = false;
-}
-else {
-  isMobile = true;
-}
-console.log(isMobile);
 
 
 /*                          CONSOLE LOGs                              */
@@ -198,3 +161,6 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
           }
           
 */
+
+
+

@@ -54,7 +54,13 @@
     #app {
         padding: 0 65px;
     }
-
+    .projects-contain {
+        left: 65px;
+        margin: 0 15px 0 15px;
+  
+        width: calc(100% - 160px);
+        
+      }
     .bleh {
         grid-template-columns: repeat(4, minmax(150px, 1fr));
     }
