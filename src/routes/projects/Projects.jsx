@@ -106,7 +106,7 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
 /*                               JSX                                  */
 
   return (
-    <div className={''}>
+    <div className={'wrapper'}>
       
       {isMobile ?
       <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >

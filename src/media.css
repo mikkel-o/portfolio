@@ -38,6 +38,7 @@
           .projects-contain {
             grid-template-columns: repeat(2, 1fr);
           }
+          
     }
         
 
@@ -65,10 +66,10 @@
         padding: 0 65px;
     }
     .projects-contain {
-        left: 65px;
+        /*left: 65px;
         margin: 0 15px 0 15px;
   
-        width: calc(100% - 160px);
+        /*width: calc(100% - 160px);*/
         
       }
     .bleh {
@@ -82,8 +83,18 @@
         
       }
       .projects-contain {
-        grid-template-columns: repeat(3, 1fr);
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
       }
+
+      .project-image.project-single-image {
+        float: left;
+      }
+
+      .project-single-content-wrapper {
+        margin: 0 30px;
+      }
+      
 
 
 }

@@ -270,7 +270,16 @@ const countTotal = allProjects.length;
 
   return (
     
-        <div className={isActive ? isEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} ref={ref}>
+        <motion.div 
+          className={isActive ? isEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} 
+          ref={ref}
+          initial={{opacity: 1}}  
+          animate={{opacity: 1}} 
+          exit={{opacity: 0}} 
+          transition={{
+            duration: .5, ease: [0.3, 0.13, 0.13, 0.96]
+          }}
+        >
           {/*                  FILTERS MENU                   */}
           {/* ref={ref} */}
           <div className={'projects-counter'}>
@@ -440,7 +449,7 @@ const countTotal = allProjects.length;
          
 
           
-        </div>
+        </motion.div>
      
   );
 }

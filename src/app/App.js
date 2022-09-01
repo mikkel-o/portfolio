@@ -39,7 +39,7 @@ if (window.innerWidth > 1349) {
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       
-
+      console.log('RESIZE');
       if (window.innerWidth > 1349) {
         dispatch(columnCount(4));
         dispatch(toggleMobile(false));

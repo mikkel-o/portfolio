@@ -14,7 +14,7 @@ export const loadProject = createAsyncThunk(
         
       (single) => single.name === projectName
     );
-
+    
 
     return single;
   }
@@ -24,7 +24,7 @@ const sliceOptions = {
   name: "singleProject",
   initialState: {
     projects: [],
-    coord: [0, 0, '100%', '50%'],
+    coord: [0, 0, '100%', '50%', 0],
     isLoading: false,
     hasError: false
   },
