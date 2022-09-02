@@ -3,7 +3,7 @@ import './App.css';
 import { 
   Outlet 
 } from "react-router-dom";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
 import { toggleMobile, columnCount } from "../components/toggleSlice";
 
@@ -19,7 +19,7 @@ function debounce(fn, ms) {
   };
 }
 function App() {
- 
+  const isMobile = useSelector(state => state.toggle.isMobile)
 const dispatch = useDispatch();
 
 if (window.innerWidth > 1349) {
@@ -69,7 +69,7 @@ if (window.innerWidth > 1349) {
 
 
   return (
-    <div id="app">
+    <div id="app" className={isMobile ? 'mobile' : ''}>
  {/* <Outlet> to show content */}
  <Outlet />
       

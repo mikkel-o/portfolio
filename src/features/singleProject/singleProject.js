@@ -51,9 +51,9 @@ const variants = {
           columns === 2 ? 
             startingCoord[0] - startingCoord[2] - 35 : ''
       : columns === 3 ? 
-          startingCoord[0] - 80: 
+          startingCoord[0] - 15: 
           columns === 4 ? 
-            startingCoord[0] - 80 : '',
+            startingCoord[0] - 15 : '',
     width: startingCoord[2],
     height: startingCoord[3],
     
@@ -61,10 +61,10 @@ const variants = {
   animate: {
 
     
-    y:  0, 
-    x:  0,
+    y:  -35, 
+    x:  isMobile ? 0 : 0, 
     width: '100%',
-    height: isMobile ? '100%' : 'calc(100vh - 70px)', 
+    height: isMobile ? '100%' : 'calc(100vh - 30px)', 
     
     transition: {
       ease: ease,
@@ -81,6 +81,15 @@ const variants = {
       }
       
     }
+  },
+  exit: {
+    y: 100,
+    opacity: 0,
+    transition: {
+      ease: [0.66, 0.43, 0.53, 0.96],
+      duration: .6,
+      delay:.2
+  }
   }
 };
 
@@ -104,6 +113,11 @@ const titleMotion = {
         delay: 1,
       }
     },
+    exit: {
+      y: 100,
+      opacity: 0,
+      transition: transition
+    }
   
 };
 
@@ -126,6 +140,11 @@ const detailsMotion = {
         delay: 1,
       }
     },
+    exit: {
+      y: 100,
+      opacity: 0,
+      transition: transition
+    }
   
 };
 
@@ -169,7 +188,14 @@ const textMotion = {
         }
       }
     },
-  
+    exit: {
+      y: 100,
+      opacity: 0,
+      transition: {
+        ease: [0.66, 0.43, 0.53, 0.96],
+        duration: .5,
+    }
+    }
 };
 
 
@@ -216,6 +242,20 @@ const videoMotion = {
         }
       }
     },
+    exit: {
+      y: 200,
+      opacity: 0,
+      transition: {
+        ease: ease,
+        y: {
+          duration: .8,
+        },
+        opacity: {
+          
+          duration: .3
+        },
+      }
+    }
   
 };
 
@@ -226,7 +266,7 @@ const videoMotion = {
   }
 
   
-
+console.log(singleProject.album );
 
 
 
@@ -241,11 +281,12 @@ const videoMotion = {
       animate={
         'animate'
       } 
+      exit={'exit'}
       transition={transition}
     >
 
       
-<motion.div className={'projects-single-image-wrapper'} key={singleProject.id} style={isMobile ? {width: `100%`, height: `25vw`} :  {width: `100%`, maxHeight: `calc(100vh - 70px)`}} initial={'initial'} animate={'animate'} transition={transition}>
+<motion.div className={'projects-single-image-wrapper'} key={singleProject.id} style={isMobile ? {height: `25vw`} :  {width: `100%`, maxHeight: `calc(100vh - 30px)`}} initial={'initial'} animate={'animate'} exit={'exit'} transition={transition}>
     
           <motion.img variants={variants} src={singleProject.img} alt="" className="project-image project-single-image" />
       
@@ -313,38 +354,67 @@ const videoMotion = {
       
       </motion.div>
       </motion.div>
+
+    
+      {singleProject.album && singleProject.album.length !== 0 ? 
+      <div className={'video-wrapper'}>{
+      singleProject.album.map((e, i) => 
+      <motion.div  variants={videoMotion}
+      className={'video l-grid__item l-grid__item--album'} 
+      key={i}
+    >
+      <motion.div  className="c-video">
+        <div className="c-video__link-container">
+            <a 
+              className="c-video__link lightbox lightbox-link lightbox-video" 
+              href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
+            >
+              Watch
+            </a>
+        </div>
+        <video 
+          muted="muted" 
+          playsInline={true} 
+          loop="loop" 
+          className="c-video__video" 
+          poster={e.img}
+        >
+          <source 
+          type="video/mp4" 
+          src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
+          ></source>
+        </video>
+      </motion.div>
+    </motion.div> 
+    )
+      }</div>
+    :   
       <motion.div  variants={videoMotion}
         className={'video l-grid__item'} 
       >
-      <motion.div  className="c-video">
-						<div className="c-video__link-container">
-								<a 
-                  className="c-video__link lightbox lightbox-link lightbox-video" 
-                  href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
-                >
-
-
-                  Watch
-                </a>
-								
-			</div>
-			<video 
-        
-        muted="muted" 
-        playsInline={true} 
-        loop="loop" 
-        className="c-video__video" 
-        poster="/img/placeholder.jpeg">
-				<source 
-          type="video/mp4" 
-          src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
-        >
-
-        </source>
-			</video>
-		</motion.div>
-      </motion.div>
-
+        <motion.div  className="c-video">
+					<div className="c-video__link-container">
+							<a 
+                className="c-video__link lightbox lightbox-link lightbox-video" 
+                href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
+              >
+                Watch
+              </a>
+			    </div>
+			    <video 
+            muted="muted" 
+            playsInline={true} 
+            loop="loop" 
+            className="c-video__video" 
+            poster="/img/placeholder.jpeg"
+          >
+				    <source 
+            type="video/mp4" 
+            src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
+            ></source>
+			    </video>
+		    </motion.div>
+      </motion.div>}
       </div>
     
     </motion.div>

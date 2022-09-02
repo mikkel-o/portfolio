@@ -109,6 +109,9 @@ function onPan(event, info) {
 //whileHover={"hover"} FIX the hover it cause weird animation break on exiting the page
 
 return (
+  <motion.div className={''} variants={infoMotion}>
+      <Link  to={`/projects/${project.name}`} onClick={onClickHandler}>
+      <motion.div className="">
     <motion.div 
       key={project.id} 
       className="project" 
@@ -150,15 +153,14 @@ return (
       </span>
         
         
-      <motion.div className={'project-button'} variants={infoMotion}>
-      <Link  to={`/projects/${project.name}`} onClick={onClickHandler}>
-      <motion.div className="project-button-wrapper">
-            <button className={'more'}> more </button> 
-          </motion.div>
-          </Link>
-          </motion.div>
+      
+      
+          
       {children}
     </motion.div>
+    </motion.div>
+          </Link>
+          </motion.div>
     
   );
 }

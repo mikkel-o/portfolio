@@ -1,13 +1,36 @@
 [
     {
       "id": 1,
-      "name": "project-one",
-      "role": ["Role one", "Role two", "Role four"],
-      "technique": ["Technique one"],
-      "type": ["Type one"],
-      "company": ["Company one"],
-      "client": ["Client one"],
-      "img": "/img/placeholder.jpeg"
+      "name": "Legends of Runeterra",
+      "role": ["executive producer"],
+      "technique": ["2D animation"],
+      "type": ["branded content"],
+      "company": ["sun creature"],
+      "client": ["riot games"],
+      "img": "/img/Riot_Change_Your_Fate_4B_poster.jpeg",
+      "album": [
+        {
+          "id": 1,
+          "name": "sub-project-one",
+          "role": ["Role one", "Role two", "Role four"],
+          "technique": ["Technique one"],
+          "img": "/img/Riot_Change_Your_Fate_4B_poster.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/poster.png"
+        },
+        {
+          "id": 3,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/RiseOfTheUnderworlds_poster.jpeg"
+        }
+      ]
     },
     {
       "id": 2,
@@ -17,7 +40,7 @@
       "type": ["Type one"],
       "company": ["Company one"],
       "client": ["Client two"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/LNS_poster0.jpeg"
     },
     {
       "id": 3,
@@ -27,7 +50,7 @@
       "type": ["Type one"],
       "company": ["Company one"],
       "client": ["Client three"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/TO3_Poster.jpg"
     },
     {
       "id": 4,
@@ -37,7 +60,31 @@
       "type": ["Type one"],
       "company": ["Company one"],
       "client": ["Client four"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/MonkeyTennis_Poster.jpg",
+      
+      "album": [
+        {
+          "id": 1,
+          "name": "sub-project-one",
+          "role": ["Role one", "Role two", "Role four"],
+          "technique": ["Technique one"],
+          "img": "/img/Bird_Teaser_Thumb.jpg"
+        },
+        {
+          "id": 2,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/MonkeyTennis_Poster.jpg"
+        },
+        {
+          "id": 3,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/QH_Square_Thumb.jpg"
+        }
+      ]
     },
     {
       "id": 5,
@@ -47,27 +94,86 @@
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client five"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Viborg_Poster.jpg"
     },
     {
       "id": 6,
       "name": "Project six",
-      "role": ["Role one", "Role three"],
-      "technique": ["Technique two"],
-      "type": ["Type two"],
-      "company": ["Company two"],
-      "client": ["Client one"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 7,
-      "name": "Project seven",
       "role": ["Role two", "Role three"],
       "technique": ["Technique one"],
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client two"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Lego_Poster.jpg",
+      
+      "album": [
+        {
+          "id": 1,
+          "name": "sub-project-one",
+          "role": ["Role one", "Role two", "Role four"],
+          "technique": ["Technique one"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 3,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 4,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 5,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 6,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 7,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        },
+        {
+          "id": 8,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/placeholder.jpeg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Project seven",
+      "role": ["Role one", "Role three"],
+      "technique": ["Technique two"],
+      "type": ["Type two"],
+      "company": ["Company two"],
+      "client": ["Client one"],
+      "img": "/img/Tearaway_Poster.jpg"
     },
     {
       "id": 8,
@@ -77,7 +183,7 @@
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client six"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Monty_Poster.jpg"
     },
     {
       "id": 9,
@@ -87,7 +193,7 @@
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client three"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Elephunk_Poster.jpg"
     },
     {
       "id": 10,
@@ -97,7 +203,7 @@
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client five"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/AppleMusic_Poster.jpg"
     },
     {
       "id": 11,
@@ -107,7 +213,7 @@
       "type": ["Type two"],
       "company": ["Company two"],
       "client": ["Client two"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/path_poster.png"
     },
     {
       "id": 12,
@@ -117,7 +223,7 @@
       "type": ["Type three"],
       "company": ["Company two"],
       "client": ["Client seven"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Everdale_Poster.jpg"
     },
     {
       "id": 13,
@@ -127,7 +233,7 @@
       "type": ["Type three"],
       "company": ["Company three"],
       "client": ["Client eight"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Freeview_Poster.jpg"
     },
     {
       "id": 14,
@@ -137,7 +243,23 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client seven"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Santa_Square_Thumb.jpg",
+      "album": [
+        {
+          "id": 1,
+          "name": "sub-project-one",
+          "role": ["Role one", "Role two", "Role four"],
+          "technique": ["Technique one"],
+          "img": "/img/Cookies_Square_Thumb.jpg"
+        },
+        {
+          "id": 2,
+          "name": "sub-project-two",
+          "role": ["Role one"],
+          "technique": ["Technique two"],
+          "img": "/img/Santa_Square_Thumb.jpg"
+        }
+      ]
     },
     {
       "id": 15,
@@ -147,7 +269,7 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client four"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Noerregade_Poster.jpg"
     },
     {
       "id": 16,
@@ -157,7 +279,7 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client six"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Cadburys_Poster.jpg"
     },
     {
       "id": 17,
@@ -167,7 +289,7 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client two"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Business_Square_Thumb.jpg"
     },
     {
       "id": 18,
@@ -177,7 +299,7 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client one"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Mugge_Poster.jpg"
     },
     {
       "id": 19,
@@ -187,7 +309,7 @@
       "type": ["Type one"],
       "company": ["Company three"],
       "client": ["Client nine"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/AA_Poster.jpg"
     },
     {
       "id": 20,
@@ -197,7 +319,68 @@
       "type": ["Type two"],
       "company": ["Company three"],
       "client": ["Client eight"],
-      "img": "/img/placeholder.jpeg"
+      "img": "/img/Aquafresh_Poster.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Project twenty one",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/Heinekin_Poster.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Project twenty two",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/Messimorphosis_Poster.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Project twenty three",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/Minifig_Square_Thumb.jpg"
+    },
+    {
+      "id": 24,
+      "name": "Project twenty four",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/ExperienceDesign_Poster.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Project twenty five",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/Argos_Poster.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Project twenty six",
+      "technique": ["Technique one", "Technique two"],
+      "role": ["Role one", "Role three"],
+      "type": ["Type two"],
+      "company": ["Company three"],
+      "client": ["Client eight"],
+      "img": "/img/Interview_Square_Thumb.jpg"
     }
+
   ]
   
