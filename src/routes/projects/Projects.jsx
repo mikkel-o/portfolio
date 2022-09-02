@@ -7,38 +7,14 @@ import FiltersMobile from "../../features/filters/FiltersMobile";
 
 
 
-/*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
-|                        ANIMATION                             |
-\*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-// Constants
-
-
-// Variants
-
-
-
-/*-  - - - - - -- - - - - - - - - - - - - - -  - - - - - - - -*\
-|                         COMPONENT                            |
-\*-  - - - - - - - - - - - - - - - - - - - - -  - - - - - - - */
-
 export default function Projects() {
 
 
-/*                       DECLARATIONS                         */
-  
-  // Redux store data calls
 
   const dispatch = useDispatch();
   const allProjects = useSelector(selectAllProjects);
   const isMobile = useSelector(state => state.toggle.isMobile)
   
-
-  // Arrays
-
-  
-
-  
-
 /*                           LOAD DATA                          */
 
   // The if() is to stop it from fetching the data after the initial 

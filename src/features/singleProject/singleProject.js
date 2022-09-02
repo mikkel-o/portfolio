@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
@@ -13,6 +13,14 @@ import { motion } from 'framer-motion';
 
 
 const SingleProject = () => {
+  const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
+  luctus at facilisis nec, rutrum ac sapien. Proin ut neque faucibus, 
+  elementum nunc at, iaculis metus. In urna turpis, varius elementum 
+  mollis a, dapibus eget sapien. Maecenas eu libero sit amet nisi faucibus
+  suscipit vel ac sapien. Curabitur tortor lectus, venenatis sit amet 
+  dignissim in, maximus ac velit. Proin at fringilla magna.` ;
+  const [showMore, setShowMore] = useState(false);
   console.log(useSelector(state => state));
   const columns = useSelector(state => state.toggle.columnCount);
   console.log(columns);
@@ -56,7 +64,7 @@ const variants = {
     y:  0, 
     x:  0,
     width: '100%',
-    height: '100%', 
+    height: isMobile ? '100%' : 'calc(100vh - 70px)', 
     
     transition: {
       ease: ease,
@@ -83,8 +91,8 @@ const titleMotion = {
     y: 10,
     transition: {
       ease: ease,
-      duration: .5,
-      delay: .5,
+      duration: .8,
+      delay: 1,
     }
   },
   animate: {
@@ -92,8 +100,8 @@ const titleMotion = {
       y: 0,
       transition: {
         ease: ease,
-        duration: .5,
-        delay: .5,
+        duration: .8,
+        delay: 1,
       }
     },
   
@@ -124,16 +132,17 @@ const detailsMotion = {
 const textMotion = {
   initial: {
     opacity: 0,
-    x: -50,
-    height: '0',
+    y:  25,
+    
     display: 'none',
     transition: {
-      ease: ease,
-      duration: .5,
-      delay: 1,
-      height: {
-        delay: 2,
-        duration: .5
+      ease: [0.66, 0.43, 0.53, 0.96],
+      duration: 1.5,
+      y: {
+        delay: 1
+      },
+      opacity: {
+        delay: 1.2
       },
       display: {
         delay: 1
@@ -142,19 +151,68 @@ const textMotion = {
   },
   animate: {
       opacity: 1,
-      x: 0,
-      height: '100%', 
+      y: 0,
+      
       display: 'block',
       transition: {
-        ease: ease,
-        duration: .5,
-        delay: 1,
-        height: {
-          delay: 2,
-          duration: .5
+        ease: [0.66, 0.43, 0.53, 0.96],
+        duration: 1.5,
+        
+        y: {
+          delay: 1
+        },
+        opacity: {
+          delay: 1.2
         },
         display: {
           delay: 1
+        }
+      }
+    },
+  
+};
+
+
+const videoMotion = {
+  initial: {
+    opacity: 0,
+    y: -50,
+    display: 'none',
+    
+    transition: {
+      ease: [0.66, 0.43, 0.53, 0.96],
+      duration: .5,
+      delay: .5,
+      opacity: {
+        delay: 1
+      },
+      height: {
+        delay: .5,
+        duration: .5
+      },
+      display: {
+        delay: 0.2
+      }
+    }
+  },
+  animate: {
+      opacity: 1,
+      y: 0,
+      
+      display: 'block',
+      transition: {
+        ease: [0.66, 0.43, 0.53, 0.96],
+        duration: .5,
+        delay: .5,
+        opacity: {
+          delay: 1
+        },
+        height: {
+          delay: .5,
+          duration: .5
+        },
+        display: {
+          delay: 0.2
         }
       }
     },
@@ -168,36 +226,33 @@ const textMotion = {
   }
 
   
-console.log(startingCoord);
+
+
+
 
   return (
     <motion.div 
       className="projects-contain" 
       initial={
-        {
-          originX: 0,
-        //width: isMobile ? 'calc(100% - 30px)' : 'calc(100% - 160px)',
-        height: isMobile ? '75%' : 'calc(100vh - 65px)',
-      }
+        
+         'initial'
+      
     } 
       animate={
-        {
-          //width: isMobile ? 'calc(100% - 30px)' : 'calc(100% - 160px)',
-          height: isMobile ? '75%' : 'calc(100vh - 65px)',
-        }
+        'animate'
       } 
       transition={transition}
     >
 
       
-<motion.div className={'projects-single-image-wrapper'} key={singleProject.id} style={isMobile ? {width: `100%`, height: `33vh`} :  {width: `100%`, height: `100%`}} initial={'initial'} animate={'animate'} transition={transition}>
+<motion.div className={'projects-single-image-wrapper'} key={singleProject.id} style={isMobile ? {width: `100%`, height: `25vw`} :  {width: `100%`, maxHeight: `calc(100vh - 70px)`}} initial={'initial'} animate={'animate'} transition={transition}>
     
           <motion.img variants={variants} src={singleProject.img} alt="" className="project-image project-single-image" />
       
     </motion.div>
 
-
-    <motion.div className={'project-single-content-wrapper'} initial={'initial'} animate={'animate'} exit={'exit'}>
+    <div className={'project-single-content'} >
+    <motion.div className={'project-single-content-wrapper'} >
       <motion.h1 variants={titleMotion}>
         {singleProject.name}
       </motion.h1>
@@ -206,7 +261,7 @@ console.log(startingCoord);
           <ul>
             {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
               <motion.li variants={titleMotion} key={i}>
-                {e}
+                {singleProject.role.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
             : null }
@@ -216,7 +271,7 @@ console.log(startingCoord);
           <ul>
             {singleProject.length !== 0 ? singleProject.technique.map((e, i) => (
               <motion.li variants={titleMotion} key={i}>
-                {e}
+                {singleProject.technique.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
               : null }
@@ -226,7 +281,7 @@ console.log(startingCoord);
           <ul>
             {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
               <motion.li variants={titleMotion} key={i}>
-                {e}
+                {singleProject.type.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
               : null }
@@ -236,24 +291,62 @@ console.log(startingCoord);
           <ul>
             {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
               <motion.li variants={titleMotion} key={i}>
-                {e}
+                {singleProject.company.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
               : null }
           </ul>
         </li> 
       </motion.ul>
-      <motion.p className={'project-summary'} variants={textMotion}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
-      luctus at facilisis nec, rutrum ac sapien. Proin ut neque faucibus, 
-      elementum nunc at, iaculis metus. In urna turpis, varius elementum 
-      mollis a, dapibus eget sapien. Maecenas eu libero sit amet nisi faucibus
-      suscipit vel ac sapien. Curabitur tortor lectus, venenatis sit amet 
-      dignissim in, maximus ac velit. Proin at fringilla magna. 
-      </motion.p>
-    </motion.div>
+      <motion.div className={'project-summary'} variants={textMotion}>
       
+      
+      <div className={'project-summary-text-container'}>
+      <p className={ columns > 2 ? 'project-summary-texty' : showMore ? 'project-summary-texty' : 'project-summary-texty closed'}>
+        { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
+        </p>
+      
+      <button className="more-less-btn" onClick={() => setShowMore(!showMore)}>
+        { columns > 2 ? '' : showMore ? "Show less" : "Read more"}
+      </button>
+      </div>
+      
+      </motion.div>
+      </motion.div>
+      <motion.div  variants={videoMotion}
+        className={'video l-grid__item'} 
+      >
+      <motion.div  className="c-video">
+						<div className="c-video__link-container">
+								<a 
+                  className="c-video__link lightbox lightbox-link lightbox-video" 
+                  href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
+                >
+
+
+                  Watch
+                </a>
+								
+			</div>
+			<video 
+        
+        muted="muted" 
+        playsInline={true} 
+        loop="loop" 
+        className="c-video__video" 
+        poster="/img/placeholder.jpeg">
+				<source 
+          type="video/mp4" 
+          src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
+        >
+
+        </source>
+			</video>
+		</motion.div>
+      </motion.div>
+
+      </div>
+    
     </motion.div>
   );
 };

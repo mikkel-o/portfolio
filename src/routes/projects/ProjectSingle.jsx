@@ -10,9 +10,8 @@ export default function ProjectSingle() {
   const { hasError } = useSelector((state) => state.singleProject);
   const allProjects = useSelector(state => state.allProjects.projects);
   
-  
+  console.log('running');
   useEffect(() => {
-    console.log('running');
     if (allProjects.length === 0) {
       
         dispatch(loadProject(params.id));
