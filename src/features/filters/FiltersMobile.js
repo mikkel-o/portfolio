@@ -4,6 +4,7 @@ import { hideAllToggles} from "../../components/toggleSlice";
 import { motion } from "framer-motion";
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
+import './Filters.css';
 import './FiltersMobile.css';
 import { useNavigate, useLocation } from "react-router-dom";
 
