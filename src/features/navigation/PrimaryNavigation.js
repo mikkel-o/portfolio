@@ -74,7 +74,7 @@ const menuToggle = useSelector(state => state.toggle['primary_menu']);
   /*
     let currentLocation = String(useLocation().pathname),
     backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));*/
-console.log('blah');
+
 
   return (
      
@@ -104,7 +104,7 @@ console.log('blah');
           <Link to={'/about'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >about</Link>
         </li>
         <li className={'main-nav__item'}>
-          <Link to={'/projects'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >projects</Link>
+          <Link to={'/projects/categories'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >projects</Link>
         </li>
         <li className={'main-nav__item'}>
           <Link to={'/contact'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >contact</Link>

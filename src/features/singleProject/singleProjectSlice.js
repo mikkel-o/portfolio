@@ -24,7 +24,7 @@ const sliceOptions = {
   name: "singleProject",
   initialState: {
     projects: [],
-    coord: [0, 0, '100%', '50%', 0],
+    coord: [0, 0, 0, 0, 0],
     isLoading: false,
     hasError: false
   },

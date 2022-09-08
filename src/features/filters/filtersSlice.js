@@ -11,7 +11,11 @@ export const filterSlice = createSlice({
     addAllFilters: (state, action) => {
       state.allFilters = action.payload;
     },
+    addActiveAllFilters: (state, action) => {
+      state.activeFilters = action.payload;
+        
 
+    },
     addActiveFilter: (state, action) => {
       if ((state.activeFilters.findIndex( filter => filter.value === action.payload.value )) === -1) {
       state.activeFilters.push(
@@ -36,7 +40,7 @@ export const filterSlice = createSlice({
   
 });
 
-export const { addActiveFilter, removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts } = filterSlice.actions;
+export const { addActiveFilter, addActiveAllFilters,removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts } = filterSlice.actions;
 
 export const selectActiveFilters = (state) => state.filter.activeFilters;
 

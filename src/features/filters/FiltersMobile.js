@@ -1,26 +1,17 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllProjects, selectFilteredAllProjects } from "../allProjects/allProjectsSlice";
 import { hideAllToggles} from "../../components/toggleSlice";
-import {
-  addActiveFilter,
-  removeActiveFilter ,
-  clearActiveFilters,
-  projectedCounts
-} from './filtersSlice'
 import { motion } from "framer-motion";
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
 import './FiltersMobile.css';
+import { useNavigate, useLocation } from "react-router-dom";
+
 /*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
 |                        ANIMATION                             |
 \*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-// Constants
 const scale = {scaleY: 1.1}
 const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
-
-
-// Variants
 const filterColors = [
   { hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#89eacc', 'rgb(255, 158, 158)'] } },
@@ -38,65 +29,44 @@ const activeFilterSpanTwo = {
 };
 
 
-
-/*-  - - - - - -- - - - - - - - - - - - - - -  - - - - - - - -*\
-|                         COMPONENT                            |
-\*-  - - - - - - - - - - - - - - - - - - - - -  - - - - - - - */
-
-export default function FiltersMobile(filtersTitles) {
-
-
-  
-/*                       DECLARATIONS                         */
-  
-  // Redux store data calls
-
+export default function FiltersMobile(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const ref = useRef();
-  const allProjects = useSelector(selectAllProjects);
-  const allFilteredProjects = useSelector(selectFilteredAllProjects);
-  const projectedCount = useSelector(state => state.filter.projectedCount);
-  const activeFilters = useSelector(state => state.filter.activeFilters);
+  const allProjects =  props.items;
+  const allFilteredProjects = props.filteredItems;
+  const activeFilters = props.filters;
+  const countCurrent = allFilteredProjects.length;
+  const countTotal = allProjects.length;
   const toggleState = useSelector((state) => state.toggle);
   const toggleIdSuffix = '_toggle';
   const toggleIdPrefix = 'filters_';
-
-
+  let location = useLocation();
   const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
-const isEmpty = activeFilters.length === 0 ? false : true;
-  // Arrays
-  
-
+  const isEmpty = activeFilters.length === 0 ? false : true;
   let filters = [];
-  const filterTitles = filtersTitles.filtersTitles; 
-
-
-
-let totalFilterAppearance = [];
-
-let all;
-
-  /*                       CLICK HANDLERS                         */
+  const filterTitles = ['role', 'technique', 'type', 'company']; 
+  let totalFilterAppearance = [];
+  let all;
+  let newListIndex = [];
+  const oldList = activeFilters;
+  let newList = [];
+  oldList.forEach(item => newList.push(item));
   
-  // Clear toggles for temporary filters
   
   const onClickClearHandler = (e) => {
     document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
-    dispatch(clearActiveFilters());
     dispatch(hideAllToggles());
     dispatch(toggle('filters__menu__togle'))
   };
   
-  // Remove active filter
-  
-  const onClickChangeHandler = (e) => {
-    dispatch(removeActiveFilter(
-      e.target.children[0].innerHTML
-    ))  
+  const onClickChangeHandler = (event, newList) => {
+    const removeIndex = newList.findIndex( filter => filter.value === event.target.children[0].innerHTML );
+    newList.splice( removeIndex, 1 );
+    
+    onClickApplyFilters(event, newList);
   };
   
-  
-  // Open/close menu
   const onClickToggleMenu = (event, name) => { 
     if (event.target.classList.contains('active')) {
       event.target.classList.remove('active');
@@ -104,121 +74,60 @@ let all;
       event.target.classList.add('active');
     }
       dispatch(toggle(`${name}`))
-  }
-  
+  }  
   // Detect click outside filters box (try and put in seperat hook so it can be reused)
-  useOnClickOutside(ref, () => {dispatch(hideAllToggles('filters')); dispatch(projectedCounts(allFilteredProjects.length))});
-let newListIndex = [];
-const oldList = activeFilters;
-let newList = [];
-oldList.forEach(item => newList.push(item));
-
+  useOnClickOutside(ref, () => {dispatch(hideAllToggles('filters'));});
 
   const onClickSelectFilter = (e, index, filtersTitle) => {
-    
     if (e.target.classList.contains('active')) {
-      
       e.target.classList.remove('active');  
-      
       const removeIndex = newListIndex.findIndex( filter => filter.value === e.target.children[0].innerHTML );
-      
       newListIndex.splice( removeIndex, 1 );
-
       const removeInde = newList.findIndex( filter => filter.value === filtersTitle[index].value );
-      
       newList.splice( removeInde, 1 );
-      
-
     } else {
       e.target.classList.add('active');  
-      
-      
       newListIndex.push(index);
-
       newList.push( filtersTitle[index]);
-      
-
     }
-
     let temp = [];
-
     newList.forEach(x => {temp.push(x)});
-    
-    
     let pseudoCount = [];
-    
     const siblings = getSiblings(e.target.parentNode.parentNode).filter(sibling => sibling) ;
-
-    
-    
-   
     for (let i = 0; i < filters.length; i++) {
       pseudoCount.push([]);
-      
       filters[i].forEach((x, index) => {
-        
         temp.push(x);
-        
         pseudoCount[i].push(allProjects.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
-
-        
-        //pseudoCount.push(allProjects.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
-        
-        //e.target.parentElement.parentElement.children[index].children[0].children[1].innerHTML = pseudoCount[index];
-        
         if (pseudoCount[i][index] === 0) {
-          
           siblings[i].children[1].children[index].classList.add('inactive');
         } else {
           siblings[i].children[1].children[index].classList.remove('inactive');
         }
-
-siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseudoCount[i][index];
+        siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseudoCount[i][index];
         const removeIndex = temp.findIndex( filter => filter.value === x.value );
-        
         temp.splice( removeIndex, 1 );
-
-        
       });
-      
-  
-  
-      
-  
-}
-
-//e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[0].innerHTML = Math.max(...pseudoCount.flat());
-/*if (newList.length === 0) {
-  dispatch(projectedCounts(allFilteredProjects.length) );
-} */
-
-
-};
-  
-
-
-
-  const onClickApplyFilters = (event, newList, index) => { 
-    
-    const newFilters = newList;
-    
-    if (newFilters.length !== 0) {
-      dispatch(clearActiveFilters());
-      newFilters.forEach((filter, index) => {
-        dispatch(addActiveFilter(
-          filter
-        ));
-        
-      })
-    } else {
-      dispatch(clearActiveFilters());
     }
-    
+  };
+  
+  
+  const onClickApplyFilters = (event, newList, index) => { 
+    const newFilters = newList;
+    const params = new URLSearchParams()
+    let tempArr = [];
+    if (newFilters.length !== 0) {
+      newFilters.forEach((filter, index) => {
+        tempArr.push(filter.value);
+      })
+      params.append('filters', tempArr);
+    } else {
+      params.delete('filters');
+    }
+    navigate({pathname: location.pathname, search: params.toString()});
     dispatch(toggle(toggleIdPrefix + filterTitles + toggleIdSuffix));
     dispatch(hideAllToggles('filters'));
-    
-}
-
+  }
 
 
 
@@ -232,7 +141,6 @@ siblings[i].children[1].children[index].children[0].children[1].innerHTML = pseu
 filterTitles.forEach(filtersTitle => {
   const allFilteredNoFlat = allFilteredProjects.map(project => project[filtersTitle]);
   const allFiltered = allFilteredProjects.map(project => project[filtersTitle]).flat();
-
   all = allProjects.map((project) => project[filtersTitle]).flat();
   const unique = [...new Set([].concat.apply([], all.map((e) => e)))];
   filters.push(unique.map(obj => (
@@ -243,55 +151,24 @@ filterTitles.forEach(filtersTitle => {
       countFilter: allFiltered.filter(num => num === obj).length
     }
   )));
-  totalFilterAppearance.push(allFilteredNoFlat.map(obj => ( 
-    
-      obj
-    
-    
-  )))
-
-  
-  
+  totalFilterAppearance.push(allFilteredNoFlat.map(obj => ( obj )))
 });
-
-
-
-
-const countCurrent = allFilteredProjects.length;
-const countTotal = allProjects.length;
-
-
-
-/*                          CONSOLE LOGs                              */
-
-
 
 /*                               JSX                                  */
 
   return (
-    
         <motion.div 
           className={isActive ? isEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} 
           ref={ref}
-          initial={{opacity: 1}}  
-          animate={{opacity: 1}} 
-          exit={{opacity: 0}} 
-          transition={{
-            duration: .5, ease: [0.3, 0.13, 0.13, 0.96]
-          }}
         >
           {/*                  FILTERS MENU                   */}
           {/* ref={ref} */}
           <div className={'projects-counter'}>
-          <motion.button initial={'initial'}
-                        animate={'animate'}
-                        exit={'exit'}
-                        whileHover={'hover'}
-                        transition={'transition'}
+          <motion.button 
                         onClick={event => onClickToggleMenu(event, ('filters__menu__mobile'))} 
                         className={'filters-mobile-btn '}>
-             
-            <span className={'projects-counter-current'}>{isActive ? projectedCount : countCurrent }</span>
+             {/*{isActive ? projectedCount : countCurrent }  */}
+            <span className={'projects-counter-current'}>{ countCurrent }</span>
             <span className={'projects-counter-total'}>{` / ${countTotal}`}</span>
             </motion.button>
           </div>
@@ -312,17 +189,17 @@ const countTotal = allProjects.length;
                   activeFilters.map((filter, ind) => (
                     filter.key === filtersTitle ? (
                       <motion.li 
-                        initial={'initial'}
-                        animate={'animate'}
-                        exit={'exit'}
-                        whileHover={'hover'}
-                        transition={'transition'}
-                        key={ind}
-                        className={`active-filters-item`}
+                      initial={'initial'}
+                      animate={'animate'}
+                      exit={'exit'}
+                      whileHover={'hover'}
+                      transition={'transition'}
+                      key={ind}
+                      className={`active-filters-item`}
                       >
                         {/* onClick={onClickChangeHandler} */}
                         <motion.button
-                          onClick={onClickChangeHandler}
+                          onClick={event => onClickChangeHandler(event, newList)}
                           className={`active-filter-btn`}
                         >
                           <motion.span 
@@ -340,7 +217,8 @@ const countTotal = allProjects.length;
                         </motion.button>
                         <motion.div
                           className={'active-filter-bg'} 
-                          variants={filterColors[index]}>
+                          variants={filterColors[index]}
+                          >
                         </motion.div>
                       </motion.li>
                     ) : ''

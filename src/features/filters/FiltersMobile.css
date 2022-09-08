@@ -226,6 +226,7 @@ padding: 0;
     width: calc(100% - 55px);
     margin: 0;
     background: none;
+    
 }
 .mobile .active-filters-item {
     max-height: 25px;
@@ -315,7 +316,7 @@ padding: 0;
 }
 
 .mobile .active-filters-item::before {
-    content: 'x';
+    /*content: 'x';
     padding-left: 10px;
     position: absolute;
     top: -4px;
@@ -323,5 +324,5 @@ padding: 0;
     color: #666;
     font-size: 0.85em;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: none;*/
 }

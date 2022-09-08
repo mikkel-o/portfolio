@@ -2,34 +2,47 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects, selectAllProjects } from "../../features/allProjects/allProjectsSlice";
 import AllProjects from "../../features/allProjects/AllProjects";
-import Filters from "../../features/filters/Filters";
 import FiltersMobile from "../../features/filters/FiltersMobile";
+import { useSearchParams } from "react-router-dom";
 
-
+//import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
+//https://medium.com/@alex.pavlov/how-to-set-or-get-query-parameters-in-react-router-7d6e2440ede8
 
 export default function Projects() {
-
-
-
   const dispatch = useDispatch();
   const allProjects = useSelector(selectAllProjects);
-  const isMobile = useSelector(state => state.toggle.isMobile)
+  //const allFilteredProjects = useSelector(selectFilteredAllProjects);
   
-/*                           LOAD DATA                          */
+  
+  
+  const filtersTitles = ['role', 'technique', 'type', 'company']; 
+  const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
+  let allFilteredProjects = [];
 
-  // The if() is to stop it from fetching the data after the initial 
-  // page has loaded. Because the data is being fetched asynchronisly,
-  // the components' initial data is empty and causes the component to
-  // re-render everytime, even though the data is already in the store.
+/*
+    useEffect(() => {
+  const obj = filters.flat().filter(project => arr.some(filter => project.value === filter));
+    if (activeFilters.length !== 0) {
+      obj.forEach(o => {
+        console.log(o);
+        dispatch(addActiveFilter(o));
+      });
+  }
+
   
+  })
+*/
+
+
   useEffect(() => {
     if (allProjects.length === 0) {
         dispatch(loadProjects());
     }
   }, [dispatch, allProjects.length]);
+  
+  
 
   // Button on failure page
-  
   const { hasError } = useSelector((state) => state.allProjects);
   const onTryAgainHandler = () => {
     dispatch(loadProjects());
@@ -38,61 +51,82 @@ export default function Projects() {
 
 
 
-
-
-/*                             FILTERS                               */
-const filtersTitles = ['role', 'technique', 'type', 'company']; 
-/*let filters = [];
   
-// Filters creation
+  //const filters = selectActiveFilters(state);
+  
+  
 
-filtersTitles.forEach(filtersTitle => {
-  const allFiltered = allFilteredProjects.map(project => project[filtersTitle]).flat();
-  const all = allProjects.map((project) => project[filtersTitle]).flat();
-  const unique = [...new Set([].concat.apply([], all.map((e) => e)))];
-  filters.push(unique.map(obj => (
-    {
-      key: filtersTitle, 
-      value: obj, 
-      countTotal: all.filter(num => num === obj).length, 
-      countFilter: allFiltered.filter(num => num === obj).length
-    }
-  )));
+  
+
+
+
+     
+
+
+  const [searchParams] = useSearchParams();
+  const filters = searchParams.get("filters"); // "1234"
+  const queryFilters = filters ? filters.split(',') : [];
+
+ 
+  const str = searchParams.get('filters');
+  const arr = str ? str.split(',') : [];
+
+
+  let fil = [];
+
+  filtersTitles.forEach(filtersTitle => {
+    
+   const  a = [...new Set([].concat.apply([], allProjects.map((project) => project[filtersTitle]).flat().map((e) => e)))];
+   
+   
+    fil.push(a.map(obj => (
+      {
+        key: filtersTitle, 
+        value: obj, 
+      }
+    )));
+
+    
+  });
+
+  const objs = fil.flat().filter(project => arr.some(filter => project.value === filter));
+  
+  /*
+  objs.forEach(e => {
+
+      dispatch(addActiveFilter(e));
+
+    
+  
   });*/
+  
 
+  //if (objs.length !== 0) {
+    
+    
+      allFilteredProjects = allProjects.filter(project => objs.every(filter => project[filter.key].includes(filter.value)))
+      //use .every instead of some to deduct the filters (remember to add inactive filters-item in Filters.js) -> and remember to update inactive and dispatch new count before filters are applied
+      //use .some instead of every to add the filters (remember to remove inactive filters-item in Filters.js) -> and don't update inactive + dispatch new count before filters are applied
+    
 
+    //} else {
+      //allFilteredProjects = allProjects;
+    //}
+  
 
-
-
-
-
-/*                          CONSOLE LOGs                              */
-
-
-
-
-const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
-
-
-
-
-
-
-
-/*                               JSX                                  */
-
+  
+  
+  
+  
   return (
     <div className={'wrapper'}>
       
-      {isMobile ?
       <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >
-      <FiltersMobile filtersTitles={filtersTitles}/>
-      </header>
-      : 
-      <header className={'projects-header'} >
-       <Filters filtersTitles={filtersTitles}/>
-       </header>
-      }
+      <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >
+        <FiltersMobile items={allProjects} filters={objs} filteredItems={allFilteredProjects}/>
+        </header>
+        
+        </header>
       
       <main id="projects-wrapper">
         {hasError ? (
@@ -107,7 +141,7 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
           <>
             <section className="projects-section">
               
-            <AllProjects />
+            <AllProjects projects={allFilteredProjects} params={queryFilters}/>
 
             </section>
           </>
@@ -120,23 +154,18 @@ const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
 
 
 
-
 /*
-          {
-            filterTitles.map( (filtersTitle, index) => (
-              <Filters
-                key={index}
-                filters={filters[index]}
-                name={filtersTitle}
-                allItems={allProjects}
-                filteredItems={allFilteredProjects}
-              />
-
-              
-            ) )
-          }
-          
-*/
+ {isMobile ?
+       
+      : 
+        <header className={'projects-header'} >
+        <Filters filtersTitles={filtersTitles}/>
+        </header>
+      }
 
 
+      <Link to="/projects?filters=Role+one">Test</Link>
+        <Link to="/projects?filters=Type+one%2CRole+one">Test2</Link>
+        <Link to="/projects/Project%20three?filters=Type+one%2CRole+one">Test3</Link>
 
+      */

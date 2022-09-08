@@ -3,85 +3,70 @@ import { useSelector } from "react-redux";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
 import { motion } from 'framer-motion';
+import { useNavigate } from "react-router";
 
-
-
-
-
-
-
-
-
-const SingleProject = () => {
-  const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
   Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
   luctus at facilisis nec, rutrum ac sapien. Proin ut neque faucibus, 
   elementum nunc at, iaculis metus. In urna turpis, varius elementum 
   mollis a, dapibus eget sapien. Maecenas eu libero sit amet nisi faucibus
   suscipit vel ac sapien. Curabitur tortor lectus, venenatis sit amet 
   dignissim in, maximus ac velit. Proin at fringilla magna.` ;
+const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
+  luctus at facilisis nec, rutrum ac sapien.` ;
+  
+
+
+const SingleProject = () => {
   const [showMore, setShowMore] = useState(false);
-  console.log(useSelector(state => state));
   const columns = useSelector(state => state.toggle.columnCount);
-  console.log(columns);
   const singleProject = useSelector(selectProject);
-
   const { isLoading } = useSelector((state) => state.singleProject);
-
   const startingCoord = useSelector(state => state.singleProject.coord);
-
-  const isMobile = useSelector(state => state.toggle.isMobile);
-console.log(isMobile);
-const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
+//  const isMobile = useSelector(state => state.toggle.isMobile);
+  const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
 
 
-// the below parameters work mainly for one column layout. need to find a way to add multiples per amount of columns.
-
-const duration = columns === 1 ? .1 : .5,
+  console.log(startingCoord);
+  const duration = .5,
       ease = [.33, .13, .63, .96];
-console.log(startingCoord)
-const variants = {
-  initial: {
-    y: columns === 1 ? 
-      startingCoord[4] === 0 ? startingCoord[1] - 50 : startingCoord[1] - 50
-    : startingCoord[1] - 50,
-    x: isMobile ?  
-        columns === 1 ? 
-          startingCoord[0] - 15 : 
-          columns === 2 ? 
-            startingCoord[0] - startingCoord[2] - 35 : ''
-      : columns === 3 ? 
-          startingCoord[0] - 15: 
-          columns === 4 ? 
-            startingCoord[0] - 15 : '',
-    width: startingCoord[2],
-    height: startingCoord[3],
-    
+
+  const variants = {
+    initial: {
+      y: startingCoord[1] - 50,
+      x: startingCoord[0],
+      width: startingCoord[2],
+      height: startingCoord[3],
   },
   animate: {
-
-    
-    y:  -35, 
-    x:  isMobile ? 0 : 0, 
+    y:  450, 
+    x:  0, 
     width: '100%',
-    height: isMobile ? '100%' : 'calc(100vh - 30px)', 
-    
+    height: '80vh',
     transition: {
       ease: ease,
       duration,
-
-
+      height: {
+        delay: .5,
+        duration: .7
+      },
       y: {
+        delay: .5,
+        duration: .7
+      },
+      /*height: {
+        delay: 1.2,
+        duration: .5
+      }*/
+    /*  y: {
         delay: duration,
         duration: .5
       },
-      height: {
-        delay: duration,
-        duration: .5
-      }
-      
+      */
     }
   },
+  
   exit: {
     y: 100,
     opacity: 0,
@@ -91,6 +76,7 @@ const variants = {
       delay:.2
   }
   }
+
 };
 
 
@@ -120,6 +106,9 @@ const titleMotion = {
     }
   
 };
+
+
+
 
 const detailsMotion = {
   initial: {
@@ -261,13 +250,28 @@ const videoMotion = {
 
 
 
+
+const navigate = useNavigate();
+const goToPosts = (event, c) => {
+  
+  const param = c ? c.replace(/\s/g, '+') : '';
+  
+  window.history.replaceState({}, "", c ? `?filters=${param}` : '?filters=')
+  navigate({
+    pathname: '/projects',
+    search: c ? `?filters=${param}` : '',
+  });
+}
+
+
   if (isLoading) {
     return <Spinner />;
   }
 
   
-console.log(singleProject.album );
 
+
+ 
 
 
   return (
@@ -285,24 +289,34 @@ console.log(singleProject.album );
       transition={transition}
     >
 
-      
-<motion.div className={'projects-single-image-wrapper'} key={singleProject.id} style={isMobile ? {height: `25vw`} :  {width: `100%`, maxHeight: `calc(100vh - 30px)`}} initial={'initial'} animate={'animate'} exit={'exit'} transition={transition}>
     
-          <motion.img variants={variants} src={singleProject.img} alt="" className="project-image project-single-image" />
-      
-    </motion.div>
-
     <div className={'project-single-content'} >
     <motion.div className={'project-single-content-wrapper'} >
+      
+
+
+    <motion.div className={'project-single-wraps'} >
       <motion.h1 variants={titleMotion}>
         {singleProject.name}
       </motion.h1>
+
+      <motion.div className={'project-intro'} variants={textMotion}>
+      <motion.div variants={textMotion} className={'project-intro-text-container'}>
+      <p className={ columns > 2 ? 'project-intro-texty' : 'project-intro-texty'}>
+        {textIntro}
+        </p>
+      </motion.div>
+      
+      </motion.div>
+
       <motion.ul className={'project-details-list'} variants={detailsMotion}>
         <li key={1}>
           <ul>
             {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
-              <motion.li variants={titleMotion} key={i}>
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
+                
                 {singleProject.role.length !== i + 1 ? e + ' | ' : e}
+                
               </motion.li>
               ))
             : null }
@@ -311,7 +325,7 @@ console.log(singleProject.album );
         <li key={2}>
           <ul>
             {singleProject.length !== 0 ? singleProject.technique.map((e, i) => (
-              <motion.li variants={titleMotion} key={i}>
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
                 {singleProject.technique.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
@@ -321,7 +335,7 @@ console.log(singleProject.album );
         <li key={3}>
           <ul>
             {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
-              <motion.li variants={titleMotion} key={i}>
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
                 {singleProject.type.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
@@ -331,7 +345,7 @@ console.log(singleProject.album );
         <li key={4}>
           <ul>
             {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
-              <motion.li variants={titleMotion} key={i}>
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
                 {singleProject.company.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
@@ -339,31 +353,51 @@ console.log(singleProject.album );
           </ul>
         </li> 
       </motion.ul>
-      <motion.div className={'project-summary'} variants={textMotion}>
       
-      
-      <div className={'project-summary-text-container'}>
-      <p className={ columns > 2 ? 'project-summary-texty' : showMore ? 'project-summary-texty' : 'project-summary-texty closed'}>
-        { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
-        </p>
-      
-      <button className="more-less-btn" onClick={() => setShowMore(!showMore)}>
-        { columns > 2 ? '' : showMore ? "Show less" : "Read more"}
-      </button>
-      </div>
-      
-      </motion.div>
       </motion.div>
 
+
+
+
+
+
+      <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   variants={variants}>
     
-      {singleProject.album && singleProject.album.length !== 0 ? 
+          <motion.img src={singleProject.img} alt="" className="project-image project-single-image"/>
+      
+    </motion.div>
+
+    
+
+
+
+          {/*   */}
+    <motion.div className={'project-summary'} variants={textMotion}>
+    <div className={'project-summary-text-container'}>
+    <p className={ columns > 2 ? 'project-summary-texty' : showMore ? 'project-summary-texty' : 'project-summary-texty closed'}>
+      { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
+      </p>
+    
+    <button className="more-less-btn" onClick={() => setShowMore(!showMore)}>
+      { columns > 2 ? '' : showMore ? "Show less" : "Read more"}
+    </button>
+    </div>
+    
+    </motion.div>
+
+
+
+
+    {/*   */}
+    {singleProject.album && singleProject.album.length !== 0 ? 
       <div className={'video-wrapper'}>{
       singleProject.album.map((e, i) => 
-      <motion.div  variants={videoMotion}
+      <motion.div
       className={'video l-grid__item l-grid__item--album'} 
       key={i}
+      variants={videoMotion}
     >
-      <motion.div  className="c-video">
+      <motion.div  className="c-video" >
         <div className="c-video__link-container">
             <a 
               className="c-video__link lightbox lightbox-link lightbox-video" 
@@ -388,9 +422,10 @@ console.log(singleProject.album );
     </motion.div> 
     )
       }</div>
-    :   
-      <motion.div  variants={videoMotion}
+    :   //variants={videoMotion}
+      <motion.div  
         className={'video l-grid__item'} 
+        variants={videoMotion}
       >
         <motion.div  className="c-video">
 					<div className="c-video__link-container">
@@ -415,6 +450,11 @@ console.log(singleProject.album );
 			    </video>
 		    </motion.div>
       </motion.div>}
+
+
+
+      </motion.div>
+
       </div>
     
     </motion.div>
@@ -422,3 +462,41 @@ console.log(singleProject.album );
 };
 
 export default SingleProject;
+
+//.projects-single-image-wrapper
+//style={isMobile ? {height: `25vw`} :  {width: `100%`, maxHeight: `calc(100vh - 30px)`}}
+
+
+
+
+
+/*
+
+
+
+
+      
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      */

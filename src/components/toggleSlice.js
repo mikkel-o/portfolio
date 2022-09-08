@@ -13,7 +13,7 @@ export const toggleSlice = createSlice({
       if (action.payload === 'hideAll') {
         Object.keys(state).forEach(v => v.isMobile ? state[v] : state[v] = false);
       } else {
-        console.log(action.payload);
+        //console.log(action.payload);
       // initiate first toggle
       
       state[action.payload] = !state[action.payload]
@@ -27,7 +27,7 @@ export const toggleSlice = createSlice({
       
     },
     hideToggle: (state, action) => { 
-      console.log(action.payload);
+      //console.log(action.payload);
       Object.entries(state).find(([key]) => key === action.payload ? state[key] = false : state[key]);
     },
     hideAllToggles: (state, action) => {
@@ -41,7 +41,7 @@ export const toggleSlice = createSlice({
       
     },
     columnCount: (state, action) => {
-      console.log(action.payload);
+      //console.log(action.payload);
       state.columnCount = action.payload;
     }
  },

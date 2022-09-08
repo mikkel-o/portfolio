@@ -263,7 +263,7 @@ filterTitles.forEach(filtersTitle => {
 
 
 
-/*                          CONSOLE LOGs                              */
+
 
 
 

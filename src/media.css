@@ -25,18 +25,18 @@
         .bleh {
             grid-column-gap: 40px!important;
         }
-        .l-grid__item {
+        /*.l-grid__item {
             flex-basis: auto;
-        }
+        }*/
         
         
     }
     @media (min-width: 600px) { 
         .project-single-content-wrapper {
-            margin: 0% 35px 0;
+            margin: 0% 0px 0;
         }
         .video-wrapper {
-           margin: 0 40px;
+           margin: 0 55px;
         }
         .bleh {
             grid-column-gap: 60px!important;
@@ -50,7 +50,7 @@
           }
           .project-summary {
             /*max-width: 48%;*/
-            margin-right: 6%;
+            /*margin-right: 6%;*/
             
           }
           .c-video{
@@ -71,8 +71,15 @@
     max-height: 250px;
     margin: 20px 10px;
   }
-  
-  
+
+  .mobile .active-filters-wrapper {
+    top: 7px!important;
+    right: 100px!important;
+    
+}
+.filters-mobile-btn {
+  width: auto!important;
+}
           
     }
         
@@ -82,6 +89,27 @@
         grid-column-gap: 25px!important;
         grid-template-columns: repeat(4, minmax(150px, 1fr))!important;
     }
+      
+  .projects-category-list {
+    
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+  }
+  .projects-category-item {
+    
+    height: calc(100vh - 100px);
+    
+  }
+  .projects-category-img {
+      object-position: 50% 50%;
+  
+  }
+  .projects-category-item:nth-child(1) .projects-category-img{
+    object-position: 15% 50%;
+
+}
    
 }
 @media (min-width: 780px) { 
@@ -121,29 +149,29 @@
     .project-single-content-wrapper {
         flex-basis: 100%;
       }
-      .project-single-content {
+    /*  .project-single-content {
         margin: 30px 0 0px 50px;
-    }
+    }*/
 
     .projects-container {
         grid-template-columns: repeat(3, 1fr);
         
       }
-      .projects-contain {
+      /*.projects-contain {
         display:grid;
         grid-template-columns: 1fr 2fr;
-      }
-
+      }*/
+/*
       .project-image.project-single-image {
-        float: left;
+        float: right;
       }
-
-      .project-single-content-wrapper {
+*/
+      /*.project-single-content-wrapper {
         margin: 0 30px;
-      }
-      .project-summary {
+      }*/
+      /*.project-summary {
         max-width: 100%;
-      }
+      }*/
       .project-image.project-single-image {
         max-height: 100vh;
       }
@@ -153,7 +181,7 @@
       }
       .l-grid__item--album {
         max-height: 250px;
-        margin: 20px 10px;
+        margin: 10px;
       }
       /*.projects-single-image-wrapper {
         position: sticky;

@@ -6,15 +6,20 @@ import {
   Route,
   useLocation
 } from "react-router-dom";
+
+
 import './index.css';
 import './media.css';
 import App from './app/App';
 import Projects from "./routes/projects/Projects";
 import ProjectSingle from "./routes/projects/ProjectSingle";
+import ProjectCategories from "./routes/projects/ProjectCategories";
 import reportWebVitals from './reportWebVitals';
-import store from "./app/store";
+import {store } from "./app/store";
 import { Provider } from "react-redux";
 import { AnimatePresence } from 'framer-motion';
+
+
 
 
 const AnimatedRoutes = () => {
@@ -37,6 +42,10 @@ const AnimatedRoutes = () => {
           <Route 
             path="projects/:id" 
             element={<ProjectSingle />} 
+          />    
+          <Route 
+            path="projects/categories" 
+            element={<ProjectCategories />} 
           />    
           
           <Route

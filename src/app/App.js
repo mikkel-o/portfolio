@@ -21,7 +21,7 @@ function debounce(fn, ms) {
 function App() {
   const isMobile = useSelector(state => state.toggle.isMobile)
 const dispatch = useDispatch();
-
+/*
 if (window.innerWidth > 1349) {
   dispatch(columnCount(4));
   dispatch(toggleMobile(false));
@@ -35,11 +35,11 @@ if (window.innerWidth > 1349) {
   dispatch(columnCount(1));
   dispatch(toggleMobile(true));
 }
-
+*/
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       
-      console.log('RESIZE');
+      
       if (window.innerWidth > 1349) {
         dispatch(columnCount(4));
         dispatch(toggleMobile(false));
@@ -70,10 +70,11 @@ if (window.innerWidth > 1349) {
 
   return (
     <div id="app" className={isMobile ? 'mobile' : ''}>
+ <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
  {/* <Outlet> to show content */}
  <Outlet />
       
-      <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
+      
 
 
      

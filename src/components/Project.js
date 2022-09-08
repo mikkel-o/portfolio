@@ -52,47 +52,32 @@ const imgMotion = {
 
 
 
-export default function Project({ project, children }) {
+export default function Project({project, params, children}) {
   const dispatch = useDispatch();
+  //const project = props.project;
   
-
+  //const params = props.params;
   const [isOpen, setIsOpen] = useState(false)
 
 const onClickHandler = (event) => { 
   setIsOpen(!isOpen);
 
-  const parentPos = event.target.parentElement.parentElement.parentElement.parentElement.getBoundingClientRect();
+  
   const childPos = event.target.parentElement.parentElement.parentElement.getBoundingClientRect();
-  console.log(event.target.parentElement.parentElement.parentElement);
-  console.log(childPos);
+  
+  
   const index = [...event.target.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
-
-  const relativePos = {
-y: childPos.top - parentPos.top,
-x: childPos.left - parentPos.left,
-width: childPos.width,
-height: childPos.height,
-index: index
-  };
 
   
 
+  
 
-console.log(index);
-
-console.log(relativePos);
-
-// something like: {top: 50, right: -100, bottom: -50, left: 100}
-
-console.log(childPos);
-  console.log(relativePos);
   const coord = [childPos.x, childPos.y, childPos.width, childPos.height, index];
-  console.log(childPos.y)
-  console.log(relativePos.y)
+
   dispatch(clearProjects());
   dispatch(addProject(project));
   dispatch(projectCoord(coord));
-console.log(coord)
+
 }
 
 
@@ -106,11 +91,13 @@ function onPan(event, info) {
   event.target.focus();
 }
 
+
+
 //whileHover={"hover"} FIX the hover it cause weird animation break on exiting the page
 
 return (
   <motion.div className={''} variants={infoMotion}>
-      <Link  to={`/projects/${project.name}`} onClick={onClickHandler}>
+      <Link  to={`/projects/${project.name}?filters=${params.map(e => e + '%2C')}`} onClick={onClickHandler}>
       <motion.div className="">
     <motion.div 
       key={project.id} 
