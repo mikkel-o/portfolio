@@ -117,6 +117,9 @@ export default function FiltersMobile(props) {
     const newFilters = newList;
     const params = new URLSearchParams()
     let tempArr = [];
+    dispatch(toggle(toggleIdPrefix + filterTitles + toggleIdSuffix));
+    dispatch(hideAllToggles('filters'));
+    
     if (newFilters.length !== 0) {
       newFilters.forEach((filter, index) => {
         tempArr.push(filter.value);
@@ -126,8 +129,7 @@ export default function FiltersMobile(props) {
       params.delete('filters');
     }
     navigate({pathname: location.pathname, search: params.toString()});
-    dispatch(toggle(toggleIdPrefix + filterTitles + toggleIdSuffix));
-    dispatch(hideAllToggles('filters'));
+
   }
 
 

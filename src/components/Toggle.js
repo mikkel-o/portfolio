@@ -17,7 +17,7 @@ export const Toggle = ({id, children}) => {
 
   const show = useSelector(state => state.toggle[id]);
 
-  
+  console.log(useSelector(state => state.toggle[id]));
 
     return show ? children : (null)
   

@@ -35,25 +35,33 @@ const SingleProject = () => {
   const variants = {
     initial: {
       y: startingCoord[1] - 50,
-      x: startingCoord[0],
+      x: startingCoord[0] - 20,
       width: startingCoord[2],
       height: startingCoord[3],
   },
   animate: {
     y:  450, 
-    x:  0, 
-    width: '100%',
+    x:  -20, 
+    width: 'calc(100% + 40px)',
     height: '80vh',
     transition: {
       ease: ease,
       duration,
-      height: {
+      width: {
         delay: .5,
         duration: .7
       },
-      y: {
+      x: {
         delay: .5,
         duration: .7
+      },
+      /*height: {
+        delay: .5,
+        duration: .5
+      },
+      /*x: {
+        delay: 0,
+        duration: .5
       },
       /*height: {
         delay: 1.2,
@@ -297,7 +305,7 @@ const goToPosts = (event, c) => {
 
     <motion.div className={'project-single-wraps'} >
       <motion.h1 variants={titleMotion}>
-        {singleProject.name}
+        {singleProject.name ? singleProject.name.replace(/-/g, ' ') : ''}
       </motion.h1>
 
       <motion.div className={'project-intro'} variants={textMotion}>
@@ -361,9 +369,9 @@ const goToPosts = (event, c) => {
 
 
 
-      <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   variants={variants}>
+      <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
     
-          <motion.img src={singleProject.img} alt="" className="project-image project-single-image"/>
+          <motion.img src={singleProject.img} alt="" className="project-image project-single-image" variants={variants}/>
       
     </motion.div>
 

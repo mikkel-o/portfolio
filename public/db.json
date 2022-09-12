@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "name": "legends-of-runeterra-01",
+      "name": "riot-change-your-fate",
       "role": ["executive producer"],
       "technique": ["2D animation"],
       "type": ["branded content"],
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "lego-ninjago",
+      "name": "ninjago-golden-legend",
       "role": ["executive producer", "development producer", "editor"],
       "technique": ["2D animation"],
       "type": ["branded content", "short film"],
@@ -21,7 +21,7 @@
     },
     {
       "id": 3,
-      "name": "travel-oregon-still-only-slightly-exaggerated",
+      "name": "still-only-slightly-exaggerated",
       "role": ["executive producer"],
       "technique": ["2D animation"],
       "type": ["branded content"],
@@ -65,7 +65,7 @@
     },
     {
       "id": 5,
-      "name": "fumle-and-the-nasty-rats",
+      "name": "fumle-and-bumle",
       "role": ["producer", "editor", "3D artist"],
       "technique": ["3D animation"],
       "type": ["infomercial"],
@@ -75,7 +75,7 @@
     },
     {
       "id": 6,
-      "name": "lego-princess-minisodes",
+      "name": "princess-minisodes",
       "role": ["producer", "editor", "3D artist"],
       "technique": ["3D animation"],
       "type": ["branded content"],
@@ -214,7 +214,7 @@
     },
     {
       "id": 14,
-      "name": "monkey-tennis-christmas-cards",
+      "name": "christmas-cards",
       "role": ["co-creator", "producer", "editor", "3D artist"],
       "technique": ["3D animation"],
       "type": ["ident"],
@@ -352,7 +352,7 @@
       "id": 26,
       "name": "interview",
       "technique": ["3D animation"],
-      "role": ["director", "editor"],
+      "role": ["director", "editor", "3D artist"],
       "type": ["short film"],
       "company": ["the animation workshop"],
       "client": ["the animation workshop"],

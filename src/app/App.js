@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { 
-  Outlet 
+  Outlet
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
-import { toggleMobile, columnCount } from "../components/toggleSlice";
-
+import { columnCount } from "../components/toggleSlice";
+import {isMobile} from 'react-device-detect';
+import { clearId } from "../features/singleProject/singleProjectSlice";
+import { hideAllToggles } from "../components/toggleSlice";
 
 function debounce(fn, ms) {
   let timer
@@ -19,21 +21,33 @@ function debounce(fn, ms) {
   };
 }
 function App() {
-  const isMobile = useSelector(state => state.toggle.isMobile)
+  const isViewMobile = useSelector(state => state.toggle.isMobile)
 const dispatch = useDispatch();
+
+
+
+
+
+useEffect(()=> {
+  
+dispatch(clearId());
+dispatch(hideAllToggles('filters'));
+})
 /*
+const location = useLocation();
+,[location]
 if (window.innerWidth > 1349) {
   dispatch(columnCount(4));
-  dispatch(toggleMobile(false));
+  //dispatch(toggleMobile(false));
 } else if (window.innerWidth > 949) {
   dispatch(columnCount(3));
-  dispatch(toggleMobile(false));
+  //dispatch(toggleMobile(false));
 } else if (window.innerWidth > 599) {
   dispatch(columnCount(2));
-  dispatch(toggleMobile(true));
+  //dispatch(toggleMobile(true));
 } else {
   dispatch(columnCount(1));
-  dispatch(toggleMobile(true));
+  //dispatch(toggleMobile(true));
 }
 */
   useEffect(() => {
@@ -42,16 +56,16 @@ if (window.innerWidth > 1349) {
       
       if (window.innerWidth > 1349) {
         dispatch(columnCount(4));
-        dispatch(toggleMobile(false));
+        //dispatch(toggleMobile(false));
       } else if (window.innerWidth > 949) {
         dispatch(columnCount(3));
-        dispatch(toggleMobile(false));
+        //dispatch(toggleMobile(false));
       } else if (window.innerWidth > 599) {
         dispatch(columnCount(2));
-        dispatch(toggleMobile(true));
+        //dispatch(toggleMobile(true));
       } else {
         dispatch(columnCount(1));
-        dispatch(toggleMobile(true));
+        //dispatch(toggleMobile(true));
       }
     }, 100)
 
@@ -69,7 +83,7 @@ if (window.innerWidth > 1349) {
 
 
   return (
-    <div id="app" className={isMobile ? 'mobile' : ''}>
+    <div id="app" className={isMobile && isViewMobile ? 'mobile mobile-device' : isMobile ? 'mobile-device' : isViewMobile ? 'mobile' : ''}>
  <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
  {/* <Outlet> to show content */}
  <Outlet />

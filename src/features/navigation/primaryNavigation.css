@@ -27,6 +27,9 @@
   }
   
   .main-nav button {
+    position: fixed;
+    top: 0;
+    left: 0;
     cursor: pointer;
     width: 50px;
     height: 40px;
@@ -40,8 +43,10 @@
     transition: transform 0.15s ease;
   }
 
-
-
+  /*.mobile-device .main-nav button {
+    top: calc(100% - 40px);
+    left: calc(100% - 50px);
+  }*/
 
   
   .main-nav img {
@@ -159,7 +164,7 @@
   
   .back__link button,
   button.main-nav__toggle-button {
-    background: transparent;
+    background: white;
   }
   
   .hide.back__button,

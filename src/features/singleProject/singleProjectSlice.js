@@ -26,7 +26,8 @@ const sliceOptions = {
     projects: [],
     coord: [0, 0, 0, 0, 0],
     isLoading: false,
-    hasError: false
+    hasError: false,
+    id: []
   },
   reducers: {
     addProject: (state, action) => {
@@ -38,7 +39,14 @@ const sliceOptions = {
     },
     projectCoord: (state, action) => {
       state.coord = action.payload;
-    }
+    },
+    addId: (state, action) => {
+      
+      state.id = action.payload
+    },
+    clearId: (state) => {
+      state.id = []
+    },
   },
   extraReducers: {
     [loadProject.pending]: (state, action) => {
@@ -59,7 +67,7 @@ const sliceOptions = {
 
 export const singleProjectSlice = createSlice(sliceOptions);
 
-export const { addProject, clearProjects, projectCoord } = singleProjectSlice.actions;
+export const { addProject, clearProjects, projectCoord, addId, clearId } = singleProjectSlice.actions;
 
 export const selectProject = (state) => state.singleProject.projects;
 

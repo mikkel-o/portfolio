@@ -21,7 +21,6 @@ import { AnimatePresence } from 'framer-motion';
 
 
 
-
 const AnimatedRoutes = () => {
   const location = useLocation();
   
