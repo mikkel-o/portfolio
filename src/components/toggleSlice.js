@@ -11,7 +11,7 @@ export const toggleSlice = createSlice({
     toggle: (state, action) => {
 
       if (action.payload === 'hideAll') {
-        Object.keys(state).forEach(v => v.isMobile ? state[v] : state[v] = false);
+        Object.keys(state).forEach(v => state[v] = false);
       } else {
         //console.log(action.payload);
       // initiate first toggle

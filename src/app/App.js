@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { 
-  Outlet
+  Outlet,
+  useLocation
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
 import { columnCount } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
-import { hideAllToggles } from "../components/toggleSlice";
+import { toggle } from "../components/toggleSlice";
 
 function debounce(fn, ms) {
   let timer
@@ -27,15 +28,13 @@ const dispatch = useDispatch();
 
 
 
-
+const location = useLocation();
 useEffect(()=> {
   
 dispatch(clearId());
-dispatch(hideAllToggles('filters'));
-})
+dispatch(toggle('hideAll'));
+},[location, dispatch])
 /*
-const location = useLocation();
-,[location]
 if (window.innerWidth > 1349) {
   dispatch(columnCount(4));
   //dispatch(toggleMobile(false));
