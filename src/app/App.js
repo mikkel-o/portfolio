@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { 
   Outlet,
-  useLocation
+  useLocation,
+  useSearchParams
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
@@ -10,6 +11,8 @@ import { columnCount } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";
+import { loadProjects, setActiveFilters, toggleMethod } from "../features/projects/projectsSlice";
+
 
 function debounce(fn, ms) {
   let timer
@@ -25,30 +28,56 @@ function App() {
   const isViewMobile = useSelector(state => state.toggle.isMobile)
 const dispatch = useDispatch();
 
+const [searchParams] = useSearchParams();
+  
+const filters = searchParams.get("filters");
+const method = searchParams.get("method");
 
+const hasBeenSet = useSelector(state => state.projects.hasBeenSet);
 
 
 const location = useLocation();
 useEffect(()=> {
-  
+
+  if (hasBeenSet === false) {
+    dispatch(loadProjects()).then(() => {
+      if (filters) {
+        if (method) {
+          dispatch(toggleMethod(method));
+          
+          } else {
+            dispatch(toggleMethod("AND"));
+          
+          }
+      dispatch(setActiveFilters(filters.split(',')))
+    } else if (location.pathname === '/projects') {
+        dispatch(setActiveFilters('all'));
+      }
+    })
+    } else {
+      if (filters) {
+        if (method) {
+          dispatch(toggleMethod(method));
+          
+          } else {
+            dispatch(toggleMethod("AND"));
+          
+          }
+      dispatch(setActiveFilters(filters.split(',')))
+      } else if (location.pathname === '/projects') {
+        dispatch(setActiveFilters('all'));
+      }
+    }
+
 dispatch(clearId());
 dispatch(toggle('hideAll'));
-},[location, dispatch])
-/*
-if (window.innerWidth > 1349) {
-  dispatch(columnCount(4));
-  //dispatch(toggleMobile(false));
-} else if (window.innerWidth > 949) {
-  dispatch(columnCount(3));
-  //dispatch(toggleMobile(false));
-} else if (window.innerWidth > 599) {
-  dispatch(columnCount(2));
-  //dispatch(toggleMobile(true));
-} else {
-  dispatch(columnCount(1));
-  //dispatch(toggleMobile(true));
-}
-*/
+
+
+
+},[location, dispatch, searchParams, hasBeenSet, filters, method])
+
+
+
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       

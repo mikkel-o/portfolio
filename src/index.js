@@ -6,12 +6,10 @@ import {
   Route,
   useLocation
 } from "react-router-dom";
-
-
 import './index.css';
 import './media.css';
 import App from './app/App';
-import Projects from "./routes/projects/Projects";
+import ProjectsAll from "./routes/projects/ProjectsAll";
 import ProjectSingle from "./routes/projects/ProjectSingle";
 import ProjectCategories from "./routes/projects/ProjectCategories";
 import reportWebVitals from './reportWebVitals';
@@ -19,34 +17,27 @@ import {store } from "./app/store";
 import { Provider } from "react-redux";
 import { AnimatePresence } from 'framer-motion';
 
-
-
 const AnimatedRoutes = () => {
   const location = useLocation();
-  
   return (
-    
     <AnimatePresence initial={false} mode='wait'>
      <Routes location={location} key={location.pathname}>
-      
         <Route 
           path="/" 
           element={<App />}
         >
-          
           <Route 
             path="projects" 
-            element={<Projects />}
-          />          
+            element={<ProjectsAll />}
+          />
           <Route 
             path="projects/:id" 
             element={<ProjectSingle />} 
-          />    
+          />
           <Route 
             path="projects/categories" 
             element={<ProjectCategories />} 
-          />    
-          
+          />
           <Route
             path="*"
             element={
@@ -55,28 +46,22 @@ const AnimatedRoutes = () => {
             </main>
             }
           />
-          
         </Route>
-        
       </Routes> 
-      </AnimatePresence>
-      
+    </AnimatePresence>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-        <Provider store={store}>
-     <BrowserRouter>
-     <AnimatedRoutes />
-     
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AnimatedRoutes />
+      </BrowserRouter>
     </Provider>
-    
   </React.StrictMode>
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

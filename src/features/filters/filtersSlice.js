@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const filterSlice = createSlice({
-  name: "filter",
+
+
+export const filtersSlice = createSlice({
+  name: "filters",
   initialState: {
-    allFilters: [],
-    activeFilters: [],
+    all: [],
+    activeFilters: ['initial'],
     projectedCount: [],
+    filterMethod: '',
   },
   reducers: {
+
     addAllFilters: (state, action) => {
-      state.allFilters = action.payload;
+      state.all = action.payload;
     },
     addActiveAllFilters: (state, action) => {
       state.activeFilters = action.payload;
@@ -33,17 +37,18 @@ export const filterSlice = createSlice({
 
     clearActiveFilters: (state) => {state.activeFilters = []},
     projectedCounts: (state, action) => {state.projectedCount = [action.payload]},
-
+    toggleMethod: (state, action) => {
+      state.filterMethod = action.payload;
+    },
+    
   },
-
-
   
 });
 
-export const { addActiveFilter, addActiveAllFilters,removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts } = filterSlice.actions;
+export const { addActiveFilter, addActiveAllFilters,removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts, toggleMethod } = filtersSlice.actions;
 
-export const selectActiveFilters = (state) => state.filter.activeFilters;
+export const selectActiveFilters = (state) => state.filters.activeFilters;
 
-export const selectAllFilters = (state) => state.filter.allFilters;
+export const selectAllFilters = (state) => state.filters.all;
 
-export default filterSlice.reducer;
+export default filtersSlice.reducer;

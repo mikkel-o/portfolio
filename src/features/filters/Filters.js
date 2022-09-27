@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllProjects, selectFilteredAllProjects } from "../../features/allProjects/allProjectsSlice";
+import { selectAllProjects, selectFilteredAllProjects } from "../projects/projectsSlice";
 import { hideAllToggles} from "../../components/toggleSlice";
 import {
   addActiveFilter,

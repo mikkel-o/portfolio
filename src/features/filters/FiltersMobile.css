@@ -1,3 +1,451 @@
+.filters-title,
+.filters-clear-title {
+    color: #353535;
+    font-size: 1.1em;
+    margin: 0;
+    pointer-events: none;
+    padding: 5px 0;
+}
+
+
+
+.filters-title:after{
+    content: "\25be";
+    padding-left: 10px;
+    color: #666;
+}
+
+.filters-list {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    width: 230px;
+    left: calc(50% - 115px);
+    top: 55px;
+    padding: 0;
+    background: white;
+    
+    border-radius: 5px;
+    
+}
+
+.filters-list .filters-item:first-child::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 0.7rem;
+    background: white;
+    position: absolute;
+    z-index: 3;
+    top: -0.7rem;
+    left: calc(50% - 0.5rem);
+    clip-path: polygon(50% 0, 100% 100%, 0% 100%);
+}
+.filters-list .filters-item:first-child::after {
+    content: '';
+    display: inline-block;
+    width: 1.2rem;
+    height: 0.8rem;
+    position: absolute;
+    z-index: 2;
+    top: -0.8rem;
+    left: calc(50% - 0.6rem);
+    clip-path: polygon(50% 0, 100% 100%, 0% 100%);
+}
+
+
+
+.filters:first-child .filters-list {
+    left: calc(50% - 55px);
+}
+
+.filters:first-child .filters-list .filters-item:first-child::before {
+    left: calc(50% - 0.5rem - 70px);
+}
+.filters:first-child .filters-list .filters-item:first-child::after {
+    left: calc(50% - 0.6rem  - 70px);
+}
+
+
+.filters-item > button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    
+    
+}
+.filters-item.filters-item-apply > button {
+    width: auto;
+}
+.filters-button {
+    padding: 10px 20px;
+}
+
+.filters-item:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.filters-item:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+.filters-item > button:hover .filter-name {
+    text-decoration: underline;
+}
+
+
+.filters-item span {
+    font-size: 1em;
+    pointer-events: none;
+}
+
+.filters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px 0;
+    width: calc(100% - 65px);
+    margin-left: 65px;
+    margin-left: 50px;
+    background: white;
+}
+
+.filters-ref-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+/*.filters .active {
+    background: blue;
+}*/
+  
+.filters .inactive {
+cursor: not-allowed;
+}
+
+.filters .inactive button {
+    color: #ababab;
+    pointer-events: none;
+}
+
+
+
+.filter-count {
+    padding: 10px 10px 10px 5px;
+    float: right;
+    color: #666;
+}
+
+.filter-name {
+    float: left;
+    padding: 10px 5px 10px 10px;
+}
+
+.filter-name::before{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border: 1px solid #666;
+    border-radius: 2px;
+}
+
+.inactive .filter-name::before{
+    border: 1px solid #ababab;
+}
+
+.filters {
+    margin: 0 5px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.filters.clear {
+    margin-left: auto;
+}
+
+.filters:first-child {
+    margin: 0 5px 0 0;
+}
+
+.filters > button {
+    width: 100%;
+    cursor: pointer;
+    
+    border: none;
+
+}
+.filters-title-btn,
+.filters-clear-btn {
+    padding: 4px 20px 5px;
+}
+
+.filters-apply-btn .filters-apply{
+    color: rgb(27, 39, 21);
+}
+.filters-apply-btn:hover .filters-apply{
+    color: rgb(27, 39, 21);
+}
+.filters-apply-btn {
+    padding: 10px 20px;
+    border-radius: 2px;
+    background: rgb(227, 234, 226)!important;
+    box-shadow: 0px 0px 1px rgb(156, 197, 150);
+
+}
+.filters-apply-btn:hover {
+    background: rgb(169, 236, 163)!important;
+
+}
+
+
+.filters-clear-btn {
+    border: none;
+}
+
+
+.filters button span {
+    pointer-events: none;
+}
+.filters-button span {
+    pointer-events: none;
+}
+
+.active-filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    /*width: 100%;*/
+    padding: 0;
+    /*min-height: 25px;*/
+    margin: 6px;
+
+}
+.active-filters-list:first-child {
+    margin-left: 0;
+
+}
+.active-filters-list:last-child {
+    margin-right: 0;
+
+}
+.active-filters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+    /*width: 100%;*/
+    
+}
+.active-filter-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    background: none;
+    /*box-shadow: 1px 1px 3px #7d7d7d;*/
+}
+.active-filters-item {
+    margin: 0px 5px 0px 0;
+    position: relative;
+    max-height: 25px;
+}
+.active-filters-item:first-child {
+    margin-left: 0;
+}
+.active-filters-item:last-child {
+    margin-right: 0;
+}
+
+
+.no-margin {
+    margin: 0;
+}
+.active-filter-name,
+.active-filter-remove {
+    pointer-events: none;
+    
+}
+
+.active-filter-btn::after {
+    content: 'x';
+    padding-left: 10px;
+}
+
+
+
+.filters.role > button:hover,
+.filters.role.activ > button {
+    background: #43C6AC;
+}
+.role .active-filter-bg {
+    background: #84dccd;
+}
+.role .active .filter-name::before{
+    background: #43C6AC;
+    border: 1px solid #43C6AC;
+}
+.role .filters-list .filters-item:first-child::after {
+    background: #43C6AC;
+}
+.role .filters-list {
+border: 1px solid #43C6AC;
+}
+
+.filters.technique > button:hover,
+.filters.technique.activ > button {
+    background: #57ddab;
+}
+.technique .active-filter-bg {
+    background: #89eacc;
+}
+.technique .active .filter-name::before{
+    background: #57ddab;
+    border: 1px solid #57ddab;
+}
+.technique .filters-list .filters-item:first-child::after {
+    background: #57ddab;
+}
+.technique .filters-list {
+border: 1px solid #57ddab;
+}
+
+.filters.type > button:hover,
+.filters.type.activ > button {
+    background: #aef2a8;
+}
+.type .active-filter-bg {
+    background: #cdf7cb;
+}
+.type .active .filter-name::before{
+    background: #aef2a8;
+    border: 1px solid #aef2a8;
+}
+.type .filters-list .filters-item:first-child::after {
+    background: #aef2a8;
+}
+.type .filters-list {
+border: 1px solid #aef2a8;
+}
+
+.filters.company > button:hover,
+.filters.company.activ > button {
+    background: #F8FFAE;
+}
+.company .active-filter-bg {
+    background: #fbfcce;
+}
+.company .active .filter-name::before{
+    background: #F8FFAE;
+    border: 1px solid #F8FFAE;
+}
+.company .filters-list .filters-item:first-child::after {
+    background: #F8FFAE;
+}
+.company .filters-list {
+border: 1px solid #F8FFAE;
+}
+
+
+.filters-clear-btn:hover {
+    background: rgb(215, 215, 215);
+}
+
+
+.filters > button {
+    border-radius: 3px;
+    background: none;
+}
+
+.filters-item:hover,
+.filters-list .filters-item:first-child:hover::before {
+    background: #eee;
+}
+.filters-item-apply:hover {
+    background: none;
+}
+
+
+
+
+
+.filters-clear-btn,
+.filters-apply-btn,
+.filters > button {
+    transition: all 0.25s ease;
+}
+
+.active-filter-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 4px 10px 4px 15px;
+}
+.active-filter-name,
+.active-filter-remove {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.active-filter-remove {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 0;
+    padding: 4px 10px 4px 15px;
+    pointer-events: none;
+}
+
+.active-filter-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    border-radius: 3px;
+    pointer-events: none;
+}
+.filters-item-apply {
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: right;
+}
+
+
+
+.projects-header {
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background: none;
+    min-height: 50px;
+    
+    width: 100%;
+  }
+
+  
+
+  .projects-counter {
+    position: absolute;
+    top: 16px;
+    right: 75px;
+    z-index: 10;
+    font-size: 0.9em;
+    max-height: 30px;
+  }
+
+
+
+
+  
 .filters-mobile {
     flex-direction: column;
     justify-content: start;

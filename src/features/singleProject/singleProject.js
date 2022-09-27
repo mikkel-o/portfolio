@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
 import { motion } from 'framer-motion';
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
   Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
@@ -28,7 +28,7 @@ const SingleProject = () => {
   const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
 
 
-  console.log(startingCoord);
+  
   const duration = .5,
       ease = [.33, .13, .63, .96];
 
@@ -257,11 +257,15 @@ const videoMotion = {
 };
 
 
-
+const [searchParams] = useSearchParams();
+  
+  
+  
 
 const navigate = useNavigate();
 const goToPosts = (event, c) => {
   
+  const paramMethod = searchParams.get("method"); // "1234"
   const param = c ? c.replace(/\s/g, '+') : '';
   
   window.history.replaceState({}, "", c ? `?filters=${param}` : '?filters=')
@@ -270,7 +274,7 @@ const goToPosts = (event, c) => {
     search: c ? `?filters=${param}` : '',
   });
 }
-
+//&method=${paramMethod}
 
   if (isLoading) {
     return <Spinner />;

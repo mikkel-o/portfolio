@@ -7,8 +7,8 @@ import SingleProject from "../../features/singleProject/singleProject";
 export default function ProjectSingle() {
   const params = useParams();
   const dispatch = useDispatch();
-  const { hasError } = useSelector((state) => state.singleProject);
-  const allProjects = useSelector(state => state.allProjects.projects);
+  
+  const allProjects = useSelector(state => state.projects.all);
   
   
   useEffect(() => {
@@ -20,9 +20,6 @@ export default function ProjectSingle() {
     }
   }, [dispatch, allProjects.length, params.id]);
  
-  const onTryAgainHandler = () => {
-    dispatch(loadProject(params.id));
-  };
 
   
 
@@ -33,22 +30,13 @@ export default function ProjectSingle() {
         
       </header>
       <main id="projects-wrapper">
-        {hasError ? (
-          <div id="error-wrapper">
-            <h1>
-              Oh no! There was a mess in the kitchen and we couldn't get the
-              projects.
-            </h1>
-            <button onClick={onTryAgainHandler}>Try again</button>
-          </div>
-        ) : (
-          <>
+       
+          
             <section className="projects-section">
               
               <SingleProject />
             </section>
-          </>
-        )}
+          
       </main>
   </div> /* end */
   );
