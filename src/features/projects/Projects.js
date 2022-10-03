@@ -9,6 +9,7 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 const Projects = () => {
   const dispatch = useDispatch();
   const selectedId = useSelector(state => state.singleProject.id);
+  const selectedLink = useSelector(state => state.singleProject.link);
   const allProjects = useSelector(state => state.projects.all);
   const activeProjects = useSelector(state => state.projects.active);
   
@@ -48,6 +49,8 @@ const Projects = () => {
     setIsActive(i);
   }
 
+
+
   return (
     <motion.div 
     className="projects-container" 
@@ -68,26 +71,29 @@ const Projects = () => {
         </motion.div>
       ))}
       <motion.div className={selectedId.length !== 0 ? 'video-popup-wrapper video-popup-wrapper-zindex' : 'video-popup-wrapper' }>
+        {/*layoutId={selectedId}  */}
         {selectedId.length !== 0 && (    
           <motion.div 
             className={'video-popup'} 
-            layoutId={selectedId} 
-            transition={{ duration: .5, ease: [0.43, 0.23, 0.63, 0.96]}}
+            layoutId={selectedId}
+            transition={{ duration: .3, ease: [0.43, 0.23, 0.63, 0.96]}}
           >
-            <motion.button 
+            {/*<motion.button 
               className={'video-popup-close-btn'} 
               onClick={onClickHandlerClose}>
               x
-            </motion.button>
+            </motion.button>*/}
             <motion.div className="video-wrapper" >
               <iframe 
                 title="vimeo"
-                src=""
+                src={selectedLink}
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
                 className={'video-iframe'}>
               </iframe>
+             
+
             </motion.div>
           </motion.div>
         )}

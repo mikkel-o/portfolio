@@ -8,7 +8,7 @@ export const loadProjects = createAsyncThunk(
     const data = await fetch('../db.json');
     
     const json = await data.json();
-    console.log('PROJECTS LOADING');
+    
     return json;
   }
 );
@@ -40,7 +40,14 @@ const sliceOptions = {
         const temp = state.filters.all.map(filter => filter.filters.flat()).flat();
       const objs = temp.filter(project => action.payload.some(filter => project.value === filter));
       state.filters.active = objs;
-      state.active = state.all.filter(project => state.filters.method === 'OR' && state.filters.active.length !== 0 ? state.filters.active.some(filter => project[filter.key].includes(filter.value)) : state.filters.active.every(filter => project[filter.key].includes(filter.value)))
+      state.active = 
+        state.all.filter(project => 
+          state.filters.method === 'OR' && state.filters.active.length !== 0 ? 
+            state.filters.active.some(filter => project[filter.key].includes(filter.value)) 
+
+          : 
+            state.filters.active.every(filter => project[filter.key].includes(filter.value))
+          )
       }
     },
     setPseudoFilters: (state, action) => {
@@ -56,7 +63,7 @@ const sliceOptions = {
       
       const removeIndex =  state.filters.pseudo.findIndex( filter => filter.value === action.payload );
       state.filters.pseudo.splice( removeIndex, 1 );
-      console.log('removed');
+      
     },
     updateFilterCounts: (state, action) => {
       //const all = state.filters.all.map((project) => project['filterGroup']).flat();
@@ -81,6 +88,11 @@ const sliceOptions = {
       }
 
       
+    },
+    addActiveFilmIndex: (state, action) => {
+      state.active.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
+      state.all.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
+      //state.all.forEach(project => project.activeFilm = action.payload)
     }
   },
   extraReducers: {
@@ -133,6 +145,6 @@ export const selectFilteredProjects = (state) => {
   }
 };
 
-export const { toggleMethod, setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts } = projectsSlice.actions;
+export const { toggleMethod, setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

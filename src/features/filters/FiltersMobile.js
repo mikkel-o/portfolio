@@ -71,7 +71,7 @@ export default function FiltersMobile() {
   };
   
   const onClickSelectFilter = (e, index, filtersTitle) => {
-    console.log(filtersPseudo);
+    
     if (e.target.classList.contains('active')) {
       e.target.classList.remove('active');  
       dispatch(removePseudoFilter(filtersTitle[index].value ))
@@ -83,7 +83,7 @@ export default function FiltersMobile() {
   };
 
   const onClickApplyFilters = (event, filtersPseudo) => {
-    console.log(filtersPseudo);
+    
     const newFilters = filtersPseudo;
     const params = new URLSearchParams()
     let tempArr = [];
@@ -113,7 +113,7 @@ export default function FiltersMobile() {
       dispatch(clearPseudoFilters());
     }
     dispatch(toggleMethod(newMethod));
-    console.log(filtersPseudo);
+    
     dispatch(updateFilterCounts());
   };
 

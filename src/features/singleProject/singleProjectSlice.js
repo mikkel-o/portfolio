@@ -8,7 +8,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const loadProject = createAsyncThunk(
   "singleProject/getProject",
   async (projectName) => {
-    const data = await fetch('../db.json');
+    const data = await fetch('../../db.json');
     const json = await data.json();
     const single = json.find(
         
@@ -27,7 +27,9 @@ const sliceOptions = {
     coord: [0, 0, 0, 0, 0],
     isLoading: false,
     hasError: false,
-    id: []
+    id: [],
+    link: [],
+    
   },
   reducers: {
     addProject: (state, action) => {
@@ -47,6 +49,14 @@ const sliceOptions = {
     clearId: (state) => {
       state.id = []
     },
+    addLink: (state, action) => {
+      
+      state.link = action.payload
+    },
+    clearLink: (state) => {
+      state.link = []
+    },
+    
   },
   extraReducers: {
     [loadProject.pending]: (state, action) => {
@@ -67,7 +77,7 @@ const sliceOptions = {
 
 export const singleProjectSlice = createSlice(sliceOptions);
 
-export const { addProject, clearProjects, projectCoord, addId, clearId } = singleProjectSlice.actions;
+export const { addProject, clearProjects, projectCoord, addId, clearId, addLink, clearLink } = singleProjectSlice.actions;
 
 export const selectProject = (state) => state.singleProject.projects;
 

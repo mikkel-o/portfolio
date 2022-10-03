@@ -18,7 +18,7 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   
 
 
-const SingleProject = () => {
+const SingleProject = (props) => {
   const [showMore, setShowMore] = useState(false);
   const columns = useSelector(state => state.toggle.columnCount);
   const singleProject = useSelector(selectProject);
@@ -26,9 +26,10 @@ const SingleProject = () => {
   const startingCoord = useSelector(state => state.singleProject.coord);
 //  const isMobile = useSelector(state => state.toggle.isMobile);
   const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
+const film = props.film;
 
+const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
 
-  
   const duration = .5,
       ease = [.33, .13, .63, .96];
 
@@ -375,7 +376,7 @@ const goToPosts = (event, c) => {
 
       <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
     
-          <motion.img src={singleProject.img} alt="" className="project-image project-single-image" variants={variants}/>
+          <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className="project-image project-single-image" variants={variants}/>
       
     </motion.div>
 

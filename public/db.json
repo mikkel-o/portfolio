@@ -1,569 +1,955 @@
 [
-    {
-      "id": 1,
-      "name": "riot-change-your-fate",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["riot games"],
-      "img": "/img/Riot_Change_Your_Fate_4B_poster.jpeg"
-    },
-    {
-      "id": 2,
-      "name": "ninjago-golden-legend",
-      "category": ["producer", "editor"],
-      "role": ["executive producer", "development producer", "editor"],
-      "technique": ["2D animation"],
-      "type": ["branded content", "short film"],
-      "company": ["sun creature"],
-      "client": ["lego"],
-      "img": "/img/LNS_poster0.jpeg"
-    },
-    {
-      "id": 3,
-      "name": "still-only-slightly-exaggerated",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["travel oregon", "psyop", "weiden+kennedy"],
-      "img": "/img/TO3_Poster.jpg"
-    },
-    {
-      "id": 4,
-      "name": "monkey-tennis-shorts",
-      "category": ["producer", "editor"],
-      "role": ["co-creator", "producer", "editor"],
-      "technique": ["3D animation"],
-      "type": ["short film", "ident"],
-      "company": ["monkey tennis"],
-      "client": ["monkey tennis"],
-      "img": "/img/MonkeyTennis_Poster.jpg",
+  {
+    "id": 1,
+    "name": "riot-games",
+    "title": "Riot Games",
+    "category": ["producer"],
+    "role": ["executive producer"],
+    "technique": ["2D animation"],
+    "type": ["branded content"],
+    "company": ["sun creature"],
+    "client": ["riot games"],
+    "img": "/img/Riot_Change_Your_Fate_4B_poster.jpeg",
+    "link": "https://youtu.be/xKarEOxXa3s",
+    "embed": "https://www.youtube.com/embed/xKarEOxXa3s",
+    "album": [
+      {
+        "id": 1,
+        "name": "guardians-of-the-ancient",
+        "title": "Legends of Runeterra: Guardians of the Ancient",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/01_guardians-of-the-ancient/poster/guardians-of-the-ancient_poster_540.jpg",
+        "link": "https://youtu.be/xKarEOxXa3s",
+        "embed": "https://www.youtube.com/embed/xKarEOxXa3s"
+      },
+      {
+        "id": 2,
+        "name": "rise-of-the-underworlds",
+        "title": "Rise of the Underworlds | Cinematic Trailer",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/02_rise-of-the-underworlds/poster/rise-of-the-underworlds_poster_540_b.jpg",
+        "link": "https://youtu.be/lCjlFAefDnI",
+        "embed": "https://www.youtube.com/embed/lCjlFAefDnI"
+        
+      },
+      {
+        "id": 3,
+        "name": "beyond-the-bandlewood-01",
+        "title": "Beyond the Bandlewood | Cinematic Trailer",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/03_beyond-the-bandlewood-01/poster/beyond-the-bandlewood-01_poster_540.jpg",
+        "link": "https://youtu.be/h3YIKmjFpoo",
+        "embed": "https://www.youtube.com/embed/h3YIKmjFpoo"
+      },
+      {
+        "id": 4,
+        "name": "beyond-the-bandlewood-02",
+        "title": "Beyond the Bandlewood | Magic Misadventures Trailer",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/04_beyond-the-bandlewood-02/poster/beyond-the-bandlewood-02_poster_540.jpg",
+        "link": "https://youtu.be/IoSTm4jwGEo",
+        "embed": "https://www.youtube.com/embed/IoSTm4jwGEo"
+      },
+      {
+        "id": 5,
+        "name": "beyond-the-bandlewood-03",
+        "title": "Beyond the Bandlewood | A Curious Journey Trailer",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/05_beyond-the-bandlewood-03/poster/beyond-the-bandlewood-03_poster_540.jpg",
+        "link": "https://youtu.be/kAr0IfSMe1w",
+        "embed": "https://www.youtube.com/embed/kAr0IfSMe1w"
+      },
+      {
+        "id": 6,
+        "name": "severing-fate",
+        "title": "Severing Fate | Night & Dawn 2021 Skins Teaser",
+        "category": ["producer"],
+        "role": ["executive producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/06_severing-fate/poster/severing-fate_poster_540.jpg",
+        "link": "https://youtu.be/_6-O2QmdWvA",
+        "embed": "https://youtube.com/embed/_6-O2QmdWvA"
+      },
+      {
+        "id": 7,
+        "name": "the-path",
+        "title": "The Path, An Ionian Myth | Spirit Blossom 2020 Animated Trailer",
+        "category": ["producer"],
+        "role": ["development producer"],
+        "technique": ["2D animation"],
+        "type": ["branded content"],
+        "company": ["sun creature"],
+        "client": ["riot games"],
+        "img": "/projects/riot-games/07_the-path/poster/the-path_poster_540.jpg",
+        "link": "https://youtu.be/u9fFG4ZLp9Y",
+        "embed": "https://www.youtube.com/embed/u9fFG4ZLp9Y"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "monty-the-penguin",
+    "category": ["artist"],
+    "role": ["3D artist"],
+    "technique": ["visual effects"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["John Lewis", "agency"],
+    "img": "/projects/monty-the-penguin/poster/monty-the-penguin_poster_540.jpg",
+    "link": "https://youtu.be/cSU34BwObCQ",
+    "embed": "https://www.youtube.com/embed/cSU34BwObCQ"
+  },
+  {
+    "id": 3,
+    "name": "ninjago-golden-legend",
+    "category": ["producer", "editor"],
+    "role": ["executive producer", "development producer", "editor"],
+    "technique": ["2D animation"],
+    "type": ["branded content", "short film"],
+    "company": ["sun creature"],
+    "client": ["lego"],
+    "img": "/projects/ninjago-golden-legend/poster/ninjago-golden-legend_poster_540_c.jpg",
+    "link": "https://youtu.be/TSmqXAUfKwE",
+    "embed": "https://www.youtube.com/embed/TSmqXAUfKwE"
+  },
+  {
+    "id": 4,
+    "name": "still-only-slightly-exaggerated",
+    "category": ["producer"],
+    "role": ["executive producer"],
+    "technique": ["2D animation"],
+    "type": ["branded content"],
+    "company": ["sun creature"],
+    "client": ["travel oregon", "psyop", "weiden+kennedy"],
+    "img": "/projects/travel-oregon/poster/travel-oregon_poster_540_f.jpg",
+    "link": "https://youtu.be/qi4fGPPPmGA",
+    "embed": "https://www.youtube.com/embed/qi4fGPPPmGA"
+  },
+  {
+    "id": 5,
+    "name": "monkey-tennis-shorts",
+    "category": ["producer", "artist", "editor"],
+    "role": ["co-creator", "producer", "editor", "3D artist"],
+    "technique": ["3D animation"],
+    "type": ["short film", "ident"],
+    "company": ["monkey tennis"],
+    "client": ["monkey tennis"],
+    "img": "/img/MonkeyTennis_Poster.jpg",
+    "link": "",
+    "embed": "",
+    "album": [
+      {
+        "id": 1,
+        "name": "santa-christmas",
+        "title": "Santa's Christmas",
+        "role": ["co-creator", "editor", "3D artist", "compositor"],
+        "technique": ["3D animation"],
+        "img": "/projects/monkey-tennis-shorts/01_santa-christmas/poster/santa-christmas_poster_540.jpg",
+        "link": "https://vimeo.com/248578236",
+        "embed": "https://player.vimeo.com/video/248578236?h=047afc0e35"
+      },
       
-      "album": [
-        {
-          "id": 1,
-          "name": "backpacker-bird",
-          "role": ["co-creator", "producer", "editor"],
-          "technique": ["3D animation"],
-          "img": "/img/Bird_Teaser_Thumb.jpg"
-        },
-        {
-          "id": 2,
-          "name": "office-cat-and-fish",
-          "role": ["co-creator", "producer", "editor"],
-          "technique": ["3D animation"],
-          "img": "/img/MonkeyTennis_Poster.jpg"
-        },
-        {
-          "id": 3,
-          "name": "quantum-heroes",
-          "role": ["co-creator", "producer"],
-          "technique": ["3D animation"],
-          "img": "/img/QH_Square_Thumb.jpg"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "fumle-and-bumle",
-      "category": ["producer", "3D artist", "editor"],
-      "role": ["producer", "editor", "3D artist"],
-      "technique": ["3D animation"],
-      "type": ["infomercial"],
-      "company": ["monkey tennis"],
-      "client": ["viborg kommune"],
-      "img": "/img/Viborg_Poster.jpg"
-    },
-    {
-      "id": 6,
-      "name": "princess-minisodes",
-      "category": ["producer", "3D artist", "editor"],
-      "role": ["producer", "editor", "3D artist"],
-      "technique": ["3D animation"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "advance"],
-      "img": "/img/Lego_Poster.jpg",
+      {
+        "id": 2,
+        "name": "office-cat",
+        "title": "Office Cat and Fish | Time for Coffee",
+        "role": ["co-creator", "producer", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/monkey-tennis-shorts/02_office-cat/poster/office-cat_poster_540.jpg",
+        "link": "https://vimeo.com/358296442",
+        "embed": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
+      },
       
-      "album": [
-        {
-          "id": 1,
-          "name": "sub-project-one",
-          "role": ["Role one", "Role two", "Role four"],
-          "technique": ["Technique one"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 2,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 3,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 4,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 5,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 6,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 7,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 8,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "tearaway",
-      "category": ["3D artist"],
-      "role": ["3D artist"],
-      "technique": ["visual effects"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["Sony Playstation", "agency"],
-      "img": "/img/Tearaway_Poster.jpg"
-    },
-    {
-      "id": 8,
-      "name": "monty-the-penguin",
-      "category": ["3D artist"],
-      "role": ["3D artist"],
-      "technique": ["visual effects"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["John Lewis", "agency"],
-      "img": "/img/Monty_Poster.jpg"
-    },
-    {
-      "id": 9,
-      "name": "elephunk",
-      "category": ["3D artist"],
-      "role": ["3D artist"],
-      "technique": ["visual effects"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["money supermarket"],
-      "img": "/img/Elephunk_Poster.jpg"
-    },
-    {
-      "id": 10,
-      "name": "apple-music",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["apple music japan", "psyop", "agency"],
-      "img": "/img/AppleMusic_Poster.jpg"
-    },
-    {
-      "id": 11,
-      "name": "league-of-legends",
-      "category": ["producer"],
-      "role": ["development producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["riot games"],
-      "img": "/img/path_poster.png"
-    },
-    {
-      "id": 12,
-      "name": "everdale",
-      "category": ["producer", "3D artist"],
-      "role": ["executive producer", "3D artist"],
-      "technique": ["2D animation", "3D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["supercell"],
-      "img": "/img/Everdale_Poster.jpg"
-    },
-    {
-      "id": 13,
-      "name": "freeview",
-      "category": ["3D artist"],
-      "role": ["3D artist"],
-      "technique": ["visual effects"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["freeview", "agency"],
-      "img": "/img/Freeview_Poster.jpg"
-    },
-    {
-      "id": 14,
-      "name": "christmas-cards",
-      "category": ["producer", "3D artist", "editor"],
-      "role": ["co-creator", "producer", "editor", "3D artist"],
-      "technique": ["3D animation"],
-      "type": ["ident"],
-      "company": ["monkey tennis"],
-      "client": ["monkey tennis"],
-      "img": "/img/Santa_Square_Thumb.jpg",
-      "album": [
-        {
-          "id": 1,
-          "name": "sub-project-one",
-          "role": ["Role one", "Role two", "Role four"],
-          "technique": ["Technique one"],
-          "img": "/img/Cookies_Square_Thumb.jpg"
-        },
-        {
-          "id": 2,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/Santa_Square_Thumb.jpg"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "name": "noerregade-callcenter",
-      "category": ["producer", "3D artist"],
-      "role": ["producer", "3D artist"],
-      "technique": ["3D animation"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["noerregade", "mayday film"],
-      "img": "/img/Noerregade_Poster.jpg"
-    },
-    {
-      "id": 16,
-      "name": "unwrap-joy",
-      "category": ["3D artist"],
-      "role": ["3D artist"],
-      "technique": ["visual effects"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["cadburys", "agency"],
-      "img": "/img/Cadburys_Poster.jpg"
-    },
-    {
-      "id": 17,
-      "name": "business-councils",
-      "category": ["producer", "editor"],
-      "role": ["producer", "editor"],
-      "technique": ["3D animation"],
-      "type": ["infomercial"],
-      "company": ["monkey tennis"],
-      "client": ["VEF"],
-      "img": "/img/Business_Square_Thumb.jpg"
-    },
-    {
-      "id": 18,
-      "name": "mugge-and-the-streetparty",
-      "role": ["animation director", "producer"],
-      "technique": ["3D animation"],
-      "type": ["feature film"],
-      "company": ["monkey tennis"],
-      "client": ["new creations", "zentropa"],
-      "img": "/img/Mugge_Poster.jpg"
-    },
-    {
-      "id": 19,
-      "name": "alans-apartment",
-      "category": ["producer", "3D artist", "editor"],
-      "role": ["director", "producer", "3D artist", "editor"],
-      "technique": ["3D animation"],
-      "type": ["ident"],
-      "company": ["monkey tennis"],
-      "client": ["monkey tennis"],
-      "img": "/img/AA_Poster.jpg"
-    },
-    {
-      "id": 20,
-      "name": "captain-aquafresh",
-      "category": ["3D artist"],
-      "technique": ["3D animation"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["auquafresh", "agency"],
-      "img": "/img/Aquafresh_Poster.jpg"
-    },
-    {
-      "id": 21,
-      "name": "orange-fever",
-      "category": ["3D artist"],
-      "technique": ["visual effects"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["heinekin", "agency"],
-      "img": "/img/Heinekin_Poster.jpg"
-    },
-    {
-      "id": 22,
-      "name": "messimorphosis",
-      "category": ["3D artist"],
-      "technique": ["visual effects"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["EA Sports", "agency"],
-      "img": "/img/Messimorphosis_Poster.jpg"
-    },
-    {
-      "id": 23,
-      "name": "lego-ideas",
-      "category": ["producer", "3D artist"],
-      "technique": ["3D animation"],
-      "role": ["executive producer", "producer", "3D artist"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "advance"],
-      "img": "/img/Minifig_Square_Thumb.jpg"
-    },
-    {
-      "id": 24,
-      "name": "experience-design",
-      "category": ["3D artist", "editor"],
-      "technique": ["3D animation"],
-      "role": ["editor", "3D artist"],
-      "type": ["experience design"],
-      "company": ["monkey tennis"],
-      "client": ["M2 film", "Moesgaard Museum", "THIS festival"],
-      "img": "/img/ExperienceDesign_Poster.jpg"
-    },
-    {
-      "id": 25,
-      "name": "get-set-go",
-      "category": ["3D artist"],
-      "technique": ["visual effects"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["argos", "agency"],
-      "img": "/img/Argos_Poster.jpg"
-    },
-    {
-      "id": 26,
-      "name": "interview",
-      "category": ["3D artist", "editor"],
-      "technique": ["3D animation"],
-      "role": ["director", "editor", "3D artist"],
-      "type": ["short film"],
-      "company": ["the animation workshop"],
-      "client": ["the animation workshop"],
-      "img": "/img/Interview_Square_Thumb.jpg"
-    },
-    {
-      "id": 27,
-      "name": "juicyboost",
-      "category": ["producer", "editor"],
-      "technique": ["2D animation"],
-      "role": ["animation director", "producer"],
-      "type": ["ident"],
-      "company": ["monkey tennis"],
-      "client": ["new creations", "zentropa"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 28,
-      "name": "book-en-bibliotekar",
-      "category": ["producer", "3D artist", "editor"],
-      "technique": ["2D animation"],
-      "role": ["animation director", "producer", "compositing", "editor"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["viborg bibliotek"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 29,
-      "name": "lego-city",
-      "category": ["producer", "3D artist"],
-      "technique": ["3D animation"],
-      "role": ["producer", "3D artist"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "M2 film"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 30,
-      "name": "lego-flintstones",
-      "category": ["producer"],
-      "technique": ["3D animation"],
-      "role": ["executive producer", "producer"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "advance"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 31,
-      "name": "lego-friends",
-      "category": ["3D artist"],
-      "technique": ["3D animation"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "M2 film"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 32,
-      "name": "lego-frozen",
-      "category": ["producer", "3D artist"],
-      "technique": ["3D animation", "visual effects"],
-      "role": ["executive producer", "3D artist"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "advance"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 33,
-      "name": "legends-of-runeterra-02",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["riot games"],
-      "img": "/img/poster.png"
-    },
-    {
-      "id": 34,
-      "name": "legends-of-runeterra-03",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["riot games"],
-      "img": "/img/RiseOfTheUnderworlds_poster.jpeg"
-    },
-    {
-      "id": 35,
-      "name": "league-of-legends-02",
-      "category": ["producer"],
-      "role": ["executive producer"],
-      "technique": ["2D animation"],
-      "type": ["branded content"],
-      "company": ["sun creature"],
-      "client": ["riot games"],
-      "img": "/img/Poster02.jpeg"
-    },
-    {
-      "id": 36,
-      "name": "ford",
-      "category": ["3D artist"],
-      "technique": ["visual effects"],
-      "role": ["3D artist"],
-      "type": ["branded content"],
-      "company": ["MPC advertising"],
-      "client": ["ford", "agency"],
-      "img": "/img/placeholder.jpeg"
-    },
-    {
-      "id": 37,
-      "name": "lego-ideas",
-      "category": ["producer", "3D artist", "editor"],
-      "role": ["executive producer", "editor", "3D artist"],
-      "technique": ["3D animation"],
-      "type": ["branded content"],
-      "company": ["monkey tennis"],
-      "client": ["lego", "advance"],
-      "img": "/img/placeholder.jpeg",
+      {
+        "id": 3,
+        "name": "quantum-heroes",
+        "title": "Quantum Heroes",
+        "role": ["co-creator", "producer"],
+        "technique": ["3D animation"],
+        "img": "/projects/monkey-tennis-shorts/03_quantum-heroes/poster/quantum-heroes_poster_540.jpg",
+        "link": "https://vimeo.com/monkeytennis/quantumheroes",
+        "embed": "https://player.vimeo.com/video/208180727?h=04e436c0b4"
+      },
       
-      "album": [
-        {
-          "id": 1,
-          "name": "sub-project-one",
-          "role": ["Role one", "Role two", "Role four"],
-          "technique": ["Technique one"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 2,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 3,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 4,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 5,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 6,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 7,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        },
-        {
-          "id": 8,
-          "name": "sub-project-two",
-          "role": ["Role one"],
-          "technique": ["Technique two"],
-          "img": "/img/placeholder.jpeg"
-        }
-      ]
-    }
+      {
+        "id": 4,
+        "name": "christmas-cookies",
+        "title": "Christmas Cookies",
+        "role": ["3D artist", "editor", "co-creator", "compositor"],
+        "technique": ["3D animation"],
+        "img": "/projects/monkey-tennis-shorts/04_christmas-cookies/poster/christmas-cookies_poster_540.jpg",
+        "link": "https://vimeo.com/monkeytennis/monkeychristmas",
+        "embed": "https://player.vimeo.com/video/196590870?h=dc1fb64104"
+      },
+      {
+        "id": 5,
+        "name": "backpacker-bird",
+        "title": "Backpacker Bird",
+        "role": ["co-creator", "producer", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/monkey-tennis-shorts/05_backpacker-bird/poster/backpacker-bird_poster_540.jpg",
+        "link": "https://vimeo.com/297678101",
+        "embed": "https://player.vimeo.com/video/297678101?h=e383cae411"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "fumle-and-bumle",
+    "category": ["producer", "artist", "editor"],
+    "role": ["producer", "editor", "3D artist"],
+    "technique": ["3D animation"],
+    "type": ["infomercial"],
+    "company": ["monkey tennis"],
+    "client": ["viborg kommune"],
+    "img": "/img/Viborg_Poster.jpg",
+    "link": "https://youtu.be/KVwTNUaQ1xs",
+    "embed": "https://www.youtube.com/embed/KVwTNUaQ1xs",
+    "album": [
+      {
+        "id": 1,
+        "name": "fumle-and-the-nasty-rats",
+        "title": "Fumle and the Nasty Rats",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/fumle-and-bumle/01_fumle-and-the-nasty-rats/poster/fumle-and-the-nasty-rats_poster_540_c.jpg",
+        "link": "https://youtu.be/KVwTNUaQ1xs",
+        "embed": "https://www.youtube.com/embed/KVwTNUaQ1xs"
+      },
+      {
+        "id": 2,
+        "name": "bumle-and-the-nasty-rats",
+        "title": "Bumle and the Nasty Rats",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/fumle-and-bumle/02_bumle-and-the-nasty-rats/poster/bumle-and-the-nasty-rats_poster_540.jpg",
+        "link": "https://youtu.be/LaWvUuhSlSQ",
+        "embed": "https://www.youtube.com/embed/LaWvUuhSlSQ"
+      },
+      {
+        "id": 3,
+        "name": "fumle-explainers",
+        "title": "Fumle Explainers",
+        "role": ["co-creator", "producer"],
+        "technique": ["2D animation"],
+        "img": "/projects/fumle-and-bumle/03_fumle-explainers/poster/fumle-explainers_poster_540_b.jpg",
+        "link": "https://youtu.be/Sf4V9BvO7E4",
+        "embed": "https://www.youtube.com/embed/Sf4V9BvO7E4"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "princess-minisodes",
+    "category": ["producer", "artist", "editor"],
+    "role": ["producer", "editor", "3D artist"],
+    "technique": ["3D animation"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "advance"],
+    "img": "/img/Lego_Poster.jpg",
+    "link": "",
+    "embed": "",
+    "album": [
+      {
+        "id": 1,
+        "name": "rapunzel-01",
+        "title": "Rapunzel | Escape from the Tower",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/01_rapunzel-01/poster/rapunzel-01_poster_540.jpg",
+        "link": "https://youtu.be/6l8qzI6h-b4",
+        "embed": "https://www.youtube.com/embed/6l8qzI6h-b4"
+      },
+      {
+        "id": 2,
+        "name": "sleeping-beauty",
+        "title": "Sleeping Beauty",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/02_sleeping-beauty/poster/sleeping-beauty_poster_540.jpg",
+        "link": "https://youtu.be/oZbHuVhTc_E",
+        "embed": "https://www.youtube.com/embed/oZbHuVhTc_E"
+      },
+      {
+        "id": 3,
+        "name": "mulan",
+        "title": "Mulan",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/03_mulan/poster/mulan_poster_540.jpg",
+        "link": "https://youtu.be/ROYp7JFbIvI",
+        "embed": "https://www.youtube.com/embed/ROYp7JFbIvI"
+      },
+      {
+        "id": 4,
+        "name": "beauty-and-the-beast-01",
+        "title": "Beauty and the Beast",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/04_beauty-and-the-beast-01/poster/beauty-and-the-beast-01_poster_540.jpg",
+        "link": "https://youtu.be/LiC7J-4Jx9o",
+        "embed": "https://www.youtube.com/embed/LiC7J-4Jx9o"
+      },
+      {
+        "id": 5,
+        "name": "the-little-mermaid-01",
+        "title": "Ariel in The Little Mermaid",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/05_the-little-mermaid-01/poster/the-little-mermaid-01_poster_540.jpg",
+        "link": "https://youtu.be/UYgPbSQyncw",
+        "embed": "https://www.youtube.com/embed/UYgPbSQyncw"
+      },
+      {
+        "id": 6,
+        "name": "beauty-and-the-beast-02",
+        "title": "Snowballs",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/06_beauty-and-the-beast-02/poster/beauty-and-the-beast-02_poster_540_b.jpg",
+        "link": "https://youtu.be/4SjvZ1Z8FD0",
+        "embed": "https://www.youtube.com/embed/4SjvZ1Z8FD0"
+      },
+      {
+        "id": 7,
+        "name": "rapunzel-02",
+        "title": "Rapunzel is Back",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/07_rapunzel-02/poster/rapunzel-02_poster_540.jpg",
+        "link": "https://youtu.be/24eEL6OlfKo",
+        "embed": "https://www.youtube.com/embed/24eEL6OlfKo"
+      },
+      {
+        "id": 8,
+        "name": "frozen-01",
+        "title": "Frozen",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/08_frozen-01/poster/frozen-01_poster_540.jpg",
+        "link": "https://youtu.be/zd_MgQbVcCQ",
+        "embed": "https://www.youtube.com/embed/zd_MgQbVcCQ"
+      },
+      {
+        "id": 9,
+        "name": "the-little-mermaid-02",
+        "title": "Ariel in Legs at Last",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/09_the-little-mermaid-02/poster/the-little-mermaid-02_poster_540.jpg",
+        "link": "https://youtu.be/7FkmG5lijx4",
+        "embed": "https://www.youtube.com/embed/7FkmG5lijx4"
+      },
+      {
+        "id": 10,
+        "name": "cinderella",
+        "title": "Cinderella",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/projects/princess-minisodes/10_cinderella/poster/cinderella_poster_540.jpg",
+        "link": "https://youtu.be/8m8eWBngnsg",
+        "embed": "https://www.youtube.com/embed/8m8eWBngnsg"
+      },
+      {
+        "id": 11,
+        "name": "frozen-2",
+        "title": "Frozen 2 - Find Sven",
+        "role": ["executive producer"],
+        "technique": ["3D animation"],
+        "img": "/projects/princess-minisodes/11_frozen-2/00_find-sven/poster/find-sven_poster_540.jpg",
+        "link": "https://youtu.be/B_BUVNFV2Q0",
+        "embed": "https://www.youtube.com/embed/B_BUVNFV2Q0",
+        "collection": 
+          [
+            {
+              "id": 1,
+              "name": "where-is-sven",
+              "title": "Your Story Begins - Where is Sven?",
+              "img": "/projects/princess-minisodes/11_frozen-2/01_where-is-sven/poster/where-is-sven_poster_540.jpg",
+              "link": "https://youtu.be/v_f8VhC4zpM",
+              "embed": "https://www.youtube.com/embed/v_f8VhC4zpM"
+            },
+            {
+              "id": 2,
+              "name": "go-with-elsa",
+              "title": "Go with Elsa",
+              "img": "/projects/princess-minisodes/11_frozen-2/02_go-with-elsa/poster/go-with-elsa_poster_540.jpg",
+              "link": "https://youtu.be/cD2EdDDGXkU",
+              "embed": "https://www.youtube.com/embed/cD2EdDDGXkU"
+            },
+            {
+              "id": 3,
+              "name": "go-with-anna",
+              "title": "Go with Anna",
+              "img": "/projects/princess-minisodes/11_frozen-2/03_go-with-anna/poster/go-with-anna_poster_540.jpg",
+              "link": "https://youtu.be/CZ8wwZnhutI",
+              "embed": "https://www.youtube.com/embed/CZ8wwZnhutI"
+            },
+            {
+              "id": 4,
+              "name": "look-by-the-treehouse",
+              "title": "Look by the treehouse",
+              "img": "/projects/princess-minisodes/11_frozen-2/04_look-by-the-treehouse/poster/look-by-the-treehouse_poster_540.jpg",
+              "link": "https://youtu.be/8yiqwcGr_xE",
+              "embed": "https://www.youtube.com/embed/8yiqwcGr_xE"
+            },
+            {
+              "id": 5,
+              "name": "look-from-up-high",
+              "title": "Look from up high",
+              "img": "/projects/princess-minisodes/11_frozen-2/05_look-from-up-high/poster/look-from-up-high_poster_540.jpg",
+              "link": "https://youtu.be/y_1u2hAEAlo",
+              "embed": "https://www.youtube.com/embed/y_1u2hAEAlo"
+            },
+            {
+              "id": 6,
+              "name": "look-near-the-top-of-the-rocks",
+              "title": "Look near the top of the rocks",
+              "img": "/projects/princess-minisodes/11_frozen-2/06_look-near-the-top-of-the-rocks/poster/look-near-the-top-of-the-rocks_poster_540.jpg",
+              "link": "https://youtu.be/fyzK3S6tZ4E",
+              "embed": "https://www.youtube.com/embed/fyzK3S6tZ4E"
+            },
+            {
+              "id": 7,
+              "name": "look-by-the-trough",
+              "title": "Look by the trough",
+              "img": "/projects/princess-minisodes/11_frozen-2/07_look-by-the-trough/poster/look-by-the-trough_poster_540.jpg",
+              "link": "https://youtu.be/kN-ICpvQ_2c",
+              "embed": "https://www.youtube.com/embed/kN-ICpvQ_2c"
+            },
+            {
+              "id": 8,
+              "name": "look-by-the-rune-stones",
+              "title": "Look by the Rune Stones",
+              "img": "/projects/princess-minisodes/11_frozen-2/08_look-by-the-rune-stones/poster/look-by-the-rune-stones_poster_540.jpg",
+              "link": "https://youtu.be/VQmtkNXzzx0",
+              "embed": "https://www.youtube.com/embed/VQmtkNXzzx0"
+            }
+            
+          ]
+        
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "tearaway",
+    "title": "Sony Tearaway",
+    "category": ["artist"],
+    "role": ["3D artist"],
+    "technique": ["visual effects"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["Sony Playstation", "agency"],
+    "img": "/projects/tearaway/poster/tearaway_poster_540.jpg",
+    "link": "https://youtu.be/oQldsRDm6D0",
+    "embed": "https://www.youtube.com/embed/oQldsRDm6D0"
+  },
+  {
+    "id": 9,
+    "name": "elephunk",
+    "title": "Elephunk",
+    "category": ["artist"],
+    "role": ["3D artist"],
+    "technique": ["visual effects"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["money supermarket"],
+    "img": "/projects/elephunk/poster/elephunk_poster_540.jpg",
+    "link": "https://dai.ly/x2y7knf",
+    "embed": "https://www.dailymotion.com/embed/video/x2y7knf"
+  },
+  {
+    "id": 10,
+    "name": "apple-music",
+    "title": "Apple Music Japan",
+    "category": ["producer"],
+    "role": ["executive producer"],
+    "technique": ["2D animation"],
+    "type": ["branded content"],
+    "company": ["sun creature"],
+    "client": ["apple music japan", "psyop", "agency"],
+    "img": "/projects/apple-music/poster/apple-music_poster_540.jpg",
+    "link": "https://youtu.be/ecZcQuc2ELU",
+    "embed": "https://www.youtube.com/embed/ecZcQuc2ELU"
+  },
+  {
+    "id": 11,
+    "name": "everdale",
+    "title": "Everdale",
+    "category": ["producer", "artist"],
+    "role": ["executive producer", "3D artist"],
+    "technique": ["2D animation", "3D animation"],
+    "type": ["branded content"],
+    "company": ["sun creature"],
+    "client": ["supercell"],
+    "img": "/projects/everdale/poster/everdale_poster_540.jpg",
+    "link": "https://youtu.be/NY_VluvV54M",
+    "embed": "https://www.youtube.com/embed/NY_VluvV54M"
+  },
+  {
+    "id": 12,
+    "name": "freeview",
+    "title": "Floating Tellies",
+    "category": ["artist"],
+    "role": ["3D artist"],
+    "technique": ["visual effects"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["freeview", "agency"],
+    "img": "/projects/freeview/poster/freeview_poster_540.jpg",
+    "link": "https://youtu.be/isi7uruqAB8",
+    "embed": "https://www.youtube.com/embed/isi7uruqAB8"
+  },
+  {
+    "id": 13,
+    "name": "noerregade",
+    "title": "Nørregade Callcenter",
+    "category": ["producer", "artist"],
+    "role": ["producer", "3D artist"],
+    "technique": ["3D animation"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["noerregade", "mayday film"],
+    "img": "/projects/noerregade/01_fisker/poster/noerregade-fisker_poster_540.jpg",
+    "link": "https://vimeo.com/173341931",
+    "embed": "https://player.vimeo.com/video/173341931?h=f323209498"
     
 
-  ]
+  },
+  {
+    "id": 14,
+    "name": "unwrap-joy",
+    "title": "Unwrap Joy",
+    "category": ["artist"],
+    "role": ["3D artist"],
+    "technique": ["visual effects"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["cadburys", "agency"],
+    "img": "/projects/unwrap-joy/poster/unwrap-joy_poster_540.jpg",
+    "link": "",
+    "embed": "https://player.vimeo.com/video/79185469?transparent=0"
+  },
+  {
+    "id": 15,
+    "name": "business-councils",
+    "title": "Erhvervsråd",
+    "category": ["producer", "editor"],
+    "role": ["producer", "editor"],
+    "technique": ["3D animation"],
+    "type": ["infomercial"],
+    "company": ["monkey tennis"],
+    "client": ["VEF"],
+    "img": "/projects/erhvervsraad/poster/erhvervsraad_poster_540.jpg",
+    "link": "https://vimeo.com/193063755",
+    "embed": "https://player.vimeo.com/video/193063755?h=695495136b"
+  },
+
+
+  {
+    "id": 16,
+    "name": "mugge-and-the-streetparty",
+    "title": "Mugge and the Streetparty",
+    "role": ["animation director"],
+    "technique": ["3D animation"],
+    "type": ["feature film"],
+    "company": ["monkey tennis"],
+    "client": ["new creations", "zentropa"],
+    "img": "/projects/mugge/poster/mugge_poster_540.jpg",
+    "link": "https://youtu.be/TIgbOvnfoG4",
+    "embed": "https://www.youtube.com/embed/TIgbOvnfoG4",
+    "album": [
+      {
+        "id": 1,
+        "name": "mugge-and-the-streetparty",
+        "title": "Mugge and the Streetparty",
+        "role": ["animation director"],
+        "technique": ["3D animation"],
+        "type": ["feature film"],
+        "img": "/projects/mugge/01_the-street-party/poster/the-street-party_poster_540.jpg",
+        "link": "https://youtu.be/TIgbOvnfoG4",
+        "embed": "https://www.youtube.com/embed/TIgbOvnfoG4"
+      },
+      {
+        "id": 2,
+        "name": "juicyboost",
+        "title": "Juicyboost",
+        "role": ["animation director", "producer"],
+        "technique": ["2D animation"],
+        "type": ["ident"],
+        "img": "/projects/mugge/02_juicyboost/poster/juicyboost_poster_540.jpg",
+        "link": "https://youtu.be/TIgbOvnfoG4",
+        "embed": "https://www.youtube.com/embed/TIgbOvnfoG4"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "alans-apartment",
+    "category": ["producer", "artist", "editor"],
+    "role": ["director", "producer", "3D artist", "editor"],
+    "technique": ["3D animation"],
+    "type": ["ident"],
+    "company": ["monkey tennis"],
+    "client": ["monkey tennis"],
+    "img": "/projects/erhvervsraad/poster/erhvervsraad_poster_540.jpg",
+    "link": "https://vimeo.com/193063755",
+    "embed": "https://player.vimeo.com/video/193063755?h=695495136b",
+    "album": [
+      {
+        "id": 1,
+        "name": "blender",
+        "title": "Blender",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/01_blender/poster/blender_poster_540.jpg",
+        "link": "https://vimeo.com/137115834",
+        "embed": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+      },
+      {
+        "id": 2,
+        "name": "phone",
+        "title": "Phone",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/02_phone/poster/phone_poster_540.jpg",
+        "link": "https://vimeo.com/138952742",
+        "embed": "https://player.vimeo.com/video/138952742?h=3c87a9a41e"
+        
+
+      },
+      {
+        "id": 3,
+        "name": "doormat",
+        "title": "Doormat",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/03_doormat/poster/doormat_poster_540.jpg",
+        "link": "https://vimeo.com/137937487",
+        "embed": "https://player.vimeo.com/video/137937487?h=f74bc76a3a"
+      },
+      {
+        "id": 4,
+        "name": "hammer",
+        "title": "Hammer",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/04_hammer/poster/hammer_poster_540.jpg",
+        "link": "https://vimeo.com/153388278",
+        "embed": "https://player.vimeo.com/video/153388278?h=3ab2d50f7a"
+      },
+      {
+        "id": 5,
+        "name": "toothpaste",
+        "title": "Toothpaste",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/05_toothpaste/poster/toothpaste_poster_540.jpg",
+        "link": "https://vimeo.com/153388453",
+        "embed": "https://player.vimeo.com/video/153388453?h=2f8bd1eb71"
+      },
+      {
+        "id": 6,
+        "name": "beans",
+        "title": "Beans",
+        "role": ["co-creator", "producer", "3D artist", "editor"],
+        "technique": ["3D animation"],
+        "img": "/projects/alans-apartment/06_beans/poster/beans_poster_540.jpg",
+        "link": "https://vimeo.com/137115834",
+        "embed": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "captain-aquafresh",
+    "title": "Captain Aquafresh",
+    "category": ["artist"],
+    "technique": ["3D animation"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["auquafresh", "agency"],
+    "img": "/projects/captain-aquafresh/poster/captain-aquafresh_poster_540_b.jpg",
+    "link": "https://vimeo.com/399475225",
+    "embed": "https://player.vimeo.com/video/399475225?h=505b208f4b"
+  },
+  {
+    "id": 19,
+    "name": "orange-fever",
+    "title": "Orange Fever",
+    "category": ["artist"],
+    "technique": ["visual effects"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["heinekin", "agency"],
+    "img": "/projects/heinekin/poster/heinekin_poster_540.jpg",
+    "link": "https://dai.ly/x2ephbw",
+    "embed": "https://www.dailymotion.com/embed/video/x2ephbw"
+  },
+  {
+    "id": 20,
+    "name": "messimorphosis",
+    "title": "Messimorphosis",
+    "category": ["artist"],
+    "technique": ["visual effects"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["EA Sports", "agency"],
+    "img": "/projects/messimorphosis/poster/messimorphosis_poster_540.jpg",
+    "link": "https://youtu.be/DYYy8_GCdn4",
+    "embed": "https://www.youtube.com/embed/DYYy8_GCdn4"
+  },
+  {
+    "id": 21,
+    "name": "lego-ideas",
+    "category": ["producer", "artist"],
+    "technique": ["3D animation"],
+    "role": ["executive producer", "producer", "3D artist"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "advance"],
+    "img": "/img/Minifig_Square_Thumb.jpg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 22,
+    "name": "experience-design",
+    "category": ["artist", "editor"],
+    "technique": ["3D animation"],
+    "role": ["editor", "3D artist"],
+    "type": ["experience design"],
+    "company": ["monkey tennis"],
+    "client": ["M2 film", "Moesgaard Museum", "THIS festival"],
+    "img": "/img/ExperienceDesign_Poster.jpg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 23,
+    "name": "get-set-go",
+    "category": ["artist"],
+    "technique": ["visual effects"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["argos", "agency"],
+    "img": "/projects/argos/poster/argos_poster_540_c.jpg",
+    "link": "https://youtu.be/ONaNnjgUzv8",
+    "embed": "https://www.youtube.com/embed/ONaNnjgUzv8"
+  },
+  {
+    "id": 24,
+    "name": "interview",
+    "category": ["artist", "editor"],
+    "technique": ["3D animation"],
+    "role": ["director", "editor", "3D artist"],
+    "type": ["short film"],
+    "company": ["the animation workshop"],
+    "client": ["the animation workshop"],
+    "img": "/projects/interview/poster/interview_poster_540.jpg",
+    "link": "https://youtu.be/VZ4OvpoWu3k",
+    "embed": "https://www.youtube.com/embed/VZ4OvpoWu3k"
+  },
+  {
+    "id": 25,
+    "name": "book-en-bibliotekar",
+    "category": ["producer", "artist", "editor"],
+    "technique": ["2D animation"],
+    "role": ["animation director", "producer", "compositing", "editor"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["viborg bibliotek"],
+    "img": "/img/placeholder.jpeg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 26,
+    "name": "lego-city",
+    "title": "All Hands to the Rescue",
+    "category": ["producer", "artist"],
+    "technique": ["3D animation"],
+    "role": ["producer", "3D artist"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "M2 film"],
+    "img": "/projects/lego-city/poster/lego-city_poster_540.jpg",
+    "link": "https://youtu.be/r5L_HjQ4754",
+    "embed": "https://www.youtube.com/embed/r5L_HjQ4754"
+  },
+  {
+    "id": 27,
+    "name": "lego-friends",
+    "category": ["artist"],
+    "technique": ["3D animation"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "M2 film"],
+    "img": "/img/placeholder.jpeg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 28,
+    "name": "lego-frozen",
+    "category": ["producer", "artist"],
+    "technique": ["3D animation", "visual effects"],
+    "role": ["executive producer", "3D artist"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "advance"],
+    "img": "/img/placeholder.jpeg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 29,
+    "name": "ford",
+    "category": ["artist"],
+    "technique": ["visual effects"],
+    "role": ["3D artist"],
+    "type": ["branded content"],
+    "company": ["MPC advertising"],
+    "client": ["ford", "agency"],
+    "img": "/img/placeholder.jpeg",
+    "link": "",
+    "embed": ""
+  },
+  {
+    "id": 30,
+    "name": "lego-ideas",
+    "category": ["producer", "artist", "editor"],
+    "role": ["executive producer", "editor", "3D artist"],
+    "technique": ["3D animation"],
+    "type": ["branded content"],
+    "company": ["monkey tennis"],
+    "client": ["lego", "advance"],
+    "img": "/img/placeholder.jpeg",
+    "link": "",
+    "embed": "",
+    
+    "album": [
+      {
+        "id": 1,
+        "name": "sub-project-one",
+        "role": ["Role one", "Role two", "Role four"],
+        "technique": ["Technique one"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 2,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 3,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 4,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 5,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 6,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 7,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 8,
+        "name": "sub-project-two",
+        "role": ["Role one"],
+        "technique": ["Technique two"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      },
+      {
+        "id": 9,
+        "name": "lego-flintstones",
+        "technique": ["3D animation"],
+        "role": ["executive producer"],
+        "type": ["branded content"],
+        "company": ["monkey tennis"],
+        "client": ["lego", "advance"],
+        "img": "/img/placeholder.jpeg",
+        "link": "",
+        "embed": ""
+      }
+    ]
+  }
   
+
+]

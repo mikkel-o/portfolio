@@ -10,6 +10,7 @@ import './index.css';
 import './media.css';
 import App from './app/App';
 import ProjectsAll from "./routes/projects/ProjectsAll";
+import ProjectSingleWrapper from "./routes/projects/ProjectSingleWrapper";
 import ProjectSingle from "./routes/projects/ProjectSingle";
 import ProjectCategories from "./routes/projects/ProjectCategories";
 import reportWebVitals from './reportWebVitals';
@@ -31,9 +32,15 @@ const AnimatedRoutes = () => {
             element={<ProjectsAll />}
           />
           <Route 
+              path="projects/:id/:film" 
+              element={<ProjectSingleWrapper />} 
+            />
+          
+          <Route 
             path="projects/:id" 
             element={<ProjectSingle />} 
           />
+            
           <Route 
             path="projects/categories" 
             element={<ProjectCategories />} 

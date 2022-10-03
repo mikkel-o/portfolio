@@ -4,8 +4,8 @@ import Projects from "../../features/projects/Projects";
 import FiltersMobile from "../../features/filters/FiltersMobile";
 
 export default function ProjectsAll() {
-  const state = useSelector(state => state);
-  console.log(state);
+  
+  
   const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
   
   return (

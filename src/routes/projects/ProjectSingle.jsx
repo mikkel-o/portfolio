@@ -10,7 +10,7 @@ export default function ProjectSingle() {
   
   const allProjects = useSelector(state => state.projects.all);
   
-  
+
   useEffect(() => {
     if (allProjects.length === 0) {
       
@@ -20,7 +20,7 @@ export default function ProjectSingle() {
     }
   }, [dispatch, allProjects.length, params.id]);
  
-
+  
   
 
 
@@ -34,7 +34,7 @@ export default function ProjectSingle() {
           
             <section className="projects-section">
               
-              <SingleProject />
+              <SingleProject film={params.id}/>
             </section>
           
       </main>

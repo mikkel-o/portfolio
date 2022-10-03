@@ -64,7 +64,7 @@ useEffect(()=> {
           
           }
       dispatch(setActiveFilters(filters.split(',')))
-      } else if (location.pathname === '/projects') {
+      } else if (location.pathname === '/projects/' || location.pathname === '/projects') {
         dispatch(setActiveFilters('all'));
       }
     }
