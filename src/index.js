@@ -13,12 +13,14 @@ import ProjectsAll from "./routes/projects/ProjectsAll";
 import ProjectSingleWrapper from "./routes/projects/ProjectSingleWrapper";
 import ProjectSingle from "./routes/projects/ProjectSingle";
 import ProjectCategories from "./routes/projects/ProjectCategories";
+import About from "./routes/about/About";
 import reportWebVitals from './reportWebVitals';
 import {store } from "./app/store";
 import { Provider } from "react-redux";
 import { AnimatePresence } from 'framer-motion';
 
 const AnimatedRoutes = () => {
+
   const location = useLocation();
   return (
     <AnimatePresence initial={false} mode='wait'>
@@ -44,6 +46,10 @@ const AnimatedRoutes = () => {
           <Route 
             path="projects/categories" 
             element={<ProjectCategories />} 
+          />
+          <Route 
+            path="about" 
+            element={<About />}
           />
           <Route
             path="*"

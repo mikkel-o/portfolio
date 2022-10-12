@@ -3,13 +3,17 @@ import Project from "../../components/Project";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { clearId } from "../singleProject/singleProjectSlice";
+import { Tweet } from 'react-twitter-widgets';
 
 const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 const Projects = () => {
   const dispatch = useDispatch();
+  const selectedHost = useSelector(state => state.singleProject.link.host);
   const selectedId = useSelector(state => state.singleProject.id);
-  const selectedLink = useSelector(state => state.singleProject.link);
+  const selectedLink = useSelector(state => state.singleProject.link.link);
+  
+  
   const allProjects = useSelector(state => state.projects.all);
   const activeProjects = useSelector(state => state.projects.active);
   
@@ -84,6 +88,9 @@ const Projects = () => {
               x
             </motion.button>*/}
             <motion.div className="video-wrapper" >
+            {selectedHost === 'twitter' ? 
+              <Tweet tweetId="1013818096186986496" />
+            :
               <iframe 
                 title="vimeo"
                 src={selectedLink}
@@ -92,7 +99,7 @@ const Projects = () => {
                 allowFullScreen
                 className={'video-iframe'}>
               </iframe>
-             
+            }
 
             </motion.div>
           </motion.div>

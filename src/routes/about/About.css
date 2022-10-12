@@ -1,0 +1,132 @@
+#about-wrapper {
+    padding: 40px 55px;
+}
+.about-section p {
+ max-width: 505px;
+ margin: 0;
+ padding: 0;
+}
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-column {
+    flex-basis: 50%;
+}
+
+
+.software {
+    z-index: 4;
+  }
+  
+  
+  
+  .software__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 50px 0 0;
+    margin: 0;
+    /*max-width: 505px;*/
+    justify-content: space-between;
+  }
+  
+  .software__item {
+    flex-basis: 20%;
+    padding: 0 0px;
+    margin: 3%;
+    max-width: 75px;
+  }
+  
+  .software__item .txt-wrapper, .software__item:hover .img-bw-wrapper img {
+    opacity: 0;
+  }
+  
+  .software__item:hover .txt-wrapper, .software__item:hover .img-color-wrapper img {
+    opacity: 1;
+  }
+  
+  .software__item img {
+    max-width: 100%;
+  }
+  
+  .software__item .img-bw-wrapper img {
+    opacity: .7;
+  }
+  
+  .software__item .img-color-wrapper img {
+    opacity: 0;
+  }
+  
+  .img-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    grid-area: 1/1/2/2;
+  }
+  
+  .software__item .img-wrapper {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+  }
+  
+
+  .css-120lnqf {
+    background: transparent!important;
+    padding: 50% 0!important;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .css-ja5taz-MuiTooltip-tooltip {
+    border-radius: 4px;
+    font-family: "menuFont", "Helvetica", "Arial", sans-serif !important;
+    letter-spacing: 1px;
+    padding: 8px 8px 6px !important;
+    font-size: 1.2em !important;
+    max-width: 300px;
+    margin: 2px;
+    margin-bottom: 4px !important;
+    word-wrap: break-word;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .tooltip {
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .tooltip-span {
+    display: block;
+    position: fixed;
+    overflow: hidden;
+  }
+
+  .about-photo-wrapper {
+    width: 80vw;
+    max-width: 505px;
+    /*max-width: calc(50% - 110px);*/
+    height: 300px;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    background: rgb(181, 181, 181);
+  }
+  .about-photo-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  
+  .about-column {
+    margin-left: 50%;
+  }
+  .about-column--fixed {
+    position: fixed;
+    top: 0;
+    margin-left: 0;
+    padding: 40px 0;
+  }

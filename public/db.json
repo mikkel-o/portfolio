@@ -11,7 +11,10 @@
     "client": ["riot games"],
     "img": "/img/Riot_Change_Your_Fate_4B_poster.jpeg",
     "link": "https://youtu.be/xKarEOxXa3s",
-    "embed": "https://www.youtube.com/embed/xKarEOxXa3s",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/xKarEOxXa3s"
+    },
     "album": [
       {
         "id": 1,
@@ -25,7 +28,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/01_guardians-of-the-ancient/poster/guardians-of-the-ancient_poster_540.jpg",
         "link": "https://youtu.be/xKarEOxXa3s",
-        "embed": "https://www.youtube.com/embed/xKarEOxXa3s"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/xKarEOxXa3s"
+        }
       },
       {
         "id": 2,
@@ -39,7 +45,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/02_rise-of-the-underworlds/poster/rise-of-the-underworlds_poster_540_b.jpg",
         "link": "https://youtu.be/lCjlFAefDnI",
-        "embed": "https://www.youtube.com/embed/lCjlFAefDnI"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/lCjlFAefDnI"
+        }
         
       },
       {
@@ -54,7 +63,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/03_beyond-the-bandlewood-01/poster/beyond-the-bandlewood-01_poster_540.jpg",
         "link": "https://youtu.be/h3YIKmjFpoo",
-        "embed": "https://www.youtube.com/embed/h3YIKmjFpoo"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/h3YIKmjFpoo"
+        }
       },
       {
         "id": 4,
@@ -68,7 +80,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/04_beyond-the-bandlewood-02/poster/beyond-the-bandlewood-02_poster_540.jpg",
         "link": "https://youtu.be/IoSTm4jwGEo",
-        "embed": "https://www.youtube.com/embed/IoSTm4jwGEo"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/IoSTm4jwGEo"
+        }
       },
       {
         "id": 5,
@@ -82,7 +97,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/05_beyond-the-bandlewood-03/poster/beyond-the-bandlewood-03_poster_540.jpg",
         "link": "https://youtu.be/kAr0IfSMe1w",
-        "embed": "https://www.youtube.com/embed/kAr0IfSMe1w"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/kAr0IfSMe1w"
+        }
       },
       {
         "id": 6,
@@ -96,7 +114,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/06_severing-fate/poster/severing-fate_poster_540.jpg",
         "link": "https://youtu.be/_6-O2QmdWvA",
-        "embed": "https://youtube.com/embed/_6-O2QmdWvA"
+        "embed": {
+          "host": "youtube",
+          "link": "https://youtube.com/embed/_6-O2QmdWvA"
+        }
       },
       {
         "id": 7,
@@ -110,7 +131,10 @@
         "client": ["riot games"],
         "img": "/projects/riot-games/07_the-path/poster/the-path_poster_540.jpg",
         "link": "https://youtu.be/u9fFG4ZLp9Y",
-        "embed": "https://www.youtube.com/embed/u9fFG4ZLp9Y"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/u9fFG4ZLp9Y"
+        }
       }
     ]
   },
@@ -125,7 +149,10 @@
     "client": ["John Lewis", "agency"],
     "img": "/projects/monty-the-penguin/poster/monty-the-penguin_poster_540.jpg",
     "link": "https://youtu.be/cSU34BwObCQ",
-    "embed": "https://www.youtube.com/embed/cSU34BwObCQ"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/cSU34BwObCQ"
+    }
   },
   {
     "id": 3,
@@ -138,7 +165,10 @@
     "client": ["lego"],
     "img": "/projects/ninjago-golden-legend/poster/ninjago-golden-legend_poster_540_c.jpg",
     "link": "https://youtu.be/TSmqXAUfKwE",
-    "embed": "https://www.youtube.com/embed/TSmqXAUfKwE"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/TSmqXAUfKwE"
+    }
   },
   {
     "id": 4,
@@ -151,7 +181,10 @@
     "client": ["travel oregon", "psyop", "weiden+kennedy"],
     "img": "/projects/travel-oregon/poster/travel-oregon_poster_540_f.jpg",
     "link": "https://youtu.be/qi4fGPPPmGA",
-    "embed": "https://www.youtube.com/embed/qi4fGPPPmGA"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/qi4fGPPPmGA"
+    }
   },
   {
     "id": 5,
@@ -164,7 +197,10 @@
     "client": ["monkey tennis"],
     "img": "/img/MonkeyTennis_Poster.jpg",
     "link": "",
-    "embed": "",
+    "embed": {
+      "host": "",
+      "link": ""
+    },
     "album": [
       {
         "id": 1,
@@ -174,7 +210,10 @@
         "technique": ["3D animation"],
         "img": "/projects/monkey-tennis-shorts/01_santa-christmas/poster/santa-christmas_poster_540.jpg",
         "link": "https://vimeo.com/248578236",
-        "embed": "https://player.vimeo.com/video/248578236?h=047afc0e35"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/248578236?h=047afc0e35"
+        }
       },
       
       {
@@ -185,7 +224,10 @@
         "technique": ["3D animation"],
         "img": "/projects/monkey-tennis-shorts/02_office-cat/poster/office-cat_poster_540.jpg",
         "link": "https://vimeo.com/358296442",
-        "embed": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
+        }
       },
       
       {
@@ -196,7 +238,10 @@
         "technique": ["3D animation"],
         "img": "/projects/monkey-tennis-shorts/03_quantum-heroes/poster/quantum-heroes_poster_540.jpg",
         "link": "https://vimeo.com/monkeytennis/quantumheroes",
-        "embed": "https://player.vimeo.com/video/208180727?h=04e436c0b4"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/208180727?h=04e436c0b4"
+        }
       },
       
       {
@@ -207,7 +252,10 @@
         "technique": ["3D animation"],
         "img": "/projects/monkey-tennis-shorts/04_christmas-cookies/poster/christmas-cookies_poster_540.jpg",
         "link": "https://vimeo.com/monkeytennis/monkeychristmas",
-        "embed": "https://player.vimeo.com/video/196590870?h=dc1fb64104"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/196590870?h=dc1fb64104"
+        }
       },
       {
         "id": 5,
@@ -217,7 +265,10 @@
         "technique": ["3D animation"],
         "img": "/projects/monkey-tennis-shorts/05_backpacker-bird/poster/backpacker-bird_poster_540.jpg",
         "link": "https://vimeo.com/297678101",
-        "embed": "https://player.vimeo.com/video/297678101?h=e383cae411"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/297678101?h=e383cae411"
+        }
       }
     ]
   },
@@ -232,7 +283,10 @@
     "client": ["viborg kommune"],
     "img": "/img/Viborg_Poster.jpg",
     "link": "https://youtu.be/KVwTNUaQ1xs",
-    "embed": "https://www.youtube.com/embed/KVwTNUaQ1xs",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/KVwTNUaQ1xs"
+    },
     "album": [
       {
         "id": 1,
@@ -242,7 +296,10 @@
         "technique": ["3D animation"],
         "img": "/projects/fumle-and-bumle/01_fumle-and-the-nasty-rats/poster/fumle-and-the-nasty-rats_poster_540_c.jpg",
         "link": "https://youtu.be/KVwTNUaQ1xs",
-        "embed": "https://www.youtube.com/embed/KVwTNUaQ1xs"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/KVwTNUaQ1xs"
+        }
       },
       {
         "id": 2,
@@ -252,7 +309,10 @@
         "technique": ["3D animation"],
         "img": "/projects/fumle-and-bumle/02_bumle-and-the-nasty-rats/poster/bumle-and-the-nasty-rats_poster_540.jpg",
         "link": "https://youtu.be/LaWvUuhSlSQ",
-        "embed": "https://www.youtube.com/embed/LaWvUuhSlSQ"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/LaWvUuhSlSQ"
+        }
       },
       {
         "id": 3,
@@ -262,7 +322,10 @@
         "technique": ["2D animation"],
         "img": "/projects/fumle-and-bumle/03_fumle-explainers/poster/fumle-explainers_poster_540_b.jpg",
         "link": "https://youtu.be/Sf4V9BvO7E4",
-        "embed": "https://www.youtube.com/embed/Sf4V9BvO7E4"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/Sf4V9BvO7E4"
+        }
       }
     ]
   },
@@ -277,7 +340,10 @@
     "client": ["lego", "advance"],
     "img": "/img/Lego_Poster.jpg",
     "link": "",
-    "embed": "",
+    "embed": {
+      "host": "",
+      "link": ""
+    },
     "album": [
       {
         "id": 1,
@@ -287,7 +353,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/01_rapunzel-01/poster/rapunzel-01_poster_540.jpg",
         "link": "https://youtu.be/6l8qzI6h-b4",
-        "embed": "https://www.youtube.com/embed/6l8qzI6h-b4"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/6l8qzI6h-b4"
+        }
       },
       {
         "id": 2,
@@ -297,7 +366,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/02_sleeping-beauty/poster/sleeping-beauty_poster_540.jpg",
         "link": "https://youtu.be/oZbHuVhTc_E",
-        "embed": "https://www.youtube.com/embed/oZbHuVhTc_E"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/oZbHuVhTc_E"
+        }
       },
       {
         "id": 3,
@@ -307,7 +379,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/03_mulan/poster/mulan_poster_540.jpg",
         "link": "https://youtu.be/ROYp7JFbIvI",
-        "embed": "https://www.youtube.com/embed/ROYp7JFbIvI"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/ROYp7JFbIvI"
+        }
       },
       {
         "id": 4,
@@ -317,7 +392,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/04_beauty-and-the-beast-01/poster/beauty-and-the-beast-01_poster_540.jpg",
         "link": "https://youtu.be/LiC7J-4Jx9o",
-        "embed": "https://www.youtube.com/embed/LiC7J-4Jx9o"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/LiC7J-4Jx9o"
+        }
       },
       {
         "id": 5,
@@ -327,7 +405,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/05_the-little-mermaid-01/poster/the-little-mermaid-01_poster_540.jpg",
         "link": "https://youtu.be/UYgPbSQyncw",
-        "embed": "https://www.youtube.com/embed/UYgPbSQyncw"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/UYgPbSQyncw"
+        }
       },
       {
         "id": 6,
@@ -337,7 +418,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/06_beauty-and-the-beast-02/poster/beauty-and-the-beast-02_poster_540_b.jpg",
         "link": "https://youtu.be/4SjvZ1Z8FD0",
-        "embed": "https://www.youtube.com/embed/4SjvZ1Z8FD0"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/4SjvZ1Z8FD0"
+        }
       },
       {
         "id": 7,
@@ -347,7 +431,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/07_rapunzel-02/poster/rapunzel-02_poster_540.jpg",
         "link": "https://youtu.be/24eEL6OlfKo",
-        "embed": "https://www.youtube.com/embed/24eEL6OlfKo"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/24eEL6OlfKo"
+        }
       },
       {
         "id": 8,
@@ -357,7 +444,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/08_frozen-01/poster/frozen-01_poster_540.jpg",
         "link": "https://youtu.be/zd_MgQbVcCQ",
-        "embed": "https://www.youtube.com/embed/zd_MgQbVcCQ"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/zd_MgQbVcCQ"
+        }
       },
       {
         "id": 9,
@@ -367,7 +457,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/09_the-little-mermaid-02/poster/the-little-mermaid-02_poster_540.jpg",
         "link": "https://youtu.be/7FkmG5lijx4",
-        "embed": "https://www.youtube.com/embed/7FkmG5lijx4"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/7FkmG5lijx4"
+        }
       },
       {
         "id": 10,
@@ -377,7 +470,10 @@
         "technique": ["Technique one"],
         "img": "/projects/princess-minisodes/10_cinderella/poster/cinderella_poster_540.jpg",
         "link": "https://youtu.be/8m8eWBngnsg",
-        "embed": "https://www.youtube.com/embed/8m8eWBngnsg"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/8m8eWBngnsg"
+        }
       },
       {
         "id": 11,
@@ -387,7 +483,10 @@
         "technique": ["3D animation"],
         "img": "/projects/princess-minisodes/11_frozen-2/00_find-sven/poster/find-sven_poster_540.jpg",
         "link": "https://youtu.be/B_BUVNFV2Q0",
-        "embed": "https://www.youtube.com/embed/B_BUVNFV2Q0",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/B_BUVNFV2Q0"
+        },
         "collection": 
           [
             {
@@ -396,7 +495,10 @@
               "title": "Your Story Begins - Where is Sven?",
               "img": "/projects/princess-minisodes/11_frozen-2/01_where-is-sven/poster/where-is-sven_poster_540.jpg",
               "link": "https://youtu.be/v_f8VhC4zpM",
-              "embed": "https://www.youtube.com/embed/v_f8VhC4zpM"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/v_f8VhC4zpM"
+              }
             },
             {
               "id": 2,
@@ -404,7 +506,10 @@
               "title": "Go with Elsa",
               "img": "/projects/princess-minisodes/11_frozen-2/02_go-with-elsa/poster/go-with-elsa_poster_540.jpg",
               "link": "https://youtu.be/cD2EdDDGXkU",
-              "embed": "https://www.youtube.com/embed/cD2EdDDGXkU"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/cD2EdDDGXkU"
+              }
             },
             {
               "id": 3,
@@ -412,7 +517,10 @@
               "title": "Go with Anna",
               "img": "/projects/princess-minisodes/11_frozen-2/03_go-with-anna/poster/go-with-anna_poster_540.jpg",
               "link": "https://youtu.be/CZ8wwZnhutI",
-              "embed": "https://www.youtube.com/embed/CZ8wwZnhutI"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/CZ8wwZnhutI"
+              }
             },
             {
               "id": 4,
@@ -420,7 +528,10 @@
               "title": "Look by the treehouse",
               "img": "/projects/princess-minisodes/11_frozen-2/04_look-by-the-treehouse/poster/look-by-the-treehouse_poster_540.jpg",
               "link": "https://youtu.be/8yiqwcGr_xE",
-              "embed": "https://www.youtube.com/embed/8yiqwcGr_xE"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/8yiqwcGr_xE"
+              }
             },
             {
               "id": 5,
@@ -428,7 +539,10 @@
               "title": "Look from up high",
               "img": "/projects/princess-minisodes/11_frozen-2/05_look-from-up-high/poster/look-from-up-high_poster_540.jpg",
               "link": "https://youtu.be/y_1u2hAEAlo",
-              "embed": "https://www.youtube.com/embed/y_1u2hAEAlo"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/y_1u2hAEAlo"
+              }
             },
             {
               "id": 6,
@@ -436,7 +550,10 @@
               "title": "Look near the top of the rocks",
               "img": "/projects/princess-minisodes/11_frozen-2/06_look-near-the-top-of-the-rocks/poster/look-near-the-top-of-the-rocks_poster_540.jpg",
               "link": "https://youtu.be/fyzK3S6tZ4E",
-              "embed": "https://www.youtube.com/embed/fyzK3S6tZ4E"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/fyzK3S6tZ4E"
+              }
             },
             {
               "id": 7,
@@ -444,7 +561,10 @@
               "title": "Look by the trough",
               "img": "/projects/princess-minisodes/11_frozen-2/07_look-by-the-trough/poster/look-by-the-trough_poster_540.jpg",
               "link": "https://youtu.be/kN-ICpvQ_2c",
-              "embed": "https://www.youtube.com/embed/kN-ICpvQ_2c"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/kN-ICpvQ_2c"
+              }
             },
             {
               "id": 8,
@@ -452,7 +572,10 @@
               "title": "Look by the Rune Stones",
               "img": "/projects/princess-minisodes/11_frozen-2/08_look-by-the-rune-stones/poster/look-by-the-rune-stones_poster_540.jpg",
               "link": "https://youtu.be/VQmtkNXzzx0",
-              "embed": "https://www.youtube.com/embed/VQmtkNXzzx0"
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/VQmtkNXzzx0"
+              }
             }
             
           ]
@@ -472,7 +595,10 @@
     "client": ["Sony Playstation", "agency"],
     "img": "/projects/tearaway/poster/tearaway_poster_540.jpg",
     "link": "https://youtu.be/oQldsRDm6D0",
-    "embed": "https://www.youtube.com/embed/oQldsRDm6D0"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/oQldsRDm6D0"
+    }
   },
   {
     "id": 9,
@@ -486,7 +612,10 @@
     "client": ["money supermarket"],
     "img": "/projects/elephunk/poster/elephunk_poster_540.jpg",
     "link": "https://dai.ly/x2y7knf",
-    "embed": "https://www.dailymotion.com/embed/video/x2y7knf"
+    "embed": {
+      "host": "dailymotion",
+      "link": "https://www.dailymotion.com/embed/video/x2y7knf"
+    }
   },
   {
     "id": 10,
@@ -500,7 +629,10 @@
     "client": ["apple music japan", "psyop", "agency"],
     "img": "/projects/apple-music/poster/apple-music_poster_540.jpg",
     "link": "https://youtu.be/ecZcQuc2ELU",
-    "embed": "https://www.youtube.com/embed/ecZcQuc2ELU"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/ecZcQuc2ELU"
+    }
   },
   {
     "id": 11,
@@ -514,7 +646,10 @@
     "client": ["supercell"],
     "img": "/projects/everdale/poster/everdale_poster_540.jpg",
     "link": "https://youtu.be/NY_VluvV54M",
-    "embed": "https://www.youtube.com/embed/NY_VluvV54M"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/NY_VluvV54M"
+    }
   },
   {
     "id": 12,
@@ -528,7 +663,10 @@
     "client": ["freeview", "agency"],
     "img": "/projects/freeview/poster/freeview_poster_540.jpg",
     "link": "https://youtu.be/isi7uruqAB8",
-    "embed": "https://www.youtube.com/embed/isi7uruqAB8"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/isi7uruqAB8"
+    }
   },
   {
     "id": 13,
@@ -542,7 +680,10 @@
     "client": ["noerregade", "mayday film"],
     "img": "/projects/noerregade/01_fisker/poster/noerregade-fisker_poster_540.jpg",
     "link": "https://vimeo.com/173341931",
-    "embed": "https://player.vimeo.com/video/173341931?h=f323209498"
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/173341931?h=f323209498"
+    }
     
 
   },
@@ -558,7 +699,10 @@
     "client": ["cadburys", "agency"],
     "img": "/projects/unwrap-joy/poster/unwrap-joy_poster_540.jpg",
     "link": "",
-    "embed": "https://player.vimeo.com/video/79185469?transparent=0"
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/79185469?transparent=0"
+    }
   },
   {
     "id": 15,
@@ -572,7 +716,10 @@
     "client": ["VEF"],
     "img": "/projects/erhvervsraad/poster/erhvervsraad_poster_540.jpg",
     "link": "https://vimeo.com/193063755",
-    "embed": "https://player.vimeo.com/video/193063755?h=695495136b"
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/193063755?h=695495136b"
+    }
   },
 
 
@@ -587,7 +734,10 @@
     "client": ["new creations", "zentropa"],
     "img": "/projects/mugge/poster/mugge_poster_540.jpg",
     "link": "https://youtu.be/TIgbOvnfoG4",
-    "embed": "https://www.youtube.com/embed/TIgbOvnfoG4",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/TIgbOvnfoG4"
+    },
     "album": [
       {
         "id": 1,
@@ -598,7 +748,10 @@
         "type": ["feature film"],
         "img": "/projects/mugge/01_the-street-party/poster/the-street-party_poster_540.jpg",
         "link": "https://youtu.be/TIgbOvnfoG4",
-        "embed": "https://www.youtube.com/embed/TIgbOvnfoG4"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/TIgbOvnfoG4"
+        }
       },
       {
         "id": 2,
@@ -609,7 +762,10 @@
         "type": ["ident"],
         "img": "/projects/mugge/02_juicyboost/poster/juicyboost_poster_540.jpg",
         "link": "https://youtu.be/TIgbOvnfoG4",
-        "embed": "https://www.youtube.com/embed/TIgbOvnfoG4"
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/TIgbOvnfoG4"
+        }
       }
     ]
   },
@@ -624,7 +780,10 @@
     "client": ["monkey tennis"],
     "img": "/projects/erhvervsraad/poster/erhvervsraad_poster_540.jpg",
     "link": "https://vimeo.com/193063755",
-    "embed": "https://player.vimeo.com/video/193063755?h=695495136b",
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/193063755?h=695495136b"
+    },
     "album": [
       {
         "id": 1,
@@ -634,7 +793,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/01_blender/poster/blender_poster_540.jpg",
         "link": "https://vimeo.com/137115834",
-        "embed": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+        }
       },
       {
         "id": 2,
@@ -644,7 +806,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/02_phone/poster/phone_poster_540.jpg",
         "link": "https://vimeo.com/138952742",
-        "embed": "https://player.vimeo.com/video/138952742?h=3c87a9a41e"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/138952742?h=3c87a9a41e"
+        }
         
 
       },
@@ -656,7 +821,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/03_doormat/poster/doormat_poster_540.jpg",
         "link": "https://vimeo.com/137937487",
-        "embed": "https://player.vimeo.com/video/137937487?h=f74bc76a3a"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/137937487?h=f74bc76a3a"
+        }
       },
       {
         "id": 4,
@@ -666,7 +834,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/04_hammer/poster/hammer_poster_540.jpg",
         "link": "https://vimeo.com/153388278",
-        "embed": "https://player.vimeo.com/video/153388278?h=3ab2d50f7a"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/153388278?h=3ab2d50f7a"
+        }
       },
       {
         "id": 5,
@@ -676,7 +847,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/05_toothpaste/poster/toothpaste_poster_540.jpg",
         "link": "https://vimeo.com/153388453",
-        "embed": "https://player.vimeo.com/video/153388453?h=2f8bd1eb71"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/153388453?h=2f8bd1eb71"
+        }
       },
       {
         "id": 6,
@@ -686,7 +860,10 @@
         "technique": ["3D animation"],
         "img": "/projects/alans-apartment/06_beans/poster/beans_poster_540.jpg",
         "link": "https://vimeo.com/137115834",
-        "embed": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+        "embed": {
+          "host": "vimeo",
+          "link": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
+        }
       }
     ]
   },
@@ -702,7 +879,10 @@
     "client": ["auquafresh", "agency"],
     "img": "/projects/captain-aquafresh/poster/captain-aquafresh_poster_540_b.jpg",
     "link": "https://vimeo.com/399475225",
-    "embed": "https://player.vimeo.com/video/399475225?h=505b208f4b"
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/399475225?h=505b208f4b"
+    }
   },
   {
     "id": 19,
@@ -716,7 +896,10 @@
     "client": ["heinekin", "agency"],
     "img": "/projects/heinekin/poster/heinekin_poster_540.jpg",
     "link": "https://dai.ly/x2ephbw",
-    "embed": "https://www.dailymotion.com/embed/video/x2ephbw"
+    "embed": {
+      "host": "dailymotion",
+      "link": "https://www.dailymotion.com/embed/video/x2ephbw"
+    }
   },
   {
     "id": 20,
@@ -730,23 +913,13 @@
     "client": ["EA Sports", "agency"],
     "img": "/projects/messimorphosis/poster/messimorphosis_poster_540.jpg",
     "link": "https://youtu.be/DYYy8_GCdn4",
-    "embed": "https://www.youtube.com/embed/DYYy8_GCdn4"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/DYYy8_GCdn4"
+    }
   },
   {
     "id": 21,
-    "name": "lego-ideas",
-    "category": ["producer", "artist"],
-    "technique": ["3D animation"],
-    "role": ["executive producer", "producer", "3D artist"],
-    "type": ["branded content"],
-    "company": ["monkey tennis"],
-    "client": ["lego", "advance"],
-    "img": "/img/Minifig_Square_Thumb.jpg",
-    "link": "",
-    "embed": ""
-  },
-  {
-    "id": 22,
     "name": "experience-design",
     "category": ["artist", "editor"],
     "technique": ["3D animation"],
@@ -756,10 +929,41 @@
     "client": ["M2 film", "Moesgaard Museum", "THIS festival"],
     "img": "/img/ExperienceDesign_Poster.jpg",
     "link": "",
-    "embed": ""
+    "embed": {
+      "host": "",
+      "link": ""
+    },
+    "album": [
+      {
+        "id": 1,
+        "name": "this-festival",
+        "title": "THIS Festival",
+        "technique": ["3D animation"],
+        "role": ["editor"],
+        "img": "/projects/experience-design/01_this-festival/poster/this-festival_poster_540.jpg",
+        "link": "https://youtu.be/Foa9yu9GDQQ",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/Foa9yu9GDQQ"
+        }
+      },
+      {
+        "id": 2,
+        "name": "moesgaard",
+        "title": "Moeasgaard Gladiators",
+        "technique": ["3D animation"],
+        "role": ["editor", "3D artist"],
+        "img": "/projects/experience-design/02_moesgaard/poster/moesgaard_poster_540_c.jpg",
+        "link": "https://youtu.be/9uL6yUXizU4",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/9uL6yUXizU4"
+        }
+      }
+    ]
   },
   {
-    "id": 23,
+    "id": 22,
     "name": "get-set-go",
     "category": ["artist"],
     "technique": ["visual effects"],
@@ -769,10 +973,13 @@
     "client": ["argos", "agency"],
     "img": "/projects/argos/poster/argos_poster_540_c.jpg",
     "link": "https://youtu.be/ONaNnjgUzv8",
-    "embed": "https://www.youtube.com/embed/ONaNnjgUzv8"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/ONaNnjgUzv8"
+    }
   },
   {
-    "id": 24,
+    "id": 23,
     "name": "interview",
     "category": ["artist", "editor"],
     "technique": ["3D animation"],
@@ -782,10 +989,13 @@
     "client": ["the animation workshop"],
     "img": "/projects/interview/poster/interview_poster_540.jpg",
     "link": "https://youtu.be/VZ4OvpoWu3k",
-    "embed": "https://www.youtube.com/embed/VZ4OvpoWu3k"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/VZ4OvpoWu3k"
+    }
   },
   {
-    "id": 25,
+    "id": 24,
     "name": "book-en-bibliotekar",
     "category": ["producer", "artist", "editor"],
     "technique": ["2D animation"],
@@ -795,10 +1005,43 @@
     "client": ["viborg bibliotek"],
     "img": "/img/placeholder.jpeg",
     "link": "",
-    "embed": ""
+    "embed": {
+      "host": "",
+      "link": ""
+    },
+    "album": [
+      {
+        "id": 1,
+        "name": "tyngdeloven",
+        "title": "Tyngdeloven",
+        "technique": ["2D animation"],
+        "role": ["editor", "compositor"],
+        "img": "/projects/book-en-bibliotekar/01_tyngdeloven/poster/tyngdeloven_poster_540.jpg",
+        "link": "https://youtu.be/nlEYsyhSIAg",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/nlEYsyhSIAg"
+        }
+        
+      },
+      {
+        "id": 2,
+        "name": "den-kolde-krig",
+        "title": "Den Kolde Krig",
+        "technique": ["2D animation"],
+        "role": ["editor", "compositor"],
+        "img": "/projects/book-en-bibliotekar/02_den-kolde-krig/poster/den-kolde-krig_poster_540.jpg",
+        "link": "https://youtu.be/W6SAOKIjlE4",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/W6SAOKIjlE4"
+        }
+        
+      }
+    ]
   },
   {
-    "id": 26,
+    "id": 25,
     "name": "lego-city",
     "title": "All Hands to the Rescue",
     "category": ["producer", "artist"],
@@ -809,36 +1052,47 @@
     "client": ["lego", "M2 film"],
     "img": "/projects/lego-city/poster/lego-city_poster_540.jpg",
     "link": "https://youtu.be/r5L_HjQ4754",
-    "embed": "https://www.youtube.com/embed/r5L_HjQ4754"
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/r5L_HjQ4754"
+    }
   },
   {
-    "id": 27,
-    "name": "lego-friends",
+    "id": 26,
+    "name": "L2M",
+    "title": "Living for the Rhythm",
     "category": ["artist"],
     "technique": ["3D animation"],
     "role": ["3D artist"],
     "type": ["branded content"],
     "company": ["monkey tennis"],
     "client": ["lego", "M2 film"],
-    "img": "/img/placeholder.jpeg",
-    "link": "",
-    "embed": ""
+    "img": "/projects/lego-L2M/poster/lego-L2M_poster_540.jpg",
+    "link": "https://youtu.be/0LaXc7bVNUU",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/0LaXc7bVNUU"
+    }
   },
   {
-    "id": 28,
-    "name": "lego-frozen",
+    "id": 27,
+    "name": "lego-frozen-2",
     "category": ["producer", "artist"],
     "technique": ["3D animation", "visual effects"],
     "role": ["executive producer", "3D artist"],
     "type": ["branded content"],
     "company": ["monkey tennis"],
     "client": ["lego", "advance"],
-    "img": "/img/placeholder.jpeg",
-    "link": "",
-    "embed": ""
+    "img": "/projects/lego-frozen-2/poster/frozen-2_poster_540_d.jpg",
+    "link": "https://www.ispot.tv/ad/ZtDW/lego-disney-frozen-2-water-pretzel-and-sword",
+    "embed": {
+      "host": "ispot",
+      "link": "https://www.ispot.tv/share/ZtDW"
+    }
+                    
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "ford",
     "category": ["artist"],
     "technique": ["visual effects"],
@@ -848,105 +1102,120 @@
     "client": ["ford", "agency"],
     "img": "/img/placeholder.jpeg",
     "link": "",
-    "embed": ""
+    "embed": {
+      "host": "",
+      "link": ""
+    }
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "lego-ideas",
     "category": ["producer", "artist", "editor"],
-    "role": ["executive producer", "editor", "3D artist"],
+    "role": ["executive producer", "producer", "editor", "3D artist"],
     "technique": ["3D animation"],
     "type": ["branded content"],
     "company": ["monkey tennis"],
     "client": ["lego", "advance"],
     "img": "/img/placeholder.jpeg",
     "link": "",
-    "embed": "",
+    "embed": {
+      "host": "",
+      "link": ""
+    },
     
     "album": [
       {
         "id": 1,
-        "name": "sub-project-one",
-        "role": ["Role one", "Role two", "Role four"],
-        "technique": ["Technique one"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
+        "name": "lego-flintstones",
+        "title": "The Flintstones",
+        "role": ["executive producer"],
+        "technique": ["3D animation"],
+        "img": "/projects/lego-ideas/01_flintstones/poster/flintstones_poster_540.jpg",
+    "link": "https://youtu.be/3UDXjO-eRUg",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/3UDXjO-eRUg"
+    }
       },
       {
         "id": 2,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
+        "name": "lego-tree-house",
+        "title": "Tree House",
+        "role": ["executive producer"],
+        "technique": ["3D animation"],
+        "img": "/projects/lego-ideas/02_tree-house/poster/tree-house_poster_540.jpg",
+    "link": "https://youtu.be/JdLap1Bpchk",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/JdLap1Bpchk"
+    }
       },
       {
         "id": 3,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
+        "name": "lego-tron",
+        "title": "Tron Legacy Teaser",
+        "role": ["executive producer", "animator", "3D artist"],
+        "technique": ["3D animation"],
+        "img": "/projects/lego-ideas/03_tron/poster/tron_poster_540.jpg",
+        "link": "https://youtu.be/vPXNwNNBDsw",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/vPXNwNNBDsw"
+        },
+    "collection": 
+          [
+            {
+              "id": 1,
+              "name": "tron-shot-01",
+              "title": "Tron Legacy",
+              "img": "/projects/lego-ideas/03_tron/poster/tron_poster_540.jpg",
+              "link": "https://youtu.be/vPXNwNNBDsw",
+              "embed": {
+                "host": "youtube",
+                "link": "https://www.youtube.com/embed/vPXNwNNBDsw"
+              }
+            },
+            {
+              "id": 2,
+              "name": "tron-shot-03",
+              "title": "Tron Legacy",
+              "img": "/projects/lego-ideas/03_tron/poster/tron_poster_540.jpg",
+              "link": "https://twitter.com/i/status/1013818096186986496",
+              "embed": {
+                "host": "twitter",
+                "link": "1013818096186986496"
+              }
+            }
+            
+          ]
       },
       {
         "id": 4,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
+        "name": "lego-voltron",
+        "title": "Voltron Teaser",
+        "role": ["producer"],
+        "technique": ["3D animation"],
+        "img": "/projects/lego-ideas/04_voltron/poster/voltron_poster_540.jpg",
+    "link": "https://www.facebook.com/watch/?v=2123392761008244&ref=sharing",
+    "embed": {
+      "host": "facebook",
+      "link": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FLEGOIdeas%2Fvideos%2F2123392761008244%2F&show_text=false&width=560&t=0"
+    }
+    
       },
       {
         "id": 5,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
-      },
-      {
-        "id": 6,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
-      },
-      {
-        "id": 7,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
-      },
-      {
-        "id": 8,
-        "name": "sub-project-two",
-        "role": ["Role one"],
-        "technique": ["Technique two"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
-      },
-      {
-        "id": 9,
-        "name": "lego-flintstones",
+        "name": "lego-steamboat-willie",
+        "title": "Steamboat Willie Teaser",
+        "role": ["producer", "3D artist"],
         "technique": ["3D animation"],
-        "role": ["executive producer"],
-        "type": ["branded content"],
-        "company": ["monkey tennis"],
-        "client": ["lego", "advance"],
-        "img": "/img/placeholder.jpeg",
-        "link": "",
-        "embed": ""
+        "img": "/projects/lego-ideas/05_steamboat-willie/poster/steamboat-willie_poster_540.jpg",
+        "link": "https://youtu.be/dKNbwiVFkwI",
+        "embed": {
+          "host": "youtube",
+          "link": "https://www.youtube.com/embed/dKNbwiVFkwI"
+        }
+    
       }
     ]
   }
