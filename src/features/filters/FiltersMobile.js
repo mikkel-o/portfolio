@@ -35,8 +35,8 @@ export default function FiltersMobile() {
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef();
-  const projectsAll = useSelector(state => state.projects.all);
-  const projectsActive = useSelector(state => state.projects.active);
+  //const projectsAll = useSelector(state => state.projects.all);
+  //const projectsActive = useSelector(state => state.projects.active);
   const filtersAll = useSelector(state => state.projects.filters.all);
   const filtersActive =  useSelector(state => state.projects.filters.active);
   const filtersPseudo = useSelector(state => state.projects.filters.pseudo);

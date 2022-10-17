@@ -36,7 +36,7 @@ export default function Project({project, children}) {
   const filterMethod = useSelector(state => state.projects.filters.method);
   const isViewMobile = useSelector(state => state.toggle.isMobile)
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  //const [scrollPosition, setScrollPosition] = useState(0);
   const onClickHandler = (event) => { 
     
     setIsOpen(!isOpen);
