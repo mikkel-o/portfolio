@@ -1,9 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef, useMemo} from "react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from "react-redux";
 import { addProject, clearProjects, projectCoord, addId, clearId, addLink, clearLink } from "../features/singleProject/singleProjectSlice";
 import ImageSlider from './ImageSlider/ImageSlider';
+
+
+
+function useIsInViewport(ref) {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  const observer = useMemo(
+    () =>
+      new IntersectionObserver(([entry]) =>
+        setIsIntersecting(entry.isIntersecting),
+      ),
+    [],
+  );
+
+  useEffect(() => {
+    observer.observe(ref.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [ref, observer]);
+
+  return isIntersecting;
+}
+
 
 export default function Project({project, children}) {
   const dispatch = useDispatch();
@@ -11,8 +36,9 @@ export default function Project({project, children}) {
   const filterMethod = useSelector(state => state.projects.filters.method);
   const isViewMobile = useSelector(state => state.toggle.isMobile)
   const [isOpen, setIsOpen] = useState(false);
-  
+  const [scrollPosition, setScrollPosition] = useState(0);
   const onClickHandler = (event) => { 
+    
     setIsOpen(!isOpen);
     const childPos = event.target.parentElement.parentElement.parentElement.getBoundingClientRect();
     const index = [...event.target.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
@@ -36,8 +62,26 @@ export default function Project({project, children}) {
 
   }
 
+
+  const ref = useRef(null);
+  
+
+  const isInViewport = useIsInViewport(ref);
+  
+
+  
+
+
+
+
   return (
-    <div className={''}>
+    <motion.div 
+      className={''} 
+      ref={ref} 
+      style={{opacity: 0, translateY: '0px'}}
+      animate={{opacity: isInViewport ? 1 : 0, translateY: isInViewport ? '-20px' : '0px'}}
+      transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
+    >
       <div className="">
         <div 
           key={project.id} 
@@ -105,6 +149,6 @@ export default function Project({project, children}) {
         </div>
       </div>
       
-    </div>  
+    </motion.div>  
   );
 }

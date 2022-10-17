@@ -129,8 +129,20 @@ export default function FiltersMobile() {
           className={'filters-mobile-btn '}
         >
           {/*{isFiltersMenuActive ? projectedCount : countCurrent }  */}
+          {/*  
+          {isFiltersMenuActive ? 
+          <div style={{display: 'inline-block'}}>
+            <span className={'projects-counter-current'}>{ projectsActive.length }</span>
+            <span className={'projects-counter-total'}>{` / ${projectsAll.length}`}</span>
+          </div>
+           : 
+           'filters' } 
+           */}
+        {/*          
           <span className={'projects-counter-current'}>{ projectsActive.length }</span>
           <span className={'projects-counter-total'}>{` / ${projectsAll.length}`}</span>
+        */}
+        filters
         </motion.button>
       </div>
       

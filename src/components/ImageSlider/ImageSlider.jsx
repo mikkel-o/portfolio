@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addActiveFilmIndex } from "../../features/projects/projectsSlice";
+import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import './css/ImageSlider.css';
@@ -9,30 +9,33 @@ import './css/ImageSlider.css';
 const ImageSlider = (props) => {  
   const dispatch = useDispatch();
   const projects = props.items;
-       
+      
   const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0;
   
-
+  if (props.type === 'feature') {
+            
+    console.log(indexStart);
+  } 
   const CollectionSize = projects.length,
         [index, setActiveStep] = useState(indexStart),
         goToNextPicture = (e) => { 
-          
+          console.log('click');
           if (index === CollectionSize - 1) {
-            
+            console.log(index);
             setActiveStep(0) 
         } else {
-          
+          console.log(index);
           setActiveStep(prevActiveStep => prevActiveStep + 1) 
         }
         
         },
         goBack = (e) => { 
-          
+          console.log('click');
           if (index === 0) {
-            
+            console.log(index);
             setActiveStep(CollectionSize - 1) 
           } else {
-            
+            console.log(index);
             setActiveStep(prevActiveStep => prevActiveStep - 1) 
           }
           
@@ -46,22 +49,27 @@ const ImageSlider = (props) => {
   
 
         useEffect(() => {
-          
-          dispatch(addActiveFilmIndex({name: props.name, index: index}));
-        }, [dispatch, props.name, index]);
-        
+          if (props.type === 'feature') {
+            
+            dispatch(addActiveSlideIndex({name: props.name, index: index}));
+          } else {
+            dispatch(addActiveFilmIndex({name: props.name, index: index}));
+          }
+
+        }, [dispatch, props.name, props.type, index]);
+      
         
   return (
-    <div className={'carousel__wrapper'}>
+    <div className={`${projects[index].name} carousel__wrapper`}>
         
      
       {/* video/image container */}
       <ul className={'carousel__list project'}>
-        <li className={'carousel__item current-slide' }>
+        <li className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
 
-        
+
             {/* video (!add image posibility) */}
-            <img alt={'blahblah'} className={"carousel__video"} src={`${projects[index].img}`}/>
+            <img alt={'blahblah'} className={props.showTitle ? "carousel__video carousel__video--featured" : "carousel__video"} src={`${projects[index].img}`}/>
 
             
           

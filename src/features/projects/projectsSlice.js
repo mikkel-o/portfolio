@@ -18,6 +18,12 @@ const sliceOptions = {
   initialState: {
     all: [],
     active: [],
+    featured: {
+      id: 1,
+      name: 'featured-projects',
+      activeFilmIndex: 0,
+      album: []
+    },
     filters: {
       all: [],
       active: [],
@@ -90,8 +96,16 @@ const sliceOptions = {
       
     },
     addActiveFilmIndex: (state, action) => {
+      
       state.active.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
       state.all.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
+      //state.all.forEach(project => project.activeFilm = action.payload)
+    },
+    addActiveSlideIndex: (state, action) => {
+      
+      state.featured.activeFilmIndex = action.payload.index;
+
+      //state.all.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
       //state.all.forEach(project => project.activeFilm = action.payload)
     }
   },
@@ -103,8 +117,28 @@ const sliceOptions = {
     },
     [loadProjects.fulfilled]: (state, action) => {
       state.all = action.payload;
-      let temp = [];
       
+      let temp = [];
+    
+      state.featured.album = state.all.filter(x => x.featured === true );
+      state.featured.album.unshift(
+        {
+          id: 0,
+          name: "cg-showreel",
+          title: "Showreel",
+          featuredRole: ["CG Generalist"],
+          role: ["CG Generalist"],
+          featured: true,
+          hide: true,
+          video: "/video/CGReel_temp.mp4",
+          img: "/video/CGReel_temp_poster_540.jpg",
+          link: "https://youtu.be/xKarEOxXa3s",
+          embed: {
+            host: "youtube",
+            link: "https://www.youtube.com/embed/xKarEOxXa3s"
+          }
+        }
+      );
       filterGroups.forEach((filterGroup, index) => {
         temp.push([{filterGroup: filterGroup, filters: {}}]);
         const all = action.payload.map((project) => project[filterGroup]).flat();
@@ -145,6 +179,6 @@ export const selectFilteredProjects = (state) => {
   }
 };
 
-export const { toggleMethod, setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex } = projectsSlice.actions;
+export const { toggleMethod, setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

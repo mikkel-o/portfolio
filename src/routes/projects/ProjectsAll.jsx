@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import Projects from "../../features/projects/Projects";
+import { Projects, FeaturedProjects } from "../../features/projects/Projects";
 import FiltersMobile from "../../features/filters/FiltersMobile";
 
 export default function ProjectsAll() {
   
-  
+  const isFiltersActive = useSelector(state => state.projects.filters.active).length;
+  const allProjects = useSelector(state => state.projects.all).length;
+
   const isActive = useSelector(state => state.toggle)['filters__menu__mobile'];
   
   return (
@@ -14,8 +16,15 @@ export default function ProjectsAll() {
         <FiltersMobile/>
       </header>
       <main id="projects-wrapper">
+        <section className={'featured-projects-section'}>
+          {isFiltersActive === 0 && allProjects !== 0 ? <FeaturedProjects/> : null}
+        </section>
         <section className="projects-section">
-          <Projects/>
+          {allProjects !== 0 ?
+  <Projects/>
+  : 
+  null
+          }
         </section>
       </main>
     </div>

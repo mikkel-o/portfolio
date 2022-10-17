@@ -13,6 +13,7 @@ export default function ProjectSingleWrapper() {
   
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (allProjects.length === 0) {
       
         dispatch(loadProject(params.id));

@@ -8,8 +8,8 @@ export default function Software() {
     const software = getSoftware();
     return ( 
     <ul className={'software__list'}>
-        {software.map((softwar) => (
-            <li className={'software__item tooltip'} >
+        {software.map((softwar, i) => (
+            <li key={i} className={'software__item tooltip'} >
                 <Tooltip title={softwar.prettyTitle} followCursor >
                 <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 }}>
                     <div className={'img-wrapper img-color-wrapper'} >

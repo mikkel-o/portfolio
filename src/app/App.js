@@ -110,6 +110,7 @@ dispatch(toggle('hideAll'));
 
 
 
+
   return (
     <div id="app" className={isMobile && isViewMobile ? 'mobile mobile-device' : isMobile ? 'mobile-device' : isViewMobile ? 'mobile' : ''}>
  <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />

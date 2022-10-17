@@ -64,7 +64,7 @@ export default function List(props) {
             <h2 className={`${prefix}-list__title list__title`}>{title}</h2>
             <ul className={`${prefix}-list__list list__list`}>
                 { props.list.map( (e, i) => (
-                    <li className={`${prefix}-list__item list__item`}>
+                    <li key={i} className={`${prefix}-list__item list__item`}>
                     <Accordion expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
         <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
         {e.period ? <h5 className={`${prefix}-list__period list__period`}><span>{e.period ? e.period[1] : ''}</span><span>{e.period ? e.period[0] : ''}</span></h5> : ''}
