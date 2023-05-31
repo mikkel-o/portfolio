@@ -17,9 +17,6 @@ import About from "./routes/about/About";
 import Showreel from "./routes/showreel/Showreel";
 import PhotosAll from "./routes/photo/PhotosAll";
 import PhotoAlbum from "./routes/photo/PhotoAlbum";
-import PhotoCollection from "./routes/photo/PhotoCollection";
-import PhotoSingle from "./routes/photo/PhotoSingle";
-
 import reportWebVitals from './reportWebVitals';
 import {store } from "./app/store";
 import { Provider } from "react-redux";

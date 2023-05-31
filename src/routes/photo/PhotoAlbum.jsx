@@ -1,15 +1,7 @@
-import React, {useEffect, useRef, useMemo, useState} from 'react';
-import { 
-  useLocation,
-  useParams,  
-  NavLink, 
-  Outlet
-} from "react-router-dom";
-
-import CollectionsIcon from '@mui/icons-material/Collections';
+import React from 'react';
+import { useParams } from "react-router-dom";
 import './PhotoAlbum.css';
 import { useSelector, useDispatch } from "react-redux";
-import {motion} from "framer-motion";
 import PhotoCard from "../../components/PhotoCard";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
