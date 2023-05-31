@@ -9,7 +9,6 @@ import {
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
 import { columnCount } from "../components/toggleSlice";
-import Footer from "../components/Footer/Footer.js";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";

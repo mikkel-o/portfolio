@@ -762,15 +762,3 @@ padding: 0;
     content: '';
     padding-left: 0px;
 }
-
-.mobile .active-filters-item::before {
-    /*content: 'x';
-    padding-left: 10px;
-    position: absolute;
-    top: -4px;
-    right: 2px;
-    color: #666;
-    font-size: 0.85em;
-    z-index: 1;
-    pointer-events: none;*/
-}

@@ -63,11 +63,6 @@
           .project-summary {
             margin: 625px 100px 150px;
           }
-          .project-summary {
-            /*max-width: 48%;*/
-            /*margin-right: 6%;*/
-            
-          }
           .c-video{
             margin: 0;
           }
@@ -134,9 +129,6 @@
         grid-column-gap: 45px!important;
         
     }
-    .project-summary {
-        /*max-width: 450px;*/
-      }
       .project-single-content-wrapper h1 {
         flex-basis: calc(50% - 80px);
         margin: 0px 25px 100px 55px;

@@ -2,10 +2,6 @@
 import React, {useEffect, useRef, useMemo, useState} from 'react';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import {motion} from "framer-motion";
-import { 
-    useLocation,
-    NavLink
-  } from "react-router-dom";
 
 
 
@@ -37,7 +33,6 @@ function useIsInViewport(ref) {
 export default function PhotoCard({singl, i, albu}) {
 const ref = useRef();
 const single = singl;
-const album = albu;
 const isInViewport = useIsInViewport(ref);  
 
 
@@ -59,10 +54,6 @@ const isInViewport = useIsInViewport(ref);
   );
 }
 
-function QueryNavLink({ to, ...props }) {
-    let location = useLocation();
-    return <NavLink to={to + location.search} {...props} />;
-  }
   
   
   
