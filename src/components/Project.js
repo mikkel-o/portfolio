@@ -119,6 +119,7 @@ export default function Project({project, children}) {
               }
               
               <div className={'project-info'}>
+                
                 <Link 
                   to={
                       project.album ? 
@@ -134,6 +135,7 @@ export default function Project({project, children}) {
                     <span className={'span-three'}>more</span>
                   </button>
                 </Link>
+                
                 <button className={'projects-play-btn'} onClick={event => onClickHandlerPlay(event, project.activeFilmIndex)}>
                   <span className={'span-one'}></span>
                   <span className={'span-two'}></span>

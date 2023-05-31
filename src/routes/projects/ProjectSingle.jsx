@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import { loadProject } from "../../features/singleProject/singleProjectSlice";
 import SingleProject from "../../features/singleProject/singleProject";
 
+
 export default function ProjectSingle() {
   const params = useParams();
   const dispatch = useDispatch();
   
   const allProjects = useSelector(state => state.projects.all);
   
-
+console.log(allProjects);
   useEffect(() => {
     window.scrollTo(0, 0);
     if (allProjects.length === 0) {

@@ -3,16 +3,19 @@ import './App.css';
 import { 
   Outlet,
   useLocation,
-  useSearchParams
+  useSearchParams,
+  Link
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
 import { columnCount } from "../components/toggleSlice";
+import Footer from "../components/Footer/Footer.js";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";
 import { loadProjects, setActiveFilters, toggleMethod } from "../features/projects/projectsSlice";
-
+import { loadPhotos } from "../features/photo/photoSlice";
+import useLocalStorage from 'use-local-storage';
 
 function debounce(fn, ms) {
   let timer
@@ -25,6 +28,8 @@ function debounce(fn, ms) {
   };
 }
 function App() {
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
   const isViewMobile = useSelector(state => state.toggle.isMobile)
 const dispatch = useDispatch();
 
@@ -34,11 +39,29 @@ const filters = searchParams.get("filters");
 const method = searchParams.get("method");
 
 const hasBeenSet = useSelector(state => state.projects.hasBeenSet);
-
+const photo = useSelector(state => state.photo);
 
 const location = useLocation();
+console.log(location.pathname);
 useEffect(()=> {
+console.log(location.pathname);
 
+  if (location.pathname.indexOf('photo') > -1) {
+    console.log('bleh');
+      if (photo.hasBeenSet === false) {
+        console.log('blehbleh');
+          dispatch(loadPhotos());
+        }
+      }
+      
+      
+
+      
+
+
+      console.log(location.pathname.indexOf('photo') > -1);
+  console.log(location.pathname.indexOf('projects') > -1);
+  if (location.pathname.indexOf('projects') > -1) {
   if (hasBeenSet === false) {
     dispatch(loadProjects()).then(() => {
       if (filters) {
@@ -68,13 +91,13 @@ useEffect(()=> {
         dispatch(setActiveFilters('all'));
       }
     }
-
+  }
 dispatch(clearId());
 dispatch(toggle('hideAll'));
 
 
 
-},[location, dispatch, searchParams, hasBeenSet, filters, method])
+},[location, dispatch, searchParams, hasBeenSet, filters, method, photo.hasBeenSet])
 
 
 
@@ -107,22 +130,58 @@ dispatch(toggle('hideAll'));
     
 }
 })
-
-
-
-
+document.body.classList.add(`theme-${theme}`);
+const switchTheme = () => {
+  const newTheme = theme === 'light' ? 'dark' : 'light';
+  document.body.classList.remove(`theme-${theme}`);
+  document.body.classList.add(`theme-${newTheme}`);
+  
+  setTheme(newTheme);
+}
+const isActive = location.pathname === '/' || location.pathname === '' ? true : false;
+console.log(isActive);
   return (
-    <div id="app" className={isMobile && isViewMobile ? 'mobile mobile-device' : isMobile ? 'mobile-device' : isViewMobile ? 'mobile' : ''}>
+    <div 
+      id="app" 
+      className={
+        isMobile && isViewMobile ? 'mobile mobile-device' : 
+        isMobile ? 'mobile-device' : 
+        isViewMobile ? 'mobile' : 
+        ''}
+      data-theme={theme}>
+ {isActive === false ? 
  <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
+:
+null}
  {/* <Outlet> to show content */}
  <Outlet />
       
-      
+ <div className={(isActive === false) ? 'main-nav__wrapper front-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      
+      <ul className={'main-nav__list'}>
+        <li className={'main-nav__item'}>
+          <Link to={'/about'} >about</Link>
+        </li>
+        <li className={'main-nav__item'}>
+          <Link to={'/showreel'} >showreel</Link>
+        </li>
+        <li className={'main-nav__item'}>
+          <Link to={'/projects'} >projects</Link>
+        </li>
+        
+        
+      </ul>  
+    </div>
 
-
+    <button 
+      onClick={switchTheme}
+      style={{position: 'fixed', bottom: '0', right: '0', zIndex: '20'}}  
+    >
+      {theme === 'light' ? 'Dark' : 'Light'}
+    </button>
      
 
     {/* END .App */}  
+    {/*<Footer/>*/}
     </div>
   );
 }

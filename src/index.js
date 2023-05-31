@@ -14,6 +14,12 @@ import ProjectSingleWrapper from "./routes/projects/ProjectSingleWrapper";
 import ProjectSingle from "./routes/projects/ProjectSingle";
 import ProjectCategories from "./routes/projects/ProjectCategories";
 import About from "./routes/about/About";
+import Showreel from "./routes/showreel/Showreel";
+import PhotosAll from "./routes/photo/PhotosAll";
+import PhotoAlbum from "./routes/photo/PhotoAlbum";
+import PhotoCollection from "./routes/photo/PhotoCollection";
+import PhotoSingle from "./routes/photo/PhotoSingle";
+
 import reportWebVitals from './reportWebVitals';
 import {store } from "./app/store";
 import { Provider } from "react-redux";
@@ -47,9 +53,21 @@ const AnimatedRoutes = () => {
             path="projects/categories" 
             element={<ProjectCategories />} 
           />
+
+          <Route path="/photo" element={<PhotosAll />} />    
+            
+            <Route path="photo/:PhotoAlbumTitle" element={<PhotoAlbum />}>
+              
+            </Route>
+
+
           <Route 
             path="about" 
             element={<About />}
+          />
+          <Route 
+            path="showreel" 
+            element={<Showreel />}
           />
           <Route
             path="*"

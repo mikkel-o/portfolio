@@ -5,7 +5,7 @@ const filterGroups = ['role', 'technique', 'type', 'company'];
 export const loadProjects = createAsyncThunk(
   "projects/getProjects",
   async () => {
-    const data = await fetch('../db.json');
+    const data = await fetch('../db_projects.json');
     
     const json = await data.json();
     

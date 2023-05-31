@@ -1,0 +1,7 @@
+
+.showreel-wrapper {
+    width: 100vw;
+    height: calc(100vh - 100px);
+    margin-top: 50px;
+    background: black;
+}

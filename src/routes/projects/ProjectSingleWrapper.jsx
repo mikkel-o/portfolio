@@ -10,12 +10,12 @@ export default function ProjectSingleWrapper() {
   
   const allProjects = useSelector(state => state.projects.all);
   
-  
+  console.log(allProjects.length);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     if (allProjects.length === 0) {
-      
+      console.log(params.id);
         dispatch(loadProject(params.id));
         
     

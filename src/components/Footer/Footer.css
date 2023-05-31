@@ -1,0 +1,7 @@
+.footer {
+    display: block;
+    height: 400px;
+    width: 100%;
+    background: var(--background);
+    color:aliceblue;
+}
