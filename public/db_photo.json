@@ -2,7 +2,8 @@
   {
     "title": "iceland",
     "prettyTitle": "Iceland",
-    "posterImg": "/photo/iceland/reflection/reflection.jpg",
+    "posterImg": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rKAye40HRSC_SubLocBcDL_eQyGSIfiQhZ034t147okY0EcFaOBDaIK8gNpG9ecMERBWKrr7r_jU9x2Pe7fHjvac630w=s1600",
+    
     "posterVid": "",
     "categories": [
       "travel"
@@ -10,8 +11,8 @@
     "album": [
       {
         "title": "reflection",
-        "thumbUrl": "/photo/iceland/reflection/reflection_thumb.jpg",
-        "posterUrl": "/photo/iceland/reflection/reflection.jpg",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81ooQiIiDNJNIsGHnS254mFsleEGlty3dDLTKCYBjh2tGxRCfk4gVepRAvSBsrLvc3Gq91JIfC6Un3Vo6PVEnDHG2mH3Hg=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81qcVAiJ0Pm_w2Bd_yb-bFcgUWq4wIRMPRFX2y9sMWb0_q8Xb4uvuzgfWk1aa6dV96f3jTcfI0pWHEA7UYUtMS4TsWXJEQ=s1600",
         "videoUrl": "",
         "categories": [
           "landscape"
