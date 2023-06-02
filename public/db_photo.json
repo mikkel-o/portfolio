@@ -29,10 +29,11 @@
         ]
       },
       {
-        "title": "temp-40",
-        "thumbUrl": "/photo/iceland/temp/C0074_vertical_poster_03.jpg",
-        "posterUrl": "/photo/iceland/temp/C0074_vertical_poster_03.jpg",
-        "videoUrl": "/photo/iceland/temp/C0074_vertical_05.mp4",
+        "title": "wind",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
+        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832317442/rendition/1080p/file.mp4?loc=external&signature=066036c861f1ec2860597782af0ddb9fd257f992872a8bec517bf04dc47d7cb3",
+        
         "categories": [
           ""
         ],
@@ -69,10 +70,10 @@
         ]
       },
       {
-        "title": "temp-22",
-        "thumbUrl": "/photo/iceland/temp/C0089_vertical_poster.jpg",
-        "posterUrl": "/photo/iceland/temp/DSC08121_temp_HD.jpg",
-        "videoUrl": "/photo/iceland/temp/C0089_vertical.mp4",
+        "title": "steam",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pJzZWPVapjaOosjQqxSj23M1qxk-2VEatYW5Pcf8XfGMKwqXqP45Lxkb6E3kPXfMJxUYKYKAKdqsVV7noNkxP3woX7Vg=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rwXaMjOY6xiLJmUj7UiZfd2a59q_mm_x2d4GCqwd78FrG6sP4dkwPhotx6VDhmikgCeiaai4PqRMs57fCTWzPTeYGXlA=s1600",
+        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832452321/rendition/1080p/file.mp4?loc=external&signature=6055297bb74a78736735f81cdacf05d742913393caecb171acdc8a931a39ffe6",
         "categories": [
           ""
         ],
@@ -95,10 +96,10 @@
         "orientation": "vertical"
       },
       {
-        "title": "temp-59",
-        "thumbUrl": "/photo/iceland/temp/C0116_HD_poster.jpg",
-        "posterUrl": "/photo/iceland/temp/C0116_HD_poster.jpg",
-        "videoUrl": "/photo/iceland/temp/C0116_HD.mp4",
+        "title": "lava",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81q73QvowFELUmxOSvmlKxeuluNiWKC1uE0HL1ZJHkh8GWDVaawRAb9UUSpimzAgWr9poEkblWa5G1RhfsEt0pNuJdlSLw=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81q73QvowFELUmxOSvmlKxeuluNiWKC1uE0HL1ZJHkh8GWDVaawRAb9UUSpimzAgWr9poEkblWa5G1RhfsEt0pNuJdlSLw=s1600",
+        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832456738/rendition/1080p/file.mp4?loc=external&signature=b800c9f34b7cfb986bc6695abbf1e71aa1c329acde06ea93429f56ac3e4f8861",
         "categories": [
           ""
         ],

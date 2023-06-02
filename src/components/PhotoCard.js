@@ -47,7 +47,7 @@ const isInViewport = useIsInViewport(ref);
       >
               <div className={'album__link'} >
             
-                {(single.collection) ? <img alt={'blah'} src={single.collection[0].thumbUrl} className={'album__img album__img--thumb'}/> : single.videoUrl ? <video muted={true} autoPlay={true} loop={true} height={'100%'} poster={single.thumbUrl}><source src={single.videoUrl} type={'video/mp4'}></source></video> : <img alt={'blah'} src={single.thumbUrl} className={'album__img album__img--thumb'}/>}
+                {(single.collection) ? <img alt={'blah'} src={single.collection[0].thumbUrl} className={'album__img album__img--thumb'}/> : single.videoUrl ? <video muted={true} autoPlay={true} start={"1"} loop={true} height={'100%'} poster={single.thumbUrl}><source src={single.videoUrl} type={'video/mp4'}></source></video> : <img alt={'blah'} src={single.thumbUrl} className={'album__img album__img--thumb'}/>}
                 {(single.collection) ? <CollectionsIcon className={'collection__icon'}></CollectionsIcon> : ''}
                 </div>
             </motion.div>
