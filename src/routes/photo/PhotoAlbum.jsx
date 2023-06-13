@@ -42,22 +42,22 @@ console.log(album);
 
   return (
     <main className={'album album--photo'}>
-      <ul className={'album__list'}>
+      <ul className={'album__sub-list'}>
         
         {album ? album.album
           .map((single, i) => (
             <li onClick={event => handleOpen(event, (single))}
             className={
               single.orientation && single.orientation === 'vertical' && single.position && single.position === 'special' ? 
-                `album__item album__item--${i} album__item--${single.orientation} album__item--${single.position}` 
+                `album__sub-item album__item--${i} album__item--${single.orientation} album__item--${single.position}` 
                 :
                 single.orientation && single.orientation === 'vertical' ? 
-                    `album__item album__item--${i} album__item--${single.orientation}` 
+                    `album__sub-item album__item--${i} album__item--${single.orientation}` 
                     :
                     single.position && single.position === 'special' ? 
-                      `album__item album__item--${i} album__item--${single.position}` 
+                      `album__sub-item album__item--${i} album__item--${single.position}` 
                       : 
-                      `album__item album__item--${i}`}
+                      `album__sub-item album__item--${i}`}
             key={i}
             >
               <PhotoCard singl={single} i={i} albu={album} key={i}></PhotoCard>

@@ -29,22 +29,8 @@
         ]
       },
       {
-        "title": "wind",
-        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
-        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
-        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832317442/rendition/1080p/file.mp4?loc=external&signature=066036c861f1ec2860597782af0ddb9fd257f992872a8bec517bf04dc47d7cb3",
-        
-        "categories": [
-          ""
-        ],
-        "tags": [
-          ""
-        ],
-        "orientation": "vertical"
-      },
-      {
         "title": "wires",
-        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pXPDzYDARduSBAdt80YFbnlVM6holJLwOg56d7VFboxB5gk6rjOs31jPufZUnhSzmhntSMkVHDWrStYP1VYLqq4LSF=s1600",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rsD3hFZuaKxg6OeFs3pmegk449l0E5sQF8MRUBHGPt08BUSHGbp6GVbn1tQ1ONwtajXDTVOoqOjZ_Mm9eig6zFnwoFCQ=s1600",
         "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pXPDzYDARduSBAdt80YFbnlVM6holJLwOg56d7VFboxB5gk6rjOs31jPufZUnhSzmhntSMkVHDWrStYP1VYLqq4LSF=s1600",
         "videoUrl": "",
         "categories": [
@@ -54,6 +40,19 @@
           "blah",
           "blahblah",
           "blahblahblah"
+        ],
+        "orientation": "vertical"
+      },
+      {
+        "title": "rock",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81opwIJs7YPm4UHBkzdJMV9KODNAUWQC7LnWb_NLgAs0V7Vfb6xG37gC6im3HA7jTAwbE8rzjLkh6At1zsji_Sgej6nMlA=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81opwIJs7YPm4UHBkzdJMV9KODNAUWQC7LnWb_NLgAs0V7Vfb6xG37gC6im3HA7jTAwbE8rzjLkh6At1zsji_Sgej6nMlA=s1600",
+        "videoUrl": "",
+        "categories": [
+          ""
+        ],
+        "tags": [
+          ""
         ],
         "orientation": "vertical"
       },
@@ -69,11 +68,13 @@
           ""
         ]
       },
+     
       {
-        "title": "steam",
-        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pJzZWPVapjaOosjQqxSj23M1qxk-2VEatYW5Pcf8XfGMKwqXqP45Lxkb6E3kPXfMJxUYKYKAKdqsVV7noNkxP3woX7Vg=s1600",
-        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rwXaMjOY6xiLJmUj7UiZfd2a59q_mm_x2d4GCqwd78FrG6sP4dkwPhotx6VDhmikgCeiaai4PqRMs57fCTWzPTeYGXlA=s1600",
-        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832452321/rendition/1080p/file.mp4?loc=external&signature=6055297bb74a78736735f81cdacf05d742913393caecb171acdc8a931a39ffe6",
+        "title": "wind",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pt0jk10CecY0488xAkCpmngFlQu3OQ19_Mfso75-v_417NA_ss438FqlxekepNn5MLDHn2NxhsiNm-z4MH7FueOyqyZw=s1600",
+        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832317442/rendition/1080p/file.mp4?loc=external&signature=066036c861f1ec2860597782af0ddb9fd257f992872a8bec517bf04dc47d7cb3",
+        
         "categories": [
           ""
         ],
@@ -82,11 +83,13 @@
         ],
         "orientation": "vertical"
       },
-      {
-        "title": "rock",
-        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81opwIJs7YPm4UHBkzdJMV9KODNAUWQC7LnWb_NLgAs0V7Vfb6xG37gC6im3HA7jTAwbE8rzjLkh6At1zsji_Sgej6nMlA=s1600",
-        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81opwIJs7YPm4UHBkzdJMV9KODNAUWQC7LnWb_NLgAs0V7Vfb6xG37gC6im3HA7jTAwbE8rzjLkh6At1zsji_Sgej6nMlA=s1600",
-        "videoUrl": "",
+       {
+        "title": "smoker",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rwXaMjOY6xiLJmUj7UiZfd2a59q_mm_x2d4GCqwd78FrG6sP4dkwPhotx6VDhmikgCeiaai4PqRMs57fCTWzPTeYGXlA=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rwXaMjOY6xiLJmUj7UiZfd2a59q_mm_x2d4GCqwd78FrG6sP4dkwPhotx6VDhmikgCeiaai4PqRMs57fCTWzPTeYGXlA=s1600",
+        "horizontalUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81pyAqgVICq2eBjO2GTVYpdJtzXzV-XqO5W7TMD86oDhgZChel34acSUwitG3wNFgys1wOr7Pj0eEqahSUVkUrr9yuNX5w=s1600",
+        "verticalUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81rwXaMjOY6xiLJmUj7UiZfd2a59q_mm_x2d4GCqwd78FrG6sP4dkwPhotx6VDhmikgCeiaai4PqRMs57fCTWzPTeYGXlA=s1600",
+        "videoUrl": "https://player.vimeo.com/progressive_redirect/playback/832452321/rendition/1080p/file.mp4?loc=external&signature=6055297bb74a78736735f81cdacf05d742913393caecb171acdc8a931a39ffe6",
         "categories": [
           ""
         ],
@@ -176,9 +179,9 @@
         "orientation": "vertical"
       },
       {
-        "title": "temp-06",
-        "thumbUrl": "/photo/iceland/temp/DSC07936_temp_HD.jpg",
-        "posterUrl": "/photo/iceland/temp/DSC07936_temp_HD.jpg",
+        "title": "heat",
+        "thumbUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81obo_E0-2HHHsvByb4YcHWCiUJQ5wu0izGnyKGzcPbYTLnFntSEaYw4j35lOf3JpyyAeakcBOhBhMjE8KGjpEo3VBUzEA=s1600",
+        "posterUrl": "https://lh3.googleusercontent.com/drive-viewer/AFGJ81obo_E0-2HHHsvByb4YcHWCiUJQ5wu0izGnyKGzcPbYTLnFntSEaYw4j35lOf3JpyyAeakcBOhBhMjE8KGjpEo3VBUzEA=s1600",
         "videoUrl": "",
         "categories": [
           ""
@@ -466,10 +469,11 @@
           "blahblahblah"
         ]
       },
+     
       {
-        "title": "hippo-yelling",
-        "thumbUrl": "/photo/tanzania/hippo-yelling/hippo-yelling_thumb.jpg",
-        "posterUrl": "/photo/tanzania/hippo-yelling/hippo-yelling.jpg",
+        "title": "giraffes",
+        "thumbUrl": "/photo/tanzania/giraffes/giraffes_thumb.jpg",
+        "posterUrl": "/photo/tanzania/giraffes/giraffes.jpg",
         "categories": [
           "animals"
         ],
@@ -479,25 +483,10 @@
           "blahblahblah"
         ]
       },
+     
       
-      
-
       {
-        "title": "wildebeest2",
-        "thumbUrl": "/photo/tanzania/temp/Serengeti & Wild Camp 544.JPG",
-        "posterUrl": "/photo/tanzania/temp/Serengeti & Wild Camp 544.JPG",
-        "categories": [
-          "animals"
-        ],
-        "tags": [
-          "blah",
-          "blahblah",
-          "blahblahblah"
-        ],
-        "orientation": "vertical"
-      },
-      {
-        "title": "wildebeest2",
+        "title": "birds",
         "thumbUrl": "/photo/tanzania/temp/Lake Manyara 229.JPG",
         "posterUrl": "/photo/tanzania/temp/Lake Manyara 229.JPG",
         "categories": [
@@ -511,6 +500,21 @@
         "orientation": "vertical"
       },
       {
+        "title": "hippo-yelling",
+        "thumbUrl": "/photo/tanzania/temp/hippotest.jpg",
+        "posterUrl": "/photo/tanzania/hippo-yelling/hippo-yelling.jpg",
+        "categories": [
+          "animals"
+        ],
+        "tags": [
+          "blah",
+          "blahblah",
+          "blahblahblah"
+        ],
+        "orientation": "vertical"
+      },
+
+      {
         "title": "lion",
         "thumbUrl": "/photo/tanzania/lion/lion_thumb.jpg",
         "posterUrl": "/photo/tanzania/lion/lion.jpg",
@@ -521,8 +525,11 @@
           "blah",
           "blahblah",
           "blahblahblah"
-        ]
+        ],
+        "orientation": "vertical"
       },
+
+      
       {
         "title": "lean-on-me",
         "thumbUrl": "/photo/tanzania/temp/Serengeti & Wild Camp 335.JPG",
@@ -534,78 +541,12 @@
           "blah",
           "blahblah",
           "blahblahblah"
-        ]
-      },
-      
-     
-     
-      
-     
-    
-     
-      
-     
-      {
-        "title": "wildebeest2",
-        "thumbUrl": "/photo/tanzania/temp/Ngorongoro & Børnehjem 018.JPG",
-        "posterUrl": "/photo/tanzania/temp/Ngorongoro & Børnehjem 018.JPG",
-        "categories": [
-          "animals"
-        ],
-        "tags": [
-          "blah",
-          "blahblah",
-          "blahblahblah"
-        ],
-        "position": "special"
-      },
-     
-    
-     
-      {
-        "title": "wildebeest1",
-        "thumbUrl": "/photo/tanzania/temp/IMG_8351.JPG",
-        "posterUrl": "/photo/tanzania/temp/IMG_8351.JPG",
-        "categories": [
-          "animals"
-        ],
-        "tags": [
-          "blah",
-          "blahblah",
-          "blahblahblah"
         ],
         "orientation": "vertical"
       },
+      
      
-      {
-        "title": "wildebeest1",
-        "thumbUrl": "/photo/tanzania/temp/IMG_8353.JPG",
-        "posterUrl": "/photo/tanzania/temp/IMG_8353.JPG",
-        "categories": [
-          "animals"
-        ],
-        "tags": [
-          "blah",
-          "blahblah",
-          "blahblahblah"
-        ],
-        "orientation": "vertical"
-      },
-      {
-        "title": "giraffes",
-        "thumbUrl": "/photo/tanzania/giraffes/giraffes_thumb.jpg",
-        "posterUrl": "/photo/tanzania/giraffes/giraffes.jpg",
-        "categories": [
-          "animals"
-        ],
-        "tags": [
-          "blah",
-          "blahblah",
-          "blahblahblah"
-        ],
-        "position": "special"
-      },
-     
+
       {
         "title": "wildebeest",
         "thumbUrl": "/photo/tanzania/wildebeest/wildebeest_thumb.jpg",

@@ -8,32 +8,51 @@
   width: 100%;
 }
 
-.album__list {
+.album__list, .album__sub-list {
   list-style-type: none;
   margin: 40px 15px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /*height: 100vh;*/
+  
   overflow: scroll;
   grid-gap: 20px;
+  position: relative;
+  scroll-snap-type: y mandatory;
+}
+.album__sub-list {
+  height: calc(100vh - 75px);
+}
+.album__list::-webkit-scrollbar, .album__sub-list::-webkit-scrollbar {
+  display: none;
+}
+.album__list, .album__sub-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.album__item {
-  height: calc(100vw * 0.5625);
-  width: 100%;
+.album__item, .album__sub-item {
+  
+  /*calc(100vw * 0.5625);*/
+  position: relative;
   overflow: hidden;
   grid-column: span 12;
   cursor: pointer;
   
 }
-
+.album__sub-item{
+  height: calc(100vh - 60px);
+  scroll-snap-align: start;
+  width: 100%;
+  
+}
 
 .album__item--vertical {
-  height: calc(50vw * 0.5625 * 2.5);
+  height: calc(100vh - 60px);
+  /*height: calc(50vw * 0.5625 * 2.5);*/
   width: 100%;
-  grid-row: span 2;
-  grid-column: span 6;
+  /*grid-row: span 2;*/
+  grid-column: span 12;
 }
 .album__item--special {
 /*margin-top: calc(-50vw * 0.5625 * 0.667 - 20px);*/
@@ -45,7 +64,12 @@
   position: relative;
   display: inline;
 }
-
+.album__item--0 .album__link video {
+  transform: translateX(-25%) translateY(0%);
+}
+.album__item--1 .album__link video {
+  transform: translateX(-45%) translateY(0%);
+}
 .album__img--thumb {
   -o-object-fit: cover;
   object-fit: cover;
@@ -298,7 +322,10 @@
 
 
 @media screen and (min-width: 600px) {
-  .album__item {
+  .album__list {
+    height: auto;
+  }
+  .album__item, .album__sub-item {
     height: calc(50vw * 0.5625);
     grid-column: span 6;
     
@@ -310,5 +337,11 @@
   }
   .album__item--special {
   margin-top: calc(-50vw * 0.5625 * 0.667 - 20px);
+  }
+  .album__item--0 .album__link video {
+    transform: translateX(0%) translateY(0%);
+  }
+  .album__item--1 .album__link video {
+    transform: translateX(0%) translateY(0%);
   }
 }
