@@ -50,7 +50,7 @@ const AnimatedRoutes = () => {
             path="projects/categories" 
             element={<ProjectCategories />} 
           />
-
+          
           <Route path="/photo" element={<PhotosAll />} />    
             
             <Route path="photo/:PhotoAlbumTitle" element={<PhotoAlbum />}>

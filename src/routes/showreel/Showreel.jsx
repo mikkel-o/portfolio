@@ -9,10 +9,9 @@ export default function Showreel() {
     
     return (
         <div className={'showreel-wrapper'}>
-            {/*<img alt={'blah'} src={single.collection[0].thumbUrl} className={'album__img album__img--thumb'}/> 
-            <video muted={true} autoPlay={true} loop={true} height={'100%'} poster={single.thumbUrl}>
-                <source src={single.videoUrl} type={'video/mp4'}></source>
-            </video>*/}
+            <img alt={'blah'} src={"https://drive.google.com/uc?export=download&id=1lrEjyUddsLjDaxRuWIxTkdUbrVqz-Fe3"} 
+                className={'showreel__poster'}/> 
+            {/*
             <iframe 
                 title="vimeo"
                
@@ -25,6 +24,7 @@ export default function Showreel() {
                 className={'video-iframe'}>
                     
               </iframe>
+              */}
         </div>
     )
 

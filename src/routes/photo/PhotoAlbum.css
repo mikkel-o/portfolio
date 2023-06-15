@@ -333,14 +333,19 @@
   .album__list {
     height: auto;
   }
+  .album__sub-list {
+    scroll-snap-type: none;
+  }
   .album__sub-item {
     height: calc(50vw * 0.5625);
     grid-column: span 6;
+    
     
   }
   .album__item {
     height: 40vw;
     grid-column: span 6;
+    
     
   }
   .album__item--vertical {

@@ -111,7 +111,7 @@
   }
   .projects-category-item {
     
-    height: calc(100vh - 100px);
+    height: calc(80vh - 100px);
     
   }
   .projects-category-img {

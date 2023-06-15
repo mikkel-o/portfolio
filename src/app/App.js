@@ -149,7 +149,7 @@ console.log(isActive);
         ''}
       data-theme={theme}>
  {isActive === false ? 
- <PrimaryNavigation navigationItems={['about', 'projects', 'contact']} />
+ <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} />
 :
 null}
  {/* <Outlet> to show content */}
@@ -160,13 +160,15 @@ null}
         <li className={'main-nav__item'}>
           <Link to={'/about'} >about</Link>
         </li>
-        <li className={'main-nav__item'}>
+        {/*<li className={'main-nav__item'}>
           <Link to={'/showreel'} >showreel</Link>
+        </li>*/}
+        <li className={'main-nav__item'}>
+          <Link to={'/projects/categories'} >work</Link>
         </li>
         <li className={'main-nav__item'}>
-          <Link to={'/projects'} >projects</Link>
+          <Link to={'/photo'} >photo</Link>
         </li>
-        
         
       </ul>  
     </div>

@@ -860,7 +860,7 @@ a.hide img {
 }
 
 .projects-category-list {
-  margin: 55px 15px;
+  margin: 10px 15px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(1, 1fr);

@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router';
 import {motion} from "framer-motion";
+import Showreel from "../showreel/Showreel";
+            
 
 const ease = [0.43, 0.23, 0.63, 0.96];
 
@@ -17,16 +19,16 @@ export default function ProjectCategories() {
     
     setIsActive(i);
     const newParams = categoryItem ? categoryItem.replace(/\s/g, '+') : '';
-    window.history.replaceState({}, "", categoryItem ? `?filters=${newParams === 'producer' ? 'producer%2Cexecutive+producer%2Cdevelopment+producer' : newParams === 'editor' ? 'editor' : newParams === 'artist' ? '3D+artist' : newParams}${newParams === 'producer' ? '&method=OR' : '&method=AND'}` : '?filters=')
+    window.history.replaceState({}, "", categoryItem ? `?filters=${newParams === 'monkey+tennis' ? 'monkey+tennis' : newParams === 'editor' ? 'editor' : newParams === 'artist' ? '3D+artist' : newParams}${newParams === 'producer' ? '&method=OR' : '&method=AND'}` : '?filters=')
     navigate({
       pathname: '/projects',
-      search: categoryItem ? `?filters=${newParams === 'producer' ? 'producer%2Cexecutive+producer%2Cdevelopment+producer' : newParams === 'editor' ? 'editor' : newParams === 'artist' ? '3D+artist' : newParams}${newParams === 'producer' ? '&method=OR' : '&method=AND'}` : '',
+      search: categoryItem ? `?filters=${newParams === 'monkey+tennis' ? 'monkey+tennis' : newParams === 'editor' ? 'editor' : newParams === 'artist' ? '3D+artist' : newParams}${newParams === 'monkey+tennis' ? '&method=OR' : '&method=AND'}` : '',
     });
   }
   const categoryList = 
     [...new Set(
       allProjects.map(
-        e => e.category !== undefined ? e.category : null).flat().filter(
+        e => e.company !== undefined ? e.company : null).flat().filter(
           element => {
             if (element) {
               return true;
@@ -36,8 +38,8 @@ export default function ProjectCategories() {
         )
       )
     ];
-  const posters = ['/projects/_categories/PRODUCTION_TEASER_square_f_poster_thumb.jpg', '/projects/_categories/CG_TEASER_square_h_poster_thumb.jpg', '/projects/_categories/EDIT_TEASER_square_e_poster_thumb.jpg'];
-  const videos = ['/projects/_categories/PRODUCTION_TEASER_square_g_1.mp4', '/projects/_categories/CG_TEASER_square_h_1.mp4', '/projects/_categories/EDIT_TEASER_square_e_1.mp4'];
+  const posters = ['/projects/_categories/EDIT_TEASER_square_e_poster_thumb.jpg', '/projects/_categories/CG_TEASER_square_h_poster_thumb.jpg', '/projects/_categories/PRODUCTION_TEASER_square_f_poster_thumb.jpg'];
+  const videos = ['/projects/_categories/EDIT_TEASER_square_e_1.mp4', '/projects/_categories/CG_TEASER_square_h_1.mp4', '/projects/_categories/PRODUCTION_TEASER_square_g_1.mp4'];
   const [isActive, setIsActive] = useState(-1);
   const list = allProjects.map((project, i) => (
     {
@@ -124,6 +126,7 @@ export default function ProjectCategories() {
       animate={'animate'} 
       exit={'exit'} 
     >
+      <Showreel />
       <button className={'projects-category-allBtn'} onClick={event => goToPosts(event)}>Show all</button>
       <ul className={'projects-category-list'}>
         {categoryList.map((categoryItem, i) => (
