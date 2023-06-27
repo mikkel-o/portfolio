@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
+import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import './css/ImageSlider.css';
@@ -9,33 +10,23 @@ import './css/ImageSlider.css';
 const ImageSlider = (props) => {  
   const dispatch = useDispatch();
   const projects = props.items;
-      
   const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0;
   
-  if (props.type === 'feature') {
-            
-    console.log(indexStart);
-  } 
   const CollectionSize = projects.length,
         [index, setActiveStep] = useState(indexStart),
         goToNextPicture = (e) => { 
-          console.log('click');
+          
           if (index === CollectionSize - 1) {
-            console.log(index);
             setActiveStep(0) 
         } else {
-          console.log(index);
           setActiveStep(prevActiveStep => prevActiveStep + 1) 
         }
         
         },
         goBack = (e) => { 
-          console.log('click');
           if (index === 0) {
-            console.log(index);
             setActiveStep(CollectionSize - 1) 
           } else {
-            console.log(index);
             setActiveStep(prevActiveStep => prevActiveStep - 1) 
           }
           
@@ -50,10 +41,15 @@ const ImageSlider = (props) => {
 
         useEffect(() => {
           if (props.type === 'feature') {
-            
-            dispatch(addActiveSlideIndex({name: props.name, index: index}));
+            props.type === "work" ?
+            dispatch(addActiveSlideIndex({name: props.name, index: index}))
+            :
+            dispatch(addActiveSlideIndexPhoto({name: props.name, index: index}));
           } else {
-            dispatch(addActiveFilmIndex({name: props.name, index: index}));
+            props.type === "work" ?
+            dispatch(addActiveFilmIndex({name: props.name, index: index}))
+            :
+            dispatch(addActiveFilmIndexPhoto({name: props.name, index: index}));
           }
 
         }, [dispatch, props.name, props.type, index]);
@@ -69,7 +65,7 @@ const ImageSlider = (props) => {
 
 
             {/* video (!add image posibility) */}
-            <img alt={'blahblah'} className={props.showTitle ? "carousel__video carousel__video--featured" : "carousel__video"} src={`${projects[index].img}`}/>
+            <img alt={'blahblah'} className={`${projects[index].position ? `carousel__video carousel__video--position-${projects[index].position}` : "carousel__video"}`} src={`${projects[index].img}`}/>
 
             
           

@@ -14,8 +14,9 @@
   /* flex-direction: column; */
   z-index: 20;
   height: 30px;
-  width: 100%;
-  background: var(--background);
+  width: 40px;
+  z-index: 22;
+  /*background: var(--background);*/
   }
   
   .main-nav .menu-active {

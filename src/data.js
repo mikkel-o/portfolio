@@ -1106,7 +1106,7 @@ let photos = [
       companies.push(school);
     
 });
-console.log(companies);
+
     return companies.find(
         
       (comp) => comp.name === title

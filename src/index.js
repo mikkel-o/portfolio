@@ -9,16 +9,15 @@ import {
 import './index.css';
 import './media.css';
 import App from './app/App';
-import ProjectsAll from "./routes/projects/ProjectsAll";
-import ProjectSingleWrapper from "./routes/projects/ProjectSingleWrapper";
-import ProjectSingle from "./routes/projects/ProjectSingle";
-import ProjectCategories from "./routes/projects/ProjectCategories";
-import About from "./routes/about/About";
-import Showreel from "./routes/showreel/Showreel";
-import PhotosAll from "./routes/photo/PhotosAll";
-import PhotoAlbum from "./routes/photo/PhotoAlbum";
+import ProjectsAll from "./pages/work/ProjectsAll";
+import ProjectSingleWrapper from "./pages/work/ProjectSingleWrapper";
+import ProjectSingle from "./pages/work/ProjectSingle";
+import ProjectCategories from "./pages/work/ProjectCategories";
+import About from "./pages/about/About";
+import PhotosAll from "./pages/photo/PhotosAll";
+
 import reportWebVitals from './reportWebVitals';
-import {store } from "./app/store";
+import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { AnimatePresence } from 'framer-motion';
 
@@ -33,38 +32,31 @@ const AnimatedRoutes = () => {
           element={<App />}
         >
           <Route 
-            path="projects" 
+            path="work" 
             element={<ProjectsAll />}
           />
           <Route 
-              path="projects/:id/:film" 
+              path="work/:id/:film" 
               element={<ProjectSingleWrapper />} 
             />
           
           <Route 
-            path="projects/:id" 
+            path="work/:id" 
             element={<ProjectSingle />} 
           />
             
           <Route 
-            path="projects/categories" 
+            path="work/categories" 
             element={<ProjectCategories />} 
           />
-          
+
           <Route path="/photo" element={<PhotosAll />} />    
             
-            <Route path="photo/:PhotoAlbumTitle" element={<PhotoAlbum />}>
-              
-            </Route>
-
+            
 
           <Route 
             path="about" 
             element={<About />}
-          />
-          <Route 
-            path="showreel" 
-            element={<Showreel />}
           />
           <Route
             path="*"

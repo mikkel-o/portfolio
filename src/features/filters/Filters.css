@@ -110,6 +110,7 @@
     width: calc(100% - 65px);
     margin-left: 65px;
     margin-left: 50px;
+    /*background: var(--background);*/
     
 }
 
@@ -470,12 +471,12 @@ justify-content: right;
 
 
 .open .filters-ref-wrapper-mobile {
-    margin: 35px 0px 12px;
+    /*margin: 35px 0px 12px;*/
 }
 
-.empty.open .filters-ref-wrapper-mobile {
+/*.empty.open .filters-ref-wrapper-mobile {
     margin: 25px 0px 12px;
-}
+}*/
 
 .filters-mobile:first-child {
     margin: 0;
@@ -493,13 +494,14 @@ justify-content: right;
     cursor: pointer;
     background: none;
     cursor: pointer;
-    width: 200px;
+    /*width: 200px;*/
     text-align: right;
     height: 40px;
     outline: none;
     will-change: transform;
     transition: transform 0.15s ease;
     font-size: 1.1em;
+    background: var(--background);
 }
 
 .filters-mobile-btn::after{
@@ -588,28 +590,31 @@ justify-content: right;
     margin-left: 0;
     /*max-height: calc(100vh - 35px);*/
     
-    padding: 8px 0;
+    padding: 5px 0;
     /*padding: 4% 2% 4% 4%;*/
 }
 .mobile .filters-ref-wrapper {
     overflow-y: scroll;
     z-index: 2;
-    height: calc(100vh - 175px);
+    height: 100vh;
+    position: fixed;
+    max-width: 600px;
+    right: 0;
 }
 .empty.mobile.filters-wrapper {
 
 padding: 0;
 }
 .bleh {
-    /*display: flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;*/
-    display: grid;
+    justify-content: center;
+    width: 100%;
+    /*display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     grid-column-gap: 45px;
     grid-row-gap: 15px;
-    margin: 0 auto 25px;
+    margin: 0 auto 25px;*/
     /*width: 100%;*/
     
 }
@@ -625,7 +630,7 @@ padding: 0;
       width: 100%;
       right: 0;
       margin: 0;
-      /*z-index: 21;*/
+      z-index: 21;
       
       
   }
@@ -663,7 +668,7 @@ padding: 0;
     border-radius: 5px;
     /*box-shadow: 0px 2px 2px #e0e0e0;*/
     min-height: 25px;
-    padding: 4px 8px;
+    padding: 0px 8px;
     width: calc(100% - 170px);
     display: flex;
     flex-wrap: wrap;
@@ -674,7 +679,7 @@ padding: 0;
     width: calc(100% - 55px);
     margin: 0;
     background: none;
-    
+    z-index: 20;
 }
 .mobile .active-filters-item {
     max-height: 25px;

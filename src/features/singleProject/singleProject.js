@@ -35,16 +35,16 @@ const activeFilm = singleProject.album ? singleProject.album.find(item => item.n
 
   const variants = {
     initial: {
-      y: startingCoord[1] - 50,
-      x: startingCoord[0] - 20,
+      y: startingCoord[1] - 18,
+      x: startingCoord[0] - 15,
       width: startingCoord[2],
       height: startingCoord[3],
   },
   animate: {
-    y:  450, 
+    y:  0, 
     x:  -20, 
     width: 'calc(100% + 40px)',
-    height: '80vh',
+    height: '50vh',
     transition: {
       ease: ease,
       duration,
@@ -289,7 +289,7 @@ const goToPosts = (event, c) => {
 
   return (
     <motion.div 
-      className="projects-contain" 
+      className="projects-single-contain" 
       initial={
         
          'initial'
@@ -309,20 +309,25 @@ const goToPosts = (event, c) => {
 
 
     <motion.div className={'project-single-wraps'} >
+    <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
+    
+    <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className="album__image project-single-image" variants={variants}/>
+
+</motion.div>
       <motion.h1 variants={titleMotion}>
         {singleProject.name ? singleProject.name.replace(/-/g, ' ') : ''}
       </motion.h1>
 
-      <motion.div className={'project-intro'} variants={textMotion}>
-      <motion.div variants={textMotion} className={'project-intro-text-container'}>
-      <p className={ columns > 2 ? 'project-intro-texty' : 'project-intro-texty'}>
+      <motion.div className={'project-single-intro'} variants={textMotion}>
+      <motion.div variants={textMotion} className={'project-single-intro-text-container'}>
+      <p className={ columns > 2 ? 'project-single-intro-texty' : 'project-single-intro-texty'}>
         {textIntro}
         </p>
       </motion.div>
       
       </motion.div>
 
-      <motion.ul className={'project-details-list'} variants={detailsMotion}>
+      <motion.ul className={'project-single-details-list'} variants={detailsMotion}>
         <li key={1}>
           <ul>
             {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
@@ -374,20 +379,16 @@ const goToPosts = (event, c) => {
 
 
 
-      <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
-    
-          <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className="project-image project-single-image" variants={variants}/>
       
-    </motion.div>
 
     
 
 
 
           {/*   */}
-    <motion.div className={'project-summary'} variants={textMotion}>
-    <div className={'project-summary-text-container'}>
-    <p className={ columns > 2 ? 'project-summary-texty' : showMore ? 'project-summary-texty' : 'project-summary-texty closed'}>
+    <motion.div className={'project-single-summary'} variants={textMotion}>
+    <div className={'project-single-summary-text-container'}>
+    <p className={ columns > 2 ? 'project-single-summary-texty' : showMore ? 'project-single-summary-texty' : 'project-single-summary-texty closed'}>
       { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
       </p>
     

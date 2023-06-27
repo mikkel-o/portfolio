@@ -28,16 +28,12 @@ const sliceOptions = {
       all: [],
       active: [],
       pseudo: [],
-      method: 'AND',
     },
     isLoading: false,
     hasError: false,
     hasBeenSet: false,
   },
   reducers: {
-    toggleMethod: (state, action) => {
-      state.filters.method = action.payload;
-    },
     setActiveFilters: (state, action) => {
       if (action.payload === 'all') {
         state.filters.active = [];
@@ -47,13 +43,7 @@ const sliceOptions = {
       const objs = temp.filter(project => action.payload.some(filter => project.value === filter));
       state.filters.active = objs;
       state.active = 
-        state.all.filter(project => 
-          state.filters.method === 'OR' && state.filters.active.length !== 0 ? 
-            state.filters.active.some(filter => project[filter.key].includes(filter.value)) 
-
-          : 
-            state.filters.active.every(filter => project[filter.key].includes(filter.value))
-          )
+        state.all.filter(project => state.filters.active.every(filter => project[filter.key].includes(filter.value)))
       }
     },
     setPseudoFilters: (state, action) => {
@@ -83,7 +73,7 @@ const sliceOptions = {
         pseudoCount.push([]);
         state.filters.all[i].filters.forEach((x, index) => {
           temp.push(x);
-          state.filters.method === 'OR' ? pseudoCount[i].push(x.countTotal) : pseudoCount[i].push(state.all.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
+          pseudoCount[i].push(state.all.filter(project => temp.every(filter => project[filter.key].includes(filter.value))).length);
           
           x.countPseudo = pseudoCount[i][index];
           const removeIndex = temp.findIndex( filter => filter.value === x.value );
@@ -172,13 +162,13 @@ export const selectProjects = (state) => state.projects.all;
 export const selectFilteredProjects = (state) => {
   if (state.filters.active.length !== 0) {
     return (
-      state.projects.all.filter(project => state.filters.method === 'OR' && state.filters.active.length !== 0 ? state.filters.active.some(filter => project[filter.key].includes(filter.value)) : state.filters.active.every(filter => project[filter.key].includes(filter.value)))
+      state.projects.all.filter(project => state.filters.active.every(filter => project[filter.key].includes(filter.value)))
     )
   } else {
     return state.projects.all
   }
 };
 
-export const { toggleMethod, setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex } = projectsSlice.actions;
+export const { setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

@@ -65,7 +65,6 @@ const sliceOptions = {
       state.hasError = false;
     },
     [loadProject.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.projects = action.payload;
       state.isLoading = false;
       state.hasError = false;

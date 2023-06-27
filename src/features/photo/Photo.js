@@ -1,52 +1,17 @@
-import React from 'react';
-import { 
-  Link,
-  Outlet
-} from "react-router-dom";
+import React from "react";
 import { useSelector } from "react-redux";
-import './Photo.css';
+import { Album} from "../../components/Album/Album";
 
 
-
-export default function Photos() {
-  const photos = useSelector(state => state.photo.all);
-  
+export function Photos() {
+  const activePhotos = useSelector(state => state.photo.active);
+  const allPhotos = useSelector(state => state.photo.all);
+  const activeFilters = useSelector(state => state.photo.filters.active);
   return (
-<main className={'album album--photo'}>
-<Outlet />
-      <ul className={'album__list'}>
-        
-      {photos.map((album, index) => (
-        
-            <li 
-              key={`${index + 1}`}
-              className={
-                album.orientation && album.orientation === 'vertical' && album.position && album.position === 'special' ? 
-                  `album__item album__item--${index + 1} album__item--${album.orientation} album__item--${album.position}` 
-                  :
-                  album.orientation && album.orientation === 'vertical' ? 
-                      `album__item album__item--${index + 1} album__item--${album.orientation}` 
-                      :
-                      album.position && album.position === 'special' ? 
-                        `album__item album__item--${index + 1} album__item--${album.position}` 
-                        : 
-                        `album__item album__item--${index + 1}`}
-            > 
-              
-              
-                    <Link to={`/photo/${album.title}`} className={'photo-album__link'}>
-                      <img alt={'blah'} src={`${album.posterImg}`} className={'photo-album__img'} />
-                    </Link>
-              
-            </li>
-          ))}
-      </ul>
-      
-    </main>
-
-
-
-
+    <div>
+     <Album items={activePhotos} allItems={allPhotos} filters={activeFilters} type={"photo"} layout={"mix"} scroll={"snap"}/>
+    </div>
   );
-}
+
+};
 

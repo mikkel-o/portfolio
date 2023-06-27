@@ -3,9 +3,14 @@
       "title": "work",
       "list": [
         {
+          "name": "Tactile Games",
+          "description": "Cinematic Artist",
+          "period": ["2023","present"]
+        },
+        {
           "name": "Freelance",
           "description": "CG Artist",
-          "period": ["2021","present"]
+          "period": ["2021","2022"]
         },
         {
           "name": "Sun Creature Studio",

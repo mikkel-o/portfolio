@@ -1,14 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { hideAllToggles} from "../../components/toggleSlice";
-import { toggleMethod, setPseudoFilters, clearPseudoFilters, removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
+import { setPseudoFilters, removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
+import { setPseudoFiltersPhoto, removePseudoFilterPhoto, addPseudoFilterPhoto, updateFilterCountsPhoto} from "../photo/photoSlice";
 import { motion } from "framer-motion";
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
 import './Filters.css';
 import { useNavigate, useLocation } from "react-router-dom";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 /*- - - - - - -- - - - - ANIMATION - - - - - - - - - - - - - - */
 
@@ -30,17 +29,17 @@ const filtersActivepanTwo = {
   hover: { y: 0, transition: transition }
 };
 
-export default function Filters() {
+export default function Filters(props) {
+  const {filtersActive, filtersAll, filtersPseudo, type } = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef();
-  //const projectsAll = useSelector(state => state.projects.all);
-  //const projectsActive = useSelector(state => state.projects.active);
-  const filtersAll = useSelector(state => state.projects.filters.all);
-  const filtersActive =  useSelector(state => state.projects.filters.active);
-  const filtersPseudo = useSelector(state => state.projects.filters.pseudo);
-  const filtersMethod = useSelector(state => state.projects.filters.method);
+  console.log(filtersActive);
+  console.log(filtersAll);
+  console.log(filtersPseudo);
+  console.log(type);
+
   const isFiltersMenuActive = useSelector(state => state.toggle)['filters__menu__mobile'];
   const isFiltersMenuEmpty = filtersActive.length === 0 ? false : true;
 
@@ -49,10 +48,16 @@ export default function Filters() {
       event.target.classList.remove('active');
     } else {
       event.target.classList.add('active');
-      dispatch(setPseudoFilters(filtersActive));
+      type === "work" ? 
+      dispatch(setPseudoFilters(filtersActive))
+      :
+      dispatch(setPseudoFiltersPhoto(filtersActive));
     }
       dispatch(toggle(`${name}`))
-      dispatch(updateFilterCounts());
+      type === "work" ? 
+      dispatch(updateFilterCounts())
+      :
+      dispatch(updateFilterCountsPhoto());
   }  
   useOnClickOutside(ref, () => {dispatch(hideAllToggles('filters'));}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
 
@@ -63,7 +68,10 @@ export default function Filters() {
   };
   
   const onClickRemoveFilter = (event, filtersPseudo) => {
-    dispatch(removePseudoFilter(event.target.children[0].innerHTML));
+    type === "work" ?
+    dispatch(removePseudoFilter(event.target.children[0].innerHTML))
+    :
+    dispatch(removePseudoFilterPhoto(event.target.children[0].innerHTML));
     const newFilters = filtersActive.map(item => item);
     const removeIndex = newFilters.findIndex( filter => filter.value === event.target.children[0].innerHTML );
     newFilters.splice( removeIndex, 1 );
@@ -74,12 +82,21 @@ export default function Filters() {
     
     if (e.target.classList.contains('active')) {
       e.target.classList.remove('active');  
+      type === "work" ?
       dispatch(removePseudoFilter(filtersTitle[index].value ))
+      :
+      dispatch(removePseudoFilterPhoto(filtersTitle[index].value ));
       } else {
       e.target.classList.add('active');  
+      type === "work" ?
       dispatch(addPseudoFilter(filtersTitle[index] ))
+      :
+      dispatch(addPseudoFilterPhoto(filtersTitle[index] ));
     }
-    dispatch(updateFilterCounts());
+    type === "work" ? 
+      dispatch(updateFilterCounts())
+      :
+      dispatch(updateFilterCountsPhoto());
   };
 
   const onClickApplyFilters = (event, filtersPseudo) => {
@@ -93,30 +110,13 @@ export default function Filters() {
         tempArr.push(filter.value);
       })
       params.append('filters', tempArr);
-      params.append('method', filtersMethod);
     } else {
       params.delete('filters');
-      params.delete('method');
     }
     navigate({pathname: location.pathname, search: params.toString()});
   }
 
-  const handleChangeFiltersMethod = (event, newMethod) => {
-    const siblings = event.target.parentNode.parentNode.parentNode.children[0];
-    if (filtersPseudo.length > 1) {
-      for (let i = 0; i < filtersAll.length; i++) {
-        filtersAll[i].filters.forEach((x, index) => {
-          siblings.children[i].children[1].children[index].classList.remove('inactive');
-          siblings.children[i].children[1].children[index].children[0].classList.remove('active');
-        });
-      }
-      dispatch(clearPseudoFilters());
-    }
-    dispatch(toggleMethod(newMethod));
-    
-    dispatch(updateFilterCounts());
-  };
-
+  
   return (
     <motion.div 
       className={isFiltersMenuActive ? isFiltersMenuEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isFiltersMenuEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} 
@@ -206,7 +206,7 @@ export default function Filters() {
                   {filterGroup.filters.map((filter, index) => (
                     <li 
                       key={index}
-                      className={filtersMethod === 'OR' ? 'filters-item' : (filter.countPseudo === 0) ? 'inactive filters-item' : 'filters-item'}
+                      className={(filter.countPseudo === 0) ? 'inactive filters-item' : 'filters-item'}
                     >
                       <button 
                         onClick={e => onClickSelectFilter(e, index, filterGroup.filters)}
@@ -216,7 +216,7 @@ export default function Filters() {
                           {filter.value}
                         </span>
                         <span className={'filter-count-filter'}>
-                          {filtersMethod === 'OR' ? filter.countTotal : filter.countPseudo + ' '}
+                          {filter.countPseudo + ' '}
                         </span>
                       </button>
                     </li>
@@ -239,17 +239,6 @@ export default function Filters() {
                 </button>
               </div>
               : ''}
-
-            <ToggleButtonGroup
-              color="primary"
-              value={filtersMethod}
-              exclusive
-              onChange={handleChangeFiltersMethod}
-              aria-label="Platform"
-            >
-              <ToggleButton value="OR">OR</ToggleButton>
-              <ToggleButton value="AND">AND</ToggleButton>
-            </ToggleButtonGroup>
 
             <button 
               className={'filters-apply-btn'}

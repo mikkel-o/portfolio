@@ -107,7 +107,7 @@ const menuToggle = useSelector(state => state.toggle['primary_menu']);
           <Link to={'/showreel'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >showreel</Link>
         </li>*/}
         <li className={'main-nav__item'}>
-          <Link to={'/projects/categories'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >work</Link>
+          <Link to={'/work/categories'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >work</Link>
         </li>
         
         <li className={'main-nav__item'}>

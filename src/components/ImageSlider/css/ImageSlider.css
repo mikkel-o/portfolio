@@ -74,7 +74,7 @@ display: flex;
   position: absolute;
   z-index: 5;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0;
 }
 
 .carousel__btn:disabled {
@@ -169,7 +169,26 @@ display: flex;
   height: 100%;
 
 }
+.carousel__video--position-83,
+.album__image--position-83 {
+  object-position: 83%;
 
+}
+.carousel__video--position-62,
+.album__image--position-62 {
+  object-position: 62%;
+
+}
+.carousel__video--position-54,
+.album__image--position-54 {
+  object-position: 54%;
+
+}
+.carousel__video--position-38,
+.album__image--position-38 {
+  object-position: 38%;
+
+}
 .carousel__video--featured{
 position: absolute;
     top: 0;

@@ -11,7 +11,7 @@ export const Toggle = ({id, children}) => {
   
   // Create a ref that we add to the element for which we want to detect outside clicks
     const ref = useRef();
-    console.log(useRef());
+    
 
     useOnClickOutside(ref, () => dispatch(toggle(id)));*/
 

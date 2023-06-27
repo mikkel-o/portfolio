@@ -8,7 +8,6 @@ export const filtersSlice = createSlice({
     all: [],
     activeFilters: ['initial'],
     projectedCount: [],
-    filterMethod: '',
   },
   reducers: {
 
@@ -37,15 +36,12 @@ export const filtersSlice = createSlice({
 
     clearActiveFilters: (state) => {state.activeFilters = []},
     projectedCounts: (state, action) => {state.projectedCount = [action.payload]},
-    toggleMethod: (state, action) => {
-      state.filterMethod = action.payload;
-    },
     
   },
   
 });
 
-export const { addActiveFilter, addActiveAllFilters,removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts, toggleMethod } = filtersSlice.actions;
+export const { addActiveFilter, addActiveAllFilters,removeActiveFilter, clearActiveFilters, addAllFilters, projectedCounts } = filtersSlice.actions;
 
 export const selectActiveFilters = (state) => state.filters.activeFilters;
 
