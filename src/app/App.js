@@ -91,7 +91,7 @@ function App() {
 
   useEffect(() => {
     console.log(albumVideo);
-    window.scrollTo(0,1);
+    window.scrollTo(0,10);
     //albumVideo.forEach(video => video.pause());
     if (window.innerWidth > 1349) {
       dispatch(columnCount(4));
