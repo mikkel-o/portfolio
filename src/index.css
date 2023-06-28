@@ -37,7 +37,7 @@ html,
 body,
 #root,
 #app {
-  height: calc(100vh - 36px);
+  min-height: calc(100vh + 165px);
   margin: 0;
   font-family: "Oxygen", sans-serif;
 }

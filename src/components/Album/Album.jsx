@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { VideoModal } from '../VideoModal/VideoModal';
 import { AlbumContainer} from "./AlbumContainer";
 import { AlbumCard} from "./AlbumCard";
@@ -9,8 +9,17 @@ import './Album.css';
 export function Album(props) {
   const {items, allItems, filters, type, overlay, layout, scroll } = props;
 
-  return (
+  useEffect(() => {
     
+    
+    if (window.innerWidth < 600) {
+         window.scrollTo(0, 200);
+       } 
+     })
+
+  return (
+    <>
+    <div className={"test"}></div>
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
             <AlbumCard item={item} index={i} key={item.id} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
@@ -19,7 +28,7 @@ export function Album(props) {
           ))}
           <VideoModal/>
       </AlbumContainer>
-    
+      </>
   );
 };
 

@@ -137,7 +137,11 @@
 }
 
 
-
+.test {
+  height: 200px;
+  width: 100vw;
+  display: block;
+}
 
 .album__item:hover .album__overlay-bg {
   opacity: 0.8;

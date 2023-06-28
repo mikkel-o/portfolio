@@ -45,7 +45,7 @@ function App() {
   const photos = useSelector(state => state.photo);
 
   const albumVideo = document.getElementsByClassName("album__video");
-
+  
   useEffect(()=> {
     
     if (location.pathname.indexOf('photo') > -1) {
