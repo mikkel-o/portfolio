@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { VideoModal } from '../VideoModal/VideoModal';
 import { AlbumContainer} from "./AlbumContainer";
 import { AlbumCard} from "./AlbumCard";
@@ -8,14 +8,6 @@ import './Album.css';
 
 export function Album(props) {
   const {items, allItems, filters, type, overlay, layout, scroll } = props;
-
-  useEffect(() => {
-    
-    
-    if (window.innerWidth < 600) {
-         window.scrollTo(0, 200);
-       } 
-     })
 
   return (
     <>

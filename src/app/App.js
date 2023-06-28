@@ -46,6 +46,15 @@ function App() {
 
   const albumVideo = document.getElementsByClassName("album__video");
   
+  useEffect(() => {
+    
+    
+    if (window.innerWidth < 600) {
+         window.scrollTo(0, 200);
+       } 
+     })
+
+     
   useEffect(()=> {
     
     if (location.pathname.indexOf('photo') > -1) {
@@ -127,6 +136,9 @@ function App() {
       window.removeEventListener('resize', debouncedHandleResize)
     }
   })
+
+
+  
 
   const isActive = location.pathname === '/' || location.pathname === '' ? true : false;
   

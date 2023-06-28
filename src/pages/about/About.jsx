@@ -9,7 +9,7 @@ export default function About() {
   const cv = getCV();
   return (
     <div className={'wrapper'}>
-      
+      <div className={"test"}></div>
       <main id="about-wrapper">
 
         <section className="about-section">

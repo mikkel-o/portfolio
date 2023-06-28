@@ -11,7 +11,7 @@ import './media.css';
 import App from './app/App';
 import ProjectsAll from "./pages/work/ProjectsAll";
 import ProjectSingleWrapper from "./pages/work/ProjectSingleWrapper";
-import ProjectSingle from "./pages/work/ProjectSingle";
+
 import ProjectCategories from "./pages/work/ProjectCategories";
 import About from "./pages/about/About";
 import PhotosAll from "./pages/photo/PhotosAll";
@@ -40,10 +40,6 @@ const AnimatedRoutes = () => {
               element={<ProjectSingleWrapper />} 
             />
           
-          <Route 
-            path="work/:id" 
-            element={<ProjectSingle />} 
-          />
             
           <Route 
             path="work/categories" 
