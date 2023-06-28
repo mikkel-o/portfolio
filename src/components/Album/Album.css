@@ -82,10 +82,9 @@
   }
 .album__card-wrapper--scroll {
     scroll-snap-align: start;
-    height: calc(100vh - 35px);
-    height: calc(100svh - 35px);
+    height: calc(100vh - 35px - env(safe-area-inset-bottom));
       width: 100%;
-      
+
   }
   
 .album__item {
