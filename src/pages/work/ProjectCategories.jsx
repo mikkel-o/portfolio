@@ -126,7 +126,7 @@ export default function ProjectCategories() {
       animate={'animate'} 
       exit={'exit'} 
     >
-      <div className={"test"}></div>
+      
       <VideoPlayer />
       <button className={'projects-category-allBtn'} onClick={event => goToPosts(event)}>Show all</button>
       <ul className={'projects-category-list'}>

@@ -66,12 +66,12 @@
   /*margin: 20px 15px 0;*/
   
 }
-.album__container--scroll {
+/*.album__container--scroll {
     position: relative;
     scroll-snap-type: y mandatory;
     height: calc(100vh - 35px);
     overflow: scroll;
-}
+}*/
 .album__container::-webkit-scrollbar {
     display: none;
   }

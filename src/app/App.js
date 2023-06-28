@@ -46,15 +46,6 @@ function App() {
 
   const albumVideo = document.getElementsByClassName("album__video");
   
-  useEffect(() => {
-    
-    
-    if (window.innerWidth < 600) {
-         window.scrollTo(0, 200);
-       } 
-     })
-
-     
   useEffect(()=> {
     
     if (location.pathname.indexOf('photo') > -1) {
