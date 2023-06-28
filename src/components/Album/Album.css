@@ -82,7 +82,7 @@
   }
 .album__card-wrapper--scroll {
     scroll-snap-align: start;
-    /*height: calc(100vh - 35px);*/
+    height: calc(100vh - 35px);
       width: 100%;
       
   }
