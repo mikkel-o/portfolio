@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProject, clearProjects, projectCoord } from "../../features/singleProject/singleProjectSlice";
 import ImageSlider from '../ImageSlider/ImageSlider';
-import Div100vh from 'react-div-100vh';
+
 
 const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
@@ -119,7 +119,7 @@ export function AlbumCard(props) {
             :   
               
               <motion.span layoutId={item.id}  className={ `album__item ${layout === "mix" ? "album__item--mix" : null} ${scroll === "snap" ? "album__item--scroll" : null}`} >
-              <Div100vh >
+              
                 {
                   item.album ? 
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
@@ -160,7 +160,7 @@ export function AlbumCard(props) {
                       <img src={item.img} alt="" className={`album__image ${layout === "mix" ? "album__image--mix" : null} ${scroll === "snap" ? "album__image--scroll" : null} ${item.position ? `album__image--position-${item.position}` : null}`} />
                 }
                 {children}
-                </Div100vh>
+               
               </motion.span>
             }
             </div>
