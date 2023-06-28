@@ -63,7 +63,7 @@
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 75px;
   /*margin: 20px 15px 0;*/
   
 }
@@ -83,7 +83,9 @@
 .album__card-wrapper--scroll {
     scroll-snap-align: start;
     height: calc(100vh - 35px);
+    height: calc(100svh - 35px);
       width: 100%;
+      
   }
   
 .album__item {
