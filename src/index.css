@@ -39,7 +39,7 @@ code {
 html {
         scroll-snap-type: y mandatory;
         scroll-padding-top: 18px;
-        scroll-behavior: smooth;
+        /*scroll-behavior: smooth;*/
         height: 100vh;
         overflow-y: scroll;
         box-sizing: border-box;
