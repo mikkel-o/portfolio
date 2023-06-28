@@ -97,7 +97,7 @@
 }
 
 .album__item--scroll {
-    scroll-snap-align: start;
+    /*scroll-snap-align: start;*/
     height: calc(100vh - 35px);
       width: 100%;
   }
