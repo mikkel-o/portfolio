@@ -183,7 +183,7 @@
   object-fit: cover;
   position: absolute;
   height: 100%;
-  height: calc(100% - env(safe-area-inset-bottom));
+  height: calc(100svh + env(safe-area-inset-bottom));
   right: 0;
 }
 .album__overlay-wrapper--scroll {
