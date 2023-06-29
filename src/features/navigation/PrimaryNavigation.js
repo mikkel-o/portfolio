@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './primaryNavigation.css';
 import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
@@ -54,7 +54,8 @@ const burgerMenuExit = [
 
 
 
-const PrimaryNavigation = (navigationItems) => {
+const PrimaryNavigation = (props) => {
+  const {children} = props;
   let isActive = false;
   const dispatch = useDispatch();
       
@@ -70,6 +71,9 @@ const PrimaryNavigation = (navigationItems) => {
       }
         
 const menuToggle = useSelector(state => state.toggle['primary_menu']);
+
+let currentLocation = String(useLocation().pathname),
+backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
 
   /*
     let currentLocation = String(useLocation().pathname),
@@ -119,11 +123,19 @@ const menuToggle = useSelector(state => state.toggle['primary_menu']);
     </div>
     </Toggle>
   
-      {/* navigate back button 
+
     
- 
 
 
+      {/* navigate back button */}
+    
+    <Link to={`${backLocation}`} className={'back__link'}>
+        <button className={currentLocation === '/' ? `hide back__button` : `back__button`}>
+          <img alt={'go back'} src={'/icons/left-arrow.png'} />
+        </button>
+      </Link> 
+
+{children}
   
   
 {/* END .main-nav-wrapper */}

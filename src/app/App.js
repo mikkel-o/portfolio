@@ -144,7 +144,14 @@ function App() {
       data-theme={theme}
     >
     {isActive === false ? 
-      <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} />
+      <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
+        <button 
+        onClick={switchTheme}
+        style={{position: 'fixed', top: '0', left: '0', zIndex: '20', opacity: '0'}}  
+      >
+        {theme === 'light' ? 'Dark' : 'Light'}
+      </button>
+    </PrimaryNavigation>
     :
     null}
     {/* <Outlet> to show content */}
@@ -164,12 +171,7 @@ function App() {
         </ul>
       </div>
 
-      <button 
-        onClick={switchTheme}
-        style={{position: 'fixed', bottom: '0', right: '0', zIndex: '20'}}  
-      >
-        {theme === 'light' ? 'Dark' : 'Light'}
-      </button>
+    
 
     {/* END .App */}
     </div>

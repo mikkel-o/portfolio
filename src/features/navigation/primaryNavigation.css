@@ -5,16 +5,13 @@
 /****************************************************/
 .main-nav {
   position: fixed;
-  padding-top: 8px;
+  /*padding-top: 8px;
   padding-left: 8px;
-  padding-bottom: 2px;
+  padding-bottom: 2px;*/
   top: 0;
-  left: 0;
+  right: 0;
   display: flex;
   /* flex-direction: column; */
-  z-index: 20;
-  height: 30px;
-  width: 40px;
   z-index: 22;
   /*background: var(--background);*/
   }
@@ -32,12 +29,12 @@
     letter-spacing: 2px;
   }
   .main-nav button {
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     left: 0;
     cursor: pointer;
     width: 50px;
-    height: 40px;
+    height: 50px;
     /*font-size: 1.6em;*/
     line-height: 0.52;
     border: none;
@@ -179,7 +176,7 @@
   }
 
 
-.back__button img
+.theme-light .back__button img
  {
   filter: invert(1);
 }

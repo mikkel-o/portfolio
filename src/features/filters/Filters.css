@@ -486,7 +486,7 @@ justify-content: right;
 }
 
 .filters-mobile-btn {
-    top: 0px;
+    bottom: 0px;
     right: 15px;
     position: fixed;
     z-index: 10;
@@ -496,7 +496,8 @@ justify-content: right;
     cursor: pointer;
     /*width: 200px;*/
     text-align: right;
-    height: 40px;
+    height: 50px;
+    width: 35px;
     outline: none;
     will-change: transform;
     transition: transform 0.15s ease;
