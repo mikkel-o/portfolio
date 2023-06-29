@@ -22,7 +22,7 @@
   font-size: 1.6em;
   text-transform: initial;
   flex-basis: 100%;
-
+  padding-left: 10px;
 }
 
 .album__overlay-subtitle {
@@ -34,8 +34,10 @@
   transition: opacity 0.7s ease;
   color: white;
   text-transform: capitalize;
-  flex-basis: 47%;
+  flex-basis: 100%;
   display: flex;
+  padding-bottom: 50px;
+  padding-left: 20px;
   align-items: center;
 }
 
@@ -61,8 +63,8 @@
 .album__container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   padding-bottom: 75px;
   /*margin: 20px 15px 0;*/
   
@@ -82,7 +84,7 @@
   }
 .album__card-wrapper--scroll {
     scroll-snap-align: start;
-    height: calc(100vh - 35px);
+    height: 100vh;
       width: 100%;
       
   }
@@ -98,18 +100,18 @@
 
 .album__item--scroll {
     /*scroll-snap-align: start;*/
-    height: calc(100vh - 35px);
+    height: 100vh;
       width: 100%;
   }
 
 .album__overlay {
   z-index: 2;
-  height: calc(100% - 40px);
-  width: calc(100% - 40px);
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 20px;
+  padding: 0px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -188,10 +190,13 @@
 .album__overlay-wrapper--scroll {
   display: flex;
   flex-wrap: wrap;
-  bottom: 20px;
+  bottom: 0px;
+  height: 20vh;
   width: 100%;
   position: absolute;
   z-index: 1;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 @media (min-width: 600px) { 
   .album__container {
@@ -273,6 +278,10 @@
   }
   .album__overlay-title--scroll {
     display: none;
+  }
+  .album__container {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;    
   }
 
 }

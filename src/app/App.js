@@ -147,7 +147,7 @@ function App() {
       <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
         <button 
         onClick={switchTheme}
-        style={{position: 'fixed', top: '0', left: '0', zIndex: '20', opacity: '0'}}  
+        style={{position: 'fixed', zIndex: '20', opacity: '0'}}  
       >
         {theme === 'light' ? 'Dark' : 'Light'}
       </button>

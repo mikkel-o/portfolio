@@ -486,8 +486,8 @@ justify-content: right;
 }
 
 .filters-mobile-btn {
-    bottom: 0px;
-    right: 15px;
+    top: 0px;
+    left: 15px;
     position: fixed;
     z-index: 10;
     border: none;
@@ -502,7 +502,7 @@ justify-content: right;
     will-change: transform;
     transition: transform 0.15s ease;
     font-size: 1.1em;
-    background: var(--background);
+    background: transparent;
 }
 
 .filters-mobile-btn::after{
@@ -675,8 +675,8 @@ padding: 0;
     flex-wrap: wrap;
     justify-content: flex-end;
     position: absolute;
-    top: 55px;
-    right: 10px;
+    top: 8px;
+    right: 45px;
     width: calc(100% - 55px);
     margin: 0;
     background: none;
