@@ -38,8 +38,16 @@ export default function ProjectCategories() {
         )
       )
     ];
-  const posters = ['/projects/_categories/EDIT_TEASER_square_e_poster_thumb.jpg', '/projects/_categories/CG_TEASER_square_h_poster_thumb.jpg', '/projects/_categories/PRODUCTION_TEASER_square_f_poster_thumb.jpg'];
-  const videos = ['/projects/_categories/EDIT_TEASER_square_e_1.mp4', '/projects/_categories/CG_TEASER_square_h_1.mp4', '/projects/_categories/PRODUCTION_TEASER_square_g_1.mp4'];
+  const posters = [
+                    'https://drive.google.com/uc?export=download&id=1gnNn4SVy4wrkoD8CYB9K1jS-Q6SEqQmA', 
+                    'https://drive.google.com/uc?export=download&id=1V2m971wGxe6FsdF8FFBEMq9CVsNYr-Hh', 
+                    'https://drive.google.com/uc?export=download&id=1KHaHZ7KEttiOUB3DfskJzPAyvE88f8Zl'
+                  ];
+  const videos = [
+                    'https://drive.google.com/uc?export=download&id=15cKlWNcnv2aCLlZbhPcc6mgG4gNqMneI', 
+                    'https://drive.google.com/uc?export=download&id=1PbzOtYKPvnVf-EeRGcewu4Gc8yaakYbU', 
+                    'https://drive.google.com/uc?export=download&id=1R-mtqIir9uxF3vEX9xXFbVSN9BApgT5z'
+                  ];
   const [isActive, setIsActive] = useState(-1);
   const list = allProjects.map((project, i) => (
     {
