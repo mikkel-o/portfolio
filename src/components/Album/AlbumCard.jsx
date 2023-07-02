@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import ImageSlider from '../ImageSlider/ImageSlider';
+import {addSelectedID} from '../../features/projects/projectsSlice'
 
 
 const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
@@ -11,7 +12,9 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 
 export function AlbumCard(props) {
+  const {children, index, item, allItems, type, layout, scroll } = props; 
   const ref = useRef(null);
+  const dispatch = useDispatch();
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
@@ -23,22 +26,26 @@ export function AlbumCard(props) {
           
           setIsIntersecting(entry.isIntersecting);
           
+    
         
       },
       {
         rootMargin: "0px",
-        threshold: 0.1
+        threshold: .6
       }
     );
-    
+    if (isIntersecting) {
+      dispatch(addSelectedID(item.id));
+      console.log(item.id);
+    }
       observer.observe(ref.current);
     
     
-  }, [ref]);  
+  }, [ref, isIntersecting, dispatch, item.id]);  
   
 
   
-  const {children, index, item, allItems, type, layout, scroll } = props; 
+  
     
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
@@ -82,9 +89,6 @@ export function AlbumCard(props) {
   
     
     
-    if (isIntersecting) {
-      console.log(item.id);
-    }
     
     //isInViewport ? ref.current.offsetTop < window.innerHeight/2 && ref.current.offsetTop >= -10 ? console.log(ref.current) : console.log(null) : console.log(null);
    

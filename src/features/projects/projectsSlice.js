@@ -16,6 +16,7 @@ export const loadProjects = createAsyncThunk(
 const sliceOptions = {
   name: "projects",
   initialState: {
+    selectedID: [],
     all: [],
     active: [],
     featured: {
@@ -97,6 +98,13 @@ const sliceOptions = {
 
       //state.all.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
       //state.all.forEach(project => project.activeFilm = action.payload)
+    },
+    addSelectedID: (state, action) => {
+      
+      state.selectedID = action.payload;
+
+      //state.all.find(item => item.name === action.payload.name).activeFilmIndex = action.payload.index;
+      //state.all.forEach(project => project.activeFilm = action.payload)
     }
   },
   extraReducers: {
@@ -169,6 +177,6 @@ export const selectFilteredProjects = (state) => {
   }
 };
 
-export const { setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex } = projectsSlice.actions;
+export const { setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex, addSelectedID } = projectsSlice.actions;
 
 export default projectsSlice.reducer;
