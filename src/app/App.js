@@ -90,7 +90,7 @@ function App() {
   },[location, dispatch, searchParams, projects.hasBeenSet, filters, photos.hasBeenSet])
 
   useEffect(() => {
-    console.log(albumVideo);
+    
     
     //albumVideo.forEach(video => video.pause());
     if (window.innerWidth > 1349) {

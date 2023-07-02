@@ -39,10 +39,6 @@ export default function Filters(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef();
-  console.log(filtersActive);
-  console.log(filtersAll);
-  console.log(filtersPseudo);
-  console.log(type);
 
   const isFiltersMenuActive = useSelector(state => state.toggle)['filters__menu__mobile'];
   const isFiltersMenuEmpty = filtersActive.length === 0 ? false : true;

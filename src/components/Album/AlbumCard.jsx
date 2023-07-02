@@ -8,26 +8,37 @@ import ImageSlider from '../ImageSlider/ImageSlider';
 
 const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
-function useIsInViewport(ref) {
-    const [isIntersecting, setIsIntersecting] = useState(false);
-    const observer = useMemo(
-      () =>
-        new IntersectionObserver(([entry]) =>
-          setIsIntersecting(entry.isIntersecting),
-        ),
-      [],
-    );
-    useEffect(() => {
-      observer.observe(ref.current);
-      return () => {
-        observer.disconnect();
-      };
-    }, [ref, observer]);
-    return isIntersecting;
-  }
+
 
 export function AlbumCard(props) {
-    const {children, index, item, allItems, filters, type, layout, scroll } = props; 
+  const ref = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        
+
+        
+          
+          setIsIntersecting(entry.isIntersecting);
+          
+        
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.1
+      }
+    );
+    
+      observer.observe(ref.current);
+    
+    
+  }, [ref]);  
+  
+
+  
+  const {children, index, item, allItems, filters, type, layout, scroll } = props; 
     
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
@@ -77,22 +88,28 @@ export function AlbumCard(props) {
     }
   
 
-  console.log(isColumnCount);
-    const ref = useRef(null);
-    const isInViewport = useIsInViewport(ref);
-
+  
+    
+    
+    if (isIntersecting) {
+      console.log(item.id);
+    }
+    
+    //isInViewport ? ref.current.offsetTop < window.innerHeight/2 && ref.current.offsetTop >= -10 ? console.log(ref.current) : console.log(null) : console.log(null);
+   
     return (
       <motion.div  
         variants={variants[index]}
-        key={item.id} 
+        key={item.id}
         onClick={event => onClickHandler(event, index)}
         className={ `album__card-wrapper ${layout === "mix" ? "album__card-wrapper--mix" : null} ${scroll === "snap" ? "album__card-wrapper--scroll" : null}`}
       >
         <motion.div 
           ref={ref} 
           style={{opacity: 0, translateY: '0px'}}
-          animate={{opacity: isInViewport ? 1 : 0, translateY: layout !== "mix" && isInViewport ? '0px' : '0px'}} 
+          animate={{opacity: isIntersecting ? 1 : 0, translateY: layout !== "mix" ? '0px' : '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
+          
         >
           
             <div 
@@ -100,23 +117,7 @@ export function AlbumCard(props) {
               className={`album__card ${layout === "mix" ? "album__card--mix" : null} ${scroll === "snap" ? "album__card--scroll" : null}`}
               tabIndex={item.id} 
             >
-            {isViewMobile ? 
-              <span className={ `album__item ${layout === "mix" ? "album__item--mix" : null} ${scroll === "snap" ? "album__item--scroll" : null}`}>
-                <Link  
-                  to={`/work/${item.name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`} 
-                  onClick={onClickyHandler}
-                >  
-                  <img 
-                    src={item.img} 
-                    alt="" 
-                    className={`album__image ${layout === "mix" ? "album__image--mix" : null} ${scroll === "snap" ? "album__image--scroll" : null}`} 
-                  />
-                  <div className={'album__overlay'}></div>
-                  <motion.div exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} className={'album__overlay-bg'}></motion.div>
-                  <motion.div exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} className={'album__overlay-bg-bottom'}></motion.div>
-                </Link>
-              </span>
-            :   
+            
               
               <motion.span layoutId={item.id}  className={ `album__item ${layout === "mix" ? "album__item--mix" : null} ${scroll === "snap" ? "album__item--scroll" : null}`} >
               
@@ -139,7 +140,6 @@ export function AlbumCard(props) {
                       {
                         isColumnCount >= 2 ?
                           event => {
-                            console.log(event.target);
                             event.target.play();
                           } 
                         : 
@@ -157,12 +157,22 @@ export function AlbumCard(props) {
                       }
                   ></video>
                     : 
-                      <img src={item.img} alt="" className={`album__image ${layout === "mix" ? "album__image--mix" : null} ${scroll === "snap" ? "album__image--scroll" : null} ${item.position ? `album__image--position-${item.position}` : null}`} />
+                      <img 
+                        src={item.img} 
+                        alt="" 
+                        className=
+                          {
+                            `album__image 
+                            ${layout === "mix" ? "album__image--mix" : null} 
+                            ${scroll === "snap" ? "album__image--scroll" : null} 
+                            ${item.position ? `album__image--position-${item.position}` : null}`
+                          } 
+                        />
                 }
                 {children}
                
               </motion.span>
-            }
+            
             </div>
           
         </motion.div>  
