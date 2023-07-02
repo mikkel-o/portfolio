@@ -191,15 +191,15 @@
 }
 .album__overlay-wrapper--scroll {
   /*display: flex;
-  flex-wrap: wrap;*/
+  flex-wrap: wrap;
   bottom: 0px;
-  /*height: 20vh;*/
+  height: 20vh;*/
   width: 100%;
   position: absolute;
   z-index: 1;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: env(safe-area-inset-bottom);
+  bottom: env(safe-area-inset-bottom);
 }
 @media (min-width: 600px) { 
   .album__container {
