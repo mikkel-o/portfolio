@@ -40,9 +40,9 @@ html {
         scroll-snap-type: y mandatory;
         scroll-padding-top: 0px;
         scroll-behavior: smooth;
-        height: 100vh;
-        overflow: hidden;
-        overflow-y: scroll;
+        /*height: 100vh;*/
+        /*overflow: hidden;
+        overflow-y: scroll;*/
         box-sizing: border-box;
 }
 html,
