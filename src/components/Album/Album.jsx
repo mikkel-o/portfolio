@@ -11,7 +11,6 @@ export function Album(props) {
 
   return (
     <>
-    
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
             <AlbumCard item={item} index={i} key={item.id} allItems={allItems} type={type} scroll={scroll} layout={layout}> 

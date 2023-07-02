@@ -156,7 +156,16 @@
   }
   
 
-  
+  .test{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    padding-bottom: env(safe-area-inset-bottom);
+    bottom: 0;
+    z-index: 22;
+    }
+    
+  /*
   .back__link {
     position: fixed;
     bottom: 0px;
@@ -166,10 +175,11 @@
     background: transparent;
   
   }
-  
+  */
   .back__link button,
   button.main-nav__toggle-button {
     background: transparent;
+    border: none;
   }
   
   .hide.back__button,

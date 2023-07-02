@@ -81,7 +81,7 @@ backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
 
 
   return (
-     
+    <>
     <div className={'main-nav'}>
 
 
@@ -127,20 +127,23 @@ backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
     
 
 
-      {/* navigate back button */}
-    
-    <Link to={`${backLocation}`} className={'back__link'}>
-        <button className={currentLocation === '/' ? `hide back__button` : `back__button`}>
-          <img alt={'go back'} src={'/icons/left-arrow.png'} />
-        </button>
-      </Link> 
+ 
 
 {children}
   
   
 {/* END .main-nav-wrapper */}
 </div>
+<div className={'test'}>
+       {/* navigate back button */}
     
+       <Link to={`${backLocation}`} className={'back__link'}>
+        <button className={currentLocation === '/' ? `hide back__button` : `back__button`}>
+          <img alt={'go back'} src={'/icons/left-arrow.png'} />
+        </button>
+      </Link> 
+</div>
+</> 
   );
 };
 
