@@ -159,7 +159,8 @@
   
   .back__link {
     position: fixed;
-    bottom: env(safe-area-inset-bottom);
+    bottom: 0px;
+    padding-bottom: env(safe-area-inset-bottom);
     left: 0;
     border-radius: 0 2px 0 0;
     background: transparent;
