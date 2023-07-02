@@ -53,18 +53,13 @@ body,
   font-family: "Oxygen", sans-serif;
 }
 
-
 button, a {
   color: var(--accent);
 }
 
 #app {
-  /*display: flex;
-  flex-direction: column;*/
   color: var(--text-primary);
   padding: 0px 0 0 0;
-  /*margin: 18px 15px;*/
-  /*overflow: scroll;*/
 }
 
 
@@ -75,7 +70,6 @@ button, a {
   margin: 0;
   margin-bottom: 16px;
 }
-
 
 .spinner {
   display: block;

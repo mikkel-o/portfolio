@@ -35,8 +35,8 @@ const activeFilm = singleProject.album ? singleProject.album.find(item => item.n
 
   const variants = {
     initial: {
-      y: startingCoord[1] - 18,
-      x: startingCoord[0] - 15,
+      y: startingCoord[1],
+      x: startingCoord[0],
       width: startingCoord[2],
       height: startingCoord[3],
   },

@@ -23,6 +23,7 @@
   text-transform: initial;
   flex-basis: 100%;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .album__overlay-subtitle {
@@ -36,8 +37,9 @@
   text-transform: capitalize;
   flex-basis: 100%;
   display: flex;
-  padding-bottom: 50px;
+  /*padding-bottom: 50px;*/
   padding-left: 20px;
+  padding-right: 10px;
   align-items: center;
 }
 
@@ -115,7 +117,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 /*.album__overlay--scroll {
   height: 25%;
@@ -188,15 +190,16 @@
   right: 0;
 }
 .album__overlay-wrapper--scroll {
-  display: flex;
-  flex-wrap: wrap;
+  /*display: flex;
+  flex-wrap: wrap;*/
   bottom: 0px;
-  height: 20vh;
+  /*height: 20vh;*/
   width: 100%;
   position: absolute;
   z-index: 1;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 @media (min-width: 600px) { 
   .album__container {

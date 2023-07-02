@@ -14,10 +14,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 const scale = {scaleY: 1.1}
 const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
 const filterColors = [
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } }
+  /*{ hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#89eacc', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#cdf7cb', 'rgb(255, 158, 158)'] } },
-  { hover: { scale: scale, transition: transition, backgroundColor: ['#fbfcce', 'rgb(255, 158, 158)'] } }
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#fbfcce', 'rgb(255, 158, 158)'] } }*/
 ];
 const filtersActivepan = {
   initial: { y: 0, transition: transition },
