@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addProject, clearProjects, projectCoord } from "../../features/singleProject/singleProjectSlice";
+
+import { useSelector } from "react-redux";
+
 import ImageSlider from '../ImageSlider/ImageSlider';
 
 
@@ -38,7 +38,7 @@ export function AlbumCard(props) {
   
 
   
-  const {children, index, item, allItems, filters, type, layout, scroll } = props; 
+  const {children, index, item, allItems, type, layout, scroll } = props; 
     
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
@@ -72,20 +72,11 @@ export function AlbumCard(props) {
       setIsActive(i);
     }
   
-    const dispatch = useDispatch();
+  
     
     const isColumnCount = useSelector(state => state.toggle.columnCount)
-    const isViewMobile = useSelector(state => state.toggle.isMobile)
-    const [isOpen, setIsOpen] = useState(false);
-    const onClickyHandler = (event) => { 
-      setIsOpen(!isOpen);
-      const childPos = event.target.parentElement.parentElement.parentElement.getBoundingClientRect();
-      const index = [...event.target.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
-      const coord = [childPos.x, childPos.y, childPos.width, childPos.height, index];
-      dispatch(clearProjects());
-      dispatch(addProject(item));
-      dispatch(projectCoord(coord));
-    }
+   
+
   
 
   
