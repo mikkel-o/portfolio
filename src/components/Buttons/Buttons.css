@@ -23,6 +23,7 @@
 .album__overlay--scroll .btn__more, 
 .album__overlay--scroll .btn__play {
   opacity: 1;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .btn__more {
   border-radius: 3px;
