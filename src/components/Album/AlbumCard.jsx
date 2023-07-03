@@ -101,8 +101,8 @@ export function AlbumCard(props) {
       >
         <motion.div 
           ref={ref} 
-          style={{opacity: 0, translateY: '0px'}}
-          animate={{opacity: isIntersecting ? 1 : 0, translateY: layout !== "mix" ? '0px' : '0px'}} 
+          style={{opacity: 0.7, translateY: '0px'}}
+          animate={{opacity: isIntersecting ? 1 : 0.7, translateY: layout !== "mix" ? '0px' : '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >
