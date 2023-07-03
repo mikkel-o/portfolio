@@ -64,6 +64,9 @@ export function AlbumCardOverlay(props) {
     </div>
     <div className={'album__overlay-bg album__overlay-bg--scroll'}></div>
     </div>
+    <div className={"test"}>
+      TEST
+    </div>
     </>
   );
 };

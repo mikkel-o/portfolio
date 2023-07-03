@@ -134,7 +134,7 @@ backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
   
 {/* END .main-nav-wrapper */}
 </div>
-<div className={'test'}>
+<div className={'bottom-nav'}>
        {/* navigate back button */}
     
        <Link to={`${backLocation}`} className={'back__link'}>

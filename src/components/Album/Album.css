@@ -90,7 +90,7 @@
       width: 100%;
       
   }
-  
+  /*
 .album__item {
   grid-row-start: 1;
   grid-column-start: 1;
@@ -98,7 +98,7 @@
   align-items: baseline;
   justify-content: left;
   height: inherit;
-}
+}*/
 
 .album__item--scroll {
     /*scroll-snap-align: start;*/
@@ -201,6 +201,16 @@
   /*align-items: flex-start;*/
   bottom: 0;
   padding-bottom: env(safe-area-inset-bottom);
+}
+.test {
+  background:blue;
+  width: 150px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+z-index: 22;
 }
 @media (min-width: 600px) { 
   .album__container {
