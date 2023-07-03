@@ -18,7 +18,10 @@
 }
 
 .btn__more {
-  right: 70px;
+  right: 0;
+}
+.btn__play {
+  display:none;
 }
 .album__overlay--scroll .btn__more, 
 .album__overlay--scroll .btn__play {
@@ -26,6 +29,7 @@
 }
 .btn__more {
   border-radius: 3px;
+  margin: 0px 0px 5px 0px;
 }
 
 .btn__play {
@@ -34,7 +38,7 @@
 
 .btn__more .span-one, 
 .btn__more .span-two {
-  width: 3px;
+  width: 2px;
   height: 30px;
   display: block;
   background: white;

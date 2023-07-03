@@ -146,6 +146,7 @@ function App() {
     {isActive === false ? 
       <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
         <button 
+        className={'btn__theme'}
         onClick={switchTheme}
         style={{position: 'fixed', zIndex: '20', opacity: '0'}}  
       >

@@ -44,7 +44,9 @@
     will-change: transform;
     transition: transform 0.15s ease;
   }
-
+.btn__theme {
+  display:none;
+}
   /*.mobile-device .main-nav button {
     top: calc(100% - 40px);
     left: calc(100% - 50px);
