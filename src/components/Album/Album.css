@@ -205,8 +205,8 @@
 .test {
   width: 150px;
   height: 50px;
-  position: sticky;
-  top: calc(100vh - 50px);
+  position: relative;
+  /*top: calc(100vh - 50px);*/
   margin-top: -50px;
   margin-left: calc(100vw - 150px);
   padding-bottom: env(safe-area-inset-bottom);
