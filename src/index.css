@@ -110,14 +110,12 @@ ul {
 /****************************************************/
 @font-face {
   font-family: "menuFont";
-  src: url("../public/fonts/Gilroy-Light.woff2") format("woff2");
+  src: url("../public/fonts/AvantGarde/avant-garde-gothic-pro-demi.woff2") format("woff2");
 }
 h1,
 h2 {
   font-family: "menuFont";
-  letter-spacing: 1px;
   margin: 0;
-  text-align: left;
 }
 
 .filters-apply {
