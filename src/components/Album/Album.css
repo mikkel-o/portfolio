@@ -57,6 +57,8 @@
 .album__overlay-subtitle--scroll {
   opacity: 1;
   flex-basis: 25%;
+  text-transform: capitalize;
+  padding-left: 15px;
 }
 
 .album__overlay-subtitle,
@@ -207,7 +209,7 @@
   padding-bottom: env(safe-area-inset-bottom);*/
 }
 .test {
-  width: 150px;
+  width: 100vw;
   height: 50px;
   position: fixed;
   bottom: 0;

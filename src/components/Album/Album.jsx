@@ -64,6 +64,10 @@ console.log(itemInView);
            {items.map((item, i) => (
             itemInView.id === item.id ? 
             <div key={item.id + 55} className={"test"}>
+              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
+    <h2 className="album__overlay-title album__overlay-title--scroll">{item.album ? item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].title : item.title ? item.title : ""}</h2>
+    <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{item.role ? item.role.map(element => element).join(' | ') : ""}</h3> 
+    </div>
             {
               overlay ? 
                 <div key={item.id + 66} className={"album__overlay-wrapper album__overlay-wrapper--scroll"}>
