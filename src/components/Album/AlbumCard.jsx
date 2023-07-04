@@ -13,21 +13,15 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 export function AlbumCard(props) {
   const {children, index, item, allItems, type, layout, scroll } = props; 
+  
   const ref = useRef(null);
   const dispatch = useDispatch();
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        
-
-        
-          
+      ([entry]) => { 
           setIsIntersecting(entry.isIntersecting);
-          
-    
-        
       },
       {
         rootMargin: "0px",
@@ -35,18 +29,13 @@ export function AlbumCard(props) {
       }
     );
     if (isIntersecting) {
-      dispatch(addSelectedID(item.id));
-      console.log(item.id);
+      dispatch(addSelectedID(item));
+      console.log(item);
     }
       observer.observe(ref.current);
-    
-    
-  }, [ref, isIntersecting, dispatch, item.id]);  
   
+    }, [ref, isIntersecting, dispatch, item]);  
 
-  
-  
-    
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
       {
@@ -66,7 +55,7 @@ export function AlbumCard(props) {
         },
         exit: isActive === i ? '' : 
         {
-          opacity: 0,
+          opacity: 1,
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
             duration: .4,
@@ -102,7 +91,7 @@ export function AlbumCard(props) {
         <motion.div 
           ref={ref} 
           style={{opacity: 0.7, translateY: '0px'}}
-          animate={{opacity: isIntersecting ? 1 : 0.7, translateY: layout !== "mix" ? '0px' : '0px'}} 
+          animate={{opacity: isIntersecting ? 1 : 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >

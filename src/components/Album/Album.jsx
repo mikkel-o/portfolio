@@ -5,7 +5,7 @@ import { AlbumCard} from "./AlbumCard";
 import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {MoreButton, PlayButton} from "../Buttons/Buttons";
 import { 
   addProject, 
@@ -15,6 +15,7 @@ import {
   clearId, 
   addLink, 
   clearLink } from "../../features/singleProject/singleProjectSlice";
+  
 
 export function Album(props) {
   const {items, allItems, filters, type, overlay, layout, scroll } = props;
@@ -22,14 +23,19 @@ export function Album(props) {
   const [isOpen, setIsOpen] = useState(false);
   
 
+
+const itemInView = useSelector(state => state.projects.selectedID);
+console.log(itemInView);
+
   const onClickyHandler = (event, item) => { 
     setIsOpen(!isOpen);
-    const childPos = event.target.parentElement.parentElement.parentElement.getBoundingClientRect();
+    const childPos = event.target.parentElement.parentElement.parentElement.parentElement.children[item.id - 1].getBoundingClientRect();
     const index = [...event.target.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
     const coord = [childPos.x, childPos.y, childPos.width, childPos.height, index];
     dispatch(clearProjects());
     dispatch(addProject(item));
     dispatch(projectCoord(coord));
+    console.log(event.target.parentElement.parentElement.parentElement.parentElement.children[item.id - 1]);
   }
   
   const onClickHandlerPlay = (event, item, activeFilmIndex) => { 
@@ -45,33 +51,45 @@ export function Album(props) {
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
           <>
-          <AlbumCard item={item} index={i} key={item.id} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
-              {overlay ? <AlbumCardOverlay item={item} key={item.id + 44} filters={filters}/> : null}
+            <AlbumCard item={item} index={i} key={item.id} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
+              {
+                overlay ? 
+                  <AlbumCardOverlay item={item} key={item.id + 44} filters={filters}/> 
+                : 
+                  null
+              }
             </AlbumCard>
-            <div key={item.id + 55} className={"test"}>
-            {overlay ? 
-            <div key={item.id + 66} className={"album__overlay-wrapper album__overlay-wrapper--scroll"}>
-      <Link 
-        to={
-            item.album ? 
-              `/work/${item.name}/${item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
-            :
-              `/work/${item.name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
-            } 
-        onClick={event => onClickyHandler(event, item)}
-      >
-        <MoreButton/>
-      </Link>
-      
-      <div onClick={event => onClickHandlerPlay(event, item, item.activeFilmIndex ? item.activeFilmIndex : 0)}>
-        <PlayButton/>
-      </div>
-      
-      
-    </div> : null}
-          </div>
-          </>
+            </>
           ))}
+           {items.map((item, i) => (
+            itemInView.id === item.id ? 
+            <div key={item.id + 55} className={"test"}>
+            {
+              overlay ? 
+                <div key={item.id + 66} className={"album__overlay-wrapper album__overlay-wrapper--scroll"}>
+                  <Link 
+                    to={
+                      item.album ? 
+                        `/work/${item.name}/${item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
+                      :
+                        `/work/${item.name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
+                    } 
+                    onClick={event => onClickyHandler(event, item)}
+                  >
+                    <MoreButton/>
+                  </Link>
+                  <div onClick={event => onClickHandlerPlay(event, item, item.activeFilmIndex ? item.activeFilmIndex : 0)}>
+                    <PlayButton/>
+                  </div>
+                </div> 
+              : 
+                null
+            }
+            </div>
+            : 
+            null
+            
+            ))}
           <VideoModal/>
       </AlbumContainer>
       </>
