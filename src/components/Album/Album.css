@@ -19,7 +19,7 @@
 }
 .album__title-wrapper {
   position: absolute;
-  bottom: 15%;
+  bottom: calc(15% + 60px);
   z-index:25;
 }
 .album__overlay-title {
