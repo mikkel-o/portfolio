@@ -128,10 +128,10 @@
     display: flex;
     flex-wrap: wrap;
     position: fixed;
-    top: 9px;
+    top: 10px;
     right: 50px;
     z-index: 900;
-    height: 30px;
+    height: 28px;
    overflow: hidden;
 }
 .btn__layout-toggle {
