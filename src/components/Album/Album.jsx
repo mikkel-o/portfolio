@@ -6,7 +6,7 @@ import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {MoreButton, PlayButton} from "../Buttons/Buttons";
+import {MoreButton, PlayButton, LayoutToggleButton} from "../Buttons/Buttons";
 import { 
   addProject, 
   clearProjects, 
@@ -48,6 +48,7 @@ console.log(itemInView);
   } 
   return (
     <>
+    <LayoutToggleButton></LayoutToggleButton>
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
           <>
@@ -62,7 +63,8 @@ console.log(itemInView);
             </>
           ))}
            {items.map((item, i) => (
-            itemInView.id === item.id ? 
+            overlay && itemInView.id === item.id ? 
+            
             <div key={item.id + 55} className={"test"}>
               <div className={"album__title-wrapper album__title-wrapper--scroll"}>
     <h2 className="album__overlay-title album__overlay-title--scroll">{item.album ? item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].title : item.title ? item.title : ""}</h2>
