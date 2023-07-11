@@ -6,7 +6,7 @@ import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {MoreButton, PlayButton, LayoutToggleButton} from "../Buttons/Buttons";
+import {MoreButton, PlayButton, LayoutToggleSlider } from "../Buttons/Buttons";
 import { 
   addProject, 
   clearProjects, 
@@ -15,6 +15,9 @@ import {
   clearId, 
   addLink, 
   clearLink } from "../../features/singleProject/singleProjectSlice";
+  
+  
+  
   
 
 export function Album(props) {
@@ -25,6 +28,7 @@ export function Album(props) {
 
 
 const itemInView = useSelector(state => state.projects.selectedID);
+const layoutGrid = useSelector(state => state.toggle.layout);
 console.log(itemInView);
 
   const onClickyHandler = (event, item) => { 
@@ -48,22 +52,25 @@ console.log(itemInView);
   } 
   return (
     <>
-    <LayoutToggleButton></LayoutToggleButton>
+    
+    <LayoutToggleSlider></LayoutToggleSlider>
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
           <>
-            <AlbumCard item={item} index={i} key={item.id} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
+            <AlbumCard item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
               {
                 overlay ? 
-                  <AlbumCardOverlay item={item} key={item.id + 44} filters={filters}/> 
+                  <AlbumCardOverlay item={item} key={item.id + 44} filters={filters} layoutGrid={layoutGrid} overlay={overlay}/> 
                 : 
                   null
               }
             </AlbumCard>
             </>
           ))}
-           {items.map((item, i) => (
-            overlay && itemInView.id === item.id ? 
+           {
+           layoutGrid === 0 ?
+            items.map((item, i) => (
+              overlay && itemInView.id === item.id ? 
             
             <div key={item.id + 55} className={"test"}>
               <div className={"album__title-wrapper album__title-wrapper--scroll"}>
@@ -95,7 +102,10 @@ console.log(itemInView);
             : 
             null
             
-            ))}
+            ))
+            :
+            null
+            }
           <VideoModal/>
       </AlbumContainer>
       </>

@@ -16,6 +16,7 @@ import { loadProjects, setActiveFilters } from "../features/projects/projectsSli
 import { loadPhotos, setActiveFiltersPhoto } from "../features/photo/photoSlice";
 import useLocalStorage from 'use-local-storage';
 
+
 function App() {
   const dispatch = useDispatch();
   const isViewMobile = useSelector(state => state.toggle.isMobile);
@@ -91,6 +92,7 @@ function App() {
 
 
   const layoutIsh = useSelector(state => state.toggle.layout);
+  const lay = useSelector(state => state.toggle);
   useEffect(() => {
     
     if(layoutIsh === false) {
@@ -98,6 +100,7 @@ function App() {
     } else {
       dispatch(layout(layoutIsh))
     }
+    console.log(lay);
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
 
@@ -174,6 +177,7 @@ function App() {
         ''}
       data-theme={theme}
     >
+      
     {isActive === false ? 
       <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
         <button 

@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import ImageSlider from '../ImageSlider/ImageSlider';
-import {addSelectedID} from '../../features/projects/projectsSlice'
+import {addSelectedID} from '../../features/projects/projectsSlice';
+import { 
+  addProject, 
+  clearProjects, 
+  projectCoord, 
+  } from "../../features/singleProject/singleProjectSlice";
 
 
 const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
@@ -12,7 +17,7 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 
 export function AlbumCard(props) {
-  const {children, index, item, allItems, type, layout, scroll } = props; 
+  const {children, index, item, allItems, type, layout, scroll, filters } = props; 
   
   const ref = useRef(null);
   const dispatch = useDispatch();
@@ -74,7 +79,19 @@ export function AlbumCard(props) {
    
 
   
-
+    
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const onClickyHandler = (event, item) => { 
+      setIsOpen(!isOpen);
+      const childPos = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getBoundingClientRect();
+      const index = [...event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
+      const coord = [childPos.x, childPos.y, childPos.width, childPos.height, index];
+      dispatch(clearProjects());
+      dispatch(addProject(item));
+      dispatch(projectCoord(coord));
+      console.log(event.target.parentElement.parentElement.parentElement.parentElement.parentElement);
+    }
   
     
     
@@ -95,7 +112,16 @@ export function AlbumCard(props) {
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >
-          
+          <Link 
+                    to={
+                      item.album ? 
+                        `/work/${item.name}/${item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
+                      :
+                        `/work/${item.name}?filters=${filters ? filters.map(e => e.value + '%2C') : ''}`
+                    } 
+                    onClick={event => onClickyHandler(event, item)}
+                  >
+                     
             <div 
               key={item.id} 
               className={`album__card ${layout === "mix" ? "album__card--mix" : null} ${scroll === "snap" ? "album__card--scroll" : null}`}
@@ -158,7 +184,7 @@ export function AlbumCard(props) {
               </motion.span>
             
             </div>
-          
+            </Link>
         </motion.div>  
       </motion.div>
     );

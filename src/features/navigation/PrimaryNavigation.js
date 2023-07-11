@@ -6,6 +6,7 @@ import { Toggle} from "../../components/Toggle";
 import { toggle } from "../../components/toggleSlice";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+
 /*- - - - - - -- - - - - - - - - - - - - - - - - - - - - - - -*\
 |                        ANIMATION                             |
 \*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -100,6 +101,7 @@ backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
       
     </motion.button> 
     
+
     <Toggle id={'primary_menu'}>
     {/* main menu */}
     <div className={(isActive === false) ? 'main-nav__wrapper main-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      
