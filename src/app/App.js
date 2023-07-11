@@ -92,7 +92,7 @@ function App() {
 
 
   const layoutIsh = useSelector(state => state.toggle.layout);
-  const lay = useSelector(state => state.toggle);
+  
   useEffect(() => {
     
     if(layoutIsh === false) {
@@ -100,7 +100,7 @@ function App() {
     } else {
       dispatch(layout(layoutIsh))
     }
-    console.log(lay);
+    
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
 

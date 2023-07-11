@@ -98,32 +98,6 @@ export function PlayButton() {
   };
 
 
-  export function LayoutToggleSlider() {
-    
-    const dispatch = useDispatch();
-    const currentLayout = useSelector(state => state.toggle.layout)
-    const onChangeHandler = (event) => { 
-      const num = parseInt(event.target.value);
-      
-      dispatch(layout(num));
-      
-    }
-    return(
-      <div className="slidecontainer">
-        <input 
-          type="range" 
-          min={0} 
-          max={3}
-          
-          value={currentLayout} 
-          onChange={event => onChangeHandler(event)}
-          className="slider" 
-          id="myRange"
-        >
-        </input>
-      </div>
-    );
-  };
 
 function useOnClickOutside(ref, handler) {
   

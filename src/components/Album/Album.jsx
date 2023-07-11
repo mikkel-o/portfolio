@@ -6,7 +6,7 @@ import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {MoreButton, PlayButton, LayoutToggleSlider } from "../Buttons/Buttons";
+import {MoreButton, PlayButton, LayoutToggleButton} from "../Buttons/Buttons";
 import { 
   addProject, 
   clearProjects, 
@@ -53,7 +53,7 @@ console.log(itemInView);
   return (
     <>
     
-    <LayoutToggleSlider></LayoutToggleSlider>
+    <LayoutToggleButton></LayoutToggleButton>
         <AlbumContainer scroll={scroll} layout={layout}>
           {items.map((item, i) => (
           <>
