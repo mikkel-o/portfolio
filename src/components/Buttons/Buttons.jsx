@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "../Icons/Icon";
 import './Buttons.css';
 
@@ -27,23 +27,36 @@ export function PlayButton() {
 
 
   export function LayoutToggleButton() {
-
+    const [isOpen, setIsOpen] = useState(false);
+    const onClickHandler = (event) => { 
+      setIsOpen(!isOpen);
+    }
     
     return (  
-      <div className={'bnt__layout-wrapper'}>
-     <button className={'btn__layout'}>
-    <Icon name={'layout-full-solid'} size={25} color={''}></Icon>
+    <>
+     <button 
+      className={'btn__layout--toggle btn__layout btn__layout--active'}
+      onClick={event => onClickHandler(event)}
+      >
+    <Icon name={'layout-full-solid'} size={26} color={''}></Icon>
+    </button>
+    
+    <div className={`bnt__layout-wrapper ${isOpen ? 'bnt__layout-wrapper--active' : ''}` }>
+    
+    <button className={'btn__layout'}>
+    <Icon name={'layout-full-solid'} size={26} color={''}></Icon>
     </button>
     <button className={'btn__layout'}>
-    <Icon name={'layout-one-solid'} size={25} color={''}></Icon>
+    <Icon name={'layout-one-solid'} size={28} color={''}></Icon>
     </button>
     <button className={'btn__layout'}>
-    <Icon name={'layout-two-solid'} size={25} color={''}></Icon>
+    <Icon name={'layout-two-solid'} size={28} color={''}></Icon>
     </button>
     <button className={'btn__layout'}>
-    <Icon name={'layout-three-solid'} size={25} color={''}></Icon>
+    <Icon name={'layout-three-solid'} size={28} color={''}></Icon>
     </button>
     </div>
+    </>
     );
   };
 
