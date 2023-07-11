@@ -98,6 +98,31 @@ function App() {
     } else {
       dispatch(layout(layoutIsh))
     }
+    if(layoutIsh === 0) {
+      document.documentElement.classList.add(`layout-full`);
+
+      document.documentElement.classList.remove(`layout-one`);
+      document.documentElement.classList.remove(`layout-two`);
+      document.documentElement.classList.remove(`layout-three`);
+    } else if(layoutIsh === 1) {
+      document.documentElement.classList.add(`layout-one`);
+
+      document.documentElement.classList.remove(`layout-full`);
+      document.documentElement.classList.remove(`layout-two`);
+      document.documentElement.classList.remove(`layout-three`);
+    } else if(layoutIsh === 2) {
+      document.documentElement.classList.add(`layout-two`);
+
+      document.documentElement.classList.remove(`layout-full`);
+      document.documentElement.classList.remove(`layout-one`);
+      document.documentElement.classList.remove(`layout-three`);
+    } else if(layoutIsh === 3) {
+      document.documentElement.classList.add(`layout-three`);
+
+      document.documentElement.classList.remove(`layout-full`);
+      document.documentElement.classList.remove(`layout-two`);
+      document.documentElement.classList.remove(`layout-one`);
+    }
     //albumVideo.forEach(video => video.pause());
     if (window.innerWidth > 1349) {
       dispatch(columnCount(4));
