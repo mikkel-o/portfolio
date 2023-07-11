@@ -169,12 +169,16 @@
 .btn__layout svg {
   fill: var(--text-primary);
   /*stroke: var(--text-primary);*/
+  
 }
 .btn__layout--active svg {
   fill: transparent;
    stroke: var(--text-primary);
+   
 }
-
+.btn__layout svg path {
+  pointer-events: none;
+}
 
 
 @media (min-width: 600px) { 

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
-import { columnCount } from "../components/toggleSlice";
+import { columnCount, layout } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";
@@ -89,9 +89,15 @@ function App() {
 
   },[location, dispatch, searchParams, projects.hasBeenSet, filters, photos.hasBeenSet])
 
+
+  const layoutIsh = useSelector(state => state.toggle.layout);
   useEffect(() => {
     
-    
+    if(layoutIsh === false) {
+      dispatch(layout(0));
+    } else {
+      dispatch(layout(layoutIsh))
+    }
     //albumVideo.forEach(video => video.pause());
     if (window.innerWidth > 1349) {
       dispatch(columnCount(4));

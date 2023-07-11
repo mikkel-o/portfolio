@@ -4,12 +4,14 @@ export const toggleSlice = createSlice({
   name: "toggle",
   initialState: {
     isMobile:   window.innerWidth > 949 ? false : true,
+    layout: 0,
     columnCount: 
       window.innerWidth > 1349 ? 
         4 : window.innerWidth > 949 ? 
           3 : window.innerWidth > 599 
             ? 2 : 
               1
+    
      
   },
   reducers: {
@@ -46,6 +48,10 @@ export const toggleSlice = createSlice({
       
       
     },
+    layout: (state, action) => {
+      
+      state.layout = action.payload;
+    },
     columnCount: (state, action) => {
       
       state.columnCount = action.payload;
@@ -54,7 +60,7 @@ export const toggleSlice = createSlice({
   
 });
 
-export const { toggle, hideToggle, hideAllToggles, toggleMobile, columnCount } = toggleSlice.actions;
+export const { toggle, hideToggle, hideAllToggles, toggleMobile, columnCount, layout } = toggleSlice.actions;
 
 export const selectToggle = (state) => state.toggle;
 
