@@ -39,12 +39,14 @@ body.theme-light {
   --text-primary: #141c3a;
   --text-secondary: royalblue;
   --accent: rgb(22, 22, 22);
+  --ui-background: rgb(237, 235, 228);;
 }
 [data-theme='dark'] {
   --background: rgb(10, 10, 10);
   --text-primary: white;
   --text-secondary: grey;
   --accent: rgb(237, 235, 228);
+  --ui-background: #2d2d2d;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

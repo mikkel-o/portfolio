@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
-import PrimaryNavigation from "../features/navigation/PrimaryNavigation";
+import PrimaryNavigation from "../features/ui/primaryNavigation";
 import { columnCount, layout } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
@@ -15,6 +15,7 @@ import { toggle } from "../components/toggleSlice";
 import { loadProjects, setActiveFilters } from "../features/projects/projectsSlice";
 import { loadPhotos, setActiveFiltersPhoto } from "../features/photo/photoSlice";
 import useLocalStorage from 'use-local-storage';
+import SecondaryNavigation from '../features/ui/secondaryNavigation';
 
 
 function App() {
@@ -96,7 +97,7 @@ function App() {
   useEffect(() => {
     
     if(layoutIsh === false) {
-      dispatch(layout(0));
+      dispatch(layout(3));
     } else {
       dispatch(layout(layoutIsh))
     }
@@ -180,13 +181,7 @@ function App() {
       
     {isActive === false ? 
       <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
-        <button 
-        className={'btn__theme'}
-        onClick={switchTheme}
-        style={{position: 'fixed', zIndex: '20', opacity: '0'}}  
-      >
-        {theme === 'light' ? 'Dark' : 'Light'}
-      </button>
+       
     </PrimaryNavigation>
     :
     null}
@@ -210,6 +205,15 @@ function App() {
     
 
     {/* END .App */}
+    <SecondaryNavigation>
+    <button 
+        className={'btn__theme'}
+        onClick={switchTheme}
+        
+      >
+        {theme === 'light' ? 'Dark' : 'Light'}
+      </button>
+    </SecondaryNavigation>
     </div>
   );
 }

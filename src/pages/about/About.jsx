@@ -21,10 +21,18 @@ export default function About() {
             <h3 className={`cv-list__name list__name`}>About me</h3>
             <p>
             <br/>
-            My name is Mikkel. I am a freelance CG generalist and animation 
-            producer based in Copenhagen, Denmark. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin, magna a tempor tincidunt, turpis leo pellentesque quam, vel vulputate metus ante vitae enim.
             <br/>
-            I have worked with <a href={'/projects?filters=3D+animation&method=OR'}>3D animation</a>, <a href={'/projects?filters=2D+animation&method=OR'}>2D animation</a> and <a href={'/projects?filters=visual+effects&method=OR'}>visual effects</a> for more than a decade - as an <a href={'/projects?filters=3D+artist&method=OR'}>artist</a>, <a href={'/projects?filters=producer%2Cexecutive+producer%2Cdevelopment+producer&method=OR'}>producer</a>, supervisor and <a href={'/projects?filters=editor&method=OR'}>editor</a>.
+            I have worked with 
+              <a href={'/work?filters=3D+animation&method=OR'}>3D animation</a>, 
+              <a href={'/work?filters=2D+animation&method=OR'}>2D animation</a> 
+              and 
+              <a href={'/work?filters=visual+effects&method=OR'}>visual effects</a> 
+            as an 
+              <a href={'/projects?filters=3D+artist&method=OR'}>artist</a>, 
+              <a href={'/projects?filters=producer%2Cexecutive+producer%2Cdevelopment+producer&method=OR'}>producer</a>, 
+              and 
+              <a href={'/projects?filters=editor&method=OR'}>editor</a>.
             <br/><br/>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin, magna a tempor tincidunt, turpis leo pellentesque quam, vel vulputate metus ante vitae enim.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin, magna a tempor tincidunt, turpis leo pellentesque quam, vel vulputate metus ante vitae enim.
