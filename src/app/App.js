@@ -16,6 +16,7 @@ import { loadProjects, setActiveFilters } from "../features/projects/projectsSli
 import { loadPhotos, setActiveFiltersPhoto } from "../features/photo/photoSlice";
 import useLocalStorage from 'use-local-storage';
 import SecondaryNavigation from '../features/ui/secondaryNavigation';
+import { ReactComponent as Bulb } from '../components/Icons/bulb.svg';
 
 
 function App() {
@@ -211,7 +212,8 @@ function App() {
         onClick={switchTheme}
         
       >
-        {theme === 'light' ? 'Dark' : 'Light'}
+        <Bulb width={35} height={35}/> 
+        
       </button>
     </SecondaryNavigation>
     </div>

@@ -77,7 +77,7 @@ export default function Filters(props) {
       ref={ref} 
     >
       <div className={'filters__menu'} >
-      
+              
         {filtersAll.map( (filterGroup, index) => (
               <div className={'filter-cat__menu'} key={index}>
               <div className={'filter-cat__title-wrapper'} >
@@ -131,7 +131,14 @@ export default function Filters(props) {
               
               
             ))}
-      
+       <div className={'filter-cat__menu'} key={0}>
+              <div className={'filter-cat__title-wrapper'} >
+                <h5 className={'filter-cat__title'}>
+                all
+                </h5>
+              </div>
+              </div>
+     
       </div>
       
      

@@ -43,6 +43,7 @@ export function FeaturedProjects() {
   const dispatch = useDispatch();
   const isOpen = useSelector(state => state.toggle)['showreel'];
   const onClickHandler = (event) => { 
+    
     dispatch(toggle('showreel'));
     
   }
@@ -50,6 +51,9 @@ export function FeaturedProjects() {
   
 
   
+    
+  
+
 
 
   
@@ -57,7 +61,7 @@ export function FeaturedProjects() {
     <motion.div 
     className="featured-projects-container"
     exit={{opacity: 0}}
-    
+    onClick={onClickHandler}
     key={'blue'}
     animate={{height: isOpen ? 'calc(100vh - 80px)' : '250px', transition: {ease: [.43, .13, .23, .96], duration: .5}}}
     
@@ -129,7 +133,16 @@ export function FeaturedProjects() {
                       cursor: "pointer"
                     }}
                   >
-                    <motion.button
+                    
+                    
+                    
+                    <motion.div 
+                      exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} 
+                      className={'project-info-bg'} 
+                      style={{zIndex: 4}} 
+                      onClick={onClickHandler}
+                    >
+                      <motion.button
                       className={'showreel-play-btn'}
                       style={{
                         background: "none",
@@ -169,17 +182,8 @@ export function FeaturedProjects() {
                         </div>
                       </div>
                     </motion.button>
-                    <div className={'project-info'}>
-                      
-                      
-                 
-                      
-                    </div>
-                    
-                    <motion.div exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} className={'project-info-bg'} style={{zIndex: 4}} onClick={onClickHandler}>
-                    <h1 className={'featured-slide-title'}>{'CG generalist showreel'}</h1>
                     </motion.div>
-                    <motion.div exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} className={'project-info-bg-bottom'}></motion.div>
+                    
                     </motion.span>
 
 

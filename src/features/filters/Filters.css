@@ -1,5 +1,5 @@
 .filters__menu {
-    position: absolute;
+    /*position: absolute;*/
     z-index: 30;
     left: 15px;
     
@@ -23,11 +23,11 @@ display: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 28px;
+    height: 26px;
     border-radius: 15px;
     border: 1px solid var(--text-primary);
     margin: 10px auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 .filter-cat__list {
 margin: 0;
@@ -36,7 +36,7 @@ background: var(--ui-background);
     }
 .filter-cat__title {
 text-transform: lowercase;
-font-size: 0.9em;
+font-size: 0.85em;
 font-weight: 100;
 
 }
