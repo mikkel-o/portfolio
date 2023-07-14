@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const filterGroups = ['role', 'style', 'company'];
+const filterGroups = ['role', 'style', 'type'];
  
 export const loadProjects = createAsyncThunk(
   "projects/getProjects",

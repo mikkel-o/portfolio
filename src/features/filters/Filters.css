@@ -36,7 +36,8 @@ background: var(--ui-background);
     }
 .filter-cat__title {
 text-transform: lowercase;
-font-size: 1em;
+font-size: 0.9em;
+font-weight: 100;
 
 }
 .filter-cat__item-title {
