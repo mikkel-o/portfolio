@@ -37,16 +37,17 @@ body.theme-light {
 :root {
   --background: white;
   --text-primary: #141c3a;
-  --text-secondary: royalblue;
+  --text-secondary: white;
   --accent: rgb(22, 22, 22);
-  --ui-background: rgb(237, 235, 228);;
+  --ui-background:  rgb(237, 235, 228);
 }
 [data-theme='dark'] {
   --background: rgb(10, 10, 10);
   --text-primary: white;
-  --text-secondary: grey;
+  --text-secondary: #141c3a;
   --accent: rgb(237, 235, 228);
   --ui-background: #2d2d2d;
+  
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -111,14 +112,22 @@ ul {
 /****************************************************/
 @font-face {
   font-family: "menuFont";
+  src: url("../public/fonts/Gilroy-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "titleFont";
   src: url("../public/fonts/AvantGarde/avant-garde-gothic-pro-demi.woff2") format("woff2");
 }
 h1,
 h2 {
+  font-family: "titleFont";
+  margin: 0;
+}
+h5,
+h6 {
   font-family: "menuFont";
   margin: 0;
 }
-
 .filters-apply {
   font-weight: 500;
   color: #353535;

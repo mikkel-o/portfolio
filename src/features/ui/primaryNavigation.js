@@ -75,6 +75,16 @@ const menuToggle = useSelector(state => state.toggle['primary_menu']);
 
 let currentLocation = String(useLocation().pathname),
 backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
+if (currentLocation.includes("work")) {
+  if ((currentLocation.substring(0, currentLocation.lastIndexOf("/")) === "/work") || (currentLocation.substring(0, currentLocation.lastIndexOf("/")) === "")) {
+    console.log(currentLocation.substring(0, currentLocation.lastIndexOf("/")));
+    backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
+  } else {
+    backLocation = "/work";
+  }
+
+  
+}
 
   /*
     let currentLocation = String(useLocation().pathname),
@@ -113,7 +123,7 @@ backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
           <Link to={'/showreel'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >showreel</Link>
         </li>*/}
         <li className={'main-nav__item'}>
-          <Link to={'/work/categories'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >work</Link>
+          <Link to={'/work'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >work</Link>
         </li>
         
         <li className={'main-nav__item'}>

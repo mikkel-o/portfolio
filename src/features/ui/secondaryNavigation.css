@@ -12,6 +12,9 @@
     z-index: 1;
     background: var(--background);
 }
+.layout-full .sec-nav__wrapper {
+  background: none;
+}
 .sec-nav__toggle {
     position: fixed;
     display: flex;
@@ -25,7 +28,7 @@
 background: none;
 border: none;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 justify-content: space-between;
 align-items: center;
 width: inherit;
@@ -35,7 +38,7 @@ height: 100%;
 }
 
 .sec-nav__wrapper--open .sec-nav__btn {
-    flex-direction: row;
+    flex-direction: column;
 }
 .sec-nav__dot {
     background: var(--text-primary);

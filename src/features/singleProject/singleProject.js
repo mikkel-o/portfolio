@@ -342,9 +342,9 @@ const goToPosts = (event, c) => {
         </li>
         <li key={2}>
           <ul>
-            {singleProject.length !== 0 ? singleProject.technique.map((e, i) => (
+            {singleProject.length !== 0 ? singleProject.style.map((e, i) => (
               <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {singleProject.technique.length !== i + 1 ? e + ' | ' : e}
+                {singleProject.style.length !== i + 1 ? e + ' | ' : e}
               </motion.li>
               ))
               : null }

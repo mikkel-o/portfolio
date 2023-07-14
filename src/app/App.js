@@ -194,7 +194,7 @@ function App() {
             <Link to={'/about'} >about</Link>
           </li>
           <li className={'main-nav__item'}>
-            <Link to={'/work/categories'} >work</Link>
+            <Link to={'/work'} >work</Link>
           </li>
           <li className={'main-nav__item'}>
             <Link to={'/photo'} >photo</Link>
