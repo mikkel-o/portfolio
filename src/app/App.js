@@ -96,7 +96,7 @@ function App() {
   const layoutIsh = useSelector(state => state.toggle.layout);
   
   useEffect(() => {
-    
+    console.log(layoutIsh);
     if(layoutIsh === false) {
       dispatch(layout(3));
     } else {

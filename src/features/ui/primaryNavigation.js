@@ -1,9 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, {useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import './primaryNavigation.css';
-import { Toggle} from "../../components/Toggle";
-import { toggle } from "../../components/toggleSlice";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
@@ -58,17 +55,22 @@ const burgerMenuExit = [
 const PrimaryNavigation = (props) => {
   const {children} = props;
   let isActive = false;
-  const dispatch = useDispatch();
-      
-  const onClickToggleNavigation = (event, name) => { 
-        if (event.target.classList.contains('active')) {
-          event.target.classList.remove('active');
+  const testy = useSelector(state => state.toggle);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickToggleNavigation = (event) => { 
+    setIsOpen(!isOpen);
+
+    console.log(testy);
+        if (event.target.parentElement.classList.contains('active')) {
+          event.target.parentElement.classList.remove('active');
           isActive = false;
         } else {
-          event.target.classList.add('active');
+          event.target.parentElement.classList.add('active');
           isActive = true;
         }
-          dispatch(toggle(name))
+          //dispatch(toggle(name));
+          console.log(testy);
       }
         
 const menuToggle = useSelector(state => state.toggle['primary_menu']);
@@ -104,7 +106,7 @@ if (currentLocation.includes("work")) {
       whileHover={'hover'}
       transition={'transition'}
       className={(isActive) ? 'main-nav__toggle-button active' : 'main-nav__toggle-button'} 
-      onClick={event => onClickToggleNavigation(event, 'primary_menu')} >
+      onClick={event => onClickToggleNavigation(event)} >
       <motion.span variants={menuToggle ? burgerMenuExit[0]:  burgerMenu[0]}>|</motion.span>
       <motion.span variants={menuToggle ? burgerMenuExit[1]:  burgerMenu[1]}>|</motion.span>
       <motion.span variants={menuToggle ? burgerMenuExit[2]:  burgerMenu[2]}>|</motion.span>
@@ -112,28 +114,28 @@ if (currentLocation.includes("work")) {
     </motion.button> 
     
 
-    <Toggle id={'primary_menu'}>
+    <div className={'main-nav__menu'}>
     {/* main menu */}
     <div className={(isActive === false) ? 'main-nav__wrapper main-nav__wrapper--hidden' : 'main-nav__wrapper main-nav__wrapper--show'}>      
       <ul className={'main-nav__list'}>
         <li className={'main-nav__item'}>
-          <Link to={'/about'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >about</Link>
+          <Link to={'/about'} onClick={event => onClickToggleNavigation(event)} >about</Link>
         </li>
         {/*<li className={'main-nav__item'}>
           <Link to={'/showreel'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >showreel</Link>
         </li>*/}
         <li className={'main-nav__item'}>
-          <Link to={'/work'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >work</Link>
+          <Link to={'/work'} onClick={event => onClickToggleNavigation(event)} >work</Link>
         </li>
         
         <li className={'main-nav__item'}>
-          <Link to={'/photo'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >photo</Link>
+          <Link to={'/photo'} onClick={event => onClickToggleNavigation(event)} >photo</Link>
         </li>
         
         
       </ul>  
     </div>
-    </Toggle>
+    </div>
   
 
     

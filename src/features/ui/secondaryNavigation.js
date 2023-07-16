@@ -13,6 +13,8 @@ const SecondaryNavigation = (props) => {
   const dispatch = useDispatch();
   const layoutIsh = useSelector(state => state.toggle.layout);
   console.log(layoutIsh);
+  console.log(isMenuOpen);
+  console.log(isOpen);
   const onClickHandler = (event) => { 
 
     setIsOpen(!isOpen);

@@ -20,6 +20,13 @@
     display: none;
   }
   
+  .main-nav__menu {
+    display: none;
+  }
+  .active .main-nav__menu {
+    display: block;
+  }
+  
   .main-nav a {
     font-family: "menuFont";
     letter-spacing: 2px;
