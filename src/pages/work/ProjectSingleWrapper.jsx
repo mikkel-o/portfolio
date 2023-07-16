@@ -28,9 +28,7 @@ export default function ProjectSingleWrapper() {
 
   return (
     <div className={''}>
-      <header className={'projects-header'}>
-        
-      </header>
+      
       <main id="projects-wrapper">
        
           

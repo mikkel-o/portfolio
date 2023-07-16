@@ -19,9 +19,11 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 
 const SingleProject = (props) => {
+  
   const [showMore, setShowMore] = useState(false);
   const columns = useSelector(state => state.toggle.columnCount);
   const singleProject = useSelector(selectProject);
+  console.log(singleProject);
   const { isLoading } = useSelector((state) => state.singleProject);
   const startingCoord = useSelector(state => state.singleProject.coord);
 //  const isMobile = useSelector(state => state.toggle.isMobile);
@@ -29,7 +31,7 @@ const SingleProject = (props) => {
 const film = props.film;
 
 const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
-
+console.log(activeFilm);
   const duration = .5,
       ease = [.33, .13, .63, .96];
 
@@ -311,9 +313,54 @@ const goToPosts = (event, c) => {
     <motion.div className={'project-single-wraps'} >
     <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
     
-    <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className="album__image project-single-image" variants={variants}/>
+    <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className={`album__image project-single-image album__image--position-${activeFilm.position}`} variants={variants}/>
 
 </motion.div>
+<motion.ul className={'project-single-details-list'} variants={detailsMotion}>
+        <li key={1}>
+          <ul>
+            {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
+                
+                {e}
+                
+              </motion.li>
+              ))
+            : null }
+          </ul>
+        </li>
+        <li key={2}>
+          <ul>
+            {singleProject.length !== 0 ? singleProject.style.map((e, i) => (
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
+                {e}
+              </motion.li>
+              ))
+              : null }
+          </ul>
+        </li>
+        <li key={3}>
+          <ul>
+            {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
+                {e}
+              </motion.li>
+              ))
+              : null }
+          </ul>
+        </li>
+        <li key={4}>
+          <ul>
+            {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
+              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
+                {e}
+              </motion.li>
+              ))
+              : null }
+          </ul>
+        </li> 
+      </motion.ul>
+      
       <motion.h1 variants={titleMotion}>
         {singleProject.name ? singleProject.name.replace(/-/g, ' ') : ''}
       </motion.h1>
@@ -327,50 +374,7 @@ const goToPosts = (event, c) => {
       
       </motion.div>
 
-      <motion.ul className={'project-single-details-list'} variants={detailsMotion}>
-        <li key={1}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                
-                {singleProject.role.length !== i + 1 ? e + ' | ' : e}
-                
-              </motion.li>
-              ))
-            : null }
-          </ul>
-        </li>
-        <li key={2}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.style.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {singleProject.style.length !== i + 1 ? e + ' | ' : e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li>
-        <li key={3}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {singleProject.type.length !== i + 1 ? e + ' | ' : e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li>
-        <li key={4}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {singleProject.company.length !== i + 1 ? e + ' | ' : e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li> 
-      </motion.ul>
+      
       
       </motion.div>
 

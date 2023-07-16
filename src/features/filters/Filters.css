@@ -19,6 +19,17 @@
  {
 display: none;
 }
+.filter-cat__list {
+    position: absolute;
+}
+.open .filter-cat__list {
+display: block;
+}
+
+.open .filters-item-apply {
+display: flex;
+justify-content: flex-end;
+}
 .filter-cat__title-wrapper {
     display: flex;
     align-items: center;
@@ -38,7 +49,7 @@ background: var(--ui-background);
 text-transform: lowercase;
 font-size: 0.85em;
 font-weight: 100;
-
+pointer-events: none;
 }
 .filter-cat__item-title {
     color: var(--text-primary);
@@ -62,7 +73,7 @@ font-weight: 100;
     display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 10;
     

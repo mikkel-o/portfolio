@@ -14,6 +14,7 @@ const SecondaryNavigation = (props) => {
   const layoutIsh = useSelector(state => state.toggle.layout);
   console.log(layoutIsh);
   const onClickHandler = (event) => { 
+
     setIsOpen(!isOpen);
   }
   const onClickBtnHandler = (event, number) => { 

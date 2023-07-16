@@ -14,7 +14,7 @@ export function Album(props) {
 
 const itemInView = useSelector(state => state.projects.selectedID);
 const layoutGrid = useSelector(state => state.toggle.layout);
-console.log(itemInView);
+
 
 
   return (

@@ -136,7 +136,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
-    margin: 20px 15px;
+    margin: 0px 15px;
   }
   
 
