@@ -83,15 +83,11 @@ pointer-events: none;
   }
 
   .projects-header.mobile {
-      right: 0;
-      margin: 0;
-      width: 100%;
-      right: 0;
-      margin: 0;
-      z-index: 21;
-      background: var(--background);
-      
-      
+    width: calc(100% - 100px);
+    right: 0;
+    margin: 0 50px;
+    z-index: 22;
+    background: var(--background);
   }
   .layout-full .projects-header.mobile {
     background: none;

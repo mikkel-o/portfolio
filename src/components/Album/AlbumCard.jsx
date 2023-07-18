@@ -60,7 +60,7 @@ export function AlbumCard(props) {
         },
         exit: isActive === i ? '' : 
         {
-          opacity: 1,
+          opacity: 0,
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
             duration: .4,

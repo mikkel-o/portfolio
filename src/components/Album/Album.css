@@ -119,22 +119,22 @@
     scrollbar-width: none;
   }
   .layout-one .album__container {
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
     grid-template-columns: repeat(1, 1fr);
     margin-top: 50px;
     margin: 20px 15px;
   }
   .layout-two .album__container {
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 50px;
     margin: 20px 15px;
   }
   .layout-three .album__container {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
     grid-template-columns: repeat(3, 1fr);
     margin: 0px 15px;
   }

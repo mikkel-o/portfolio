@@ -22,7 +22,7 @@ const burgerMenu = [
     animate: {scale: 0}, 
     hover: { scale: 1, opacity: 1, transition: {duration: .1, ease: [0.3, 0.13, 0.13, 0.96]} },
   },
-  { 
+  {   
     //initial: {y: 4, rotate: 0},
     animate: {y: 0, rotate: 0},
     hover: { y: 4, transition: transition }, 
@@ -125,7 +125,7 @@ if (currentLocation.includes("work")) {
           <Link to={'/showreel'} onClick={event => onClickToggleNavigation(event, 'primary_menu')} >showreel</Link>
         </li>*/}
         <li className={'main-nav__item'}>
-          <Link to={'/work'} onClick={event => onClickToggleNavigation(event)} >work</Link>
+          <Link to={'/work'} onClick={event => onClickToggleNavigation(event)} >animation</Link>
         </li>
         
         <li className={'main-nav__item'}>

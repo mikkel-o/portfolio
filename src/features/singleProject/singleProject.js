@@ -20,10 +20,13 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 const SingleProject = (props) => {
   
+  document.documentElement.classList.add(`trans-nav`);
   const [showMore, setShowMore] = useState(false);
   const columns = useSelector(state => state.toggle.columnCount);
   const singleProject = useSelector(selectProject);
   console.log(singleProject);
+  
+
   const { isLoading } = useSelector((state) => state.singleProject);
   const startingCoord = useSelector(state => state.singleProject.coord);
 //  const isMobile = useSelector(state => state.toggle.isMobile);
@@ -273,7 +276,7 @@ const goToPosts = (event, c) => {
   
   window.history.replaceState({}, "", c ? `?filters=${param}` : '?filters=')
   navigate({
-    pathname: '/projects',
+    pathname: '/work',
     search: c ? `?filters=${param}` : '',
   });
 }

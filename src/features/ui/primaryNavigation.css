@@ -13,11 +13,19 @@
   display: flex;
   /* flex-direction: column; */
   z-index: 22;
-  /*background: var(--background);*/
+  background: var(--background);
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
   }
-  
+  .trans-nav .main-nav {
+    background: none;
+  }
   .main-nav .menu-active {
     display: none;
+  }
+  .main-nav.active {
+    z-index: 23;
   }
   
   .main-nav__menu {
