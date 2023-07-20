@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { hideAllToggles} from "../../components/toggleSlice";
 import { removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
@@ -18,29 +18,35 @@ export default function Filters(props) {
   const location = useLocation();
   const ref = useRef();
   
+  const [isIndex, setIsIndex] = useState();
   
-  useOnClickOutside(ref, () => {dispatch(hideAllToggles('filters'));}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
-  const onClickOpen = (event) => {
+  
+  useOnClickOutside(ref, () => {setIsIndex(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
+  const onClickOpen = (event, index) => {
+    isIndex === index+1 ? setIsIndex(false) : setIsIndex(index+1);
     
-    const siblings = event.target.parentElement.parentElement.children;
+    
+    /*const siblings = event.target.parentElement.parentElement.children;
     
     for (let i = 0; i < siblings.length - 1; i++ ) {
-        if (siblings[i] === event.target.parentElement && event.target.children[0].innerHtml !== 'all') {
+        if (siblings[i] === event.target.parentElement && event.target.children[0].innerHTML !== 'all') {
           if (event.target.parentElement.classList.contains('open')) {
             
             siblings[i].classList.remove('open');
           } else {
-            
+            console.log('should work');
             siblings[i].classList.add('open');
           }
         } else {
-          siblings[i].classList.remove('open');
+            
+            siblings[i].classList.remove('open');
+          
         }
         
       
     
     }
-
+*/
     
     console.log(event.target.children[0].innerHTML);
     console.log('RUNNING');
@@ -97,13 +103,13 @@ export default function Filters(props) {
       className={'filters-wrapper mobile'}
       
     >
-      <div ref={ref} className={'filters__menu'} >
+      <div ref={ref} className={`${isIndex ? `open-${isIndex}` : 'closed'} filters__menu`} >
               
         {filtersAll.map( (filterGroup, index) => (
               <div className={'filter-cat__menu'} key={index}>
               <div 
                 className={'filter-cat__title-wrapper'} 
-                onClick={event => onClickOpen(event)}
+                onClick={event => onClickOpen(event, index)}
               >
                 <h5 className={'filter-cat__title'}>
                 {filterGroup.filterGroup}

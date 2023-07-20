@@ -60,11 +60,12 @@ export function FeaturedProjects() {
   return (
     <motion.div 
     className="featured-projects-container"
-    exit={{opacity: 0}}
+    
     onClick={onClickHandler}
     key={'blue'}
-    animate={{height: isOpen ? 'calc(100vh - 80px)' : '250px', transition: {ease: [.43, .13, .23, .96], duration: .5}}}
-    
+    initial={{opacity: 0, scale: 0.95}}
+    animate={{opacity: 1, scale: 1, height: isOpen ? 'calc(100vh - 80px)' : '250px', transition: {ease: [.43, .13, .23, .96], duration: .6}}}
+    exit={{opacity: 0, scale: 1.03 }}
     ref={ref}
     >
       {isOpen ? 

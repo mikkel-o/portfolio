@@ -12,9 +12,6 @@ const SecondaryNavigation = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const layoutIsh = useSelector(state => state.toggle.layout);
-  console.log(layoutIsh);
-  console.log(isMenuOpen);
-  console.log(isOpen);
   const onClickHandler = (event) => { 
 
     setIsOpen(!isOpen);
@@ -118,12 +115,17 @@ function useOnClickOutside(ref, handler) {
   
   useEffect(
     () => {
+      
       const listener = (event) => {
         // Do nothing if clicking ref's element or descendent elements
         if (!ref.current || ref.current.contains(event.target)) {
           
           return;
         }
+        console.log('AAAAA');
+        console.log(handler);
+        console.log(event);
+        handler(event);
         handler(event);
       };
       document.addEventListener("mousedown", listener);

@@ -54,17 +54,18 @@ export function AlbumCard(props) {
           scale: 1,
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
-            duration: .4,
-            delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
+            duration: .5,
+            //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
           }
         },
         exit: isActive === i ? '' : 
         {
           opacity: 0,
+          scale: 0.9,
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
-            duration: .4,
-            delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
+            duration: .5,
+            //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
           }
         }
       }
