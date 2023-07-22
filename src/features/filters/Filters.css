@@ -24,6 +24,11 @@ display: none;
 }
 .filter-cat__list {
     position: absolute;
+    left: 15px;
+    width: 230px;
+    margin: 0;
+padding: 10px;
+background: var(--ui-background);
 }
 .open-1 .filter-cat__menu:nth-child(1) .filter-cat__list {
 display: block;
@@ -54,11 +59,10 @@ justify-content: flex-end;
     margin: 10px auto;
     padding: 0 15px;
 }
-.filter-cat__list {
-margin: 0;
-padding: 10px;
-background: var(--ui-background);
+.filter-cat__item {
+    padding: 5px 5px;
     }
+ 
 .filter-cat__title {
 text-transform: lowercase;
 font-size: 0.85em;
@@ -67,7 +71,8 @@ pointer-events: none;
 }
 .filter-cat__item-title {
     color: var(--text-primary);
-    font-size: 1.1em;
+    font-size: 1.3em;
+    font-weight: 100;
     }
  
     .filter-cat__item-title::before{
@@ -105,9 +110,10 @@ pointer-events: none;
   }
 
   .projects-header.mobile {
-    width: calc(100% - 100px);
+    /*width: calc(100% - 100px);
+    margin: 0 50px;*/
     right: 0;
-    margin: 0 50px;
+    
     z-index: 22;
     background: var(--background);
   }

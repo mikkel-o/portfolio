@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { hideAllToggles} from "../../components/toggleSlice";
-import { removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
+import { removePseudoFilter, addPseudoFilter, updateFilterCounts, clearPseudoFilters, clearActiveFilters} from "../projects/projectsSlice";
 import { removePseudoFilterPhoto, addPseudoFilterPhoto, updateFilterCountsPhoto} from "../photo/photoSlice";
 import { motion } from "framer-motion";
 import { toggle } from "../../components/toggleSlice";
@@ -19,37 +19,26 @@ export default function Filters(props) {
   const ref = useRef();
   
   const [isIndex, setIsIndex] = useState();
-  
+  const state = useSelector(state => state.projects);
+
   
   useOnClickOutside(ref, () => {setIsIndex(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
   const onClickOpen = (event, index) => {
     isIndex === index+1 ? setIsIndex(false) : setIsIndex(index+1);
-    
-    
-    /*const siblings = event.target.parentElement.parentElement.children;
-    
-    for (let i = 0; i < siblings.length - 1; i++ ) {
-        if (siblings[i] === event.target.parentElement && event.target.children[0].innerHTML !== 'all') {
-          if (event.target.parentElement.classList.contains('open')) {
-            
-            siblings[i].classList.remove('open');
-          } else {
-            console.log('should work');
-            siblings[i].classList.add('open');
-          }
-        } else {
-            
-            siblings[i].classList.remove('open');
-          
-        }
         
-      
     
-    }
-*/
     
-    console.log(event.target.children[0].innerHTML);
-    console.log('RUNNING');
+  };
+  const onClickAll = () => {
+    console.log(filtersActive);
+    dispatch(clearPseudoFilters());
+    dispatch(clearActiveFilters());
+    document.querySelectorAll('.filters-wrapper .active').forEach(child => child.classList.remove('active'))
+    console.log(document.querySelectorAll('.filters-wrapper .active'));
+    navigate({pathname: location.pathname, search: ''});
+    
+    setIsIndex(false);
+    console.log(state);
   };
   
   const onClickClearFilters = (e) => {
@@ -85,16 +74,18 @@ export default function Filters(props) {
     const newFilters = filtersPseudo;
     const params = new URLSearchParams()
     let tempArr = [];
-    dispatch(hideAllToggles('filters'));
+    //dispatch(hideAllToggles('filters'));
     if (newFilters.length !== 0) {
       newFilters.forEach((filter, index) => {
         tempArr.push(filter.value);
       })
+      
       params.append('filters', tempArr);
     } else {
       params.delete('filters');
     }
     navigate({pathname: location.pathname, search: params.toString()});
+    setIsIndex(false);
   }
 
   
@@ -120,9 +111,9 @@ export default function Filters(props) {
                     <li className={'filter-cat__item'} key={index}>
                     <button 
                         onClick={e => onClickSelectFilter(e, index, filterGroup.filters)}
-                        className={filtersActive.map( fil => fil.value === filter.value).includes(true) ? 'active filters-button filters-button-mobile' : 'filters-button filters-button-mobile'}
+                        className={'filters-button filters-button-mobile'}
                       >
-                        <h6 className={'filter-cat__item-title'}>
+                        <h6 className={filtersActive.map( fil => fil.value === filter.value).includes(true) ? 'active filter-cat__item-title' : 'filter-cat__item-title'}>
                     {filter.value}
                     </h6>
                         
@@ -162,7 +153,7 @@ export default function Filters(props) {
               
             ))}
        <div className={'filter-cat__menu'} key={0}>
-              <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
+              <div className={'filter-cat__title-wrapper'} onClick={event => onClickAll(event)}>
                 <h5 className={'filter-cat__title'}>
                 all
                 </h5>

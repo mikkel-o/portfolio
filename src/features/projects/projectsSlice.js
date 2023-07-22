@@ -37,6 +37,7 @@ const sliceOptions = {
   reducers: {
     setActiveFilters: (state, action) => {
       if (action.payload === 'all') {
+        console.log('bleh');
         state.filters.active = [];
         state.active = state.all;
       } else {
@@ -44,8 +45,11 @@ const sliceOptions = {
       const objs = temp.filter(project => action.payload.some(filter => project.value === filter));
       state.filters.active = objs;
       state.active = 
-        state.all.filter(project => state.filters.active.every(filter => project[filter.key].includes(filter.value)))
+        state.all.filter(project => state.filters.active.some(filter => project[filter.key].includes(filter.value)))
       }
+    },
+    clearActiveFilters: (state) => {
+      state.filters.active = [];
     },
     setPseudoFilters: (state, action) => {
       state.filters.pseudo = action.payload;
@@ -168,8 +172,11 @@ export const projectsSlice = createSlice(sliceOptions);
 export const selectProjects = (state) => state.projects.all;
 
 export const selectFilteredProjects = (state) => {
+  
   if (state.filters.active.length !== 0) {
+    
     return (
+      
       state.projects.all.filter(project => state.filters.active.every(filter => project[filter.key].includes(filter.value)))
     )
   } else {
@@ -177,6 +184,6 @@ export const selectFilteredProjects = (state) => {
   }
 };
 
-export const { setActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex, addSelectedID } = projectsSlice.actions;
+export const { setActiveFilters, clearActiveFilters, setPseudoFilters, clearPseudoFilters, addPseudoFilter, removePseudoFilter, updateFilterCounts, addActiveFilmIndex, addActiveSlideIndex, addSelectedID } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

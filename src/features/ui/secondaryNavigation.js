@@ -17,9 +17,9 @@ const SecondaryNavigation = (props) => {
     setIsOpen(!isOpen);
   }
   const onClickBtnHandler = (event, number) => { 
-    console.log(number);
+    
     dispatch(layout(number));
-    console.log(layoutIsh);
+    
     setIsOpen(false);
     setIsMenuOpen(false);
   }
@@ -122,9 +122,7 @@ function useOnClickOutside(ref, handler) {
           
           return;
         }
-        console.log('AAAAA');
-        console.log(handler);
-        console.log(event);
+        
         handler(event);
         handler(event);
       };

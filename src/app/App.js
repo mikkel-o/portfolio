@@ -68,7 +68,8 @@ function App() {
         }
       }
     }
-
+    console.log('app running');
+    
     if (location.pathname.indexOf('work') > -1) {
       if (projects.hasBeenSet === false) {
         dispatch(loadProjects()).then(() => {
@@ -83,6 +84,7 @@ function App() {
           dispatch(setActiveFilters(filters.split(',')))
         } else if (location.pathname === '/work/' || location.pathname === '/work') {
           dispatch(setActiveFilters('all'));
+          
         }
       }
     }
@@ -96,7 +98,7 @@ function App() {
   const layoutIsh = useSelector(state => state.toggle.layout);
   
   useEffect(() => {
-    console.log(layoutIsh);
+    
     if(layoutIsh === false) {
       dispatch(layout(3));
     } else {

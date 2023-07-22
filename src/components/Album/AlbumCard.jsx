@@ -35,7 +35,7 @@ export function AlbumCard(props) {
     );
     if (isIntersecting) {
       dispatch(addSelectedID(item));
-      console.log(item);
+      
     }
       observer.observe(ref.current);
   
@@ -91,7 +91,7 @@ export function AlbumCard(props) {
       dispatch(clearProjects());
       dispatch(addProject(item));
       dispatch(projectCoord(coord));
-      console.log(event.target.parentElement.parentElement.parentElement.parentElement.parentElement);
+      
     }
   
     

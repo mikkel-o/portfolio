@@ -55,13 +55,13 @@ const burgerMenuExit = [
 const PrimaryNavigation = (props) => {
   const {children} = props;
   let isActive = false;
-  const testy = useSelector(state => state.toggle);
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const onClickToggleNavigation = (event) => { 
     setIsOpen(!isOpen);
 
-    console.log(testy);
+    
         if (event.target.parentElement.classList.contains('active')) {
           event.target.parentElement.classList.remove('active');
           isActive = false;
@@ -70,7 +70,7 @@ const PrimaryNavigation = (props) => {
           isActive = true;
         }
           //dispatch(toggle(name));
-          console.log(testy);
+          
       }
         
 const menuToggle = useSelector(state => state.toggle['primary_menu']);
@@ -79,7 +79,7 @@ let currentLocation = String(useLocation().pathname),
 backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
 if (currentLocation.includes("work")) {
   if ((currentLocation.substring(0, currentLocation.lastIndexOf("/")) === "/work") || (currentLocation.substring(0, currentLocation.lastIndexOf("/")) === "")) {
-    console.log(currentLocation.substring(0, currentLocation.lastIndexOf("/")));
+    
     backLocation = currentLocation.substring(0, currentLocation.lastIndexOf("/"));
   } else {
     backLocation = "/work";

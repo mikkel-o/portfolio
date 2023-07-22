@@ -302,25 +302,26 @@ z-index: 22;
   }
   .featured-projects-container {
     /*height: 540px;*/
+    /*width: calc(100% - 30px);*/
     width: 100%;
     position: relative;
-    top: 50px;
-    left: 0;
+    top: 0px;
+    left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
   }
 
   .project-container {
     height: 250px;
   }
   
-  
+  /*
   .featured-projects-container .carousel__wrapper {
     left: 15px;
     width: calc(100% - 30px);
-  }
+  }*/
   
   .featured-projects-section {
     position: sticky;

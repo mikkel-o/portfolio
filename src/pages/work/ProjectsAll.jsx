@@ -14,10 +14,10 @@ function useOnClickOutside(ref, handler) {
       const listener = (event) => {
         // Do nothing if clicking ref's element or descendent elements
         if (!ref.current || ref.current.contains(event.target) || event.target.classList.contains('projects-play-btn') || event.target.classList.contains('carousel__btn') || event.target.classList.contains('carousel__dot-item') || event.target.classList.contains('projects-more-btn')) {
-          console.log('should return');
+          
           return;
         } else {
-          console.log(event.target);
+          
         }
         handler(event);
       };
