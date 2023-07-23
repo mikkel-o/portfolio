@@ -56,16 +56,17 @@ const ImageSlider = (props) => {
       
         
   return (
-    <div className={`${projects[index].name} carousel__wrapper`}>
+    <div className={`${projects[index].name} carousel__wrapper carousel__wrapper--project`}>
         
      
       {/* video/image container */}
       <ul className={'carousel__list project'}>
+        {projects.map(project => (
         <li className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
 
 
             {/* video (!add image posibility) */}
-            <img alt={'blahblah'} className={`${projects[index].position ? `carousel__video carousel__video--position-${projects[index].position}` : "carousel__video"}`} src={`${projects[index].img}`}/>
+            <img alt={'blahblah'} className={`${project.position ? `carousel__video carousel__video--position-${project.position}` : "carousel__video"}`} src={`${project.img}`}/>
 
             
           
@@ -73,6 +74,7 @@ const ImageSlider = (props) => {
         
         {/* END .carousel__item */}
         </li> 
+        ))}
       {/* END .carousel__list */}  
       </ul>
 
