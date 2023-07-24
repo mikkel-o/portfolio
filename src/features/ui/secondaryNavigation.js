@@ -100,7 +100,9 @@ const SecondaryNavigation = (props) => {
     <Icon name={'layout-three-solid'} size={28} color={''}></Icon>
     </button>
     </div>
+    <div onClick={onClickToggleHandler}> 
     {children}
+    </div>
     </div>
       
       </div>
