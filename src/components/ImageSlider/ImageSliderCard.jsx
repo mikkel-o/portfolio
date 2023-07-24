@@ -34,7 +34,7 @@ export function ImageSliderCard(props) {
       }
     );
     if (isIntersecting) {
-      console.log(type);
+      console.log(index);
       if (type === 'feature') {
         type === "work" ?
         dispatch(addActiveSlideIndex({name: name, index: index}))
