@@ -26,16 +26,21 @@ const SecondaryNavigation = (props) => {
   const onClickToggleHandler = () => { 
     
     
-    
+    setIsOpen(false);
     setIsMenuOpen(!isMenuOpen);
   }
   const ref = useRef();
 
-  useOnClickOutside(ref, () => {setIsMenuOpen(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
+  const clickOutside = () => {
+    setIsMenuOpen(false);
+    setIsOpen(false);
+  }
+  useOnClickOutside(ref, () => {clickOutside()}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
   
 
   return (
-    <div ref={ref} className={`${isMenuOpen ? 'sec-nav__wrapper--open' : 'sec-nav__wrapper--closed'} sec-nav__wrapper`}>
+    <div className={`${isMenuOpen ? 'sec-nav__wrapper--open' : 'sec-nav__wrapper--closed'} sec-nav__wrapper`}>
+      <div ref={ref}>
       <div className={"sec-nav__toggle"}>
         <button 
           className={"sec-nav__btn"}
@@ -99,6 +104,7 @@ const SecondaryNavigation = (props) => {
     </div>
       
       </div>
+      </div>
     </div> 
   );
 };
@@ -124,7 +130,7 @@ function useOnClickOutside(ref, handler) {
         }
         
         handler(event);
-        handler(event);
+        
       };
       document.addEventListener("mousedown", listener);
       document.addEventListener("touchstart", listener);
