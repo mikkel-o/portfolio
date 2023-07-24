@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { addActiveFilmIndex } from "../../features/projects/projectsSlice";
+import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
+import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
+
 import { useDispatch } from "react-redux";
 
 export function ImageSliderCard(props) {
 
   const dispatch = useDispatch();
-  const {item, name, index, activeIndex} = props;
+  const {item, name, index, activeIndex, type} = props;
   
   
   const ref = useRef(null);
@@ -33,13 +35,24 @@ export function ImageSliderCard(props) {
     );
     if (isIntersecting) {
       console.log('running dispatch active film');
-      dispatch(addActiveFilmIndex({name: name, index: index}))
+      if (type === 'feature') {
+        type === "work" ?
+        dispatch(addActiveSlideIndex({name: name, index: index}))
+        :
+        dispatch(addActiveSlideIndexPhoto({name: name, index: index}));
+      } else {
+        type === "work" ?
+        dispatch(addActiveFilmIndex({name: name, index: index}))
+        :
+        dispatch(addActiveFilmIndexPhoto({name: name, index: index}));
+      }
+      
     }
     
     
       observer.observe(ref.current);
   
-    }, [ref, dispatch, isIntersecting, index, name]);  
+    }, [ref, dispatch, isIntersecting, index, name, type]);  
 
         
 
