@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
-import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
+import React, { useState } from "react";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import {ImageSliderCard} from './ImageSliderCard';
 import './css/ImageSlider.css';
 
 
 const ImageSlider = (props) => {  
-  const dispatch = useDispatch();
-  const projects = props.items;
-  const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0;
   
+  const projects = props.items;
+  const name = props.name;
+ 
+  const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0  ;
+  
+  console.log(props.project.activeFilmIndex);
+    
   const CollectionSize = projects.length,
         [index, setActiveStep] = useState(indexStart),
         goToNextPicture = (e) => { 
@@ -34,11 +36,11 @@ const ImageSlider = (props) => {
         handleMouseEnter = (e) => { e.target.parentElement.parentElement.classList.add('hide-overlay') },
         handleMouseLeave = (e) => { e.target.parentElement.parentElement.classList.remove('hide-overlay') },
         handleClick = (e) => { 
-          setActiveStep(prevActiveStep => prevActiveStep + (e.target.getAttribute("data-index") - index));
-          
+          //setActiveStep(prevActiveStep => prevActiveStep + (e.target.getAttribute("data-index") - index));
+          console.log('click');
         };
   
-
+/*
         useEffect(() => {
           if (props.type === 'feature') {
             props.type === "work" ?
@@ -54,26 +56,17 @@ const ImageSlider = (props) => {
 
         }, [dispatch, props.name, props.type, index]);
       
-        
+        */
   return (
     <div className={`${projects[index].name} carousel__wrapper carousel__wrapper--project`}>
         
      
       {/* video/image container */}
       <ul className={'carousel__list project'}>
-        {projects.map(project => (
-        <li className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
-
-
-            {/* video (!add image posibility) */}
-            <img alt={'blahblah'} className={`${project.position ? `carousel__video carousel__video--position-${project.position}` : "carousel__video"}`} src={`${project.img}`}/>
-
-            
-          
-          
-        
-        {/* END .carousel__item */}
-        </li> 
+        {projects.map((project, index) => (
+          <>
+        <ImageSliderCard name={name} index={index} activeIndex={indexStart} item={project}></ImageSliderCard>
+        </>
         ))}
       {/* END .carousel__list */}  
       </ul>
@@ -86,7 +79,7 @@ const ImageSlider = (props) => {
             {projects.map((elem, i) => (
               
                 <li 
-                  className={i === index ? `active carousel__dot-item` : `carousel__dot-item`}
+                  className={i === indexStart ? `active carousel__dot-item` : `carousel__dot-item`}
                   data-index={`${i}`}
                   key={i} 
                   onClick={handleClick}
