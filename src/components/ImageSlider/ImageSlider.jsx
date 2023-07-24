@@ -7,14 +7,13 @@ import './css/ImageSlider.css';
 
 const ImageSlider = (props) => {  
   
-  const projects = props.items;
-  const name = props.name;
- 
+  
+ const {items, name, type} = props;
   const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0  ;
   
   console.log(props.project.activeFilmIndex);
     
-  const CollectionSize = projects.length,
+  const CollectionSize = items.length,
         [index, setActiveStep] = useState(indexStart),
         goToNextPicture = (e) => { 
           
@@ -58,14 +57,14 @@ const ImageSlider = (props) => {
       
         */
   return (
-    <div className={`${projects[index].name} carousel__wrapper carousel__wrapper--project`}>
+    <div className={`${items[index].name} carousel__wrapper carousel__wrapper--project`}>
         
      
       {/* video/image container */}
       <ul className={'carousel__list project'}>
-        {projects.map((project, index) => (
+        {items.map((project, index) => (
           <>
-        <ImageSliderCard name={name} index={index} activeIndex={indexStart} item={project}></ImageSliderCard>
+        <ImageSliderCard name={name} index={index} activeIndex={indexStart} item={project} type={type}></ImageSliderCard>
         </>
         ))}
       {/* END .carousel__list */}  
@@ -76,7 +75,7 @@ const ImageSlider = (props) => {
             className={'carousel__dot-list'}
             
           >
-            {projects.map((elem, i) => (
+            {items.map((elem, i) => (
               
                 <li 
                   className={i === indexStart ? `active carousel__dot-item` : `carousel__dot-item`}
