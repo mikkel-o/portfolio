@@ -138,6 +138,7 @@ display: block;
   position: absolute;
   background: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -145,6 +146,8 @@ display: block;
 
 .btn__theme svg {
   fill: var(--text-primary);
+  width: 100%;
+  height: 100%;
   /*stroke: var(--text-primary);*/
   
 }
