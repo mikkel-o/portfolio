@@ -30,7 +30,7 @@ export function ImageSliderCard(props) {
       {
         root: ref.current.parentElement,
         rootMargin: "0px",
-        threshold: 1
+        threshold: .99
       }
     );
     if (isIntersecting) {
