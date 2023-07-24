@@ -10,7 +10,8 @@
     bottom: 0;
     right: 0;
     z-index: 1;
-    background: var(--background);
+    /*background: var(--background);
+    background: linear-gradient(0deg, var(--background) 0%, rgba(0,0,0,0) 100%);*/
 }
 .layout-full .sec-nav__wrapper {
   background: none;
@@ -132,11 +133,13 @@ display: block;
   width: 35px;
   height: 35px;
   border: none;
-  left: 8px;
+  left: 14px;
   top: 25px;
   position: absolute;
-  
   background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
