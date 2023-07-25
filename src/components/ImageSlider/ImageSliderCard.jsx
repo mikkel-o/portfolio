@@ -22,9 +22,7 @@ export function ImageSliderCard(props) {
   }, [ref, activeIndex, index]);  
   useEffect(() => {
     const observer = new IntersectionObserver(
-      
       ([entry]) => { 
-        console.log('intersection running');
           setIsIntersecting(entry.isIntersecting);
       },
       {
@@ -34,7 +32,6 @@ export function ImageSliderCard(props) {
       }
     );
     if (isIntersecting) {
-      console.log(index);
       if (type === 'feature') {
         type === "work" ?
         dispatch(addActiveSlideIndex({name: name, index: index}))

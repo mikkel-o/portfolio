@@ -40,6 +40,7 @@ function useOnClickOutside(ref, handler) {
 export function FeaturedProjects() {
   
   const ref = useRef();
+  //const [isIntersecting, setIsIntersecting] = useState(false);
   const dispatch = useDispatch();
   const isOpen = useSelector(state => state.toggle)['showreel'];
   const onClickHandler = (event) => { 
@@ -50,8 +51,29 @@ export function FeaturedProjects() {
   useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'));}); 
   
 
-  
+  /*
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      
+      ([entry]) => { 
+        console.log('intersection running');
+          setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0
+      }
+    );
+    if (isIntersecting) {
+      console.log(ref.current);
+      
+    } 
     
+    
+      observer.observe(ref.current);
+  
+    }, [ref, isIntersecting]);  
+*/
   
 
 
@@ -66,7 +88,7 @@ export function FeaturedProjects() {
     initial={{opacity: 0, scale: 0.95}}
     animate={{opacity: 1, scale: 1, height: isOpen ? 'calc(100vh - 80px)' : '250px', transition: {ease: [.43, .13, .23, .96], duration: .6}}}
     exit={{opacity: 0, scale: 1.03 }}
-    ref={ref}
+    
     >
       {isOpen ? 
 
@@ -109,9 +131,20 @@ export function FeaturedProjects() {
                     <li className={'carousel__item carousel__item--featured current-slide' }>
             
             
-                        {/* video (!add image posibility) */}
+                        {/* video (!add image posibility) 
                         <img alt={'showreel-poster'} className={'carousel__video'} src={'/video/CGReel_temp_poster_540.jpg'}/>
-            
+                        */}
+                          <video 
+                          ref={ref}
+                      className={'album__video carousel__video'}
+                      src={"https://player.vimeo.com/progressive_redirect/playback/848542892/rendition/720p/file.mp4?loc=external&signature=8c74ef7b728d3833b55001734f2040c80f0348de790e76e83ca66a55edbdb704"} 
+                      poster={'/video/CGReel_temp_poster_540.jpg'}
+                      loop
+                      autoPlay={1}
+                      playsInline
+                      muted
+                    
+                    ></video>
                         
                       
                       
