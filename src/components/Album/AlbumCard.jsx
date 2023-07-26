@@ -168,6 +168,7 @@ export function AlbumCard(props) {
                     className={`album__video ${layout === "mix" ? "album__video--mix" : null} ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
                     poster={item.img}
+                    style={{pointerEvents: 'none'}}
                     loop
                     
                     
