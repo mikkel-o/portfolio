@@ -170,9 +170,9 @@ export function AlbumCard(props) {
                     poster={item.img}
                     loop
                     
-                    autoPlay={false}
+                    
                     playsInline
-                    muted
+                    
                    
                     onMouseOver=
                       {
