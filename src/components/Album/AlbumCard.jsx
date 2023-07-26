@@ -42,7 +42,7 @@ export function AlbumCard(props) {
       
         
         if (ref.current.getElementsByTagName('video').length > 0) {
-          ref.current.getElementsByTagName('video')[0].pause();
+          ref.current.getElementsByTagName('video')[0].play();
         } 
         dispatch(addSelectedID(item));
         
@@ -68,10 +68,10 @@ export function AlbumCard(props) {
         
           
           if (ref.current.getElementsByTagName('video').length > 0) {
-        
+            
               ref.current.getElementsByTagName('video')[0].pause();
             ref.current.getElementsByTagName('video')[0].currentTime = 0;
-        
+            
             
           } 
           dispatch(addSelectedID(item));
@@ -192,10 +192,29 @@ export function AlbumCard(props) {
                     poster={item.img}
                     loop
                     
-                    autoPlay={isColumnCount >= 2 ? 0 : 1}
+                    autoPlay={0}
                     playsInline
                     muted
                    
+                    onMouseOver=
+                      {
+                        isColumnCount >= 2 ?
+                          event => {
+                            event.target.play();
+                          } 
+                        : 
+                          null
+                      }
+                    onMouseOut=
+                      {
+                        isColumnCount >= 2 ?
+                          event => {                      
+                            event.target.pause(); 
+                            event.target.currentTime=0
+                          }
+                        : 
+                          null
+                      }
                   ></video>
                     : 
                       <img 
