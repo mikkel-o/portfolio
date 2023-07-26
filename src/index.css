@@ -721,3 +721,16 @@ a.hide img {
   background: var(--background);
   z-index: 1;
 }
+
+
+.play__icon {
+  clip-path: polygon(0% 0, 0% 100%, 100% 50%);
+  width: 20px;
+  height: 25px;
+  position: absolute;
+  left: calc(50% - 8px);
+  -webkit-box-shadow: inset -2px 1px 25px -1px #ffffff;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: inset -2px 1px 25px -1px #ffffff;  /* Firefox 3.5 - 3.6 */
+  box-shadow: inset -2px 1px 25px -1px #ffffff;
+  z-index: 50;
+}

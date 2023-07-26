@@ -202,18 +202,11 @@ export function FeaturedProjects() {
                         }}
                       >
                         <div
-                          style={{
-                            clipPath: "polygon(0% 0, 0% 100%, 100% 50%)",
-                            width: "25px",
-                            height: "30px",
-                            position: "absolute",
-                            left: "calc(50% - 8px)",
-                            background: "white",
-                            zIndex: "50"
-                          }}
+                          className={'play__icon'}
                         >
 
                         </div>
+                        
                       </div>
                     </motion.button>
                     </motion.div>
