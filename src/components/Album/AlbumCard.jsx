@@ -27,7 +27,7 @@ export function AlbumCard(props) {
    
 
   useEffect(() => {
-    if (isColumnCount < 2) { 
+    if (isColumnCount === 0) { 
     const observer = new IntersectionObserver(
       ([entry]) => { 
           setIsIntersecting(entry.isIntersecting);
@@ -192,7 +192,7 @@ export function AlbumCard(props) {
                     poster={item.img}
                     loop
                     
-                    autoPlay={"0"}
+                    autoPlay={0}
                     playsInline
                     muted
                    
