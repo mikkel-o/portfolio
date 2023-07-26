@@ -193,6 +193,7 @@ export function AlbumCard(props) {
                     loop
                     
                     
+                    playsInline
                     muted
                    
                     onMouseOver=
