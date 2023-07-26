@@ -32,6 +32,7 @@ function App() {
     document.body.classList.remove(`theme-${theme}`);
     document.body.classList.add(`theme-${newTheme}`);
     setTheme(newTheme);
+    
   }
   document.body.classList.add(`theme-${theme}`);
   /* Color Theme End */
@@ -98,7 +99,7 @@ function App() {
   const layoutIsh = useSelector(state => state.toggle.layout);
   
   useEffect(() => {
-    
+    console.log('running app');
     if(layoutIsh === false) {
       dispatch(layout(3));
     } else {
@@ -107,6 +108,11 @@ function App() {
     
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
+   
+      
+      
+        
+      
 
       document.documentElement.classList.remove(`layout-one`);
       document.documentElement.classList.remove(`layout-two`);

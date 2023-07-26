@@ -11,7 +11,7 @@ const ImageSlider = (props) => {
  const {items, name, type} = props;
   const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0  ;
   
-  console.log(props.project.activeFilmIndex);
+  
     
   const CollectionSize = items.length,
         [index, setActiveStep] = useState(indexStart),
@@ -36,7 +36,7 @@ const ImageSlider = (props) => {
         handleMouseLeave = (e) => { e.target.parentElement.parentElement.classList.remove('hide-overlay') },
         handleClick = (e) => { 
           //setActiveStep(prevActiveStep => prevActiveStep + (e.target.getAttribute("data-index") - index));
-          console.log('click');
+          
         };
   
 /*

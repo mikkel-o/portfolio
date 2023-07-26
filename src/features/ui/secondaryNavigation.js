@@ -37,6 +37,8 @@ const SecondaryNavigation = (props) => {
   }
   useOnClickOutside(ref, () => {clickOutside()}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
   
+  
+
 
   return (
     <div className={`${isMenuOpen ? 'sec-nav__wrapper--open' : 'sec-nav__wrapper--closed'} sec-nav__wrapper`}>

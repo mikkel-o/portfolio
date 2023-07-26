@@ -22,8 +22,12 @@ export function AlbumCard(props) {
   const ref = useRef(null);
   const dispatch = useDispatch();
   const [isIntersecting, setIsIntersecting] = useState(false);
+    
+  const isColumnCount = useSelector(state => state.toggle.layout)
+   
 
   useEffect(() => {
+    if (isColumnCount < 2) { 
     const observer = new IntersectionObserver(
       ([entry]) => { 
           setIsIntersecting(entry.isIntersecting);
@@ -34,12 +38,60 @@ export function AlbumCard(props) {
       }
     );
     if (isIntersecting) {
-      dispatch(addSelectedID(item));
       
+      
+        
+        if (ref.current.getElementsByTagName('video').length > 0) {
+          ref.current.getElementsByTagName('video')[0].play();
+        } 
+        dispatch(addSelectedID(item));
+        
+    } else {
+      if (ref.current.getElementsByTagName('video').length > 0) {
+        ref.current.getElementsByTagName('video')[0].pause();
+      } 
     }
       observer.observe(ref.current);
-  
-    }, [ref, isIntersecting, dispatch, item]);  
+    } else {
+
+      const observer = new IntersectionObserver(
+        ([entry]) => { 
+            setIsIntersecting(entry.isIntersecting);
+        },
+        {
+          rootMargin: "0px",
+          threshold: .6
+        }
+      );
+      if (isIntersecting) {
+        
+        
+          
+          if (ref.current.getElementsByTagName('video').length > 0) {
+            setTimeout(() => {
+              ref.current.getElementsByTagName('video')[0].pause();
+            ref.current.getElementsByTagName('video')[0].currentTime = 0;
+            }, "500");
+            
+          } 
+          dispatch(addSelectedID(item));
+          
+      } else {
+        if (ref.current.getElementsByTagName('video').length > 0) {
+          setTimeout(() => {
+          ref.current.getElementsByTagName('video')[0].pause();
+          ref.current.getElementsByTagName('video')[0].currentTime = 0;
+        }, "500");
+        } 
+      }
+        observer.observe(ref.current);
+
+    }
+
+    }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
+
+
+
 
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
@@ -75,9 +127,6 @@ export function AlbumCard(props) {
     }
   
   
-    
-    const isColumnCount = useSelector(state => state.toggle.columnCount)
-   
 
   
     

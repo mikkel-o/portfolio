@@ -24,7 +24,7 @@ const SingleProject = (props) => {
   const [showMore, setShowMore] = useState(false);
   const columns = useSelector(state => state.toggle.columnCount);
   const singleProject = useSelector(selectProject);
-  console.log(singleProject);
+  
   
 
   const { isLoading } = useSelector((state) => state.singleProject);
@@ -34,7 +34,7 @@ const SingleProject = (props) => {
 const film = props.film;
 
 const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
-console.log(activeFilm);
+
   const duration = .5,
       ease = [.33, .13, .63, .96];
 
@@ -315,9 +315,23 @@ const goToPosts = (event, c) => {
 
     <motion.div className={'project-single-wraps'} >
     <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
+    {singleProject.vid ? 
+    <motion.video 
+    className={`album__image project-single-image album__image--position-${activeFilm.position}`} 
+    variants={variants}                
     
+    src={singleProject.vid} 
+    poster={singleProject.img}
+    loop
+    autoPlay={1}
+    playsInline
+    muted
+  
+  ></motion.video>
+    
+    : 
     <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className={`album__image project-single-image album__image--position-${activeFilm.position}`} variants={variants}/>
-
+                  }
 </motion.div>
 <motion.ul className={'project-single-details-list'} variants={detailsMotion}>
         <li key={1}>
