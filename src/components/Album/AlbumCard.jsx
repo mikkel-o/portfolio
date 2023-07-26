@@ -54,18 +54,7 @@ export function AlbumCard(props) {
       observer.observe(ref.current);
     } else {
 
-      const observer = new IntersectionObserver(
-        ([entry]) => { 
-            setIsIntersecting(entry.isIntersecting);
-        },
-        {
-          rootMargin: "0px",
-          threshold: .6
-        }
-      );
-      if (isIntersecting) {
-        
-        
+      
           
           if (ref.current.getElementsByTagName('video').length > 0) {
             
@@ -74,20 +63,9 @@ export function AlbumCard(props) {
             
             
           } 
-          dispatch(addSelectedID(item));
-          
-      } else {
-        if (ref.current.getElementsByTagName('video').length > 0) {
-          
-          ref.current.getElementsByTagName('video')[0].pause();
-          ref.current.getElementsByTagName('video')[0].currentTime = 0;
-        
-        } 
+         
       }
-        observer.observe(ref.current);
-
-    }
-
+     
     }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
 
 
