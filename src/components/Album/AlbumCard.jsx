@@ -196,25 +196,6 @@ export function AlbumCard(props) {
                     playsInline
                     muted
                    
-                    onMouseOver=
-                      {
-                        isColumnCount >= 2 ?
-                          event => {
-                            event.target.play();
-                          } 
-                        : 
-                          null
-                      }
-                    onMouseOut=
-                      {
-                        isColumnCount >= 2 ?
-                          event => {                      
-                            event.target.pause(); 
-                            event.target.currentTime=0
-                          }
-                        : 
-                          null
-                      }
                   ></video>
                     : 
                       <img 
