@@ -68,20 +68,20 @@ export function AlbumCard(props) {
         
           
           if (ref.current.getElementsByTagName('video').length > 0) {
-            setTimeout(() => {
+        
               ref.current.getElementsByTagName('video')[0].pause();
             ref.current.getElementsByTagName('video')[0].currentTime = 0;
-            }, "500");
+        
             
           } 
           dispatch(addSelectedID(item));
           
       } else {
         if (ref.current.getElementsByTagName('video').length > 0) {
-          setTimeout(() => {
+          
           ref.current.getElementsByTagName('video')[0].pause();
           ref.current.getElementsByTagName('video')[0].currentTime = 0;
-        }, "500");
+        
         } 
       }
         observer.observe(ref.current);
