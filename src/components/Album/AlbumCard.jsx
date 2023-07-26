@@ -41,12 +41,30 @@ export function AlbumCard(props) {
       
       
         
-      
+        if (ref.current.getElementsByTagName('video').length > 0) {
+          ref.current.getElementsByTagName('video')[0].play();
+        } 
         dispatch(addSelectedID(item));
         
-    } 
-      observer.observe(ref.current);
+    } else {
+      if (ref.current.getElementsByTagName('video').length > 0) {
+        ref.current.getElementsByTagName('video')[0].pause();
+      } 
     }
+      observer.observe(ref.current);
+    } else {
+
+      
+          
+          if (ref.current.getElementsByTagName('video').length > 0) {
+            
+              ref.current.getElementsByTagName('video')[0].pause();
+            ref.current.getElementsByTagName('video')[0].currentTime = 0;
+            
+            
+          } 
+         
+      }
      
     }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
 
@@ -152,7 +170,7 @@ export function AlbumCard(props) {
                     poster={item.img}
                     loop
                     
-                    autoPlay={0}
+                    autoPlay={false}
                     playsInline
                     muted
                    
