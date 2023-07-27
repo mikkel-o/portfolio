@@ -329,9 +329,25 @@ const goToPosts = (event, c) => {
   
   ></motion.video>
     
-    : 
+    :
+    activeFilm.vid ?
+<motion.video 
+    className={`album__image project-single-image album__image--position-${activeFilm.position}`} 
+    variants={variants}                
+    
+    src={activeFilm.vid} 
+    poster={activeFilm.img}
+    loop
+    autoPlay={1}
+    playsInline
+    muted
+  
+  ></motion.video>
+  :
     <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className={`album__image project-single-image album__image--position-${activeFilm.position}`} variants={variants}/>
-                  }
+      
+
+  }
 </motion.div>
 <motion.ul className={'project-single-details-list'} variants={detailsMotion}>
         <li key={1}>

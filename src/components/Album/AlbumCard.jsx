@@ -23,7 +23,7 @@ export function AlbumCard(props) {
   const dispatch = useDispatch();
   const [isIntersecting, setIsIntersecting] = useState(false);
     
-  const isColumnCount = useSelector(state => state.toggle.layout)
+  const isColumnCount = useSelector(state => state.toggle.layout);
    
 
   useEffect(() => {
