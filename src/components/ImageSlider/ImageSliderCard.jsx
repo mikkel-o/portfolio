@@ -33,6 +33,18 @@ export function ImageSliderCard(props) {
       }
     );
     if (isIntersecting) {
+
+      if (ref.current.getElementsByTagName('video').length > 0) {
+        if (!item.album){
+          ref.current.getElementsByTagName('video')[0].play();
+          
+        } else {
+          ref.current.getElementsByTagName('video')[item.activeFilmIndex].play();
+          
+          //console.log(ref.current.getElementsByTagName('video'));
+        }
+      } 
+
       if (type === 'feature') {
         type === "work" ?
         dispatch(addActiveSlideIndex({name: name, index: index}))
@@ -45,12 +57,22 @@ export function ImageSliderCard(props) {
         dispatch(addActiveFilmIndexPhoto({name: name, index: index}));
       }
       
+    } else {
+      if (ref.current.getElementsByTagName('video').length > 0) {
+        if (!item.album){
+        ref.current.getElementsByTagName('video')[0].pause();
+        
+        
+      } else {
+        ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
+        
+      }
+      } 
     }
-    
     
       observer.observe(ref.current);
   
-    }, [ref, dispatch, isIntersecting, index, name, type]);  
+    }, [ref, dispatch, isIntersecting, index, name, type, item]);  
 
         
 
