@@ -171,7 +171,7 @@ export function AlbumCard(props) {
                     poster={item.img}
                     
                     loop
-                    autoPlay={0}
+                    autoPlay={false}
                     muted
                     playsInline
                     
