@@ -57,10 +57,11 @@ export function AlbumCard(props) {
       if (ref.current.getElementsByTagName('video').length > 0) {
         if (!item.album){
         ref.current.getElementsByTagName('video')[0].pause();
+        ref.current.getElementsByTagName('video')[0].currentTime=0;
         
       } else {
         ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
-        
+        ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
       }
       } 
     }
