@@ -48,7 +48,7 @@ export function AlbumCard(props) {
             
           } else {
             ref.current.getElementsByTagName('video')[item.activeFilmIndex].play();
-            
+            ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
             
             //console.log(ref.current.getElementsByTagName('video'));
           }
