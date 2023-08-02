@@ -76,7 +76,7 @@ export function FeaturedProjects() {
         >
            <iframe 
                 title="vimeo"
-                src={"https://player.vimeo.com/video/767311875?h=38e18a53c8&autoplay=1"}
+                src={"https://player.vimeo.com/video/767311875?h=38e18a53c8&autoplay=1&muted=1"}
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
