@@ -303,6 +303,7 @@ z-index: 22;
   }
   .featured-projects-container {
     /*height: 540px;*/
+    height: 50vh;
     /*width: calc(100% - 30px);*/
     width: 100%;
     position: relative;
@@ -315,7 +316,7 @@ z-index: 22;
   }
 
   .project-container {
-    height: 250px;
+    height: 50vh;
         position: absolute;
         top: 0;
         width: 100%;

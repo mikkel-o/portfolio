@@ -1,57 +1,29 @@
-import React, { useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef, useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
 import { Projects } from "../../features/projects/Projects";
 import Filters from "../../features/filters/Filters";
 import { motion } from "framer-motion";
-import { toggle } from "../../components/toggleSlice";
-import { hideAllToggles} from "../../components/toggleSlice";
 
 
-function useOnClickOutside(ref, handler) {
-  
-  useEffect(
-    () => {
-      const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target) || event.target.classList.contains('projects-play-btn') || event.target.classList.contains('carousel__btn') || event.target.classList.contains('carousel__dot-item') || event.target.classList.contains('projects-more-btn')) {
-          
-          return;
-        } else {
-          
-        }
-        handler(event);
-      };
-      document.addEventListener("mousedown", listener);
-      document.addEventListener("touchstart", listener);
-      return () => {
-        document.removeEventListener("mousedown", listener);
-        document.removeEventListener("touchstart", listener);
-      };
-    },
-    // Add ref and handler to effect dependencies
-    // It's worth noting that because passed in handler is a new ...
-    // ... function on every render that will cause this effect ...
-    // ... callback/cleanup to run every render. It's not a big deal ...
-    // ... but to optimize you can wrap handler in useCallback before ...
-    // ... passing it into this hook.
-    [ref, handler]
-  );
-}
+
 export function FeaturedProjects() {
   
   const ref = useRef();
+  
+  const [isActive, setIsActive] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
   //const [isIntersecting, setIsIntersecting] = useState(false);
-  const dispatch = useDispatch();
-  const isOpen = useSelector(state => state.toggle)['showreel'];
+  //const dispatch = useDispatch();
+  
   const onClickHandler = (event) => { 
     
-    dispatch(toggle('showreel'));
-    
+    //dispatch(toggle('showreel'));
+    setIsActive(true);
   }
-  useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'));}); 
+  //useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'))}); 
   
-
-  /*
+  
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       
@@ -64,16 +36,16 @@ export function FeaturedProjects() {
         threshold: 0
       }
     );
-    if (isIntersecting) {
-      console.log(ref.current);
+    if (!isIntersecting && isActive) {
+      setIsActive(false)
       
     } 
     
     
       observer.observe(ref.current);
   
-    }, [ref, isIntersecting]);  
-*/
+    }, [ref, isActive, isIntersecting]);  
+
   
 
 
@@ -86,31 +58,34 @@ export function FeaturedProjects() {
     onClick={onClickHandler}
     key={'blue'}
     initial={{opacity: 0, scale: 0.95}}
-    animate={{opacity: 1, scale: 1, height: isOpen ? 'calc(100vh - 80px)' : '250px', transition: {ease: [.43, .13, .23, .96], duration: .6}}}
+    animate={{opacity: 1, scale: 1, transition: {ease: [.43, .13, .23, .96], duration: .6}}}
     exit={{opacity: 0, scale: 1.03 }}
     
     >
-      {isOpen ? 
+      {isActive ? 
 
         <motion.div
           style={{
-            position: "absolute", 
-            top: 0, 
-            left: 0,
-            width: 'calc(100% - 30px)',
-            marginLeft: '15px',
+            position: 'absolute',
+            width: '100%',
           height: '100%',
-          background: 'black'
+          background: 'black',
+          zIndex: '25'
           }}
           
         >
            <iframe 
                 title="vimeo"
-                src={"https://player.vimeo.com/video/324923104?h=b4fd0913dc"}
+                src={"https://player.vimeo.com/video/767311875?h=38e18a53c8&autoplay=1"}
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
-                className={'video-iframe'}>
+                playsInline
+                autoPlay
+                className={'video-iframe'}
+                onLoad={(event) => event.target.requestFullscreen()}
+                
+                >
               </iframe>
         </motion.div>
         
