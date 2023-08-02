@@ -83,7 +83,7 @@ export function FeaturedProjects() {
                 playsInline
                 autoPlay
                 className={'video-iframe'}
-                onLoad={(event) => event.target.requestFullscreen()}
+                
                 
                 >
               </iframe>
