@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { useSelector } from "react-redux";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
@@ -17,27 +17,53 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   luctus at facilisis nec, rutrum ac sapien.` ;
   
 
+  export function SingleVideo(props) {
+    const {singleProject, activeFilm} = props;
+    
 
-const SingleProject = (props) => {
+const ref = useRef();
   
-  document.documentElement.classList.add(`trans-nav`);
-  const [showMore, setShowMore] = useState(false);
-  const columns = useSelector(state => state.toggle.columnCount);
-  const singleProject = useSelector(selectProject);
-  
-  
+const [isActive, setIsActive] = useState(false);
+const [isIntersecting, setIsIntersecting] = useState(false);
+//const [isIntersecting, setIsIntersecting] = useState(false);
+//const dispatch = useDispatch();
 
-  const { isLoading } = useSelector((state) => state.singleProject);
+const onClickHandler = (event) => { 
+  
+  //dispatch(toggle('showreel'));
+  setIsActive(true);
+}
+//useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'))}); 
+
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    
+    ([entry]) => { 
+      console.log(ref.current);
+        setIsIntersecting(entry.isIntersecting);
+    },
+    {
+      rootMargin: "0px",
+      threshold: 0
+    }
+  );
+  if (!isIntersecting && isActive) {
+    setIsActive(false)
+    console.log('SUCCESS');
+    
+  } 
+  
+  
+    
+      observer.observe(ref.current);
+    
+
+  }, [ref, isActive, isIntersecting]);  
+
   const startingCoord = useSelector(state => state.singleProject.coord);
-//  const isMobile = useSelector(state => state.toggle.isMobile);
-  const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
-const film = props.film;
-
-const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
-
-  const duration = .5,
-      ease = [.33, .13, .63, .96];
-
+  const duration = .5;
+  const ease = [.33, .13, .63, .96];
   const variants = {
     initial: {
       y: startingCoord[1],
@@ -61,23 +87,6 @@ const activeFilm = singleProject.album ? singleProject.album.find(item => item.n
         delay: .5,
         duration: .7
       },
-      /*height: {
-        delay: .5,
-        duration: .5
-      },
-      /*x: {
-        delay: 0,
-        duration: .5
-      },
-      /*height: {
-        delay: 1.2,
-        duration: .5
-      }*/
-    /*  y: {
-        delay: duration,
-        duration: .5
-      },
-      */
     }
   },
   
@@ -90,8 +99,204 @@ const activeFilm = singleProject.album ? singleProject.album.find(item => item.n
       delay:.2
   }
   }
+  
+  };
+  
+return (
+  <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
+    
+    {singleProject.vid ? 
+    
+    <div  onClick={onClickHandler}>
+    {isActive ? 
 
-};
+      <motion.div
+        style={{
+          position: 'absolute',
+          width: '100%',
+        height: '50vh',
+        background: 'black',
+        zIndex: '25'
+        }}
+        
+      >
+         <iframe 
+              title={singleProject.embed.host}
+              src={singleProject.embed.link}
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              playsInline
+              autoPlay
+              className={'video-iframe'}
+              
+              
+              >
+            </iframe>
+      </motion.div>
+      
+      :
+      null
+    }
+    <motion.video 
+    ref={ref}
+      className={`
+        album__image 
+        project-single-image 
+        album__image--position-${activeFilm.position}
+      `} 
+      variants={variants}                
+      src={singleProject.vid} 
+      poster={singleProject.img}
+      loop
+      autoPlay={1}
+      playsInline
+      muted
+    >
+    </motion.video>
+    </div>
+    :
+    activeFilm.vid ?
+    <div  onClick={onClickHandler}>
+    {isActive ? 
+
+      <motion.div
+        style={{
+          position: 'absolute',
+          width: '100%',
+        height: '50vh',
+        background: 'black',
+        zIndex: '25'
+        }}
+        
+      >
+         <iframe 
+              title={singleProject.embed.host}
+              src={singleProject.embed.link}
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              playsInline
+              autoPlay
+              className={'video-iframe'}
+              
+              
+              >
+            </iframe>
+      </motion.div>
+      
+      :
+      null
+    }
+    <motion.video 
+      ref={ref}
+        className={`
+          album__image 
+          project-single-image 
+          album__image--position-${activeFilm.position}
+        `} 
+        variants={variants}                
+        src={activeFilm.vid} 
+        poster={activeFilm.img}
+        loop
+        autoPlay={1}
+        playsInline
+        muted
+      >
+      </motion.video>
+    </div>
+      
+      
+      
+    :
+      <motion.img 
+      ref={ref}
+        className={`
+          album__image 
+          project-single-image 
+          album__image--position-${activeFilm.position}
+        `} 
+        src={
+          activeFilm ? 
+            activeFilm.img : singleProject.img
+        } 
+        variants={variants}
+        alt="" 
+        
+      />
+      
+
+  }
+    <motion.button
+                      className={'showreel-play-btn'}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        zIndex: "24",
+                        pointerEvents: 'none',
+    top: '0',
+    width: '100%',
+    position: 'absolute',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+                      }}
+                      
+                      
+                      >
+                      <div 
+                        style={{
+                          borderRadius: "50%",
+                          border: "0px solid white",
+                          width: "100px",
+                          height: "100px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          position: "relative",
+                          zIndex: "50"
+                          
+                        }}
+                      >
+                        <div
+                          className={'play__icon'}
+                        >
+
+                        </div>
+                        
+                      </div>
+                    </motion.button>
+</motion.div>
+)
+  }
+
+const SingleProject = (props) => {
+  
+  document.documentElement.classList.add(`trans-nav`);
+  const [showMore, setShowMore] = useState(false);
+  const columns = useSelector(state => state.toggle.columnCount);
+  const singleProject = useSelector(selectProject);
+  
+  
+
+  const { isLoading } = useSelector((state) => state.singleProject);
+  
+//  const isMobile = useSelector(state => state.toggle.isMobile);
+  const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
+const film = props.film;
+
+const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
+
+
+
+
+
+
+
+  
+      const ease = [.33, .13, .63, .96];
 
 
 const titleMotion = {
@@ -314,41 +519,8 @@ const goToPosts = (event, c) => {
 
 
     <motion.div className={'project-single-wraps'} >
-    <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
-    {singleProject.vid ? 
-    <motion.video 
-    className={`album__image project-single-image album__image--position-${activeFilm.position}`} 
-    variants={variants}                
+    <SingleVideo singleProject={singleProject} activeFilm={activeFilm}></SingleVideo>
     
-    src={singleProject.vid} 
-    poster={singleProject.img}
-    loop
-    autoPlay={1}
-    playsInline
-    muted
-  
-  ></motion.video>
-    
-    :
-    activeFilm.vid ?
-<motion.video 
-    className={`album__image project-single-image album__image--position-${activeFilm.position}`} 
-    variants={variants}                
-    
-    src={activeFilm.vid} 
-    poster={activeFilm.img}
-    loop
-    autoPlay={1}
-    playsInline
-    muted
-  
-  ></motion.video>
-  :
-    <motion.img src={activeFilm ? activeFilm.img : singleProject.img} alt="" className={`album__image project-single-image album__image--position-${activeFilm.position}`} variants={variants}/>
-      
-
-  }
-</motion.div>
 <motion.ul className={'project-single-details-list'} variants={detailsMotion}>
         <li key={1}>
           <ul>

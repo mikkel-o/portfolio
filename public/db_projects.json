@@ -126,27 +126,7 @@
   },
   {
     "id": 3,
-    "name": "riot-games-LoL",
-    "title": "Riot Games - League of Legends",
-    "titleprefix": "",
-    "featured": true,
-    "category": ["producer"],
-    "featuredRole": ["executive producer"],
-    "role": ["executive producer"],
-    "style": ["2D animation"],
-    "type": ["branded content"],
-    "company": ["sun creature"],
-    "client": ["riot games"],
-    "img": "/projects/riot-games/01_guardians-of-the-ancient/poster/guardians-of-the-ancient_poster_540.jpg",
-    "link": "https://youtu.be/xKarEOxXa3s",
-    "embed": {
-      "host": "youtube",
-      "link": "https://www.youtube.com/embed/xKarEOxXa3s"
-    },
-    "album": [
-      {
-        "id": 1,
-        "name": "the-path",
+    "name": "the-path",
         "titleprefix": "League of Legends",
         "title": "The Path, An Ionian Myth",
         "titlesuffix": "Spirit Blossom 2020 Animated Trailer",
@@ -162,10 +142,10 @@
           "host": "youtube",
           "link": "https://www.youtube.com/embed/u9fFG4ZLp9Y"
         }
-      },
-      {
-        "id": 2,
-        "name": "severing-fate",
+  },
+  {
+    "id": 333,
+    "name": "severing-fate",
         "titleprefix": "League of Legends",
         "title": "Severing Fate",
         "titlesuffix": "Night & Dawn 2021 Skins Teaser",
@@ -182,8 +162,6 @@
           "host": "youtube",
           "link": "https://youtube.com/embed/_6-O2QmdWvA"
         }
-      }
-    ]
   },
   {
     "id": 4,
@@ -301,72 +279,65 @@
   },
   {
     "id": 8,
-    "name": "monkey-tennis-shorts",
-    "title": "Monkey Tennis Shorts",
-    "titleprefix": "",
+    "name": "office-cat",
+    "title": "Time for Coffee",
+    "titleprefix": "Office Cat and Fish",
     "featured": true,
     "featuredRole": ["co-creator | producer"],
     "category": ["producer", "artist", "editor"],
-    "role": ["co-creator", "producer", "editor", "3D artist"],
-    "style": ["3D animation"],
     "type": ["short film", "ident"],
     "company": ["monkey tennis"],
     "client": ["monkey tennis"],
-    "img": "https://drive.google.com/uc?export=download&id=1i01aUfAIwqbLZa1TadE5P3WUVernS-KM",
+    "role": ["co-creator", "producer", "editor"],
+    "style": ["3D animation"],
+    "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-y00xieZvQryZDnSksJ8YO5hi87AR4wrrwX51UhGIRekdm3H0opqVxqCck_VcGlrDhIG97NSuHBVO_ECQg7JVpMQQhxzw=s1600",
+    "vid": "https://player.vimeo.com/progressive_redirect/playback/850948130/rendition/720p/file.mp4?loc=external&signature=29972f50ca27190a1f64eadbbb75a049bebfc8f81bc08a88bd8cf53c9d535e75",
+    "position": "38",
     "link": "https://vimeo.com/358296442",
     "embed": {
       "host": "vimeo",
       "link": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
-    },
-    "album": [
-
-      {
-        "id": 1,
-        "name": "office-cat",
-        "title": "Time for Coffee",
-        "titleprefix": "Office Cat and Fish",
-        "role": ["co-creator", "producer", "editor"],
-        "style": ["3D animation"],
-        "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-y00xieZvQryZDnSksJ8YO5hi87AR4wrrwX51UhGIRekdm3H0opqVxqCck_VcGlrDhIG97NSuHBVO_ECQg7JVpMQQhxzw=s1600",
-        "vid": "https://player.vimeo.com/progressive_redirect/playback/850948130/rendition/720p/file.mp4?loc=external&signature=29972f50ca27190a1f64eadbbb75a049bebfc8f81bc08a88bd8cf53c9d535e75",
-        "position": "38",
-        "link": "https://vimeo.com/358296442",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
-        }
-      },
-      
-      {
-        "id": 2,
-        "name": "quantum-heroes",
-        "title": "Quantum Heroes",
-        "titleprefix": "",
-        "role": ["co-creator", "producer"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1Kja5ukqv2-42QjZtg2lWHNhhN4bbjcq6",
-        "link": "https://vimeo.com/monkeytennis/quantumheroes",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/208180727?h=04e436c0b4"
-        }
-      },
-     
-      {
-        "id": 3,
-        "name": "backpacker-bird",
-        "title": "Backpacker Bird",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1iQKsfbkh9h-BNpzmlt4RVhYdNdoXkUok",
-        "link": "https://vimeo.com/297678101",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/297678101?h=e383cae411"
-        }
-      }
-    ]
+    }
+  },
+  {
+    "id": 88,
+    "name": "quantum-heroes",
+    "title": "Quantum Heroes",
+    "titleprefix": "",
+    "featured": true,
+    "featuredRole": ["co-creator | producer"],
+    "category": ["producer", "artist", "editor"],
+    "type": ["short film", "ident"],
+    "company": ["monkey tennis"],
+    "client": ["monkey tennis"],
+    "role": ["co-creator", "producer"],
+    "style": ["3D animation"],
+    "img": "https://drive.google.com/uc?export=download&id=1Kja5ukqv2-42QjZtg2lWHNhhN4bbjcq6",
+    "link": "https://vimeo.com/monkeytennis/quantumheroes",
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/208180727?h=04e436c0b4"
+    }
+  },
+  {
+    "id": 888,
+    "name": "backpacker-bird",
+    "title": "Backpacker Bird",
+    "titleprefix": "",
+    "featured": true,
+    "featuredRole": ["co-creator | producer"],
+    "category": ["producer", "artist", "editor"],
+    "type": ["short film", "ident"],
+    "company": ["monkey tennis"],
+    "client": ["monkey tennis"],
+    "role": ["co-creator", "producer", "editor"],
+    "style": ["3D animation"],
+    "img": "https://drive.google.com/uc?export=download&id=1iQKsfbkh9h-BNpzmlt4RVhYdNdoXkUok",
+    "link": "https://vimeo.com/297678101",
+    "embed": {
+      "host": "vimeo",
+      "link": "https://player.vimeo.com/video/297678101?h=e383cae411"
+    }
   },
   {
     "id": 9,
