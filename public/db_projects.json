@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "riot-games-LoR-04",
+    "name": "riot-games-LoR-04B",
     "title": "Riot Games - Legends of Runeterra",
     "titleprefix": "",
     "featured": true,
@@ -12,54 +12,34 @@
     "type": ["branded content"],
     "company": ["sun creature"],
     "client": ["riot games"],
-    "img": "https://drive.google.com/uc?export=download&id=1gsDoSZLCSTBC51hnSCYQdta7BTdtNS3i",
-    "link": "https://youtu.be/xKarEOxXa3s",
-    "embed": {
-      "host": "youtube",
-      "link": "https://www.youtube.com/embed/xKarEOxXa3s"
-    },
-    "album": [
-      {
-        "id": 1,
-        "name": "guardians-of-the-ancient",
-        "title": "Guardians of the Ancient",
-        "titleprefix": "Legends of Runeterra:",
-        "titlesuffix": "| Cinematic Trailer",
-        "category": ["producer"],
-        "role": ["executive producer"],
-        "style": ["2D animation"],
-        "type": ["branded content"],
-        "company": ["sun creature"],
-        "client": ["riot games"],
-        "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-w3Uwj_MyN06gNu297P7dmig1AOz3o8g7o8MERG9enh712Rr46KxRAm2MpBLcLyrjjw8TWc-4m2LmPU6dWS0wnTQgnotw=s1600",
+    "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-w3Uwj_MyN06gNu297P7dmig1AOz3o8g7o8MERG9enh712Rr46KxRAm2MpBLcLyrjjw8TWc-4m2LmPU6dWS0wnTQgnotw=s1600",
         "vid": "https://player.vimeo.com/progressive_redirect/playback/849063827/rendition/720p/file.mp4?loc=external&signature=9a5e90e2083e3df894be833d20f44c1ae835c51d543a1346287ac4b7f5e44b6f",
         "link": "https://youtu.be/xKarEOxXa3s",
         "embed": {
           "host": "youtube",
           "link": "https://www.youtube.com/embed/xKarEOxXa3s"
         }
-      },
-      {
-        "id": 2,
-        "name": "rise-of-the-underworlds",
-        "title": "Rise of the Underworlds",
-        "titleprefix": "Legends of Runeterra:",
-        "titlesuffix": "| Cinematic Trailer",
-        "category": ["producer"],
-        "role": ["executive producer"],
-        "style": ["2D animation"],
-        "type": ["branded content"],
-        "company": ["sun creature"],
-        "client": ["riot games"],
-        "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-yfWbHiuxHLx1Jtoan86DbfuQrcoZ3sQKXB0biooMxQwhL9aomJXCwNYyh23r8msQYba7ZWun_d1DKLMIQTNCJAQAAUzg=s1600",
-        "vid": "https://player.vimeo.com/progressive_redirect/playback/849061326/rendition/720p/file.mp4?loc=external&signature=962407bde210b0793aa454c4e4f2ea426aec295b17dd7ada68539f8c9a088077",
-        "link": "https://youtu.be/lCjlFAefDnI",
-        "embed": {
-          "host": "youtube",
-          "link": "https://www.youtube.com/embed/lCjlFAefDnI"
-        } 
-      }
-    ]
+  },
+  {
+    "id": 111,
+    "name": "riot-games-LoR-04C",
+    "title": "Riot Games - Legends of Runeterra",
+    "titleprefix": "",
+    "featured": true,
+    "category": ["producer"],
+    "featuredRole": ["executive producer"],
+    "role": ["executive producer"],
+    "style": ["2D animation"],
+    "type": ["branded content"],
+    "company": ["sun creature"],
+    "client": ["riot games"],
+    "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-yfWbHiuxHLx1Jtoan86DbfuQrcoZ3sQKXB0biooMxQwhL9aomJXCwNYyh23r8msQYba7ZWun_d1DKLMIQTNCJAQAAUzg=s1600",
+    "vid": "https://player.vimeo.com/progressive_redirect/playback/849061326/rendition/720p/file.mp4?loc=external&signature=962407bde210b0793aa454c4e4f2ea426aec295b17dd7ada68539f8c9a088077",
+    "link": "https://youtu.be/lCjlFAefDnI",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/lCjlFAefDnI"
+    } 
   },
   {
     "id": 2,
@@ -854,7 +834,8 @@
     "type": ["feature film"],
     "company": ["monkey tennis"],
     "client": ["new creations", "zentropa"],
-    "img": "https://drive.google.com/uc?export=download&id=12G9_FHul-ShpH81CoScfGmN1mwJvQRVe",
+    "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-yN4Hl2-OSfOV2fo3rm4vkCFns_Z2B5147qh_N6vcTyw8F3u_qFcItugki8SLHsw64WwjC6CHPhv7Cx3XZl5iWzrnl64Q=s1600",
+    "vid": "https://player.vimeo.com/progressive_redirect/playback/851187627/rendition/720p/file.mp4?loc=external&signature=4b582c0b626e827a483f06d4ac63315b1e90b7044f169df00116a057d94041f9",
     "link": "https://youtu.be/TIgbOvnfoG4",
     "embed": {
       "host": "youtube",
@@ -869,7 +850,8 @@
         "role": ["animation director"],
         "style": ["3D animation"],
         "type": ["feature film"],
-        "img": "/projects/mugge/01_the-street-party/poster/the-street-party_poster_540.jpg",
+        "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-yN4Hl2-OSfOV2fo3rm4vkCFns_Z2B5147qh_N6vcTyw8F3u_qFcItugki8SLHsw64WwjC6CHPhv7Cx3XZl5iWzrnl64Q=s1600",
+        "vid": "https://player.vimeo.com/progressive_redirect/playback/851187627/rendition/720p/file.mp4?loc=external&signature=4b582c0b626e827a483f06d4ac63315b1e90b7044f169df00116a057d94041f9",
         "link": "https://youtu.be/TIgbOvnfoG4",
         "embed": {
           "host": "youtube",
@@ -900,107 +882,18 @@
     "titleprefix": "",
     "featured": false,
     "category": ["producer", "artist", "editor"],
-    "role": ["director", "producer", "3D artist", "editor"],
+    "role": ["co-creator", "producer", "3D artist", "editor"],
     "style": ["3D animation"],
     "type": ["ident"],
     "company": ["monkey tennis"],
     "client": ["monkey tennis"],
-    "img": "/projects/erhvervsraad/poster/erhvervsraad_poster_540.jpg",
+    "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-ymnLdNhrFEQYG8yCl4gYPqWrgfHXiMuPolg9OHd4K5NrEPpaes0sS2KTqd6CeSGLAVxdH2vL2k7qhyomQeqRxyvOwR=s1600",
+    "vid": "https://player.vimeo.com/progressive_redirect/playback/851195027/rendition/720p/file.mp4?loc=external&signature=b472299f5b50e7871553582a32bc31f517b77f8004a73ac0264deec3c2908600",
     "link": "https://vimeo.com/193063755",
     "embed": {
       "host": "vimeo",
       "link": "https://player.vimeo.com/video/193063755?h=695495136b"
-    },
-    "album": [
-      {
-        "id": 1,
-        "name": "blender",
-        "title": "Blender",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1ZvVKDmL_M5Yym7acLCUuqnxRwAlNbN4_",
-        "position": "38",
-        "link": "https://vimeo.com/137115834",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
-        }
-      },
-      {
-        "id": 2,
-        "name": "phone",
-        "title": "Phone",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-yZyo70KGZh5FIZZ1YOF3veF5PJswDAriJdve0gEoZNgHr3DGqbVurtB7Iq9IacPm-8WFMgFZKLYHyHMjVGy987c8Ybqg=s1600",
-        "vid": "https://player.vimeo.com/progressive_redirect/playback/850947073/rendition/540p/file.mp4?loc=external&signature=7792a2dbd0cd557fdaf40dc4216288d163d331fbf54ce9634c5e1a3920d66d33",
-        "link": "https://vimeo.com/138952742",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/138952742?h=3c87a9a41e"
-        }
-        
-
-      },
-      {
-        "id": 3,
-        "name": "doormat",
-        "title": "Doormat",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1KRko568hNRud3Bmfly9xG0Ttdc2Zu2g5",
-        "link": "https://vimeo.com/137937487",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/137937487?h=f74bc76a3a"
-        }
-      },
-      {
-        "id": 4,
-        "name": "hammer",
-        "title": "Hammer",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1YM8Hw09R8GfJ7OHRcwYu4tqpsivEoV-5",
-        "link": "https://vimeo.com/153388278",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/153388278?h=3ab2d50f7a"
-        }
-      },
-      {
-        "id": 5,
-        "name": "toothpaste",
-        "title": "Toothpaste",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1jNFol0a9ObbCLOTYUseeVyq4k8HyXc90",
-        "link": "https://vimeo.com/153388453",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/153388453?h=2f8bd1eb71"
-        }
-      },
-      {
-        "id": 6,
-        "name": "beans",
-        "title": "Beans",
-        "titleprefix": "",
-        "role": ["co-creator", "producer", "3D artist", "editor"],
-        "style": ["3D animation"],
-        "img": "https://drive.google.com/uc?export=download&id=1SSAHJCM4U518Gn3pzwWXXHn9tvUNdzk5",
-        "link": "https://vimeo.com/137115834",
-        "embed": {
-          "host": "vimeo",
-          "link": "https://player.vimeo.com/video/137115834?h=26d58a8cfd"
-        }
-      }
-    ]
+    }
   },
   {
     "id": 21,
