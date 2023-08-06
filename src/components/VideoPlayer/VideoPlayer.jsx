@@ -172,7 +172,7 @@ useEffect(() => {
             title="youtube-iframe" 
             allow="autoplay" 
             src="" 
-            data-src={`https://www.youtube.com/embed/${project.embed.id}?autoplay=1`}
+            data-src={`https://www.youtube.com/embed/${project.embed.id}?autoplay=1&mute=1`}
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
           ></motion.iframe>
           
@@ -210,7 +210,7 @@ useEffect(() => {
             title="youtube-iframe" 
             allow="autoplay" 
             src="" 
-            data-src={`https://player.vimeo.com/video/${project.embed.id}?h=047afc0e35&autoplay=1`}
+            data-src={`https://player.vimeo.com/video/${project.embed.id}?h=047afc0e35&autoplay=1&muted=1`}
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
           ></motion.iframe>
           
