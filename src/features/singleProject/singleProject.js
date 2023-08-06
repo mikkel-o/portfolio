@@ -1,7 +1,8 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import { selectProject } from "./singleProjectSlice";
 import Spinner from "../../components/Spinner";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import { motion } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 
@@ -17,299 +18,45 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   luctus at facilisis nec, rutrum ac sapien.` ;
   
 
-  export function SingleVideo(props) {
-    const {singleProject, activeFilm} = props;
-    
-
-const ref = useRef();
-  
-const [isActive, setIsActive] = useState(false);
-const [isIntersecting, setIsIntersecting] = useState(false);
-//const [isIntersecting, setIsIntersecting] = useState(false);
-//const dispatch = useDispatch();
-
-const onClickHandler = (event) => { 
-  
-  //dispatch(toggle('showreel'));
-  setIsActive(true);
+export function SingleVideo(props) {
+  const {activeFilm} = props;
+  return (
+    activeFilm.id ? 
+      <motion.div className={'projects-single-image-wrapper'} key={activeFilm.id}   >
+        { activeFilm.embed.id ?
+            <VideoPlayer project={activeFilm}></VideoPlayer>
+          :
+            null
+        }
+      </motion.div>
+    :
+      null
+  )
 }
-//useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'))}); 
-
-
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    
-    ([entry]) => { 
-      console.log(ref.current);
-        setIsIntersecting(entry.isIntersecting);
-    },
-    {
-      rootMargin: "0px",
-      threshold: 0
-    }
-  );
-  if (!isIntersecting && isActive) {
-    setIsActive(false)
-    console.log('SUCCESS');
-    
-  } 
-  
-  
-    
-      observer.observe(ref.current);
-    
-
-  }, [ref, isActive, isIntersecting]);  
-
-  const startingCoord = useSelector(state => state.singleProject.coord);
-  const duration = .5;
-  const ease = [.33, .13, .63, .96];
-  const variants = {
-    initial: {
-      y: startingCoord[1],
-      x: startingCoord[0],
-      width: startingCoord[2],
-      height: startingCoord[3],
-  },
-  animate: {
-    y:  0, 
-    x:  -20, 
-    width: 'calc(100% + 40px)',
-    height: '50vh',
-    transition: {
-      ease: ease,
-      duration,
-      width: {
-        delay: .5,
-        duration: .7
-      },
-      x: {
-        delay: .5,
-        duration: .7
-      },
-    }
-  },
-  
-  exit: {
-    y: 100,
-    opacity: 0,
-    transition: {
-      ease: [0.66, 0.43, 0.53, 0.96],
-      duration: .6,
-      delay:.2
-  }
-  }
-  
-  };
-  
-return (
-  <motion.div className={'projects-single-image-wrapper'} key={singleProject.id}   >
-    
-    {singleProject.vid ? 
-    
-    <div  onClick={onClickHandler}>
-    {isActive ? 
-
-      <motion.div
-        style={{
-          position: 'absolute',
-          width: '100%',
-        height: '50vh',
-        background: 'black',
-        zIndex: '25'
-        }}
-        
-      >
-         <iframe 
-              title={singleProject.embed.host}
-              src={singleProject.embed.link}
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              playsInline
-              autoPlay
-              className={'video-iframe'}
-              
-              
-              >
-            </iframe>
-      </motion.div>
-      
-      :
-      null
-    }
-    <motion.video 
-    ref={ref}
-      className={`
-        album__image 
-        project-single-image 
-        album__image--position-${activeFilm.position}
-      `} 
-      variants={variants}                
-      src={singleProject.vid} 
-      poster={singleProject.img}
-      loop
-      autoPlay={1}
-      playsInline
-      muted
-    >
-    </motion.video>
-    </div>
-    :
-    activeFilm.vid ?
-    <div  onClick={onClickHandler}>
-    {isActive ? 
-
-      <motion.div
-        style={{
-          position: 'absolute',
-          width: '100%',
-        height: '50vh',
-        background: 'black',
-        zIndex: '25'
-        }}
-        
-      >
-         <iframe 
-              title={singleProject.embed.host}
-              src={singleProject.embed.link}
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              playsInline
-              autoPlay
-              className={'video-iframe'}
-              
-              
-              >
-            </iframe>
-      </motion.div>
-      
-      :
-      null
-    }
-    <motion.video 
-      ref={ref}
-        className={`
-          album__image 
-          project-single-image 
-          album__image--position-${activeFilm.position}
-        `} 
-        variants={variants}                
-        src={activeFilm.vid} 
-        poster={activeFilm.img}
-        loop
-        autoPlay={1}
-        playsInline
-        muted
-      >
-      </motion.video>
-    </div>
-      
-      
-      
-    :
-      <motion.img 
-      ref={ref}
-        className={`
-          album__image 
-          project-single-image 
-          album__image--position-${activeFilm.position}
-        `} 
-        src={
-          activeFilm ? 
-            activeFilm.img : singleProject.img
-        } 
-        variants={variants}
-        alt="" 
-        
-      />
-      
-
-  }
-    <motion.button
-                      className={'showreel-play-btn'}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        zIndex: "24",
-                        pointerEvents: 'none',
-    top: '0',
-    width: '100%',
-    position: 'absolute',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-                      }}
-                      
-                      
-                      >
-                      <div 
-                        style={{
-                          borderRadius: "50%",
-                          border: "0px solid white",
-                          width: "100px",
-                          height: "100px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          position: "relative",
-                          zIndex: "50"
-                          
-                        }}
-                      >
-                        <div
-                          className={'play__icon'}
-                        >
-
-                        </div>
-                        
-                      </div>
-                    </motion.button>
-</motion.div>
-)
-  }
 
 const SingleProject = (props) => {
-  
   document.documentElement.classList.add(`trans-nav`);
   const [showMore, setShowMore] = useState(false);
   const columns = useSelector(state => state.toggle.columnCount);
   const singleProject = useSelector(selectProject);
-  
-  
-
   const { isLoading } = useSelector((state) => state.singleProject);
-  
-//  const isMobile = useSelector(state => state.toggle.isMobile);
   const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
-const film = props.film;
-
-const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
-
-
-
-
-
-
-
+  const film = props.film;
+  const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
+//const isMobile = useSelector(state => state.toggle.isMobile);
+  const ease = [.33, .13, .63, .96];
   
-      const ease = [.33, .13, .63, .96];
-
-
-const titleMotion = {
-  initial: {
-    opacity: 0,
-    y: 10,
-    transition: {
-      ease: ease,
-      duration: .8,
-      delay: 1,
-    }
-  },
-  animate: {
+  const titleMotion = {
+    initial: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        ease: ease,
+        duration: .8,
+        delay: 1,
+      }
+    },
+    animate: {
       opacity: 1,
       y: 0,
       transition: {
@@ -323,44 +70,39 @@ const titleMotion = {
       opacity: 0,
       transition: transition
     }
-  
-};
+  };
 
-
-
-
-const detailsMotion = {
-  initial: {
-    opacity: 0,
-    y: 10,
-    transition: {
-      ease: ease,
-      duration: .5,
-      delay: 1,
-    }
-  },
-  animate: {
-      opacity: 1,
-      y: 0,
+  const detailsMotion = {
+    initial: {
+      opacity: 0,
+      y: 10,
       transition: {
         ease: ease,
         duration: .5,
         delay: 1,
       }
     },
-    exit: {
-      y: 100,
-      opacity: 0,
-      transition: transition
-    }
-  
-};
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          ease: ease,
+          duration: .5,
+          delay: 1,
+        }
+      },
+      exit: {
+        y: 100,
+        opacity: 0,
+        transition: transition
+      }
+    
+  };
 
 const textMotion = {
   initial: {
     opacity: 0,
     y:  25,
-    
     display: 'none',
     transition: {
       ease: [0.66, 0.43, 0.53, 0.96],
@@ -379,12 +121,10 @@ const textMotion = {
   animate: {
       opacity: 1,
       y: 0,
-      
       display: 'block',
       transition: {
         ease: [0.66, 0.43, 0.53, 0.96],
         duration: 1.5,
-        
         y: {
           delay: 1
         },
@@ -402,38 +142,16 @@ const textMotion = {
       transition: {
         ease: [0.66, 0.43, 0.53, 0.96],
         duration: .5,
-    }
+      }
     }
 };
 
-
-const videoMotion = {
-  initial: {
-    opacity: 0,
-    y: -50,
-    display: 'none',
-    
-    transition: {
-      ease: [0.66, 0.43, 0.53, 0.96],
-      duration: .5,
-      delay: .5,
-      opacity: {
-        delay: 1
-      },
-      height: {
-        delay: .5,
-        duration: .5
-      },
-      display: {
-        delay: 0.2
-      }
-    }
-  },
-  animate: {
-      opacity: 1,
-      y: 0,
+  const videoMotion = {
+    initial: {
+      opacity: 0,
+      y: -50,
+      display: 'none',
       
-      display: 'block',
       transition: {
         ease: [0.66, 0.43, 0.53, 0.96],
         duration: .5,
@@ -450,120 +168,142 @@ const videoMotion = {
         }
       }
     },
-    exit: {
-      y: 200,
-      opacity: 0,
-      transition: {
-        ease: ease,
-        y: {
-          duration: .8,
-        },
-        opacity: {
-          
-          duration: .3
-        },
+    animate: {
+        opacity: 1,
+        y: 0,
+        
+        display: 'block',
+        transition: {
+          ease: [0.66, 0.43, 0.53, 0.96],
+          duration: .5,
+          delay: .5,
+          opacity: {
+            delay: 1
+          },
+          height: {
+            delay: .5,
+            duration: .5
+          },
+          display: {
+            delay: 0.2
+          }
+        }
+      },
+      exit: {
+        y: 200,
+        opacity: 0,
+        transition: {
+          ease: ease,
+          y: {
+            duration: .8,
+          },
+          opacity: {
+            
+            duration: .3
+          },
+        }
       }
-    }
-  
-};
+    
+  };
 
-
-
-  
-  
-  
-
-const navigate = useNavigate();
-const goToPosts = (event, c) => {
-  
-  
-  const param = c ? c.replace(/\s/g, '+') : '';
-  
-  window.history.replaceState({}, "", c ? `?filters=${param}` : '?filters=')
-  navigate({
-    pathname: '/work',
-    search: c ? `?filters=${param}` : '',
-  });
-}
-//&method=${paramMethod}
+  const navigate = useNavigate();
+  const goToPosts = (event, c) => {
+    const param = c ? c.replace(/\s/g, '+') : '';
+    window.history.replaceState({}, "", c ? `?filters=${param}` : '?filters=')
+    navigate({
+      pathname: '/work',
+      search: c ? `?filters=${param}` : '',
+    });
+  }
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  
-
-
- 
-
-
   return (
     <motion.div 
       className="projects-single-contain" 
-      initial={
-        
-         'initial'
-      
-    } 
-      animate={
-        'animate'
-      } 
+      initial={'initial'} 
+      animate={'animate'} 
       exit={'exit'}
       transition={transition}
     >
-
-
-    <div className={'project-single-content'} >
-    <motion.div className={'project-single-content-wrapper'} >
-      
-
-
-    <motion.div className={'project-single-wraps'} >
-    <SingleVideo singleProject={singleProject} activeFilm={activeFilm}></SingleVideo>
+      <div 
+        className={'project-single-content'} 
+      >
+        <motion.div 
+          className={'project-single-content-wrapper'} 
+        >
+          <motion.div 
+            className={'project-single-wraps'} 
+          >
+            <SingleVideo
+              activeFilm={activeFilm}
+            ></SingleVideo>
     
-<motion.ul className={'project-single-details-list'} variants={detailsMotion}>
-        <li key={1}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                
-                {e}
-                
-              </motion.li>
-              ))
-            : null }
-          </ul>
-        </li>
-        <li key={2}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.style.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li>
-        <li key={3}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li>
-        <li key={4}>
-          <ul>
-            {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
-              <motion.li className={'project-single-details'} variants={titleMotion} key={i} onClick={event => goToPosts(event, e)}>
-                {e}
-              </motion.li>
-              ))
-              : null }
-          </ul>
-        </li> 
+            <motion.ul 
+              className={'project-single-details-list'} 
+              variants={detailsMotion}
+            >
+              <li key={1}>
+                <ul>
+                  {singleProject.length !== 0 ? singleProject.role.map((e, i) => (
+                    <motion.li 
+                      className={'project-single-details'} 
+                      variants={titleMotion} 
+                      key={i} 
+                      onClick={event => goToPosts(event, e)}
+                    >
+                      {e}
+                    </motion.li>
+                  ))
+                  : null }
+                </ul>
+              </li>
+              <li key={2}>
+                <ul>
+                  {singleProject.length !== 0 ? singleProject.style.map((e, i) => (
+                    <motion.li 
+                      className={'project-single-details'} 
+                      variants={titleMotion} 
+                      key={i} 
+                      onClick={event => goToPosts(event, e)}
+                    >
+                      {e}
+                    </motion.li>
+                  )) : null }
+                </ul>
+              </li>
+              <li key={3}>
+                <ul>
+                  {singleProject.length !== 0 ? singleProject.type.map((e, i) => (
+                    <motion.li 
+                      className={'project-single-details'} 
+                      variants={titleMotion} 
+                      key={i} 
+                      onClick={event => goToPosts(event, e)}
+                    >
+                      {e}
+                    </motion.li>
+                    ))
+                    : null }
+                </ul>
+              </li>
+              <li key={4}>
+                <ul>
+                  {singleProject.length !== 0 ? singleProject.company.map((e, i) => (
+                    <motion.li 
+                      className={'project-single-details'} 
+                      variants={titleMotion} 
+                      key={i} 
+                      onClick={event => goToPosts(event, e)}
+                    >
+                      {e}
+                    </motion.li>
+                    ))
+                    : null }
+                </ul>
+              </li> 
       </motion.ul>
       
       <motion.h1 variants={titleMotion}>
@@ -571,76 +311,54 @@ const goToPosts = (event, c) => {
       </motion.h1>
 
       <motion.div className={'project-single-intro'} variants={textMotion}>
-      <motion.div variants={textMotion} className={'project-single-intro-text-container'}>
-      <p className={ columns > 2 ? 'project-single-intro-texty' : 'project-single-intro-texty'}>
-        {textIntro}
-        </p>
+        <motion.div variants={textMotion} className={'project-single-intro-text-container'}>
+          <p className={ columns > 2 ? 'project-single-intro-texty' : 'project-single-intro-texty'}>
+            {textIntro}
+          </p>
+        </motion.div>
       </motion.div>
-      
-      </motion.div>
-
-      
-      
-      </motion.div>
-
-
-
-
-
-
-      
-
-    
-
-
-
-          {/*   */}
-    <motion.div className={'project-single-summary'} variants={textMotion}>
-    <div className={'project-single-summary-text-container'}>
-    <p className={ columns > 2 ? 'project-single-summary-texty' : showMore ? 'project-single-summary-texty' : 'project-single-summary-texty closed'}>
-      { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
-      </p>
-    
-    <button className="more-less-btn" onClick={() => setShowMore(!showMore)}>
-      { columns > 2 ? '' : showMore ? "Show less" : "Read more"}
-    </button>
-    </div>
-    
     </motion.div>
 
+    <motion.div className={'project-single-summary'} variants={textMotion}>
+      <div className={'project-single-summary-text-container'}>
+        <p className={ columns > 2 ? 'project-single-summary-texty' : showMore ? 'project-single-summary-texty' : 'project-single-summary-texty closed'}>
+          { columns > 2 ? text : showMore ? text : `${text.substring(0, 200)}`}
+        </p>
+        <button className="more-less-btn" onClick={() => setShowMore(!showMore)}>
+          { columns > 2 ? '' : showMore ? "Show less" : "Read more"}
+        </button>
+      </div>
+    </motion.div>
 
-
-
-    {/*   */}
     {singleProject.album && singleProject.album.length !== 0 ? 
-      <div className={'video-wrapper'}>{
+    <div className={'video-wrapper'}>{
       singleProject.album.map((e, i) => 
-      <motion.div
-      className={'video l-grid__item l-grid__item--album'} 
-      key={i}
-      variants={videoMotion}
-    >
-      <motion.div  className="c-video" >
-        <div className="c-video__link-container">
-            <a 
-              className="c-video__link lightbox lightbox-link lightbox-video" 
-              href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
-            >
-              Watch
-            </a>
-        </div>
-        <video 
-          muted="muted" 
-          playsInline={true} 
-          loop="loop" 
-          className="c-video__video" 
-          poster={e.img}
+        <motion.div
+          className={'video l-grid__item l-grid__item--album'} 
+          key={i}
+          variants={videoMotion}
         >
-          <source 
-          type="video/mp4" 
-          src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
-          ></source>
-        </video>
+          <motion.div  className="c-video" >
+            <div className="c-video__link-container">
+              <a 
+                className="c-video__link lightbox lightbox-link lightbox-video" 
+                href="https://player.vimeo.com/video/100902001?h=dcaa89d3e0&title=0&byline=0&portrait=0"
+              >
+                Watch
+              </a>
+            </div>
+            <video 
+              muted="muted" 
+              playsInline={true} 
+              loop="loop" 
+              className="c-video__video" 
+              poster={e.img}
+            >
+              <source 
+              type="video/mp4" 
+              src="https://suncreature.com/wp-content/uploads/2021/05/Riot_Change_Your_Fate_4B_preview.mp4"
+              ></source>
+            </video>
       </motion.div>
     </motion.div> 
     )

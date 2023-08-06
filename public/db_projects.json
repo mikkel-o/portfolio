@@ -13,12 +13,13 @@
     "company": ["sun creature"],
     "client": ["riot games"],
     "img": "https://lh3.googleusercontent.com/drive-viewer/AITFw-w3Uwj_MyN06gNu297P7dmig1AOz3o8g7o8MERG9enh712Rr46KxRAm2MpBLcLyrjjw8TWc-4m2LmPU6dWS0wnTQgnotw=s1600",
-        "vid": "https://player.vimeo.com/progressive_redirect/playback/849063827/rendition/720p/file.mp4?loc=external&signature=9a5e90e2083e3df894be833d20f44c1ae835c51d543a1346287ac4b7f5e44b6f",
-        "link": "https://youtu.be/xKarEOxXa3s",
-        "embed": {
-          "host": "youtube",
-          "link": "https://www.youtube.com/embed/xKarEOxXa3s"
-        }
+    "vid": "https://player.vimeo.com/progressive_redirect/playback/849063827/rendition/720p/file.mp4?loc=external&signature=9a5e90e2083e3df894be833d20f44c1ae835c51d543a1346287ac4b7f5e44b6f",
+    "link": "https://youtu.be/xKarEOxXa3s",
+    "embed": {
+      "host": "youtube",
+      "link": "https://www.youtube.com/embed/xKarEOxXa3s",
+      "id": "xKarEOxXa3s"
+    }
   },
   {
     "id": 111,
@@ -38,7 +39,8 @@
     "link": "https://youtu.be/lCjlFAefDnI",
     "embed": {
       "host": "youtube",
-      "link": "https://www.youtube.com/embed/lCjlFAefDnI"
+      "link": "https://www.youtube.com/embed/lCjlFAefDnI",
+      "id": "lCjlFAefDnI"
     } 
   },
   {
@@ -79,7 +81,8 @@
         "link": "https://youtu.be/h3YIKmjFpoo",
         "embed": {
           "host": "youtube",
-          "link": "https://www.youtube.com/embed/h3YIKmjFpoo"
+          "link": "https://www.youtube.com/embed/h3YIKmjFpoo",
+          "id": "h3YIKmjFpoo"
         }
       },
       {
@@ -99,7 +102,8 @@
         "link": "https://youtu.be/IoSTm4jwGEo",
         "embed": {
           "host": "youtube",
-          "link": "https://www.youtube.com/embed/IoSTm4jwGEo"
+          "link": "https://www.youtube.com/embed/IoSTm4jwGEo",
+          "id": "IoSTm4jwGEo"
         }
       },
       {
@@ -119,7 +123,8 @@
         "link": "https://youtu.be/kAr0IfSMe1w",
         "embed": {
           "host": "youtube",
-          "link": "https://www.youtube.com/embed/kAr0IfSMe1w"
+          "link": "https://www.youtube.com/embed/kAr0IfSMe1w",
+          "id": "kAr0IfSMe1w"
         }
       }
     ]
@@ -222,7 +227,8 @@
     "link": "https://youtu.be/qi4fGPPPmGA",
     "embed": {
       "host": "youtube",
-      "link": "https://www.youtube.com/embed/qi4fGPPPmGA"
+      "link": "https://www.youtube.com/embed/qi4fGPPPmGA",
+      "id": "qi4fGPPPmGA"
     }
   },
   {
@@ -257,7 +263,8 @@
         "link": "https://vimeo.com/248578236",
         "embed": {
           "host": "vimeo",
-          "link": "https://player.vimeo.com/video/248578236?h=047afc0e35"
+          "link": "https://player.vimeo.com/video/248578236?h=047afc0e35",
+          "id": "248578236"
         }
       },
       {
@@ -272,7 +279,8 @@
         "link": "https://vimeo.com/monkeytennis/monkeychristmas",
         "embed": {
           "host": "vimeo",
-          "link": "https://player.vimeo.com/video/196590870?h=dc1fb64104"
+          "link": "https://player.vimeo.com/video/196590870?h=dc1fb64104",
+          "id": "196590870"
         }
       }
     ]
@@ -296,7 +304,8 @@
     "link": "https://vimeo.com/358296442",
     "embed": {
       "host": "vimeo",
-      "link": "https://player.vimeo.com/video/358296442?h=8b59dc64ae"
+      "link": "https://player.vimeo.com/video/358296442?h=8b59dc64ae",
+      "id": "358296442"
     }
   },
   {

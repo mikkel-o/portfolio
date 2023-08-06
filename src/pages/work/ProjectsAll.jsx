@@ -19,6 +19,9 @@ export function FeaturedProjects() {
     
     //dispatch(toggle('showreel'));
     setIsActive(true);
+    console.log(event.target);
+  //event.target.style.opacity = "1";
+
   }
   //useOnClickOutside(ref, () => {dispatch(hideAllToggles('showreel'))}); 
   
@@ -55,55 +58,35 @@ export function FeaturedProjects() {
     <motion.div 
     className="featured-projects-container"
     
-    onClick={onClickHandler}
+    
     key={'blue'}
     initial={{opacity: 0, scale: 0.95}}
     animate={{opacity: 1, scale: 1, transition: {ease: [.43, .13, .23, .96], duration: .6}}}
     exit={{opacity: 0, scale: 1.03 }}
     
     >
-      {isActive ? 
-
-        <motion.div
-          style={{
-            position: 'absolute',
-            width: '100%',
-          height: '100%',
-          background: 'black',
-          zIndex: '25'
-          }}
-          
-        >
-           <iframe 
-                title="vimeo"
-                src={"https://player.vimeo.com/video/767311875?h=38e18a53c8&autoplay=1&muted=1"}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                playsInline
-                autoPlay
-                className={'video-iframe'}
-                
-                
-                >
-              </iframe>
-        </motion.div>
-        
-        :
-        null
-      }
+      
+      
+       
       <span className="project-container" >
               
               
       
                   
                   
-                  <div className={'showreel carousel__wrapper'}>
+                  <div className={'showreel carousel__wrapper'} >
         
      
                   {/* video/image container */}
-                  <ul className={'carousel__list project'}>
-                    <li className={'carousel__item carousel__item--featured current-slide' }>
+                  <ul 
+                    className={'carousel__list project'}
+                    
+                  >
+                    <li 
+                      className={'carousel__item carousel__item--featured current-slide' }
+                      
+                      
+                    >
             
             
                         {/* video (!add image posibility) 
@@ -115,10 +98,10 @@ export function FeaturedProjects() {
                       src={"https://player.vimeo.com/progressive_redirect/playback/848542892/rendition/720p/file.mp4?loc=external&signature=8c74ef7b728d3833b55001734f2040c80f0348de790e76e83ca66a55edbdb704"} 
                       poster={'/video/CGReel_temp_poster_540.jpg'}
                       loop
-                      autoPlay={1}
                       playsInline
                       muted
-                    
+                      
+                      
                     ></video>
                         
                       
@@ -126,67 +109,48 @@ export function FeaturedProjects() {
                     
                     {/* END .carousel__item */}
                     </li> 
+                    <li>
+
+        <motion.div
+          className={'iframe__wrapper'}
+          style={{
+            position: 'absolute',
+            width: '100%',
+          height: '100%',
+          background: 'black',
+          top: '0',
+          zIndex: '25',
+          opacity: isActive ? '1' : '0'
+          
+          
+          
+          }}
+          onClick={onClickHandler}
+          
+        >
+           <iframe 
+              
+                title="vimeo"
+                src={"https://player.vimeo.com/video/767311875?h=38e18a53c8"}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                playsInline
+                autoPlay
+                className={'video-iframe'}
+                style={{width: isActive ? '100%' : '0', height: isActive ? '100%' : '0'}}
+                
+                
+                >
+              </iframe>
+        </motion.div>
+                    </li>
                   {/* END .carousel__list */}  
                   </ul>
                   </div>
                  
 
 
-                  <motion.span 
-                    className={"project-container"} 
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer"
-                    }}
-                  >
-                    
-                    
-                    
-                    <motion.div 
-                      exit={{opacity: 0, transition: {ease: [.43, .13, .23, .96], duration: .2}}} 
-                      className={'project-info-bg'} 
-                      style={{zIndex: 4}} 
-                      onClick={onClickHandler}
-                    >
-                      <motion.button
-                      className={'showreel-play-btn'}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        zIndex: "50",
-                        pointerEvents: 'none'
-                      }}
-                      
-                      
-                      >
-                      <div 
-                        style={{
-                          borderRadius: "50%",
-                          border: "0px solid white",
-                          width: "100px",
-                          height: "100px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          position: "relative",
-                          zIndex: "50"
-                        }}
-                      >
-                        <div
-                          className={'play__icon'}
-                        >
-
-                        </div>
-                        
-                      </div>
-                    </motion.button>
-                    </motion.div>
-                    
-                    </motion.span>
 
 
 
