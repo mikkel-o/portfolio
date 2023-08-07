@@ -30,7 +30,7 @@
   
 }
 :is(vimeo-embed, youtube-embed) button {
-  background-color: var(--button-bgc, #F00);
+  background-color: transparent;
   block-size: var(--button-h, 50px);
   border: 0;
   border-radius: var(--button-bdrs, 14%);
@@ -40,17 +40,19 @@
   position: absolute;
   place-self: center;
   transition: all .2s ease-in;
+  width: 100%;
+  height: 100%;
 }
 :is(vimeo-embed, youtube-embed) button::before {
   aspect-ratio: 1;
   background: #FFF;
-  block-size: 1.5em;
+  block-size: 2em;
   clip-path: polygon(20% 0%, 20% 100%, 100% 50%);
   content: '';
   place-self: center;
 }
 
-vimeo-embed button { --button-bgc: #00adef; }
+/*vimeo-embed button { --button-bgc: #00adef; }*/
 
 :is(vimeo-embed, youtube-embed) iframe:not([src=""]) + button {
   display: none;

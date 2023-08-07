@@ -24,7 +24,13 @@ export function SingleVideo(props) {
     activeFilm.id ? 
       <motion.div className={'projects-single-image-wrapper'} key={activeFilm.id}   >
         { activeFilm.embed.id ?
-            <VideoPlayer project={activeFilm}></VideoPlayer>
+            <VideoPlayer 
+              position={activeFilm.position} 
+              posterVid={activeFilm.vid} 
+              posterImg={activeFilm.img} 
+              host={activeFilm.embed.host} 
+              id={activeFilm.embed.id} 
+            ></VideoPlayer>
           :
             null
         }

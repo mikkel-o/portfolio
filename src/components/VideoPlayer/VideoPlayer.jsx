@@ -8,7 +8,8 @@ import './VideoPlayer.css';
 
 
 export default function VideoEmbed(props) {
-    const {project} = props;
+    const {host, id, position, posterVid, posterImg} = props;
+    
     const [isActive, setIsActive] = useState(false);
 const [isActiveHasBeenSet, setIsActiveHasBeenSet] = useState(false);
 const [isIntersecting, setIsIntersecting] = useState(false);
@@ -146,7 +147,7 @@ useEffect(() => {
         ref={ref} 
         className={'video-embed__wrapper'}
       >
-        {project.embed.host === 'youtube' ?
+        {host === 'youtube' ?
         <youtube-embed>
            {!isActive ? 
            <motion.video 
@@ -155,11 +156,11 @@ useEffect(() => {
             className={`
               album__image 
               project-single-image 
-              album__image--position-${project.position}
+              album__image--position-${position}
             `} 
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
-            src={project.vid} 
-            poster={project.img}
+            src={posterVid} 
+            poster={posterImg}
             loop
             autoPlay={1}
             playsInline
@@ -172,7 +173,7 @@ useEffect(() => {
             title="youtube-iframe" 
             allow="autoplay" 
             src="" 
-            data-src={`https://www.youtube.com/embed/${project.embed.id}?autoplay=1&mute=1`}
+            data-src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`}
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
           ></motion.iframe>
           
@@ -185,7 +186,7 @@ useEffect(() => {
         
         :
         
-        project.embed.host === 'vimeo' ?
+        host === 'vimeo' ?
         <vimeo-embed>
           {!isActive ? 
           <motion.video 
@@ -194,11 +195,11 @@ useEffect(() => {
             className={`
               album__image 
               project-single-image 
-              album__image--position-${project.position}
+              album__image--position-${position}
             `} 
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
-            src={project.vid} 
-            poster={project.img}
+            src={posterVid} 
+            poster={posterImg}
             loop
             autoPlay={1}
             playsInline
@@ -207,10 +208,10 @@ useEffect(() => {
           ></motion.video>
           : null}
           <motion.iframe 
-            title="youtube-iframe" 
+            title="vimeo-iframe" 
             allow="autoplay" 
             src="" 
-            data-src={`https://player.vimeo.com/video/${project.embed.id}?h=047afc0e35&autoplay=1&muted=1`}
+            data-src={`https://player.vimeo.com/video/${id}&autoplay=1&muted=1`}
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
           ></motion.iframe>
           
