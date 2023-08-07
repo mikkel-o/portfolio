@@ -18,27 +18,6 @@ const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   luctus at facilisis nec, rutrum ac sapien.` ;
   
 
-export function SingleVideo(props) {
-  const {activeFilm} = props;
-  return (
-    activeFilm.id ? 
-      <motion.div className={'projects-single-image-wrapper'} key={activeFilm.id}   >
-        { activeFilm.embed.id ?
-            <VideoPlayer 
-              position={activeFilm.position} 
-              posterVid={activeFilm.vid} 
-              posterImg={activeFilm.img} 
-              host={activeFilm.embed.host} 
-              id={activeFilm.embed.id} 
-            ></VideoPlayer>
-          :
-            null
-        }
-      </motion.div>
-    :
-      null
-  )
-}
 
 const SingleProject = (props) => {
   document.documentElement.classList.add(`trans-nav`);
@@ -243,9 +222,23 @@ const textMotion = {
           <motion.div 
             className={'project-single-wraps'} 
           >
-            <SingleVideo
-              activeFilm={activeFilm}
-            ></SingleVideo>
+          {activeFilm.id ? 
+            <motion.div 
+              className={'projects-single-image-wrapper'} 
+              key={activeFilm.id}
+            >
+              {activeFilm.embed.id ?
+                <VideoPlayer 
+                  position={activeFilm.position} 
+                  posterVid={activeFilm.vid} 
+                  posterImg={activeFilm.img} 
+                  host={activeFilm.embed.host} 
+                  id={activeFilm.embed.id} 
+                  transition={"position"}
+                ></VideoPlayer>
+              : null}
+            </motion.div>
+          : null}
     
             <motion.ul 
               className={'project-single-details-list'} 

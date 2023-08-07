@@ -8,7 +8,7 @@ import './VideoPlayer.css';
 
 
 export default function VideoEmbed(props) {
-    const {host, id, position, posterVid, posterImg} = props;
+    const {host, id, position, posterVid, posterImg, transition} = props;
     
     const [isActive, setIsActive] = useState(false);
 const [isActiveHasBeenSet, setIsActiveHasBeenSet] = useState(false);
@@ -174,7 +174,7 @@ useEffect(() => {
             allow="autoplay" 
             src="" 
             data-src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`}
-            variants={!isActiveHasBeenSet ? variants : variantsTwo}
+            variants={!isActiveHasBeenSet && transition === 'position' ? variants : variantsTwo}
           ></motion.iframe>
           
           <motion.button 

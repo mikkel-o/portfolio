@@ -551,6 +551,7 @@ a.hide img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  max-width: 100vw;
 }
 
 .project-single-content {
