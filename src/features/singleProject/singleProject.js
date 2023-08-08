@@ -239,7 +239,18 @@ const textMotion = {
               : null}
             </motion.div>
           : null}
-    
+
+            <motion.h3 variants={titleMotion}>
+              {activeFilm.titleprefix ? activeFilm.titleprefix : ''}
+            </motion.h3>
+
+            <motion.h1 variants={titleMotion}>
+              {activeFilm.title ? activeFilm.title : ''}
+            </motion.h1>
+            <motion.h2 variants={titleMotion}>
+              {activeFilm.titlesuffix ? activeFilm.titlesuffix : ''}
+            </motion.h2>
+
             <motion.ul 
               className={'project-single-details-list'} 
               variants={detailsMotion}
@@ -305,9 +316,7 @@ const textMotion = {
               </li> 
       </motion.ul>
       
-      <motion.h1 variants={titleMotion}>
-        {singleProject.name ? singleProject.name.replace(/-/g, ' ') : ''}
-      </motion.h1>
+      
 
       <motion.div className={'project-single-intro'} variants={textMotion}>
         <motion.div variants={textMotion} className={'project-single-intro-text-container'}>
