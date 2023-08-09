@@ -23,8 +23,9 @@ export default function ProjectsAll() {
       ></VideoPlayer>
       
       <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >
-        <Filters filtersAll={filtersAll} filtersActive={filtersActive} filtersPseudo={filtersPseudo} type={"work"}/>
+        
       </header>
+      <Filters filtersAll={filtersAll} filtersActive={filtersActive} filtersPseudo={filtersPseudo} type={"work"}/>
       <main id="projects-wrapper">
         <section className="projects-section">
           

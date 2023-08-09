@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { hideAllToggles} from "../../components/toggleSlice";
-import { removePseudoFilter, addPseudoFilter, updateFilterCounts, clearPseudoFilters, clearActiveFilters} from "../projects/projectsSlice";
+import { removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
 import { removePseudoFilterPhoto, addPseudoFilterPhoto, updateFilterCountsPhoto} from "../photo/photoSlice";
 import { motion } from "framer-motion";
 import { toggle } from "../../components/toggleSlice";
@@ -18,27 +18,17 @@ export default function Filters(props) {
   const location = useLocation();
   const ref = useRef();
   
-  const [isIndex, setIsIndex] = useState();
-  const state = useSelector(state => state.projects);
+  
+  const [isOpen, setIsOpen] = useState(false);
+  
 
   
-  useOnClickOutside(ref, () => {setIsIndex(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
-  const onClickOpen = (event, index) => {
-    isIndex === index+1 ? setIsIndex(false) : setIsIndex(index+1);
-        
+  
+  useOnClickOutside(ref, () => {setIsOpen(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
+  const onClickOpen = (event) => {
     
-    
-  };
-  const onClickAll = () => {
-    console.log(filtersActive);
-    dispatch(clearPseudoFilters());
-    dispatch(clearActiveFilters());
-    document.querySelectorAll('.filters-wrapper .active').forEach(child => child.classList.remove('active'))
-    console.log(document.querySelectorAll('.filters-wrapper .active'));
-    navigate({pathname: location.pathname, search: ''});
-    
-    setIsIndex(false);
-    console.log(state);
+    setIsOpen(!isOpen);
+
   };
   
   const onClickClearFilters = (e) => {
@@ -85,7 +75,7 @@ export default function Filters(props) {
       params.delete('filters');
     }
     navigate({pathname: location.pathname, search: params.toString()});
-    setIsIndex(false);
+    setIsOpen(false);
   }
 
   
@@ -94,18 +84,25 @@ export default function Filters(props) {
       className={'filters-wrapper mobile'}
       
     >
-      <div ref={ref} className={`${isIndex ? `open-${isIndex}` : 'closed'} filters__menu`} >
-              
-        {filtersAll.map( (filterGroup, index) => (
-              <div className={'filter-cat__menu'} key={index}>
-              <div 
-                className={'filter-cat__title-wrapper'} 
-                onClick={event => onClickOpen(event, index)}
-              >
-                <h5 className={'filter-cat__title'}>
-                {filterGroup.filterGroup}
+      
+      <div ref={ref} className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
+      <div className={'filter-cat__menu filter-toggle__menu'} key={0}>
+              <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
+                <h5 className={'filter-btn__title'}>
+                filters
                 </h5>
               </div>
+              </div>
+              
+        {isOpen ? 
+        
+        <div className={`filters__menu-wrapper`} >
+          <div className={`filters__menu-bg`} ></div>
+          {filtersAll.map( (filterGroup, index) => (
+              <div className={'filter-cat__menu'} key={index}>
+              <h5 className={'filter-cat__title'}>
+                {filterGroup.filterGroup}
+                </h5>
               <ul className={'filter-cat__list'}>
               {filterGroup.filters.map((filter, index) => (
                     <li className={'filter-cat__item'} key={index}>
@@ -122,16 +119,29 @@ export default function Filters(props) {
                   </li>
 
                   ))}
-                <div className={'filters-item filters-item-apply'}>
+            
+              </ul> 
+              
+              </div>
+              
+              
+              
+            ))}
+            </div>
+            
+          : null}
+          
+          {isOpen ? 
+           <div className={'filters-item filters-item-apply'}>
             {(filtersActive.length > 0) ? 
               <div className={'filters clear'}>
                 <button 
                   className={'filters-clear-btn'} 
                   onClick={onClickClearFilters}
                 >
-                  <h4 className={'filters-clear-title'}>
+                  <span className={'filters-apply'}>
                      clear
-                  </h4>
+                  </span>
                 </button>
               </div>
               : ''}
@@ -145,23 +155,12 @@ export default function Filters(props) {
               </span>
             </button>
           </div> 
-              </ul> 
-              
-              </div>
-              
-              
-              
-            ))}
-       <div className={'filter-cat__menu'} key={0}>
-              <div className={'filter-cat__title-wrapper'} onClick={event => onClickAll(event)}>
-                <h5 className={'filter-cat__title'}>
-                all
-                </h5>
-              </div>
-              </div>
+          : null}
+
+      
      
       </div>
-      
+     
      
     </motion.div>
   );
