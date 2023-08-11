@@ -12,7 +12,7 @@
   right: 0;
   display: flex;
   /* flex-direction: column; */
-  z-index: 23;
+  z-index: 12;
   background: none;
   width: 50px;
   display: flex;
@@ -177,7 +177,7 @@
     position: fixed;
     padding-bottom: env(safe-area-inset-bottom);
     bottom: 0;
-    z-index: 22;
+    z-index: 12;
     }
     
   /*

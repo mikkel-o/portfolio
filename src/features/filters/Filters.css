@@ -11,23 +11,31 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: calc(100vw - 60px);
-    height: calc(100vh - 0);
-    padding: 30px;
+    width: calc(100vw - 40px);
+    /*height: calc(100vh - 0);*/
+    padding: 60px 20px 60px 28px;
     margin: 0;
     background: var(--ui-background);
     overflow-y: scroll;
-    z-index: 11;
+    z-index: 12;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .filter-cat__menu {
-    margin: 0 10px 0 0;
+        /* margin: 0 10px 0 0; */
+        flex-basis: calc(50% - 20px);
 }
-.filter-cat__menu:nth-child(2) {
+/*.filter-cat__menu:nth-child(2),
+.filter-cat__menu:nth-child(3) {
     margin-top : 40px;
+}*/
+.filter-cat__menu:last-child {
+    padding-bottom : 80px;
 }
 .filter-toggle__menu {
-    z-index: 13;
+    z-index: 11;
     position: fixed;
     top: 0;
     left: 10px;
@@ -49,10 +57,10 @@ display: none;
     /*position: fixed;*/
     top: 50px;
     left: 30px;
-    width: calc(100vw - 80px);
+    /*width: calc(100vw - 80px);*/
     
     margin: 0;
-    padding: 10px;
+    padding: 10px 0;
     background: var(--ui-background);
 }
 .open .filter-cat__menu .filter-cat__list {
@@ -83,7 +91,7 @@ justify-content: flex-end;
     left: 0;
     padding: 10px 0px;
     width: 100%;
-    z-index: 11;
+    z-index: 12;
     background: var(--ui-background);
     display: flex;
     justify-content: flex-end;
@@ -120,7 +128,7 @@ pointer-events: none;
 }
 .filter-cat__item-title {
     color: var(--text-primary);
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 100;
     }
     .filter-btn-title {
@@ -159,7 +167,7 @@ pointer-events: none;
     position: sticky;
     top: 0;
     z-index: 10;
-    
+    /*margin-bottom: -50px;*/
     min-height: 50px;
     
     width: 100%;
@@ -191,3 +199,167 @@ pointer-events: none;
     left: 0;
     z-index: 12;
   }
+
+  .filters__exit-btn {
+    background: none;
+    color: var(--text-primary);
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    z-index: 13;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .filters__exit-btn span {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    display: block;
+    background: var(--text-primary);
+    /*border-radius: 10px;
+    border: 1px solid var(--text-primary);*/
+    overflow: hidden;
+  }
+  .filters__exit-btn span:nth-child(1) {
+    transform: rotate(45deg);
+
+  }
+  .filters__exit-btn span:nth-child(2) {
+    transform: rotate(-45deg);
+    
+  }
+
+  .active-filter-name {
+    pointer-events: none;
+  }
+
+
+
+  /*ACTIVE FILTERS*/
+
+
+.filters button span {
+    pointer-events: none;
+}
+.filters-button span {
+    pointer-events: none;
+}
+
+.active-filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    /*width: 100%;*/
+    padding: 0;
+    /*min-height: 25px;*/
+    margin: 0px 6px 0px 0;
+
+}
+/*.active-filters-list:first-child {
+    margin-left: 0;
+
+}*/
+.active-filters-list:last-child {
+    margin-right: 0;
+
+}
+.active-filters-wrapper {
+    /*display: flex;
+    flex-wrap: wrap;*/
+    
+    /*width: 100%;*/
+    /*width: 1000%;*/
+    overflow: hidden;
+}
+.filters-wrapper {
+    position: sticky;
+    top: 0;
+    padding: 0px 0px 0px 80px;
+    margin-right: 50px;
+    margin-top: -8px;
+    
+    z-index: 12;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -50px;
+    height: 50px;
+    
+}
+.filters-wrapper.empty {
+    height: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.active-filter-btn {
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    background: none;
+    /*box-shadow: 1px 1px 3px #7d7d7d;*/
+}
+.active-filters-item {
+    margin: 0px 5px 0px 0;
+    position: relative;
+    max-height: 25px;
+}
+.active-filters-item:first-child {
+    margin-left: 0;
+}
+.active-filters-item:last-child {
+    margin-right: 0;
+}
+
+
+.no-margin {
+    margin: 0;
+}
+.active-filter-name,
+.active-filter-remove {
+    pointer-events: none;
+    
+}
+
+.active-filter-btn::after {
+    content: 'x';
+    padding-left: 10px;
+}
+
+.mobile .active-filter-btn::after {
+    content: '';
+    padding-left: 0px;
+}
+
+
+
+.filters-clear-btn,
+.filters-apply-btn,
+.filters > button {
+    transition: all 0.25s ease;
+}
+
+.active-filter-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 1px 6px;
+}
+.active-filter-name,
+.active-filter-remove {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.active-filter-remove {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 0;
+    padding: 4px 10px 4px 15px;
+    pointer-events: none;
+}

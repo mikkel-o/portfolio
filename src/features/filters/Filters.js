@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { hideAllToggles} from "../../components/toggleSlice";
 import { removePseudoFilter, addPseudoFilter, updateFilterCounts} from "../projects/projectsSlice";
 import { removePseudoFilterPhoto, addPseudoFilterPhoto, updateFilterCountsPhoto} from "../photo/photoSlice";
@@ -9,6 +9,29 @@ import './Filters.css';
 import { useNavigate, useLocation } from "react-router-dom";
 
 /*- - - - - - -- - - - - ANIMATION - - - - - - - - - - - - - - */
+
+const scale = {scaleY: 1.1}
+const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
+const filterColors = [
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } },
+  { hover: { scale: scale, transition: transition } }
+  /*{ hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#89eacc', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#cdf7cb', 'rgb(255, 158, 158)'] } },
+  { hover: { scale: scale, transition: transition, backgroundColor: ['#fbfcce', 'rgb(255, 158, 158)'] } }*/
+];
+const filtersActivepan = {
+  initial: { y: 0, transition: transition },
+  hover: { y: 100, transition: transition }
+};
+const filtersActivepanTwo = {
+  initial: { y: -100, transition: transition },
+  animate: { y: -100, transition: transition },
+  hover: { y: 0, transition: transition }
+};
+
 
 
 export default function Filters(props) {
@@ -21,16 +44,16 @@ export default function Filters(props) {
   
   const [isOpen, setIsOpen] = useState(false);
   
-
+  const isFiltersMenuActive = useSelector(state => state.toggle)['filters__menu__mobile'];
+  const isFiltersMenuEmpty = filtersActive.length === 0 ? false : true;
   
   
   useOnClickOutside(ref, () => {setIsOpen(false)}); // Detect click outside filters box (try and put in seperat hook so it can be reused)
-  const onClickOpen = (event) => {
+  const onClickOpen = () => {
     
     setIsOpen(!isOpen);
 
   };
-  
   const onClickClearFilters = (e) => {
     document.querySelectorAll('.filters .active').forEach(child => child.classList.remove('active'))
     dispatch(hideAllToggles());
@@ -78,18 +101,75 @@ export default function Filters(props) {
     setIsOpen(false);
   }
 
+  const onClickRemoveFilter = (event, filtersPseudo) => {
+    console.log(event.target);
+    type === "work" ?
+    dispatch(removePseudoFilter(event.target.children[0].innerHTML))
+    :
+    dispatch(removePseudoFilterPhoto(event.target.children[0].innerHTML));
+    const newFilters = filtersActive.map(item => item);
+    const removeIndex = newFilters.findIndex( filter => filter.value === event.target.children[0].innerHTML );
+    newFilters.splice( removeIndex, 1 );
+    onClickApplyFilters(event, newFilters);
+  };
   
   return (
     <motion.div 
-      className={'filters-wrapper mobile'}
+    className={isFiltersMenuActive ? isFiltersMenuEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isFiltersMenuEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} 
       
     >
-      
+
+       {isFiltersMenuEmpty ? 
+      <div className={'active-filters-wrapper'}>
+        <ul 
+            className={`active-filters-list`}
+          >
+        {filtersAll.map( (filterGroup, index) => (
+          
+            filtersActive.map((filter, ind) => ( filter.key === filterGroup.filterGroup ? (
+              <motion.li 
+                initial={'initial'}
+                animate={'animate'}
+                exit={'exit'}
+                whileHover={'hover'}
+                transition={'transition'}
+                key={ind}
+                className={filtersActive.some( (button) => button.key === filterGroup.filterGroup) ? `active-filters-item ${filterGroup.filterGroup}` : `active-filters-item ${filterGroup.filterGroup}`}
+              >
+                <motion.button
+                  onClick={event => onClickRemoveFilter(event, filtersPseudo)}
+                  className={`active-filter-btn`}
+                >
+                  <motion.span 
+                    className={'active-filter-name'} 
+                    variants={filtersActivepan}
+                  >
+                    {filter.value}
+                  </motion.span>
+                  <motion.span
+                    className={'active-filter-remove'} 
+                    variants={filtersActivepanTwo}
+                  >
+                    {'remove'}
+                  </motion.span>
+                </motion.button>
+                <motion.div
+                  className={'active-filter-bg'} 
+                  variants={filterColors[index]}
+                ></motion.div>
+              </motion.li>
+            ) : ''))
+          
+        ))}
+        </ul>
+      </div>
+        : '' }
+
       <div ref={ref} className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
       <div className={'filter-cat__menu filter-toggle__menu'} key={0}>
               <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
                 <h5 className={'filter-btn__title'}>
-                filters
+                {isOpen ? 'close' : 'filters'}
                 </h5>
               </div>
               </div>
@@ -97,6 +177,13 @@ export default function Filters(props) {
         {isOpen ? 
         
         <div className={`filters__menu-wrapper`} >
+          <button 
+            className={`filters__exit-btn`} 
+            onClick={event => onClickOpen(event)}
+          >
+            <span>|</span>
+            <span>|</span>
+          </button>
           <div className={`filters__menu-bg`} ></div>
           {filtersAll.map( (filterGroup, index) => (
               <div className={'filter-cat__menu'} key={index}>
