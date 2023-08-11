@@ -166,7 +166,7 @@ export default function Filters(props) {
         : '' }
 
       <div ref={ref} className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
-      <div className={'filter-cat__menu filter-toggle__menu'} key={0}>
+      <div className={'filter-toggle__menu'} key={0}>
               <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
                 <h5 className={'filter-btn__title'}>
                 {isOpen ? 'close' : 'filters'}
