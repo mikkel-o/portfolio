@@ -6,6 +6,14 @@
     left: 10px;
     
 }*/
+.filters__menu-wrapper-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.open.filters__menu-wrapper-wrapper {
+    z-index: 12;
+}
 .filters__menu-wrapper {
     position: fixed;
     top: 0;
@@ -45,6 +53,11 @@
     z-index: 11;
     position: relative;
 }
+.layout-one .video-embed__wrapper,
+.layout-two .video-embed__wrapper {
+    margin-bottom: -55px;
+}
+
 /*.filter-cat__list {
     position: absolute;
     
@@ -116,6 +129,26 @@ justify-content: flex-end;
     margin: 10px auto;
     padding: 0 15px;
 }
+.filter-toggle__menu .filter-cat__title-wrapper {
+    height: 22px;
+    margin: 11px auto;
+    padding: 0 10px 2px;
+    }
+    .active-filters__count {
+        position: absolute;
+        top: 8px;
+        right: -2px;
+        font-size: 0.6em;
+        background: var(--ui-highlight);
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+    
 .filter-cat__item {
     padding: 5px 5px;
     }
@@ -153,7 +186,7 @@ pointer-events: none;
     }
     .active .filter-cat__item-title::before,
         .active.filter-cat__item-title::before {
-        background: #67c562;
+            background: var(--ui-highlight);
         display: inline-block;
     }
     
@@ -165,7 +198,7 @@ pointer-events: none;
       flex-wrap: wrap;
       justify-content: center;
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 10;
     /*margin-bottom: -50px;*/
     min-height: 50px;
@@ -274,15 +307,16 @@ pointer-events: none;
     /*width: 100%;*/
     /*width: 1000%;*/
     overflow: hidden;
+    margin-top: -3px;
 }
 .filters-wrapper {
     position: sticky;
     top: 0;
-    padding: 0px 0px 0px 80px;
+    padding: 0px 0px 0px 75px;
     margin-right: 50px;
     margin-top: -8px;
     
-    z-index: 12;
+    z-index: 10;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -290,6 +324,10 @@ pointer-events: none;
     margin-top: -50px;
     height: 50px;
     
+}
+.layout-two .filters-wrapper,
+.layout-one .filters-wrapper {
+    margin-bottom: -20px;
 }
 .filters-wrapper.empty {
     height: 0px;

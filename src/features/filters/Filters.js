@@ -10,18 +10,20 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 /*- - - - - - -- - - - - ANIMATION - - - - - - - - - - - - - - */
 
-const scale = {scaleY: 1.1}
-const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}
-const filterColors = [
+/*const scale = {scaleY: 1.1}
+const transition = {duration: .2, ease: [0.3, 0.13, 0.13, 0.96]}*/
+/*const filterColors = [
   { hover: { scale: scale, transition: transition } },
   { hover: { scale: scale, transition: transition } },
   { hover: { scale: scale, transition: transition } },
-  { hover: { scale: scale, transition: transition } }
+  { hover: { scale: scale, transition: transition } }*/
   /*{ hover: { scale: scale, transition: transition, backgroundColor: ['#84dccd', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#89eacc', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#cdf7cb', 'rgb(255, 158, 158)'] } },
   { hover: { scale: scale, transition: transition, backgroundColor: ['#fbfcce', 'rgb(255, 158, 158)'] } }*/
-];
+/*];
+*/
+/*
 const filtersActivepan = {
   initial: { y: 0, transition: transition },
   hover: { y: 100, transition: transition }
@@ -30,7 +32,7 @@ const filtersActivepanTwo = {
   initial: { y: -100, transition: transition },
   animate: { y: -100, transition: transition },
   hover: { y: 0, transition: transition }
-};
+};*/
 
 
 
@@ -100,7 +102,7 @@ export default function Filters(props) {
     navigate({pathname: location.pathname, search: params.toString()});
     setIsOpen(false);
   }
-
+/*
   const onClickRemoveFilter = (event, filtersPseudo) => {
     console.log(event.target);
     type === "work" ?
@@ -112,14 +114,86 @@ export default function Filters(props) {
     newFilters.splice( removeIndex, 1 );
     onClickApplyFilters(event, newFilters);
   };
-  
+  */
   return (
+    <div className={`${isOpen ? 'open' : 'closed'} filters__menu-wrapper-wrapper`}>
+
+{isOpen ? 
+        
+        <div ref={ref} className={`${isOpen ? 'open' : 'closed'} filters__menu-wrapper`} >
+          <button 
+            className={`filters__exit-btn`} 
+            onClick={event => onClickOpen(event)}
+          >
+            <span>|</span>
+            <span>|</span>
+          </button>
+          <div className={`filters__menu-bg`} ></div>
+          {filtersAll.map( (filterGroup, index) => (
+              <div className={'filter-cat__menu'} key={index}>
+              <h5 className={'filter-cat__title'}>
+                {filterGroup.filterGroup}
+                </h5>
+              <ul className={'filter-cat__list'}>
+              {filterGroup.filters.map((filter, index) => (
+                    <li className={'filter-cat__item'} key={index}>
+                    <button 
+                        onClick={e => onClickSelectFilter(e, index, filterGroup.filters)}
+                        className={'filters-button filters-button-mobile'}
+                      >
+                        <h6 className={filtersActive.map( fil => fil.value === filter.value).includes(true) ? 'active filter-cat__item-title' : 'filter-cat__item-title'}>
+                    {filter.value}
+                    </h6>
+                        
+                      </button>
+                    
+                  </li>
+
+                  ))}
+            
+              </ul> 
+              
+              </div>
+              
+              
+              
+            ))}
+           
+          
+          {isOpen ? 
+           <div className={'filters-item filters-item-apply'}>
+            {(filtersActive.length > 0) ? 
+              <div className={'filters clear'}>
+                <button 
+                  className={'filters-clear-btn'} 
+                  onClick={onClickClearFilters}
+                >
+                  <span className={'filters-apply'}>
+                     clear
+                  </span>
+                </button>
+              </div>
+              : ''}
+
+            <button 
+              className={'filters-apply-btn'}
+              onClick={event => onClickApplyFilters(event, filtersPseudo)}
+            >
+              <span className={'filters-apply'}>
+                Apply filters
+              </span>
+            </button>
+          </div> 
+          : null}
+ </div>
+            
+            : null}
     <motion.div 
     className={isFiltersMenuActive ? isFiltersMenuEmpty ? 'filters-wrapper mobile open' : 'filters-wrapper mobile open empty' : isFiltersMenuEmpty ? 'filters-wrapper mobile' : 'filters-wrapper mobile empty'} 
       
     >
 
-       {isFiltersMenuEmpty ? 
+       {/*isFiltersMenuEmpty ? 
       <div className={'active-filters-wrapper'}>
         <ul 
             className={`active-filters-list`}
@@ -163,93 +237,30 @@ export default function Filters(props) {
         ))}
         </ul>
       </div>
-        : '' }
+            : '' */}
 
-      <div ref={ref} className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
+      <div className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
       <div className={'filter-toggle__menu'} key={0}>
               <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
                 <h5 className={'filter-btn__title'}>
                 {isOpen ? 'close' : 'filters'}
                 </h5>
               </div>
+              {filtersActive.length > 0 ?
+              <div className='active-filters__count'>
+                {filtersActive.length}
+              </div>
+              : null
+              }
               </div>
               
-        {isOpen ? 
-        
-        <div className={`filters__menu-wrapper`} >
-          <button 
-            className={`filters__exit-btn`} 
-            onClick={event => onClickOpen(event)}
-          >
-            <span>|</span>
-            <span>|</span>
-          </button>
-          <div className={`filters__menu-bg`} ></div>
-          {filtersAll.map( (filterGroup, index) => (
-              <div className={'filter-cat__menu'} key={index}>
-              <h5 className={'filter-cat__title'}>
-                {filterGroup.filterGroup}
-                </h5>
-              <ul className={'filter-cat__list'}>
-              {filterGroup.filters.map((filter, index) => (
-                    <li className={'filter-cat__item'} key={index}>
-                    <button 
-                        onClick={e => onClickSelectFilter(e, index, filterGroup.filters)}
-                        className={'filters-button filters-button-mobile'}
-                      >
-                        <h6 className={filtersActive.map( fil => fil.value === filter.value).includes(true) ? 'active filter-cat__item-title' : 'filter-cat__item-title'}>
-                    {filter.value}
-                    </h6>
-                        
-                      </button>
-                    
-                  </li>
-
-                  ))}
-            
-              </ul> 
-              
-              </div>
-              
-              
-              
-            ))}
-            </div>
-            
-          : null}
-          
-          {isOpen ? 
-           <div className={'filters-item filters-item-apply'}>
-            {(filtersActive.length > 0) ? 
-              <div className={'filters clear'}>
-                <button 
-                  className={'filters-clear-btn'} 
-                  onClick={onClickClearFilters}
-                >
-                  <span className={'filters-apply'}>
-                     clear
-                  </span>
-                </button>
-              </div>
-              : ''}
-
-            <button 
-              className={'filters-apply-btn'}
-              onClick={event => onClickApplyFilters(event, filtersPseudo)}
-            >
-              <span className={'filters-apply'}>
-                Apply filters
-              </span>
-            </button>
-          </div> 
-          : null}
-
+       
       
      
       </div>
      
-     
     </motion.div>
+    </div>
   );
 }
 
