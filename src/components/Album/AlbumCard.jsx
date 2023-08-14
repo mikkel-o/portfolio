@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,11 +21,11 @@ export function AlbumCard(props) {
   
   const ref = useRef(null);
   const dispatch = useDispatch();
-  const [isIntersecting, setIsIntersecting] = useState(false);
+  //const [isIntersecting, setIsIntersecting] = useState(false);
     
   const isColumnCount = useSelector(state => state.toggle.layout);
    
-
+/*
   useEffect(() => {
     if (isColumnCount === 0) { 
     const observer = new IntersectionObserver(
@@ -39,7 +39,7 @@ export function AlbumCard(props) {
     );
     if (isIntersecting) {
       
-      /*
+      
         
         if (ref.current.getElementsByTagName('video').length > 0) {
           if (!item.album){
@@ -66,13 +66,13 @@ export function AlbumCard(props) {
         ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
       }
       } 
-      */
+      
     }
       observer.observe(ref.current);
     } 
     }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
 
-
+*/
 
 
     const [isActive, setIsActive] = useState(-1);
@@ -140,7 +140,7 @@ export function AlbumCard(props) {
         <motion.div 
           ref={ref} 
           style={{opacity: 0.7, translateY: '0px'}}
-          animate={{opacity: isIntersecting ? 1 : 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
+          animate={{opacity: 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >
