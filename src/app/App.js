@@ -147,10 +147,10 @@ function App() {
       dispatch(columnCount(1));
     }
     const debouncedHandleResize = debounce(function handleResize() {
-      for (let i = 0; i < albumVideo.length; i++) {
+      /*for (let i = 0; i < albumVideo.length; i++) {
         albumVideo[i].pause();
         albumVideo[i].currentTime = 0;
-      }
+      }*/
       if (window.innerWidth > 1349) {
         dispatch(columnCount(4));
       } else if (window.innerWidth > 949) {
