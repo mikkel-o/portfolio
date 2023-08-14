@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import ImageSlider from '../ImageSlider/ImageSlider';
-import {addSelectedID} from '../../features/projects/projectsSlice';
+//import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
   addProject, 
   clearProjects, 
@@ -53,7 +53,7 @@ export function AlbumCard(props) {
             //console.log(ref.current.getElementsByTagName('video'));
           }
         } 
-        dispatch(addSelectedID(item));
+        //dispatch(addSelectedID(item));
         
     } else {
       if (ref.current.getElementsByTagName('video').length > 0) {
