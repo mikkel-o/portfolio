@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
 import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
 
@@ -13,7 +13,7 @@ export function ImageSliderCard(props) {
   
   const ref = useRef(null);
   
-  //const isColumnCount = useSelector(state => state.toggle.layout);
+  const isColumnCount = useSelector(state => state.toggle.layout);
   const [isIntersecting, setIsIntersecting] = useState(false);
   useEffect(() => {
     if (activeIndex === index) {
@@ -81,22 +81,9 @@ export function ImageSliderCard(props) {
         <li ref={ref} className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
 
 
-            {/* video (!add image posibility) */}
-            {item.vid ? 
-                    <video 
-                    className={`album__video ${item.position ? `album__video--position-${item.position}` : null}`}
-                    src={item.vid} 
-                    poster={item.img}
-                    
-                    loop
-                    autoPlay={false}
-                    muted
-                    playsInline
-                    
-                   ></video>
-           : 
+           
             <img alt={'blahblah'} className={`${item.position ? `carousel__video carousel__video--position-${item.position}` : "carousel__video"}`} src={`${item.img}`}/>
-          }
+          
             
           
           
