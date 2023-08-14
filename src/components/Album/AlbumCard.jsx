@@ -68,7 +68,7 @@ export function AlbumCard(props) {
     }
       observer.observe(ref.current);
     } 
-    }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
+    });  
 
 
 
@@ -165,7 +165,7 @@ export function AlbumCard(props) {
                   item.album ? 
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
                   : 
-                    item.vid && isColumnCount === 0 ? 
+                    item.vid ? 
                     <video 
                     className={`album__video ${layout === "mix" ? "album__video--mix" : null} ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
