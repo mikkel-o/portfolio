@@ -39,7 +39,7 @@ export function AlbumCard(props) {
     );
     if (isIntersecting) {
       
-      
+      /*
         
         if (ref.current.getElementsByTagName('video').length > 0) {
           if (!item.album){
@@ -66,6 +66,7 @@ export function AlbumCard(props) {
         ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
       }
       } 
+      */
     }
       observer.observe(ref.current);
     } 
