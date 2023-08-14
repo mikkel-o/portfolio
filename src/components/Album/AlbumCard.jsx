@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ImageSlider from '../ImageSlider/ImageSlider';
-//import {addSelectedID} from '../../features/projects/projectsSlice';
+import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
   addProject, 
   clearProjects, 
@@ -20,7 +20,7 @@ export function AlbumCard(props) {
   
   const ref = useRef(null);
   const dispatch = useDispatch();
- /* const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
     
   const isColumnCount = useSelector(state => state.toggle.layout);
    
@@ -68,10 +68,10 @@ export function AlbumCard(props) {
     }
       observer.observe(ref.current);
     } 
-    });  
+    }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
 
 
-*/
+
 
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
@@ -138,7 +138,7 @@ export function AlbumCard(props) {
         <motion.div 
           ref={ref} 
           style={{opacity: 0.7, translateY: '0px'}}
-          animate={{opacity: 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
+          animate={{opacity: isIntersecting ? 1 : 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >
@@ -165,7 +165,7 @@ export function AlbumCard(props) {
                   item.album ? 
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
                   : 
-                    item.vid ? 
+                    item.vid && isColumnCount === 0 ? 
                     <video 
                     className={`album__video ${layout === "mix" ? "album__video--mix" : null} ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
