@@ -170,7 +170,7 @@ function App() {
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)
     }
-  }, [])
+  })
 
 
   
