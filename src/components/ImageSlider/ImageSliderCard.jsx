@@ -89,7 +89,7 @@ export function ImageSliderCard(props) {
                     poster={item.img}
                     
                     loop
-                    autoPlay={false}
+                    
                     muted
                     playsInline
                     
