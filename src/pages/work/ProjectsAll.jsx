@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { Projects } from "../../features/projects/Projects";
 import Filters from "../../features/filters/Filters";
-import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+//import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
 export default function ProjectsAll() {
   const allProjects = useSelector(state => state.projects.all).length;
