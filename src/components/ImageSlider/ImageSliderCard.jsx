@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 //import { useSelector } from "react-redux";
-import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
-import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
+//import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
+//import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
 
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 
 export function ImageSliderCard(props) {
 
-  const dispatch = useDispatch();
-  const {item, name, index, activeIndex, type} = props;
+  //const dispatch = useDispatch();
+  const {item} = props;
   
   
   const ref = useRef(null);
-  
+  /*
   //const isColumnCount = useSelector(state => state.toggle.layout);
   const [isIntersecting, setIsIntersecting] = useState(false);
   useEffect(() => {
@@ -74,7 +74,7 @@ export function ImageSliderCard(props) {
   
     }, [ref, dispatch, isIntersecting, index, name, type, item]);  
 
-        
+     */   
 
   return (
     
