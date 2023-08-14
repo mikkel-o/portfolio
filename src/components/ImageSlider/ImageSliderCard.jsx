@@ -32,8 +32,9 @@ export function ImageSliderCard(props) {
         threshold: .99
       }
     );
-    if (isIntersecting) {
 
+    if (isIntersecting) {
+/*
       if (ref.current.getElementsByTagName('video').length > 0) {
         if (!item.album){
           ref.current.getElementsByTagName('video')[0].play();
@@ -44,7 +45,7 @@ export function ImageSliderCard(props) {
           //console.log(ref.current.getElementsByTagName('video'));
         }
       } 
-
+*/
       if (type === 'feature') {
         type === "work" ?
         dispatch(addActiveSlideIndex({name: name, index: index}))
@@ -58,6 +59,7 @@ export function ImageSliderCard(props) {
       }
       
     } else {
+      /*
       if (ref.current.getElementsByTagName('video').length > 0) {
         if (!item.album){
         ref.current.getElementsByTagName('video')[0].pause();
@@ -67,7 +69,7 @@ export function ImageSliderCard(props) {
         ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
         
       }
-      } 
+      }*/ 
     }
     
       observer.observe(ref.current);

@@ -101,7 +101,7 @@ function App() {
   useEffect(() => {
     console.log('running app');
     if(layoutIsh === false) {
-      dispatch(layout(3));
+      dispatch(layout(0));
     } else {
       dispatch(layout(layoutIsh))
     }

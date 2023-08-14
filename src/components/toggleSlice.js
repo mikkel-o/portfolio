@@ -4,7 +4,7 @@ export const toggleSlice = createSlice({
   name: "toggle",
   initialState: {
     isMobile:   window.innerWidth > 949 ? false : true,
-    layout: 3,
+    layout: 0,
     columnCount: 
       window.innerWidth > 1349 ? 
         4 : window.innerWidth > 949 ? 
