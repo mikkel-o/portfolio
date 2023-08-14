@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { Projects } from "../../features/projects/Projects";
 import Filters from "../../features/filters/Filters";
-//import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
 export default function ProjectsAll() {
   const allProjects = useSelector(state => state.projects.all).length;
@@ -13,7 +13,16 @@ export default function ProjectsAll() {
   
   return (
     <div className={'wrapper'}>
-      
+      {filtersActive.length === 0 ? 
+        <VideoPlayer 
+        posterVid={'https://player.vimeo.com/progressive_redirect/playback/848542892/rendition/720p/file.mp4?loc=external&signature=8c74ef7b728d3833b55001734f2040c80f0348de790e76e83ca66a55edbdb704'} 
+        posterImg={'/video/CGReel_temp_poster_540.jpg'} 
+        host={'vimeo'} 
+        id={'767311875?h=38e18a53c8'}
+        transition={"opacity"}
+      ></VideoPlayer>
+      :
+      null}
       <header className={isActive ? 'projects-header mobile open' : 'projects-header mobile'} >
         
       </header>
