@@ -166,17 +166,17 @@ export function AlbumCard(props) {
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
                   : 
                     item.vid ? 
-                    <video 
-                    className={`album__video ${layout === "mix" ? "album__video--mix" : null} ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
-                    src={item.vid} 
-                    poster={item.img}
-                    
-                    loop
-                    autoPlay={false}
-                    muted
-                    playsInline
-                    
-                   ></video>
+                    <img 
+                    src={item.img} 
+                    alt="" 
+                    className=
+                      {
+                        `album__image 
+                        ${layout === "mix" ? "album__image--mix" : null} 
+                        ${scroll === "snap" ? "album__image--scroll" : null} 
+                        ${item.position ? `album__image--position-${item.position}` : null}`
+                      } 
+                    />
                     : 
                       <img 
                         src={item.img} 
