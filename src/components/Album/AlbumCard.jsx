@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import ImageSlider from '../ImageSlider/ImageSlider';
 //import {addSelectedID} from '../../features/projects/projectsSlice';
@@ -23,7 +23,7 @@ export function AlbumCard(props) {
   const dispatch = useDispatch();
   //const [isIntersecting, setIsIntersecting] = useState(false);
     
-  const isColumnCount = useSelector(state => state.toggle.layout);
+  //const isColumnCount = useSelector(state => state.toggle.layout);
    
 /*
   useEffect(() => {
