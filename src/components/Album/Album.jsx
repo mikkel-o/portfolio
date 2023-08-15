@@ -54,7 +54,7 @@ const onClickHandler = (event, num) => {
           {items.map((item, i) => (
           <>
             <AlbumCard layout={lay} item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} > 
-            {lay === 0 ? <AlbumCardOverlay item={item} key={item.id + 44} filters={filters}/>  : null}
+            <AlbumCardOverlay layout={lay} item={item} key={item.id + 44} filters={filters}/>
             </AlbumCard>
             
             </>

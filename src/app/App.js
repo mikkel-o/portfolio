@@ -103,6 +103,7 @@ function App() {
 
 console.log('bleh');
   useEffect(() => {
+    
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
       document.documentElement.classList.remove(`layout-three`);

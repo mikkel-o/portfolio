@@ -10,7 +10,7 @@ import {
 
 
 export function AlbumCardOverlay(props) {
-  const {layoutGrid, item, overlay } = props;
+  const {layout, item, overlay } = props;
   const dispatch = useDispatch();
 
 
@@ -26,11 +26,11 @@ export function AlbumCardOverlay(props) {
   return (  
     <>
     <div className={'album__overlay album__overlay--scroll'}>
-      <div className={'album__overlay-bg album__overlay-bg--scroll'}></div>
+      
     {
-           layoutGrid !== 0 ?
-            
-              
+           layout === 0 ?
+           <>
+           <div className={'album__overlay-bg album__overlay-bg--scroll'}></div>
       
             <div key={item.id + 55} className={"test"}>
               <div className={"album__title-wrapper album__title-wrapper--scroll"}>
@@ -49,6 +49,7 @@ export function AlbumCardOverlay(props) {
                 null
             }
             </div>
+            </>
             :
             null
           }
