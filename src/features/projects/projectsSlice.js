@@ -37,7 +37,7 @@ const sliceOptions = {
   reducers: {
     setActiveFilters: (state, action) => {
       if (action.payload === 'all') {
-        console.log('bleh');
+        
         state.filters.active = [];
         state.active = state.all;
       } else {

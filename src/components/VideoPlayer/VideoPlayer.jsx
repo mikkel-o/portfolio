@@ -113,7 +113,7 @@ useEffect(() => {
   const observer = new IntersectionObserver(
     
     ([entry]) => { 
-      console.log(ref.current);
+      
         setIsIntersecting(entry.isIntersecting);
     },
     {

@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { addActiveFilmIndex, addActiveSlideIndex } from "../../features/projects/projectsSlice";
 import { addActiveFilmIndexPhoto, addActiveSlideIndexPhoto } from "../../features/photo/photoSlice";
-
+import VideoCard from '../VideoCard/VideoCard';
 import { useDispatch } from "react-redux";
 
 export function ImageSliderCard(props) {
 
   const dispatch = useDispatch();
   const {item, name, index, activeIndex, type} = props;
-  console.log('testy');
+  
   
   const ref = useRef(null);
   
@@ -83,17 +83,8 @@ export function ImageSliderCard(props) {
 
             {/* video (!add image posibility) */}
             {item.vid && layout === 0 ? 
-                    <video 
-                    className={`album__video ${item.position ? `album__video--position-${item.position}` : null}`}
-                    src={item.vid} 
-                    poster={item.img}
-                    
-                    loop
-                    autoPlay={1}
-                    muted
-                    playsInline
-                    
-                   ></video>
+                    <VideoCard src={item.vid} poster={item.img} ></VideoCard>
+                   
            : 
             <img alt={'blahblah'} className={`${item.position ? `carousel__video carousel__video--position-${item.position}` : "carousel__video"}`} src={`${item.img}`}/>
           }

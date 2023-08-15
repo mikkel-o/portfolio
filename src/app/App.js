@@ -9,10 +9,10 @@ import {
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/ui/primaryNavigation";
 //import { columnCount, layout } from "../components/toggleSlice";
-import { layout } from "../components/toggleSlice";
+//import { layout } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
-import { toggle } from "../components/toggleSlice";
+//import { toggle } from "../components/toggleSlice";
 import { loadProjects, setActiveFilters } from "../features/projects/projectsSlice";
 import { loadPhotos, setActiveFiltersPhoto } from "../features/photo/photoSlice";
 import useLocalStorage from 'use-local-storage';
@@ -50,8 +50,9 @@ function App() {
   const photos = useSelector(state => state.photo);
 
   //const albumVideo = document.getElementsByClassName("album__video");
-  
+  const layoutIsh = useSelector(state => state.toggle.layout);
   useEffect(()=> {
+    
     
     if (location.pathname.indexOf('photo') > -1) {
       if (photos.hasBeenSet === false) {
@@ -70,16 +71,19 @@ function App() {
         }
       }
     }
-    console.log('app running');
+    
     
     if (location.pathname.indexOf('work') > -1) {
       if (projects.hasBeenSet === false) {
+        
         dispatch(loadProjects()).then(() => {
           if (filters) {
             dispatch(setActiveFilters(filters.split(',')))
           } else if (location.pathname === '/work') {
             dispatch(setActiveFilters('all'));
+            
           }
+          
         })
       } else {
         if (filters) {
@@ -88,86 +92,24 @@ function App() {
           dispatch(setActiveFilters('all'));
           
         }
+        
       }
     }
 
     dispatch(clearId());
-    dispatch(toggle('hideAll'));
+    //dispatch(toggle('hideAll'));
 
   },[location, dispatch, searchParams, projects.hasBeenSet, filters, photos.hasBeenSet])
 
 
-  const layoutIsh = useSelector(state => state.toggle.layout);
-  
   useEffect(() => {
-    console.log('running app');
-    if(layoutIsh === false) {
-      dispatch(layout(0));
-    } else {
-      dispatch(layout(layoutIsh))
-    }
-    
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
-      document.documentElement.classList.remove(`layout-one`);
-      document.documentElement.classList.remove(`layout-two`);
-      document.documentElement.classList.remove(`layout-three`);
-    } else if(layoutIsh === 1) {
-      document.documentElement.classList.add(`layout-one`);
-
-      document.documentElement.classList.remove(`layout-full`);
-      document.documentElement.classList.remove(`layout-two`);
-      document.documentElement.classList.remove(`layout-three`);
-    } else if(layoutIsh === 2) {
-      document.documentElement.classList.add(`layout-two`);
-
-      document.documentElement.classList.remove(`layout-full`);
-      document.documentElement.classList.remove(`layout-one`);
       document.documentElement.classList.remove(`layout-three`);
     } else if(layoutIsh === 3) {
       document.documentElement.classList.add(`layout-three`);
-
-      document.documentElement.classList.remove(`layout-full`);
-      document.documentElement.classList.remove(`layout-two`);
-      document.documentElement.classList.remove(`layout-one`);
+      document.documentElement.classList.remove(`layout-full`); 
     }
-    //albumVideo.forEach(video => video.pause());
-   /* if (window.innerWidth > 1349) {
-      dispatch(columnCount(4));
-    } else if (window.innerWidth > 949) {
-      dispatch(columnCount(3));
-    } else if (window.innerWidth > 599) {
-      dispatch(columnCount(2));
-    } else {
-      dispatch(columnCount(1));
-    }*/
-    
-    /*const debouncedHandleResize = debounce(function handleResize() {
-      /*for (let i = 0; i < albumVideo.length; i++) {
-        albumVideo[i].pause();
-        albumVideo[i].currentTime = 0;
-      }
-      if (window.innerWidth > 1349) {
-        dispatch(columnCount(4));
-      } else if (window.innerWidth > 949) {
-        dispatch(columnCount(3));
-      } else if (window.innerWidth > 599) {
-        dispatch(columnCount(2));
-      } else {
-        for (let i = 0; i < albumVideo.length; i++) {
-          albumVideo[i].play();
-        }
-        dispatch(columnCount(1));
-      }
-    }, 100)
-    
-
-    window.addEventListener('resize', debouncedHandleResize)
-
-    return _ => {
-      window.removeEventListener('resize', debouncedHandleResize)
-    }
-    */
   }, [layoutIsh, dispatch] )
 
 

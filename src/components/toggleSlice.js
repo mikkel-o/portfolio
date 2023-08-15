@@ -57,6 +57,7 @@ export const toggleSlice = createSlice({
       state.columnCount = action.payload;
     }
  },
+ 
   
 });
 

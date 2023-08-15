@@ -11,7 +11,7 @@ export default function ProjectSingle() {
   
   const allProjects = useSelector(state => state.projects.all);
   
-console.log(allProjects);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     if (allProjects.length === 0) {

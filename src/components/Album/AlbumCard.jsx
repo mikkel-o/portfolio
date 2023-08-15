@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import ImageSlider from '../ImageSlider/ImageSlider';
+import VideoCard from '../VideoCard/VideoCard';
 //import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
   addProject, 
@@ -16,83 +17,64 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 
 export function AlbumCard(props) {
-  console.log('ALBUM CARD RUNNING');
+  
   const {children, index, item, allItems, type, scroll, filters, layout } = props; 
   
   const ref = useRef();
   const dispatch = useDispatch();
 
-  if (layout === 3 && ref) {
-
-    if(ref.current.getElementsByTagName('video').length > 0) {
-for (let i = 0; i < ref.current.getElementsByTagName('video').length; i++) {
-  ref.current.getElementsByTagName('video')[i].pause();
-}
-} else {
-  if(ref.current.getElementsByTagName('video').length > 0) {
-    for (let i = 0; i < ref.current.getElementsByTagName('video').length; i++) {
-      ref.current.getElementsByTagName('video')[i].play();
-    }
-  }
-}
-/*
-  if (ref.current.getElementsByTagName('video').length > 0) {
-    ref.current.getElementsByTagName('video').forEach(video => video.pause())
-  };
-*/
-console.log(ref.current.getElementsByTagName('video')[0]);
-  }
- // const [isIntersecting, setIsIntersecting] = useState(false);
+ //const [isIntersecting, setIsIntersecting] = useState(false);
     
   //const isColumnCount = useSelector(state => state.toggle.layout);
    
 /*
   useEffect(() => {
-    if (isColumnCount === 0) { 
-    const observer = new IntersectionObserver(
-      ([entry]) => { 
-          setIsIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin: "0px",
-        threshold: .6
-      }
-    );
-    if (isIntersecting) {
+    if (layout === 0) { 
+      const observer = new IntersectionObserver(
+        ([entry]) => { 
+            setIsIntersecting(entry.isIntersecting);
+        },
+        {
+          rootMargin: "0px",
+          threshold: .6
+        }
+      );
+      if (isIntersecting) {
       
       
         
         if (ref.current.getElementsByTagName('video').length > 0) {
           if (!item.album){
-            //ref.current.getElementsByTagName('video')[0].play();
-            //ref.current.getElementsByTagName('video')[0].currentTime=0;
+            ref.current.getElementsByTagName('video')[0].play();
+            ref.current.getElementsByTagName('video')[0].currentTime=0;
             
           } else {
-            //ref.current.getElementsByTagName('video')[item.activeFilmIndex].play();
-            //ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
+            ref.current.getElementsByTagName('video')[item.activeFilmIndex].play();
+            ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
             
             //console.log(ref.current.getElementsByTagName('video'));
           }
         } 
         //dispatch(addSelectedID(item));
         
-    } else {
+      } else {
+        /*
       if (ref.current.getElementsByTagName('video').length > 0) {
         if (!item.album){
-        //ref.current.getElementsByTagName('video')[0].pause();
-        //ref.current.getElementsByTagName('video')[0].currentTime=0;
+        ref.current.getElementsByTagName('video')[0].pause();
+        ref.current.getElementsByTagName('video')[0].currentTime=0;
         
       } else {
-        //ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
-        //ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
+        ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
+        ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
       }
-      } 
+      }
     }
       observer.observe(ref.current);
     } 
-    }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
-
+    }, [ref, layout, isIntersecting, dispatch, item]);  
 */
+
 
 
     const [isActive, setIsActive] = useState(-1);
@@ -188,17 +170,8 @@ console.log(ref.current.getElementsByTagName('video')[0]);
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
                   : 
                     item.vid && layout === 0? 
-                    <video 
-                    className={`album__video ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
-                    src={item.vid} 
-                    poster={item.img}
-                    
-                    loop
-                    autoPlay={1}
-                    muted
-                    playsInline
-                    
-                   ></video>
+                   <VideoCard src={item.vid} poster={item.img} ></VideoCard>
+                   
                     : 
                       <img 
                         src={item.img} 

@@ -20,7 +20,7 @@ const lay = useSelector(state => state.toggle.layout);
 
 const onClickHandler = (event, num) => { 
   dispatch(layout(num));
-  console.log(lay);
+  
 }
 
 
