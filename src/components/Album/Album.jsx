@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
   
 
 export function Album(props) {
-  const {items, allItems, filters, type, overlay, layout, scroll } = props;
+  const {items, allItems, filters, type, overlay, scroll } = props;
    
 
 
@@ -24,10 +24,10 @@ const layoutGrid = useSelector(state => state.toggle.layout);
     <>
     
     
-        <AlbumContainer scroll={scroll} layout={layout}>
+        <AlbumContainer scroll={scroll} >
           {items.map((item, i) => (
           <>
-            <AlbumCard item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} layout={layout}> 
+            <AlbumCard item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} > 
               {
                 overlay ? 
                   <AlbumCardOverlay item={item} key={item.id + 44} filters={filters} layoutGrid={layoutGrid} overlay={overlay}/> 

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ImageSlider from '../ImageSlider/ImageSlider';
-import {addSelectedID} from '../../features/projects/projectsSlice';
+//import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
   addProject, 
   clearProjects, 
@@ -16,15 +16,16 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 
 export function AlbumCard(props) {
-  const {children, index, item, allItems, type, layout, scroll, filters } = props; 
+  console.log('ALBUM CARD RUNNING');
+  const {children, index, item, allItems, type, scroll, filters } = props; 
   
   const ref = useRef(null);
   const dispatch = useDispatch();
-  const [isIntersecting, setIsIntersecting] = useState(false);
+ // const [isIntersecting, setIsIntersecting] = useState(false);
     
   const isColumnCount = useSelector(state => state.toggle.layout);
    
-
+/*
   useEffect(() => {
     if (isColumnCount === 0) { 
     const observer = new IntersectionObserver(
@@ -52,7 +53,7 @@ export function AlbumCard(props) {
             //console.log(ref.current.getElementsByTagName('video'));
           }
         } 
-        dispatch(addSelectedID(item));
+        //dispatch(addSelectedID(item));
         
     } else {
       if (ref.current.getElementsByTagName('video').length > 0) {
@@ -70,7 +71,7 @@ export function AlbumCard(props) {
     } 
     }, [ref, isColumnCount, isIntersecting, dispatch, item]);  
 
-
+*/
 
 
     const [isActive, setIsActive] = useState(-1);
@@ -133,12 +134,12 @@ export function AlbumCard(props) {
         variants={variants[index]}
         key={item.id}
         onClick={event => onClickHandler(event, index)}
-        className={ `album__card-wrapper ${layout === "mix" ? "album__card-wrapper--mix" : null} ${scroll === "snap" ? "album__card-wrapper--scroll" : null}`}
+        className={ `album__card-wrapper ${scroll === "snap" ? "album__card-wrapper--scroll" : null}`}
       >
         <motion.div 
           ref={ref} 
           style={{opacity: 0.7, translateY: '0px'}}
-          animate={{opacity: isIntersecting ? 1 : 1, translateY: layout !== "mix" ? '0px' : '0px'}} 
+          animate={{opacity: 1, translateY: '0px'}} 
           transition={{duration: 1, ease: [0.3, 0.13, 0.13, 0.96]}}
           
         >
@@ -154,12 +155,12 @@ export function AlbumCard(props) {
                      
             <div 
               key={item.id} 
-              className={`album__card ${layout === "mix" ? "album__card--mix" : null} ${scroll === "snap" ? "album__card--scroll" : null}`}
+              className={`album__card ${scroll === "snap" ? "album__card--scroll" : null}`}
               tabIndex={item.id} 
             >
             
               
-              <motion.span layoutId={item.id}  className={ `album__item ${layout === "mix" ? "album__item--mix" : null} ${scroll === "snap" ? "album__item--scroll" : null}`} >
+              <motion.span layoutId={item.id}  className={ `album__item ${scroll === "snap" ? "album__item--scroll" : null}`} >
               
                 {
                   item.album ? 
@@ -167,7 +168,7 @@ export function AlbumCard(props) {
                   : 
                     item.vid && isColumnCount === 0 ? 
                     <video 
-                    className={`album__video ${layout === "mix" ? "album__video--mix" : null} ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
+                    className={`album__video ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
                     poster={item.img}
                     
@@ -184,7 +185,6 @@ export function AlbumCard(props) {
                         className=
                           {
                             `album__image 
-                            ${layout === "mix" ? "album__image--mix" : null} 
                             ${scroll === "snap" ? "album__image--scroll" : null} 
                             ${item.position ? `album__image--position-${item.position}` : null}`
                           } 

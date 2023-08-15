@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/ui/primaryNavigation";
-import { columnCount, layout } from "../components/toggleSlice";
+//import { columnCount, layout } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";
@@ -48,7 +48,7 @@ function App() {
   const projects = useSelector(state => state.projects);
   const photos = useSelector(state => state.photo);
 
-  const albumVideo = document.getElementsByClassName("album__video");
+  //const albumVideo = document.getElementsByClassName("album__video");
   
   useEffect(()=> {
     
@@ -100,20 +100,14 @@ function App() {
   
   useEffect(() => {
     console.log('running app');
-    if(layoutIsh === false) {
+    /*if(layoutIsh === false) {
       dispatch(layout(0));
     } else {
       dispatch(layout(layoutIsh))
-    }
+    }*/
     
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
-   
-      
-      
-        
-      
-
       document.documentElement.classList.remove(`layout-one`);
       document.documentElement.classList.remove(`layout-two`);
       document.documentElement.classList.remove(`layout-three`);
@@ -137,7 +131,7 @@ function App() {
       document.documentElement.classList.remove(`layout-one`);
     }
     //albumVideo.forEach(video => video.pause());
-    if (window.innerWidth > 1349) {
+   /* if (window.innerWidth > 1349) {
       dispatch(columnCount(4));
     } else if (window.innerWidth > 949) {
       dispatch(columnCount(3));
@@ -145,12 +139,13 @@ function App() {
       dispatch(columnCount(2));
     } else {
       dispatch(columnCount(1));
-    }
-    const debouncedHandleResize = debounce(function handleResize() {
+    }*/
+    
+    /*const debouncedHandleResize = debounce(function handleResize() {
       /*for (let i = 0; i < albumVideo.length; i++) {
         albumVideo[i].pause();
         albumVideo[i].currentTime = 0;
-      }*/
+      }
       if (window.innerWidth > 1349) {
         dispatch(columnCount(4));
       } else if (window.innerWidth > 949) {
@@ -164,13 +159,15 @@ function App() {
         dispatch(columnCount(1));
       }
     }, 100)
+    
 
     window.addEventListener('resize', debouncedHandleResize)
 
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)
     }
-  })
+    */
+  }, [layoutIsh] )
 
 
   
@@ -229,7 +226,7 @@ function App() {
 }
 
 export default App;
-
+/*
 function debounce(fn, ms) {
   let timer
   return _ => {
@@ -239,4 +236,4 @@ function debounce(fn, ms) {
       fn.apply(this, arguments)
     }, ms)
   };
-}
+}*/
