@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import ImageSlider from '../ImageSlider/ImageSlider';
 import VideoCard from '../VideoCard/VideoCard';
-//import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
   addProject, 
   clearProjects, 
@@ -23,60 +22,6 @@ export function AlbumCard(props) {
   const ref = useRef();
   const dispatch = useDispatch();
 
- //const [isIntersecting, setIsIntersecting] = useState(false);
-    
-  //const isColumnCount = useSelector(state => state.toggle.layout);
-   
-/*
-  useEffect(() => {
-    if (layout === 0) { 
-      const observer = new IntersectionObserver(
-        ([entry]) => { 
-            setIsIntersecting(entry.isIntersecting);
-        },
-        {
-          rootMargin: "0px",
-          threshold: .6
-        }
-      );
-      if (isIntersecting) {
-      
-      
-        
-        if (ref.current.getElementsByTagName('video').length > 0) {
-          if (!item.album){
-            ref.current.getElementsByTagName('video')[0].play();
-            ref.current.getElementsByTagName('video')[0].currentTime=0;
-            
-          } else {
-            ref.current.getElementsByTagName('video')[item.activeFilmIndex].play();
-            ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
-            
-            //console.log(ref.current.getElementsByTagName('video'));
-          }
-        } 
-        //dispatch(addSelectedID(item));
-        
-      } else {
-        /*
-      if (ref.current.getElementsByTagName('video').length > 0) {
-        if (!item.album){
-        ref.current.getElementsByTagName('video')[0].pause();
-        ref.current.getElementsByTagName('video')[0].currentTime=0;
-        
-      } else {
-        ref.current.getElementsByTagName('video')[item.activeFilmIndex].pause();
-        ref.current.getElementsByTagName('video')[item.activeFilmIndex].currentTime=0;
-      }
-      }
-    }
-      observer.observe(ref.current);
-    } 
-    }, [ref, layout, isIntersecting, dispatch, item]);  
-*/
-
-
-
     const [isActive, setIsActive] = useState(-1);
     const variants = allItems.map((project, i) => (
       {
@@ -91,7 +36,7 @@ export function AlbumCard(props) {
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
             duration: .5,
-            //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
+            
           }
         },
         exit: isActive === i ? '' : 
@@ -101,7 +46,7 @@ export function AlbumCard(props) {
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
             duration: .5,
-            //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
+            
           }
         }
       }
@@ -132,7 +77,7 @@ export function AlbumCard(props) {
     
     
     
-    //isInViewport ? ref.current.offsetTop < window.innerHeight/2 && ref.current.offsetTop >= -10 ? console.log(ref.current) : console.log(null) : console.log(null);
+    
    
     return (
       <motion.div  
@@ -186,18 +131,8 @@ export function AlbumCard(props) {
                           } 
                         />
                 }
-                {/*children*/}
-                {
-                  !item.album ? 
-                <div className={'album__overlay album__overlay--scroll'}>
-                <div key={item.id + 55} className={"test"}>
-              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
-                <h2 className="album__overlay-title album__overlay-title--scroll">{item.title ? item.title : ""}</h2>
-                <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{item.role ? item.role.map(element => element).join(' | ') : ""}</h3> 
-              </div>
-              </div>
-              </div>
-              :null}
+                
+              
               </motion.span>
             
             </div>
