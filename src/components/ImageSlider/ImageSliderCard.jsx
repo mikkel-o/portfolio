@@ -13,7 +13,7 @@ export function ImageSliderCard(props) {
   
   const ref = useRef(null);
   
-  const isColumnCount = useSelector(state => state.toggle.layout);
+  const layout = useSelector(state => state.toggle.layout);
   const [isIntersecting, setIsIntersecting] = useState(false);
   useEffect(() => {
     if (activeIndex === index) {
@@ -82,14 +82,14 @@ export function ImageSliderCard(props) {
 
 
             {/* video (!add image posibility) */}
-            {item.vid && isColumnCount === 0 ? 
+            {item.vid && layout === 0 ? 
                     <video 
                     className={`album__video ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
                     poster={item.img}
                     
                     loop
-                    
+                    autoPlay={1}
                     muted
                     playsInline
                     

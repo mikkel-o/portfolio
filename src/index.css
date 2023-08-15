@@ -757,7 +757,7 @@ a.hide img {
 
 .projects-section {
   background: var(--background);
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 

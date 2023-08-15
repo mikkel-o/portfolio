@@ -9,13 +9,14 @@ import {
 import {useDispatch, useSelector} from "react-redux"
 import PrimaryNavigation from "../features/ui/primaryNavigation";
 //import { columnCount, layout } from "../components/toggleSlice";
+import { layout } from "../components/toggleSlice";
 import {isMobile} from 'react-device-detect';
 import { clearId } from "../features/singleProject/singleProjectSlice";
 import { toggle } from "../components/toggleSlice";
 import { loadProjects, setActiveFilters } from "../features/projects/projectsSlice";
 import { loadPhotos, setActiveFiltersPhoto } from "../features/photo/photoSlice";
 import useLocalStorage from 'use-local-storage';
-import SecondaryNavigation from '../features/ui/secondaryNavigation';
+//import SecondaryNavigation from '../features/ui/secondaryNavigation';
 import { ReactComponent as Bulb } from '../components/Icons/bulb.svg';
 
 
@@ -100,11 +101,11 @@ function App() {
   
   useEffect(() => {
     console.log('running app');
-    /*if(layoutIsh === false) {
+    if(layoutIsh === false) {
       dispatch(layout(0));
     } else {
       dispatch(layout(layoutIsh))
-    }*/
+    }
     
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
@@ -167,7 +168,7 @@ function App() {
       window.removeEventListener('resize', debouncedHandleResize)
     }
     */
-  }, [layoutIsh] )
+  }, [layoutIsh, dispatch] )
 
 
   
@@ -187,7 +188,14 @@ function App() {
       
     {isActive === false ? 
       <PrimaryNavigation navigationItems={['about', 'work', 'contact', 'photo']} >
-       
+       <button 
+        className={'btn__theme'}
+        onClick={switchTheme}
+        
+      >
+        <Bulb width={35} height={35}/> 
+        
+      </button>
     </PrimaryNavigation>
     :
     null}
@@ -210,17 +218,12 @@ function App() {
 
     
 
-    {/* END .App */}
+    {/* END .App 
     <SecondaryNavigation>
-    <button 
-        className={'btn__theme'}
-        onClick={switchTheme}
-        
-      >
-        <Bulb width={35} height={35}/> 
-        
-      </button>
+    
+    
     </SecondaryNavigation>
+    */}
     </div>
   );
 }

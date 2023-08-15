@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import ImageSlider from '../ImageSlider/ImageSlider';
 //import {addSelectedID} from '../../features/projects/projectsSlice';
 import { 
@@ -17,13 +17,34 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 export function AlbumCard(props) {
   console.log('ALBUM CARD RUNNING');
-  const {children, index, item, allItems, type, scroll, filters } = props; 
+  const {children, index, item, allItems, type, scroll, filters, layout } = props; 
   
-  const ref = useRef(null);
+  const ref = useRef();
   const dispatch = useDispatch();
+
+  if (layout === 3 && ref) {
+
+    if(ref.current.getElementsByTagName('video').length > 0) {
+for (let i = 0; i < ref.current.getElementsByTagName('video').length; i++) {
+  ref.current.getElementsByTagName('video')[i].pause();
+}
+} else {
+  if(ref.current.getElementsByTagName('video').length > 0) {
+    for (let i = 0; i < ref.current.getElementsByTagName('video').length; i++) {
+      ref.current.getElementsByTagName('video')[i].play();
+    }
+  }
+}
+/*
+  if (ref.current.getElementsByTagName('video').length > 0) {
+    ref.current.getElementsByTagName('video').forEach(video => video.pause())
+  };
+*/
+console.log(ref.current.getElementsByTagName('video')[0]);
+  }
  // const [isIntersecting, setIsIntersecting] = useState(false);
     
-  const isColumnCount = useSelector(state => state.toggle.layout);
+  //const isColumnCount = useSelector(state => state.toggle.layout);
    
 /*
   useEffect(() => {
@@ -166,14 +187,14 @@ export function AlbumCard(props) {
                   item.album ? 
                     <ImageSlider project={item} items={item.album} name={item.name} type={type}/>
                   : 
-                    item.vid && isColumnCount === 0 ? 
+                    item.vid && layout === 0? 
                     <video 
                     className={`album__video ${scroll === "snap" ? "album__video--scroll" : null} ${item.position ? `album__video--position-${item.position}` : null}`}
                     src={item.vid} 
                     poster={item.img}
                     
                     loop
-                    
+                    autoPlay={1}
                     muted
                     playsInline
                     

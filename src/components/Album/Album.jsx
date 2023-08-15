@@ -4,17 +4,24 @@ import { AlbumContainer} from "./AlbumContainer";
 import { AlbumCard} from "./AlbumCard";
 import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
-import { useSelector } from "react-redux";
-  
+//import { useSelector } from "react-redux";
+import Icon from "../../components/Icons/Icon";  
+import { layout } from "../../components/toggleSlice";
+import {useDispatch, useSelector} from "react-redux"
 
 export function Album(props) {
-  const {items, allItems, filters, type, overlay, scroll } = props;
-   
+  const {items, allItems, filters, type, scroll } = props;
+  
+
+const dispatch = useDispatch();
+//const itemInView = useSelector(state => state.projects.selectedID);
+const lay = useSelector(state => state.toggle.layout);
 
 
-const itemInView = useSelector(state => state.projects.selectedID);
-const layoutGrid = useSelector(state => state.toggle.layout);
-
+const onClickHandler = (event, num) => { 
+  dispatch(layout(num));
+  console.log(lay);
+}
 
 
 
@@ -23,38 +30,36 @@ const layoutGrid = useSelector(state => state.toggle.layout);
   return (
     <>
     
+     {
+      lay === 0 ? 
+      <button 
+      className={'btn__layout'}
+      onClick={event => onClickHandler(event, 3)}
+      >
+        <Icon name={'layout-three-solid'} size={26} color={''}></Icon> 
+        </button>
+      :
+      lay === 3 ? 
+      <button 
+      className={'btn__layout'}
+      onClick={event => onClickHandler(event, 0)}
+      > 
+      <Icon name={'layout-full-solid'} size={28} color={''}></Icon> 
+        </button>
+        : null }
+     
+    
     
         <AlbumContainer scroll={scroll} >
           {items.map((item, i) => (
           <>
-            <AlbumCard item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} > 
-              {
-                overlay ? 
-                  <AlbumCardOverlay item={item} key={item.id + 44} filters={filters} layoutGrid={layoutGrid} overlay={overlay}/> 
-                : 
-                  null
-              }
+            <AlbumCard layout={lay} item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} > 
+            <AlbumCardOverlay item={item} key={item.id + 44} filters={filters}/>  
             </AlbumCard>
+            
             </>
           ))}
-           {
-           layoutGrid === 0 ?
-            items.map((item, i) => (
-              overlay && itemInView.id === item.id ? 
-            
-            <div key={item.id + 55} className={"test"}>
-              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
-    <h2 className="album__overlay-title album__overlay-title--scroll">{item.album ? item.album[item.activeFilmIndex ? item.activeFilmIndex : 0].title : item.title ? item.title : ""}</h2>
-    <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{item.role ? item.role.map(element => element).join(' | ') : ""}</h3> 
-    </div>
-            </div>
-            : 
-            null
-            
-            ))
-            :
-            null
-            }
+           
           <VideoModal/>
       </AlbumContainer>
       </>
