@@ -26,11 +26,11 @@ export default function VideoCard(props) {
             }
         );
         if (isIntersecting) {
-            ref.current.currentTime=0;
+            //ref.current.currentTime=0;
             ref.current.play();
         } else {
             ref.current.pause();
-            ref.current.currentTime=0;
+            //ref.current.currentTime=0;
         }
         observer.observe(ref.current);
     }, [ref, isIntersecting]);
