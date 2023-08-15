@@ -101,7 +101,7 @@ function App() {
 
   },[location, dispatch, searchParams, projects.hasBeenSet, filters, photos.hasBeenSet])
 
-
+console.log('bleh');
   useEffect(() => {
     if(layoutIsh === 0) {
       document.documentElement.classList.add(`layout-full`);
