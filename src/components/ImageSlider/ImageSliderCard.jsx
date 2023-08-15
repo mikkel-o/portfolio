@@ -9,7 +9,7 @@ export function ImageSliderCard(props) {
 
   const dispatch = useDispatch();
   const {item, name, index, activeIndex, type} = props;
-  
+  console.log('testy');
   
   const ref = useRef(null);
   
