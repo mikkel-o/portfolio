@@ -25,12 +25,12 @@ export default function VideoCard(props) {
                 threshold: .05
             }
         );
-        if (isIntersecting) {
-            ref.current.currentTime=0;
+       if (isIntersecting) {
+            ref.current.currentTime=1;
             ref.current.play();
         } else {
             ref.current.pause();
-            ref.current.currentTime=0;
+            ref.current.currentTime=1;
         }
         observer.observe(ref.current);
     }, [ref, isIntersecting]);
