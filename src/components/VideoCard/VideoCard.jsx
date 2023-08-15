@@ -22,7 +22,7 @@ export default function VideoCard(props) {
             },
             {
                 rootMargin: "0px",
-                threshold: .95
+                threshold: .5
             }
         );
        if (isIntersecting) {
