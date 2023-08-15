@@ -91,7 +91,14 @@ export function ImageSliderCard(props) {
             
           
           
-        
+            <div className={'album__overlay album__overlay--scroll'}>
+                <div key={item.id + 55} className={"test"}>
+              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
+                <h2 className="album__overlay-title album__overlay-title--scroll">{item.title ? item.title : ""}</h2>
+                <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{item.role ? item.role.map(element => element).join(' | ') : ""}</h3> 
+              </div>
+              </div>
+              </div>
         {/* END .carousel__item */}
         </li> 
        

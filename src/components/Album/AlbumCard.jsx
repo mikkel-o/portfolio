@@ -18,7 +18,7 @@ const transition = {duration: 0.3, ease: [0.43, 0.23, 0.63, 0.96]}
 
 export function AlbumCard(props) {
   
-  const {children, index, item, allItems, type, scroll, filters, layout } = props; 
+  const {index, item, allItems, type, scroll, filters, layout } = props; 
   
   const ref = useRef();
   const dispatch = useDispatch();
@@ -186,8 +186,18 @@ export function AlbumCard(props) {
                           } 
                         />
                 }
-                {children}
-               
+                {/*children*/}
+                {
+                  !item.album ? 
+                <div className={'album__overlay album__overlay--scroll'}>
+                <div key={item.id + 55} className={"test"}>
+              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
+                <h2 className="album__overlay-title album__overlay-title--scroll">{item.title ? item.title : ""}</h2>
+                <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{item.role ? item.role.map(element => element).join(' | ') : ""}</h3> 
+              </div>
+              </div>
+              </div>
+              :null}
               </motion.span>
             
             </div>
