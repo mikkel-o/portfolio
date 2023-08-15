@@ -2,9 +2,9 @@ import React from "react";
 import { VideoModal } from '../VideoModal/VideoModal';
 import { AlbumContainer} from "./AlbumContainer";
 import { AlbumCard} from "./AlbumCard";
-
+import { AlbumCardOverlay} from "./AlbumCardOverlay";
 import './Album.css';
-
+//import { useSelector } from "react-redux";
 import Icon from "../../components/Icons/Icon";  
 import { layout } from "../../components/toggleSlice";
 import {useDispatch, useSelector} from "react-redux"
@@ -14,7 +14,7 @@ export function Album(props) {
   
 
 const dispatch = useDispatch();
-
+//const itemInView = useSelector(state => state.projects.selectedID);
 const lay = useSelector(state => state.toggle.layout);
 
 
@@ -54,9 +54,7 @@ const onClickHandler = (event, num) => {
           {items.map((item, i) => (
           <>
             <AlbumCard layout={lay} item={item} index={i} key={item.id} filters={filters} allItems={allItems} type={type} scroll={scroll} > 
-
-
-      
+            <AlbumCardOverlay layout={lay} item={item} key={item.id + 44} filters={filters}/>
             </AlbumCard>
             
             </>
