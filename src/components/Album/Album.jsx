@@ -14,7 +14,7 @@ export function Album(props) {
   
 
 const dispatch = useDispatch();
-//const itemInView = useSelector(state => state.projects.selectedID);
+const itemInView = useSelector(state => state.projects.selectedID);
 const lay = useSelector(state => state.toggle.layout);
 
 
@@ -59,7 +59,15 @@ const onClickHandler = (event, num) => {
             
             </>
           ))}
-           
+                <div className={'album__overlay album__overlay--scroll'}>
+                <div className={"test"}>
+              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
+                <h2 className="album__overlay-title album__overlay-title--scroll">{itemInView.title ? itemInView.title : ""}</h2>
+                <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{itemInView.role ? itemInView.role.map(element => element).join(' | ') : ""}</h3> 
+              </div>
+              </div>
+              </div>
+             
           <VideoModal/>
       </AlbumContainer>
       </>

@@ -36,8 +36,8 @@
   z-index:25;
 }
 .layout-full .album__title-wrapper {
-  /*position: absolute;*/
-  bottom: calc(15% + 60px);
+  position: absolute;
+  /*bottom: calc(15% + 60px);*/
   z-index:25;
 }
 .album__overlay-title {
@@ -283,9 +283,9 @@ z-index: 22;
 }
 .layout-full .test {
   width: 100vw;
-  height: 50px;
+  /*height: 50px;*/
   position: fixed;
-  bottom: 25vh;
+  bottom: 60px;
   right: 0;
   z-index: 22;
   text-shadow: 0px 0px 50px #000000;
