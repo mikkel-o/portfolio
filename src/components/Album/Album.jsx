@@ -59,6 +59,7 @@ const onClickHandler = (event, num) => {
             
             </>
           ))}
+          {type === 'work' ? 
                 <div className={'album__overlay album__overlay--scroll'}>
                 <div className={"test"}>
               <div className={"album__title-wrapper album__title-wrapper--scroll"}>
@@ -67,7 +68,7 @@ const onClickHandler = (event, num) => {
               </div>
               </div>
               </div>
-             
+             :null}
           <VideoModal/>
       </AlbumContainer>
       </>
