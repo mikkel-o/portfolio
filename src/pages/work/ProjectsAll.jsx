@@ -20,6 +20,7 @@ export default function ProjectsAll() {
         host={'vimeo'} 
         id={'767311875?h=38e18a53c8'}
         transition={"opacity"}
+        playText={"CG Showreel"}
       ></VideoPlayer>
       :
       null}

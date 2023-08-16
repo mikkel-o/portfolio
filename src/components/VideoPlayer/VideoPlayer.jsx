@@ -8,7 +8,7 @@ import './VideoPlayer.css';
 
 
 export default function VideoEmbed(props) {
-    const {host, id, position, posterVid, posterImg, transition} = props;
+    const {host, id, position, posterVid, posterImg, transition, playText} = props;
     
     const [isActive, setIsActive] = useState(false);
 const [isActiveHasBeenSet, setIsActiveHasBeenSet] = useState(false);
@@ -176,13 +176,28 @@ useEffect(() => {
             data-src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`}
             variants={!isActiveHasBeenSet && transition === 'position' ? variants : variantsTwo}
           ></motion.iframe>
-          
+          {playText ?
           <motion.button 
-            aria-label="Play video" 
-            onClick={event => onClickHandler(event)}
-            variants={button}
-          ></motion.button>
-        </youtube-embed>
+          aria-label="Play video" 
+          onClick={event => onClickHandler(event)}
+          variants={button}
+        >
+          <motion.h3 
+              aria-label="Play video" 
+              onClick={event => onClickHandler(event)}
+              variants={button}
+            >
+              {playText}
+            </motion.h3>
+        </motion.button>
+            
+
+          : <motion.button 
+          aria-label="Play video" 
+          onClick={event => onClickHandler(event)}
+          variants={button}
+        ></motion.button>}
+          </youtube-embed>
         
         :
         
@@ -215,11 +230,26 @@ useEffect(() => {
             variants={!isActiveHasBeenSet ? variants : variantsTwo}
           ></motion.iframe>
           
-          <motion.button 
-            aria-label="Play video" 
-            onClick={event => onClickHandler(event)}
-            variants={button}
-          ></motion.button>
+          {playText ?
+             <motion.button 
+             aria-label="Play video" 
+             onClick={event => onClickHandler(event)}
+             variants={button}
+           >
+             <motion.h3 
+                 aria-label="Play video" 
+                 onClick={event => onClickHandler(event)}
+                 variants={button}
+               >
+                 {playText}
+               </motion.h3>
+           </motion.button>
+               
+          : <motion.button 
+          aria-label="Play video" 
+          onClick={event => onClickHandler(event)}
+          variants={button}
+        ></motion.button>}
         </vimeo-embed>
         :
         null
