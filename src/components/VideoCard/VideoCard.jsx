@@ -44,7 +44,11 @@ export default function VideoCard(props) {
         className={`album__video album__video--scroll`}
         src={src} 
         poster={poster}
-        
+        style={{
+            backgroundImage: `url("${poster}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+        }}
         loop
         autoPlay={0}
         muted
