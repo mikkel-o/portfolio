@@ -189,6 +189,7 @@
   flex-wrap: wrap;
   align-items: center;
   /*justify-content: center;*/
+  pointer-events: none;
 }
 /*.album__overlay--scroll {
   height: 25%;

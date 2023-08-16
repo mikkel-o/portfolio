@@ -95,9 +95,9 @@ export function AlbumCard(props) {
     const onClickyHandler = (event, item) => { 
       setIsOpen(!isOpen);
       
-      const childPos = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getBoundingClientRect();
-      const index = [...event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children].indexOf(event.target.parentElement.parentElement.parentElement);
-      const coord = [childPos.x, childPos.y, childPos.width, childPos.height, index];
+      const childPos = event.target.parentElement.parentElement.parentElement.parentElement.getBoundingClientRect();
+      
+      const coord = [childPos.x, childPos.y, childPos.width, childPos.height];
       console.log(event.target);
       dispatch(clearProjects());
       dispatch(addProject(item));
