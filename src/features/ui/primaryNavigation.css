@@ -154,7 +154,8 @@
     
     pointer-events: none;
     color: transparent;
-    background: var(--accent);
+    /*background: var(--accent);*/
+    background: white;
     border-radius: 5px;
     width: 30px;
     display: inline-block;

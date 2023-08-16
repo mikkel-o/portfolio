@@ -7,7 +7,7 @@ import { ReactComponent as LayoutThreeSolid } from './layout-three-solid.svg';
 
 const Icon = ({ name, color, size }) => (
   name === "layout-full-solid" ? 
-    <LayoutFullSolid fill={color} width={size} height={size}/> 
+    <LayoutFullSolid stroke={color} fill={"transparent"} width={size} height={size}/> 
   : 
     name === "layout-one-solid" ? 
       <LayoutOneSolid fill={color} width={size} height={size}/> 

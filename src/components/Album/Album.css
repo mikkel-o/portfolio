@@ -284,11 +284,12 @@ z-index: 22;
 .layout-full .test {
   width: 100vw;
   height: 50px;
-  /*position: fixed;*/
-  bottom: 0;
+  position: fixed;
+  bottom: 17vh;
   right: 0;
-  padding-bottom: env(safe-area-inset-bottom);
-z-index: 22;
+  z-index: 22;
+  text-shadow: 0px 0px 50px #000000;
+  color: white;
 }
 
 .featured-projects-container .project-info-bg-bottom {
@@ -338,12 +339,12 @@ z-index: 22;
 
 .btn__layout {
   position: fixed;
-  top: 11px;
-  right: 55px;
-  height: 26px;
-  z-index: 20;
-  background: none;
-  border: none;
+    top: 12px;
+    left: 5px;
+    height: 22px;
+    z-index: 11;
+    background: none;
+    border: none;
 }
 
 @media (min-width: 600px) { 

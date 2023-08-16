@@ -36,7 +36,7 @@ const onClickHandler = (event, num) => {
       className={'btn__layout'}
       onClick={event => onClickHandler(event, 3)}
       >
-        <Icon name={'layout-three-solid'} size={26} color={''}></Icon> 
+        <Icon name={'layout-three-solid'} size={22} color={'#fff'}></Icon> 
         </button>
       :
       lay === 3 ? 
@@ -44,7 +44,7 @@ const onClickHandler = (event, num) => {
       className={'btn__layout'}
       onClick={event => onClickHandler(event, 0)}
       > 
-      <Icon name={'layout-full-solid'} size={28} color={''}></Icon> 
+      <Icon name={'layout-full-solid'} size={22} color={'#fff'}></Icon> 
         </button>
         : null }
      

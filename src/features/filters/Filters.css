@@ -9,7 +9,7 @@
 .filters__menu-wrapper-wrapper {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 11;
 }
 .open.filters__menu-wrapper-wrapper {
     z-index: 12;
@@ -46,7 +46,7 @@
     z-index: 11;
     position: fixed;
     top: 0;
-    left: 10px;
+    left: 45px;
 }
 .video-embed__wrapper {
     margin-bottom: -40px;
