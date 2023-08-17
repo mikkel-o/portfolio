@@ -13,9 +13,7 @@ const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   mollis a, dapibus eget sapien. Maecenas eu libero sit amet nisi faucibus
   suscipit vel ac sapien. Curabitur tortor lectus, venenatis sit amet 
   dignissim in, maximus ac velit. Proin at fringilla magna.` ;
-const textIntro = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Etiam gravida lacus eget dui eleifend sagittis. In velit lectus, 
-  luctus at facilisis nec, rutrum ac sapien.` ;
+
   
 
 
@@ -307,7 +305,7 @@ const textMotion = {
               : null}
             </motion.div>
           : null}
-
+          <motion.div className={'projects-single__body'} variants={titleMotion}>
             <motion.h3 variants={titleMotion}>
               {activeFilm.titleprefix ? activeFilm.titleprefix : ''}
             </motion.h3>
@@ -385,15 +383,7 @@ const textMotion = {
       </motion.ul>
       
       
-
-      <motion.div className={'project-single-intro'} variants={textMotion}>
-        <motion.div variants={textMotion} className={'project-single-intro-text-container'}>
-          <p className={ columns > 2 ? 'project-single-intro-texty' : 'project-single-intro-texty'}>
-            {textIntro}
-          </p>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+                 
 
     <motion.div className={'project-single-summary'} variants={textMotion}>
       <div className={'project-single-summary-text-container'}>
@@ -467,7 +457,9 @@ const textMotion = {
 			    </video>
 		    </motion.div>
       </motion.div>}
-
+      </motion.div>
+      
+      </motion.div>
 
 
       </motion.div>
