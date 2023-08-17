@@ -70,13 +70,13 @@ export function AlbumCard(props) {
             //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
           }
         },
-        exit: isActive === i ? '' : 
+        exit: isActive === i || layout === 0 ? '' : 
         {
           opacity: 0,
           scale: 0.9,
           transition: {
             ease: [0.43, 0.13, 0.23, 0.96],
-            duration: .5,
+            duration: .3,
             //delay: Math.abs(isActive - i) > 8 ? 0 : .03 * Math.abs(isActive - i),
           }
         }

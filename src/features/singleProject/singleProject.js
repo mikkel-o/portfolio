@@ -240,7 +240,7 @@ const textMotion = {
       height: '50vh',
       transition: {
         ease: ease,
-        duration: .5
+        duration: .3
         
      
       }
