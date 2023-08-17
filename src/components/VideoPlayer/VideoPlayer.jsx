@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { motion } from 'framer-motion';
 import './VideoPlayer.css';
 
@@ -8,83 +8,17 @@ import './VideoPlayer.css';
 
 
 export default function VideoEmbed(props) {
-    const {host, id, position, posterVid, posterImg, transition, playText} = props;
+    const {host, id, position, posterVid, posterImg, playText} = props;
     
     const [isActive, setIsActive] = useState(false);
-const [isActiveHasBeenSet, setIsActiveHasBeenSet] = useState(false);
+//const [isActiveHasBeenSet, setIsActiveHasBeenSet] = useState(false);
 const [isIntersecting, setIsIntersecting] = useState(false);
 
-    const startingCoord = useSelector(state => state.singleProject.coord);
-  const duration = .5;
+    //const startingCoord = useSelector(state => state.singleProject.coord);
+  //const duration = .5;
   const ease = [.33, .13, .63, .96];
   const ref = useRef();
-  const variants = {
-    initial: {
-      y: startingCoord[1],
-      x: startingCoord[0],
-      width: startingCoord[2],
-      height: startingCoord[3],
-    },
-    animate: {
-      y:  0, 
-      x:  -20, 
-      width: 'calc(100% + 40px)',
-      height: '50vh',
-      transition: {
-        ease: ease,
-        duration,
-        width: {
-          delay: .5,
-          duration: .7
-        },
-        x: {
-          delay: .5,
-          duration: .7
-        },
-      }
-    },
-    exit: {
-      y: 100,
-      opacity: 0,
-      transition: {
-        ease: [0.66, 0.43, 0.53, 0.96],
-        duration: .6,
-        delay:.2
-    }
-    }
-  }
-  const variantsTwo = {
-    initial: {
-      
-    },
-    animate: {
-      y:  0, 
-      x:  -20, 
-      width: 'calc(100% + 40px)',
-      height: '50vh',
-      transition: {
-        ease: ease,
-        duration,
-        width: {
-          delay: .5,
-          duration: .7
-        },
-        x: {
-          delay: .5,
-          duration: .7
-        },
-      }
-    },
-    exit: {
-      y: 100,
-      opacity: 0,
-      transition: {
-        ease: [0.66, 0.43, 0.53, 0.96],
-        duration: .6,
-        delay:.2
-    }
-    }
-  }
+  
   
 const button = {
   initial: {
@@ -137,7 +71,7 @@ useEffect(() => {
 
       const onClickHandler = (event) => { 
         setIsActive(true);
-        setIsActiveHasBeenSet(true);
+        //setIsActiveHasBeenSet(true);
         const video = event.target.previousElementSibling;
         video.src = video.dataset.src;
       }
@@ -158,7 +92,7 @@ useEffect(() => {
               project-single-image 
               album__image--position-${position}
             `} 
-            variants={!isActiveHasBeenSet ? variants : variantsTwo}
+            
             src={posterVid} 
             poster={posterImg}
             loop
@@ -174,7 +108,7 @@ useEffect(() => {
             allow="autoplay" 
             src="" 
             data-src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1`}
-            variants={!isActiveHasBeenSet && transition === 'position' ? variants : variantsTwo}
+            
           ></motion.iframe>
           {playText ?
           <motion.button 
@@ -203,6 +137,9 @@ useEffect(() => {
         
         host === 'vimeo' ?
         <vimeo-embed>
+
+
+
           {!isActive ? 
           <motion.video 
             loading="lazy" 
@@ -212,7 +149,7 @@ useEffect(() => {
               project-single-image 
               album__image--position-${position}
             `} 
-            variants={!isActiveHasBeenSet ? variants : variantsTwo}
+            
             src={posterVid} 
             poster={posterImg}
             loop
@@ -227,29 +164,25 @@ useEffect(() => {
             allow="autoplay" 
             src="" 
             data-src={`https://player.vimeo.com/video/${id}&autoplay=1&muted=1`}
-            variants={!isActiveHasBeenSet ? variants : variantsTwo}
+           
           ></motion.iframe>
           
-          {playText ?
-             <motion.button 
-             aria-label="Play video" 
-             onClick={event => onClickHandler(event)}
-             variants={button}
-           >
-             <motion.h3 
+         <motion.button 
+          aria-label="Play video" 
+          onClick={event => onClickHandler(event)}
+          variants={button}
+        ></motion.button>
+        {playText && !isActive ?
+        
+           <motion.h3 
                  aria-label="Play video" 
-                 onClick={event => onClickHandler(event)}
+                 
                  variants={button}
                >
                  {playText}
                </motion.h3>
-           </motion.button>
                
-          : <motion.button 
-          aria-label="Play video" 
-          onClick={event => onClickHandler(event)}
-          variants={button}
-        ></motion.button>}
+        : null }
         </vimeo-embed>
         :
         null

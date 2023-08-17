@@ -10,6 +10,7 @@ export default function ProjectSingle() {
   const dispatch = useDispatch();
   
   const allProjects = useSelector(state => state.projects.all);
+  const layout = useSelector(state => state.toggle.layout);
   
 
   useEffect(() => {
@@ -34,10 +35,11 @@ export default function ProjectSingle() {
           
             <section className="projects-section">
               
-              <SingleProject film={params.id}/>
+              <SingleProject layout={layout} film={params.id}/>
             </section>
-          
+            
       </main>
+      
   </div> /* end */
   );
 }

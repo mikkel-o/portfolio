@@ -9,6 +9,7 @@ export default function ProjectSingleWrapper() {
   const dispatch = useDispatch();
   
   const allProjects = useSelector(state => state.projects.all);
+  const layout = useSelector(state => state.toggle.layout);
   
   
 
@@ -34,7 +35,7 @@ export default function ProjectSingleWrapper() {
           
             <section className="projects-section">
               
-              <SingleProject film={params.film}/>
+              <SingleProject layout={layout} film={params.film}/>
             </section>
           
       </main>

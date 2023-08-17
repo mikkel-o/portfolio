@@ -26,10 +26,12 @@ const SingleProject = (props) => {
   const singleProject = useSelector(selectProject);
   const { isLoading } = useSelector((state) => state.singleProject);
   const transition = {duration: .5, ease: [0.66, 0.43, 0.53, 0.96]}
-  const film = props.film;
+  const ease = [.33, .13, .63, .96];
+  
+  const {film, layout} = props;
   const activeFilm = singleProject.album ? singleProject.album.find(item => item.name === film) : singleProject;
 //const isMobile = useSelector(state => state.toggle.isMobile);
-  const ease = [.33, .13, .63, .96];
+  
   
   const titleMotion = {
     initial: {
@@ -190,6 +192,70 @@ const textMotion = {
       }
     
   };
+  
+  const startingCoord = useSelector(state => state.singleProject.coord);
+  console.log(startingCoord);
+  const variants = {
+    initial: {
+      y: startingCoord[1],
+      x: startingCoord[0],
+      width: startingCoord[2],
+      height: startingCoord[3]
+    },
+    animate: {
+      y:  0, 
+      x:  0, 
+      width: '100%',
+      height: '50vh',
+      transition: {
+        ease: ease,
+        duration: .5,
+        width: {
+          delay: .5,
+          duration: .7
+        },
+        x: {
+          delay: .5,
+          duration: .7
+        }
+      }
+    },
+    exit: {
+      y: 100,
+      opacity: 0,
+      transition: {
+        ease: [0.66, 0.43, 0.53, 0.96],
+        duration: .6,
+        delay:.2
+    }
+    }
+  }
+  const variantsTwo = {
+    initial: {
+
+      height: startingCoord[3]
+    },
+    animate: {
+      width: '100%',
+      height: '50vh',
+      transition: {
+        ease: ease,
+        duration: .5
+        
+     
+      }
+    },
+    exit: {
+      y: 100,
+      opacity: 0,
+      transition: {
+        ease: [0.66, 0.43, 0.53, 0.96],
+        duration: .6,
+        delay:.2
+    }
+    }
+  }
+  
 
   const navigate = useNavigate();
   const goToPosts = (event, c) => {
@@ -226,6 +292,8 @@ const textMotion = {
             <motion.div 
               className={'projects-single-image-wrapper'} 
               key={activeFilm.id}
+              variants={layout === 0 ? variantsTwo : variants}
+              
             >
               {activeFilm.embed.id ?
                 <VideoPlayer 

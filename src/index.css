@@ -546,10 +546,10 @@ a.hide img {
 }
 
 .projects-single-image-wrapper {
-  height: 50vh;
-  width: 100%;
-  margin-bottom: 50px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  
+  
 }
 
 .project-single-wraps {
@@ -590,6 +590,7 @@ a.hide img {
   flex-basis: 100%;
   padding: 0 10px 5px;
   margin: 0px 10px;
+  margin-top: calc(50vh + 50px);
   font-weight: 100;
   text-transform: none;
   font-size: 1.2em;

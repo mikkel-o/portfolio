@@ -10,9 +10,12 @@
     overflow: hidden;
 }
 */
+.video-embed__wrapper {
+  height: 100%;
+}
 :is(vimeo-embed, youtube-embed) {
   /*aspect-ratio: 16 / 9;*/
-  height: 50vh;
+  height: 100%;
   border-radius: var(--video-embed-bdrs, 0.25em);
   display: grid;
   inline-size: 100%;
@@ -26,7 +29,7 @@
   inset: 0;
   object-fit: cover;
   position: absolute;
-  height: 50vh;
+  /*height: 50vh;*/
   
 }
 :is(vimeo-embed, youtube-embed) button {
@@ -48,7 +51,7 @@
  
  
  font-style: italic;
- font-weight: 500;
+ font-weight: 300;
  margin: 0;
  padding: 0;
   position: absolute;
@@ -57,7 +60,8 @@
   align-items: flex-end;
   width: calc(100% - 15px);
   height: calc(100% - 10px);
-  font-size: 1.1em;
+  font-size: 0.9em;
+  pointer-events: none;
 }
 
 :is(vimeo-embed, youtube-embed) button::before {
