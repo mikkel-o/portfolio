@@ -177,7 +177,7 @@
     width: 50px;
     position: fixed;
     padding-bottom: env(safe-area-inset-bottom);
-    bottom: 0;
+    top: 7px;
     z-index: 12;
     }
     

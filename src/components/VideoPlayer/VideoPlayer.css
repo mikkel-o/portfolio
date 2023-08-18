@@ -13,7 +13,7 @@
 .video-embed__wrapper {
   height: 100%;
 }
-:is(vimeo-embed, youtube-embed) {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) {
   /*aspect-ratio: 16 / 9;*/
   height: 100%;
   border-radius: var(--video-embed-bdrs, 0.25em);
@@ -21,7 +21,7 @@
   inline-size: 100%;
   position: relative;
 }
-:is(vimeo-embed, youtube-embed) :is(iframe, img) { 
+:is(vimeo-embed, youtube-embed, dailymotion-embed) :is(iframe, img) { 
   block-size: 100%;
   border: 0;
   border-radius: inherit;
@@ -32,7 +32,7 @@
   /*height: 50vh;*/
   
 }
-:is(vimeo-embed, youtube-embed) button {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) button {
   background-color: transparent;
   block-size: var(--button-h, 50px);
   border: 0;
@@ -46,7 +46,7 @@
   width: 100%;
   height: 100%;
 }
-:is(vimeo-embed, youtube-embed) h3 {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) h3 {
  
  
  
@@ -64,7 +64,7 @@
   pointer-events: none;
 }
 
-:is(vimeo-embed, youtube-embed) button::before {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) button::before {
   aspect-ratio: 1;
   background: #FFF;
   block-size: 2em;
@@ -75,10 +75,10 @@
 
 /*vimeo-embed button { --button-bgc: #00adef; }*/
 
-:is(vimeo-embed, youtube-embed) iframe:not([src=""]) + button,
-:is(vimeo-embed, youtube-embed) iframe:not([src=""]) + h3 {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) iframe:not([src=""]) + button,
+:is(vimeo-embed, youtube-embed, dailymotion-embed) iframe:not([src=""]) + h3 {
   display: none;
 }
-:is(vimeo-embed, youtube-embed) iframe:not([src=""]) {
+:is(vimeo-embed, youtube-embed, dailymotion-embed) iframe:not([src=""]) {
 background: black;
 }

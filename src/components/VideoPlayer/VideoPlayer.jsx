@@ -185,6 +185,56 @@ useEffect(() => {
         : null }
         </vimeo-embed>
         :
+        host === 'dailymotion' ?
+        <dailymotion-embed>
+
+
+
+          {!isActive ? 
+          <motion.video 
+            loading="lazy" 
+            
+            className={`
+              album__image 
+              project-single-image 
+              album__image--position-${position}
+            `} 
+            
+            src={posterVid} 
+            poster={posterImg}
+            loop
+            autoPlay={1}
+            playsInline
+            muted
+            alt="Video Description"
+          ></motion.video>
+          : null}
+          <motion.iframe 
+            title="dailymotion-iframe" 
+            allow="autoplay" 
+            src="" 
+            data-src={`https://www.dailymotion.com/embed/video/${id}?autoplay=1&mute=1`}
+           
+          ></motion.iframe>
+          
+         <motion.button 
+          aria-label="Play video" 
+          onClick={event => onClickHandler(event)}
+          variants={button}
+        ></motion.button>
+        {playText && !isActive ?
+        
+           <motion.h3 
+                 aria-label="Play video" 
+                 
+                 variants={button}
+               >
+                 {playText}
+               </motion.h3>
+               
+        : null }
+        </dailymotion-embed>
+        :
         null
         }
       </div>
