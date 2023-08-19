@@ -53,7 +53,7 @@ const onClickHandlerPlay = (event, itemInView, activeFilmIndex) => {
       className={'btn__layout'}
       onClick={event => onClickHandler(event, 3)}
       >
-        <Icon name={'layout-three-solid'} size={22} color={'#fff'}></Icon> 
+        <Icon name={'layout-three-solid'} size={26} color={'#fff'}></Icon> 
         </button>
       :
       lay === 3 ? 
@@ -61,7 +61,7 @@ const onClickHandlerPlay = (event, itemInView, activeFilmIndex) => {
       className={'btn__layout'}
       onClick={event => onClickHandler(event, 0)}
       > 
-      <Icon name={'layout-full-solid'} size={22} color={'#fff'}></Icon> 
+      <Icon name={'layout-full-solid'} size={26} color={'#fff'}></Icon> 
         </button>
         : null }
      

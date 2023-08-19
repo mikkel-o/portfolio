@@ -242,9 +242,17 @@ export default function Filters(props) {
       <div className={`${isOpen ? 'open' : 'closed'} filters__menu`} >
       <div className={'filter-toggle__menu'} key={0}>
               <div className={'filter-cat__title-wrapper'} onClick={event => onClickOpen(event)}>
-                <h5 className={'filter-btn__title'}>
-                {isOpen ? 'close' : 'filters'}
-                </h5>
+              <button
+      
+      className={'filter__toggle-btn'} 
+       >
+      <span>|</span>
+      
+      <span>|</span>
+      <div></div>
+      <div></div>
+    </button> 
+               
               </div>
               {filtersActive.length > 0 ?
               <div className='active-filters__count'>
