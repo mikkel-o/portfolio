@@ -8,6 +8,14 @@ import './Album.css';
 import Icon from "../../components/Icons/Icon";  
 import { layout } from "../../components/toggleSlice";
 import {useDispatch, useSelector} from "react-redux"
+import {MoreButton } from "../Buttons/Buttons";
+import { 
+  
+  addId, 
+  clearId, 
+  addLink, 
+  clearLink } from "../../features/singleProject/singleProjectSlice";
+
 
 export function Album(props) {
   const {items, allItems, filters, type, scroll } = props;
@@ -25,6 +33,15 @@ const onClickHandler = (event, num) => {
 
 
 
+
+const onClickHandlerPlay = (event, itemInView, activeFilmIndex) => { 
+  dispatch(clearId());
+  dispatch(clearLink());
+  dispatch(addId(itemInView.id));
+  setTimeout(() => {
+    itemInView.album ? dispatch(addLink(itemInView.album[activeFilmIndex].embed)) : dispatch(addLink(itemInView.embed));  
+  }, "500")  
+} 
 
 
   return (
@@ -60,14 +77,19 @@ const onClickHandler = (event, num) => {
             </>
           ))}
           {type === 'work' ? 
-                <div className={'album__overlay album__overlay--scroll'}>
-                <div className={"test"}>
-              <div className={"album__title-wrapper album__title-wrapper--scroll"}>
-                <h2 className="album__overlay-title album__overlay-title--scroll">{itemInView.title ? itemInView.title : ""}</h2>
-                <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{itemInView.role ? itemInView.role.map(element => element).join(' | ') : ""}</h3> 
+            <div className={'album__overlay album__overlay--scroll'}>
+              <div className={"test"}>
+                <div className={"album__title-wrapper album__title-wrapper--scroll"}>
+                  <h2 className="album__overlay-title album__overlay-title--scroll">{itemInView.title ? itemInView.title : ""}</h2>
+                  <h3 className="album__overlay-subtitle album__overlay-subtitle--scroll">{itemInView.role ? itemInView.role.map(element => element).join(' | ') : ""}</h3> 
+                </div>
               </div>
+              <div className={"album__overlay-wrapper album__overlay-wrapper--scroll"}>
+                <div onClick={event => onClickHandlerPlay(event, itemInView, itemInView.activeFilmIndex ? itemInView.activeFilmIndex : 0)}>
+                    <MoreButton/>
+                </div>
               </div>
-              </div>
+            </div>
              :null}
           <VideoModal/>
       </AlbumContainer>

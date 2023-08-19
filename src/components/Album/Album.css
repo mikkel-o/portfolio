@@ -47,7 +47,7 @@
   padding-right: 10px;
 }
 .layout-full .album__overlay-title {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .layout-one .album__overlay-title {
   font-size: 1.3em;
@@ -78,7 +78,7 @@
   /*position: absolute;*/
 }
 .layout-full .album__overlay-subtitle {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .layout-one .album__overlay-subtitle {
   font-size: 1em;
@@ -283,11 +283,11 @@
 z-index: 22;
 }
 .layout-full .test {
-  width: 100vw;
+  width: calc(100vw - 70px);
   /*height: 50px;*/
   position: fixed;
   bottom: 15px;
-  right: 0;
+  left: 0;
   z-index: 22;
   text-shadow: 0px 0px 50px #000000;
   color: white;
