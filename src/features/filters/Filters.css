@@ -42,13 +42,21 @@
 .filter-cat__menu:last-child {
     padding-bottom : 80px;
 }
-.filter-toggle__menu {
+.filter-toggle__menu,
+.layout-toggle__menu {
     z-index: 11;
     position: fixed;
-    top: 95px;
+}
+.layout-toggle__menu {
+    top: 50px;
     right: 0px;
 }
-.filter__toggle-btn {
+.filter-toggle__menu {
+    top: 100px;
+    right: 0px;
+}
+.filter__toggle-btn,
+.layout__toggle-btn {
 width: 26px;
 height: 26px;
 margin: 0;
@@ -58,12 +66,21 @@ align-items: center;
 justify-content: center;
 flex-wrap: wrap;
 }
-.filter__toggle-btn > div {
+.filter__toggle-btn > div,
+.layout__toggle-btn > div {
     position: absolute;
-    width: 2px;
-    height: 8px;
-    border-radius: 3px;
+    
     background: white;
+    }
+    .filter__toggle-btn > div{
+        width: 2px;
+        height: 8px;
+        border-radius: 3px;
+    }
+    .layout__toggle-btn > div{
+        width: 2px;
+        height: 26px;
+        border-radius: 3px;
     }
     .filter__toggle-btn div:nth-child(3) {
         top: 15px;
@@ -73,6 +90,14 @@ flex-wrap: wrap;
             bottom: 14px;
             right: 19px;
             }
+            .layout__toggle-btn div:nth-child(3) {
+                top: 12px;
+                left: 18px;
+                }
+                .layout__toggle-btn div:nth-child(4) {
+                    bottom: 12px;
+                    right: 18px;
+                    }
 .video-embed__wrapper {
     /*margin-bottom: -40px;*/
     z-index: 11;
@@ -144,7 +169,8 @@ justify-content: flex-end;
 .filters-item-apply button.filters-apply-btn {
     margin-right: 10px;
 }
-.filter-cat__title-wrapper {
+.filter-cat__title-wrapper,
+.layout-toggle__wrapper {
     display: flex;
     align-items: center;
     justify-content: center;

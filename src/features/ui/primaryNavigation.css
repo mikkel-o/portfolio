@@ -151,7 +151,8 @@
   }
   
   .main-nav__toggle-button span,
-  .filter__toggle-btn span {
+  .filter__toggle-btn span,
+  .layout__toggle-btn span {
     
     pointer-events: none;
     color: transparent;
@@ -195,7 +196,8 @@
   */
   .back__link button,
   button.main-nav__toggle-button,
-  button.filter__toggle-btn {
+  button.filter__toggle-btn,
+  button.layout__toggle-btn {
     background: transparent;
     border: none;
   }

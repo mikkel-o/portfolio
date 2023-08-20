@@ -27,13 +27,18 @@ export default function VideoCard(props) {
         );
        if (isIntersecting) {
             //ref.current.currentTime=0;
+            
+                ref.current.src = src;
+                
+            
             ref.current.play();
         } else {
+            ref.current.src = '0';
             ref.current.pause();
             //ref.current.currentTime=0;
         }
         observer.observe(ref.current);
-    }, [ref, isIntersecting]);
+    }, [ref, isIntersecting, src]);
 
 
 
@@ -42,7 +47,7 @@ export default function VideoCard(props) {
         <video 
         ref={ref}
         className={`album__video album__video--scroll`}
-        src={src} 
+        src={'0'} 
         poster={poster}
         style={{
             backgroundImage: `url("${poster}")`,

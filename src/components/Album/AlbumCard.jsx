@@ -44,6 +44,7 @@ export function AlbumCard(props) {
       
         dispatch(addSelectedID(item));
         
+        
       
     }
       observer.observe(ref.current);
