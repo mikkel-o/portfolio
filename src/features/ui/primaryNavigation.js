@@ -95,6 +95,7 @@ if (currentLocation.includes("work")) {
 
   return (
     <>
+  <div className={'main-nav-bg'}></div>
     <div className={'main-nav'}>
 
 

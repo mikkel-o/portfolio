@@ -39,6 +39,7 @@ export default function ProjectSingleWrapper() {
             </section>
           
       </main>
+      
   </div> /* end */
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
 import { Projects } from "../../features/projects/Projects";
 import Filters from "../../features/filters/Filters";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
@@ -69,7 +70,7 @@ export default function ProjectsAll() {
           }
         </section>
       </main>
-      
+      <Outlet/>
     </motion.div>
   );
 }

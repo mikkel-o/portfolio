@@ -78,7 +78,7 @@ export function ImageSliderCard(props) {
 
   return (
     
-        <li ref={ref} className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
+        <li key={index} ref={ref} className={props.showTitle ? 'carousel__item carousel__item--featured current-slide' : 'carousel__item current-slide' }>
 
 
             {/* video (!add image posibility) */}

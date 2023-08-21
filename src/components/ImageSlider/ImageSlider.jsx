@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import {ImageSliderCard} from './ImageSliderCard';
@@ -8,7 +8,7 @@ import './css/ImageSlider.css';
 const ImageSlider = (props) => {  
   
   
- const {items, name, type} = props;
+ const {items, name, type } = props;
   const indexStart = props.project.activeFilmIndex ? props.project.activeFilmIndex : 0  ;
   
   
@@ -63,9 +63,10 @@ const ImageSlider = (props) => {
       {/* video/image container */}
       <ul className={'carousel__list project'}>
         {items.map((project, index) => (
-          <>
+          <Fragment key={index}>
+          
         <ImageSliderCard name={name} index={index} activeIndex={indexStart} item={project} type={type}></ImageSliderCard>
-        </>
+        </Fragment>
         ))}
       {/* END .carousel__list */}  
       </ul>
